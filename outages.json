@@ -1,165 +1,621 @@
 {
-  "updated": "2026-04-25T20:54:06.523Z",
-  "note": "KUBRA endpoint discovery diagnostic. Send ChatGPT the interestingMatches output.",
-  "pageUrl": "https://stormcenter.oncor.com/reports/8a3a0248-66cb-4e05-b7d8-649e570562d5",
-  "scriptUrls": [
-    "https://kubra.io/product/5.49.1/static/js/kubra.chunk.js",
-    "https://kubra.io/product/5.49.1/static/js/react.chunk.js",
-    "https://kubra.io/product/5.49.1/static/js/vendor.chunk.js",
-    "https://kubra.io/product/5.49.1/static/js/main.js"
-  ],
-  "findings": [
+  "updated": "2026-04-25T20:58:05.342Z",
+  "note": "KUBRA endpoint probe. Look for ok:true with JSON-like samples.",
+  "instanceId": "560abba3-7881-4741-b538-ca416b58ba1e",
+  "viewId": "ca124b24-9a06-4b19-aeb3-1841a9c962e1",
+  "results": [
     {
-      "scriptUrl": "https://kubra.io/product/5.49.1/static/js/kubra.chunk.js",
-      "length": 1282007,
-      "interestingMatches": [
-        "https://npms.io/search?q=ponyfill.",
-        "https://github.com/webpack-contrib/style-loader#insertat",
-        "https://lodash.com/>",
-        "https://openjsf.org/>",
-        "https://lodash.com/license>",
-        "http://underscorejs.org/LICENSE>",
-        "https://maps.googleapis.com/maps/api/js",
-        "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js",
-        "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
-        "https://www.bing.com/api/maps/mapcontrol?callback=onBingLoad",
-        "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        "http://osm.org/copyright",
-        "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
-        "http://www.openstreetmap.org/copyright",
-        "http://viewfinderpanoramas.org",
-        "https://opentopomap.org",
-        "https://creativecommons.org/licenses/by-sa/3.0/",
-        "http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg",
-        "http://www.mapquest.com/",
-        "https://{s}.{base}.maps.cit.api.here.com/maptile/2.1/{type}/{mapID}/hybrid.day/{z}/{x}/{y}/{size}/{format}?app_id={app_id}&app_code={app_code}&lg={language}",
-        "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
-        "http://www.opencyclemap.org",
-        "https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png",
-        "http://openstreetmap.org",
-        "http://creativecommons.org/licenses/by-sa/2.0/",
-        "http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg",
-        "http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
-        "http://hot.openstreetmap.org/",
-        "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js",
-        "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css",
-        "https://nominatim.openstreetmap.org/search?",
-        "https://nominatim.openstreetmap.org/reverse?",
-        "https://github.com/Leaflet/Leaflet/",
-        "http://www.w3.org/2000/svg",
-        "https://github.com/uuidjs/uuid#getrandomvalues-not-supported",
-        "mathematical:",
-        "r?n.properties.records:n.properties.outages"
-      ]
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1",
+      "ok": false,
+      "error": "404 Not Found"
     },
     {
-      "scriptUrl": "https://kubra.io/product/5.49.1/static/js/react.chunk.js",
-      "length": 443429,
-      "interestingMatches": [
-        "https://reactjs.org/docs/error-decoder.html?invariant=",
-        "http://www.w3.org/1999/xlink",
-        "http://www.w3.org/XML/1998/namespace",
-        "http://www.w3.org/1999/xhtml",
-        "http://www.w3.org/2000/svg",
-        "http://www.w3.org/1998/Math/MathML",
-        "https://auth0.kubra.io/",
-        "https://kubra.auth0.com/",
-        "https://kubra-titanium.auth0.com/",
-        "https://signin-dev.kubra.com/",
-        "https://signin.kubra.com/",
-        "https://prod.kubra-idp.auth0.com",
-        "https://kubra.io/api",
-        "https://kubra.io/access-control/api/v1",
-        "https://kubra.com/tenantIds",
-        "https://redux.js.org/Errors?code=",
-        "https://kubra.io/product/5.49.1",
-        "http://localhost:3001/",
-        "http://formatjs.io/guides/runtime-environments/",
-        "v-mathematical"
-      ]
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/configuration.json",
+      "ok": false,
+      "error": "404 Not Found"
     },
     {
-      "scriptUrl": "https://kubra.io/product/5.49.1/static/js/vendor.chunk.js",
-      "length": 1639494,
-      "interestingMatches": [
-        "https://kubra.io/product/5.49.1",
-        "https://git.io/JUIaE#",
-        "https://npms.io/search?q=ponyfill.",
-        "https://github.com/webpack-contrib/style-loader#insertat",
-        "https://github.com/zloirock/core-js/blob/v3.33.0/LICENSE",
-        "https://github.com/zloirock/core-js",
-        "https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#string-arguments",
-        "https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md",
-        "https://www.googletagmanager.com/gtag/js",
-        "https://lytics.dev/errors/1",
-        "https://fb.me/react-polyfills",
-        "https://auth0.com/docs/api-auth/user-consent#skipping-consent-for-first-party-clients",
-        "http://auth0.com/oauth/grant-type/password-realm",
-        "https://www.recaptcha.net/recaptcha/api.js?hl=",
-        "https://www.recaptcha.net/recaptcha/enterprise.js?render=explicit&hl=",
-        "https://js.hcaptcha.com/1/api.js?hl=",
-        "https://cdn.jsdelivr.net/npm/friendly-challenge@0.9.12/widget.min.js",
-        "https://auth0.com/docs/errors/libraries/auth0-js/invalid-token#parsing-an-hs256-signed-id-token-without-an-access-token",
-        "http://auth0.com/oauth/grant-type/passwordless/otp",
-        "http://fb.me/use-check-prop-types",
-        "https://github.com/theKashey/focus-lock/#focus-fighting",
-        "mathematical",
-        "vMathematical"
-      ]
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/config.json",
+      "ok": false,
+      "error": "404 Not Found"
     },
     {
-      "scriptUrl": "https://kubra.io/product/5.49.1/static/js/main.js",
-      "length": 605843,
-      "interestingMatches": [
-        "https://kubra.io/product/5.49.1/",
-        "https://earthnetworks.azure-api.net/Data/GEO/Google/",
-        "https://earthnetworks.azure-api.net/maps/overlays/v2/metadata?lid=",
-        "https://earthnetworks.azure-api.net/maps/overlays/tile?x={x}&y={y}&z={z}&t={t}&lid=",
-        "https://api.weather.com/v3/TileServer/tile/",
-        "https://api.weather.com/v3/TileServer/series/productSet/PPAcore?apiKey=",
-        "https://maps{s}.aerisapi.com/",
-        "https://kubra.io/product/5.49.1",
-        "https://github.com/philipwalton/flexbugs/issues/231",
-        "https://kubra.io/product/5.49.1/service-worker.js",
-        "/alerts.json",
-        "/fires.json",
-        "/lightning.json",
-        "/observations.json",
-        "/stormcells.json",
-        "/tropicalcyclones.json",
-        "/de.json",
-        "/en-US.json",
-        "/es-ES.json",
-        "/es-US.json",
-        "/fr-CA.json",
-        "mathematics:",
-        "TOGGLE_OUTAGE_SUMMARY:",
-        "isOutageDisabled:function",
-        "isOutagesDisabled",
-        ".outage-extra-fields{font-size:1.2rem",
-        ".outage-extra-fields",
-        "planned_outage_data",
-        "getOutageInformation:function",
-        "i=e.isMultiOutage",
-        "c=e.multiOutageIndex",
-        "h.a.isOutageDisabled",
-        "isMultiOutage:S",
-        "multiOutageIndex:o",
-        "total_outages",
-        "h.a.ui.getOutageInformation",
-        "{event:w.a.events.TOGGLE_OUTAGE_SUMMARY",
-        ".outage-summaries-card",
-        "disableOutagesEtrOverride",
-        "disableOutagesCustomersAffectedOverride",
-        "isOutagesDisabled:r&&r===n",
-        "Gr={outageSummary:{summaryData:",
-        "{outageSummary:Ur",
-        "e.outageSummary",
-        "e.outageSummary.summaryFilePath"
-      ]
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/configuration.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/config.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/metadata.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/outages.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/summary.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/api/v1/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/metadata.json",
+      "ok": false,
+      "error": "401 Unauthorized"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/configuration.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/config.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/api/v1/stormcenters/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/configuration.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/config.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/configuration.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/config.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/configuration.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/config.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/outages.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/summary.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/data/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/metadata.json",
+      "ok": false,
+      "error": "404 Not Found"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/configuration.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/config.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/metadata.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/outages",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/incidents",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/clusters",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/areas",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/summary",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/outages.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/summary.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
+    },
+    {
+      "url": "https://kubra.io/stormcenter/views/ca124b24-9a06-4b19-aeb3-1841a9c962e1/public/metadata.json",
+      "ok": true,
+      "length": 1867,
+      "sample": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1.0, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"theme-color\" content=\"#000000\">\n  <link rel=\"manifest\" href=\"https://kubra.io/product/5.49.1/manifest.json\">\n  <link rel=\"shortcut icon\" href=\"https://swift-static-content.s3.amazonaws.com/Oncor/favicon.ico\">\n  <title>Oncor – Outage Map</title>\n  <style>#root,body,html{heig"
     }
   ],
-  "count": 0,
-  "totalCustomersOut": 0,
   "outages": []
 }
