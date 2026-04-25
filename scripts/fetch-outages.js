@@ -2,10 +2,13 @@ const fs = require("fs/promises");
 
 const OUT = "outages.json";
 
+const INSTANCE_ID = "560abba3-7881-4741-b538-ca416b58ba1e";
+const VIEW_ID = "ca124b24-9a06-4b19-aeb3-1841a9c962e1";
+
 async function fetchText(url) {
   const res = await fetch(url, {
     headers: {
-      accept: "text/html,application/javascript,application/json,*/*",
+      accept: "application/json,text/html,*/*",
       "user-agent": "Mozilla/5.0"
     }
   });
@@ -14,72 +17,80 @@ async function fetchText(url) {
   return res.text();
 }
 
-function uniq(arr) {
-  return [...new Set(arr)].filter(Boolean);
+async function tryUrl(url) {
+  try {
+    const text = await fetchText(url);
+    return {
+      url,
+      ok: true,
+      length: text.length,
+      sample: text.slice(0, 500)
+    };
+  } catch (err) {
+    return {
+      url,
+      ok: false,
+      error: err.message
+    };
+  }
 }
 
 async function main() {
-  const pageUrl = "https://stormcenter.oncor.com/reports/8a3a0248-66cb-4e05-b7d8-649e570562d5";
-  const html = await fetchText(pageUrl);
+  const candidates = [];
 
-  const scriptUrls = uniq(
-    [...html.matchAll(/<script[^>]+src=["']([^"']+)["']/gi)].map(m => m[1])
-  ).map(src => src.startsWith("http") ? src : new URL(src, pageUrl).href);
+  const bases = [
+    `https://kubra.io/stormcenter/api/v1/stormcenters/${INSTANCE_ID}/views/${VIEW_ID}`,
+    `https://kubra.io/stormcenter/api/v1/views/${VIEW_ID}`,
+    `https://kubra.io/api/v1/stormcenters/${INSTANCE_ID}/views/${VIEW_ID}`,
+    `https://kubra.io/data/${INSTANCE_ID}/${VIEW_ID}`,
+    `https://kubra.io/data/${INSTANCE_ID}/views/${VIEW_ID}`,
+    `https://kubra.io/data/${VIEW_ID}`,
+    `https://kubra.io/stormcenter/views/${VIEW_ID}`
+  ];
 
-  console.log("SCRIPT URLS:", scriptUrls);
+  const suffixes = [
+    "",
+    "/configuration.json",
+    "/config.json",
+    "/metadata.json",
+    "/outages.json",
+    "/outages",
+    "/incidents.json",
+    "/incidents",
+    "/clusters.json",
+    "/clusters",
+    "/areas.json",
+    "/areas",
+    "/summary.json",
+    "/summary",
+    "/public/outages.json",
+    "/public/summary.json",
+    "/public/metadata.json"
+  ];
 
-  const findings = [];
-
-  for (const scriptUrl of scriptUrls) {
-    try {
-      const js = await fetchText(scriptUrl);
-
-      const urls = uniq([
-        ...[...js.matchAll(/https?:\/\/[^"'\\\s)]+/g)].map(m => m[0]),
-        ...[...js.matchAll(/\/[A-Za-z0-9_\-./{}?=&:%]+\.json/g)].map(m => m[0]),
-        ...[...js.matchAll(/[A-Za-z0-9_\-./{}?=&:%]+thematic[A-Za-z0-9_\-./{}?=&:%]*/gi)].map(m => m[0]),
-        ...[...js.matchAll(/[A-Za-z0-9_\-./{}?=&:%]+outage[A-Za-z0-9_\-./{}?=&:%]*/gi)].map(m => m[0]),
-        ...[...js.matchAll(/[A-Za-z0-9_\-./{}?=&:%]+incident[A-Za-z0-9_\-./{}?=&:%]*/gi)].map(m => m[0])
-      ]);
-
-      findings.push({
-        scriptUrl,
-        length: js.length,
-        interestingMatches: urls.slice(0, 100)
-      });
-
-      console.log("SCRIPT:", scriptUrl);
-      console.log("LENGTH:", js.length);
-      console.log("MATCHES:", urls.slice(0, 50));
-    } catch (err) {
-      findings.push({
-        scriptUrl,
-        error: err.message
-      });
+  for (const base of bases) {
+    for (const suffix of suffixes) {
+      candidates.push(base + suffix);
     }
+  }
+
+  const results = [];
+  for (const url of candidates) {
+    results.push(await tryUrl(url));
   }
 
   const payload = {
     updated: new Date().toISOString(),
-    note: "KUBRA endpoint discovery diagnostic. Send ChatGPT the interestingMatches output.",
-    pageUrl,
-    scriptUrls,
-    findings,
-    count: 0,
-    totalCustomersOut: 0,
+    note: "KUBRA endpoint probe. Look for ok:true with JSON-like samples.",
+    instanceId: INSTANCE_ID,
+    viewId: VIEW_ID,
+    results,
     outages: []
   };
 
   await fs.writeFile(OUT, JSON.stringify(payload, null, 2));
-  console.log("Wrote KUBRA discovery diagnostic");
+  console.log("Probe complete");
+  console.log(JSON.stringify(results.filter(r => r.ok), null, 2));
 }
 
-main().catch(async err => {
-  await fs.writeFile(OUT, JSON.stringify({
-    updated: new Date().toISOString(),
-    error: err.message,
-    outages: []
-  }, null, 2));
-
-  process.exitCode = 1;
-});
+main();
