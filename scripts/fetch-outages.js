@@ -2,70 +2,83 @@ const fs = require("fs/promises");
 
 const OUT = "outages.json";
 
-async function fetchAny(url){
+const VALID_TX_COUNTIES = new Set([
+  "Archer","Bell","Brown","Collin","Dallas","Denton","Ellis","Erath","Grayson",
+  "Hood","Hunt","Johnson","Kaufman","McLennan","Midland","Parker","Rockwall",
+  "Smith","Tarrant","Taylor","Wichita","Wise"
+]);
+
+function num(v) {
+  const n = Number(String(v || "").replace(/,/g, "").replace(/[^\d]/g, ""));
+  return Number.isFinite(n) ? n : 0;
+}
+
+async function fetchText(url) {
   const res = await fetch(url, {
     headers: {
-      accept: "application/json,text/html,*/*",
-      "user-agent": "TexasEmergencyDashboard/1.0"
+      accept: "text/html,*/*",
+      "user-agent": "Mozilla/5.0"
     }
   });
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+  return res.text();
+}
 
-  if(!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+async function fetchOncorCountyReport() {
+  const url = "https://stormcenter.oncor.com/%C2%A0/reports/8a3a0248-66cb-4e05-b7d8-649e570562d5";
+  const html = await fetchText(url);
 
-  const text = await res.text();
+  const text = html
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const records = [];
+
+  for (const county of VALID_TX_COUNTIES) {
+    const re = new RegExp(`${county}\\s+(\\d[\\d,]*)\\s+(\\d[\\d,]*)`, "i");
+    const match = text.match(re);
+
+    if (match) {
+      records.push({
+        state: "TX",
+        county,
+        utility: "Oncor",
+        customersOut: num(match[1]),
+        customersTracked: num(match[2]),
+        updated: new Date().toISOString(),
+        source: "Oncor county report"
+      });
+    }
+  }
+
+  return records.filter(r => r.customersOut > 0);
+}
+
+async function main() {
+  let outages = [];
+  let sourceStatus = [];
 
   try {
-    return JSON.parse(text);
-  } catch {
-    return text;
+    const oncor = await fetchOncorCountyReport();
+    outages.push(...oncor);
+    sourceStatus.push({ name: "Oncor", ok: true, count: oncor.length });
+  } catch (err) {
+    sourceStatus.push({ name: "Oncor", ok: false, count: 0, error: err.message });
   }
-}
-
-// ---------- ONCOR DIAGNOSTIC ----------
-async function fetchOncorReports(){
-  const url = "https://stormcenter.oncor.com/reports/8a3a0248-66cb-4e05-b7d8-649e570562d5";
-
-  try{
-    const html = await fetchAny(url);
-
-    console.log("ONCOR HTML LENGTH:", String(html).length);
-    console.log("ONCOR FIRST 1500 CHARS:");
-    console.log(String(html).slice(0,1500));
-
-    return [];
-  }catch(e){
-    console.log("Oncor failed:", e.message);
-    return [];
-  }
-}
-
-// ---------- MAIN ----------
-async function main(){
-  const oncor = await fetchOncorReports();
 
   const payload = {
     updated: new Date().toISOString(),
-    note: "Diagnostic run. Check GitHub Action logs for ONCOR HTML output.",
-    count: oncor.length,
-    totalCustomersOut: 0,
-    outages: oncor
+    sourceStatus,
+    count: outages.length,
+    countiesWithOutages: new Set(outages.map(o => o.county)).size,
+    totalCustomersOut: outages.reduce((s, o) => s + o.customersOut, 0),
+    outages
   };
 
   await fs.writeFile(OUT, JSON.stringify(payload, null, 2));
-
-  console.log("Wrote diagnostic outages.json");
+  console.log(`Wrote ${payload.count} records / ${payload.totalCustomersOut} customers out`);
 }
 
-main().catch(async err => {
-  console.error(err);
-
-  await fs.writeFile(OUT, JSON.stringify({
-    updated: new Date().toISOString(),
-    error: err.message,
-    count: 0,
-    totalCustomersOut: 0,
-    outages: []
-  }, null, 2));
-
-  process.exitCode = 1;
-});
+main();
