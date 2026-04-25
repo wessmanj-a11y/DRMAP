@@ -1,116 +1,114 @@
-/**
- * Texas outage aggregator for GitHub Actions
- * Writes: outages.json
- */
-
 const fs = require("fs/promises");
 
 const OUT = "outages.json";
 
-// --- County center fallback (for mapping)
-const TX_COUNTY_CENTERS = {
-  Harris:[29.77,-95.31], Dallas:[32.77,-96.78], Tarrant:[32.77,-97.29],
-  Bexar:[29.45,-98.52], Travis:[30.27,-97.74], Collin:[33.18,-96.57],
-  Denton:[33.21,-97.13], FortBend:[29.53,-95.77], Montgomery:[30.32,-95.48]
-};
+const TEXAS_COUNTY_OUTAGE_URL =
+  "https://services.arcgis.com/BLN4oKB0N1YSgvY8/arcgis/rest/services/Power_Outages_%28View%29/FeatureServer/2/query" +
+  "?where=1%3D1" +
+  "&outFields=NAME,Number_Impacted_Customers,Number_Incidents,Impacted_Customers_Planned,Impacted_Cutomers_Not_Planned" +
+  "&returnGeometry=true" +
+  "&f=geojson" +
+  "&resultRecordCount=2000";
 
-function cleanCounty(v){
-  return String(v||"").replace(/ County/i,"").trim();
-}
+function centroid(coords) {
+  let points = [];
 
-function num(v){
-  const n = Number(String(v||"").replace(/,/g,""));
-  return isNaN(n)?0:n;
-}
-
-function center(county){
-  return TX_COUNTY_CENTERS[cleanCounty(county)] || [31,-99];
-}
-
-// --- normalize format
-function normalize({utility, county, customersOut, lat, lon}){
-  if(!county) return null;
-  const [clat, clon] = center(county);
-  return {
-    state:"TX",
-    county: cleanCounty(county),
-    utility,
-    customersOut: num(customersOut),
-    lat: lat || clat,
-    lon: lon || clon,
-    updated: new Date().toISOString()
-  };
-}
-
-// --- ODIN (baseline)
-async function fetchODIN(){
-  try{
-    const res = await fetch("https://ornl.opendatasoft.com/api/explore/v2.1/catalog/datasets/odin-real-time-outages-county/records?limit=100");
-    const json = await res.json();
-    return (json.results||[]).map(r=>{
-      if(r.state !== "TX") return null;
-      return normalize({
-        utility:"ODIN",
-        county:r.county,
-        customersOut:r.customers_out
-      });
-    }).filter(Boolean);
-  }catch(e){
-    console.log("ODIN failed", e.message);
-    return [];
+  function flatten(arr) {
+    if (typeof arr[0] === "number") {
+      points.push(arr);
+    } else {
+      arr.forEach(flatten);
+    }
   }
+
+  flatten(coords);
+
+  const valid = points.filter(p => Number.isFinite(p[0]) && Number.isFinite(p[1]));
+  if (!valid.length) return [31, -99];
+
+  const lon = valid.reduce((s, p) => s + p[0], 0) / valid.length;
+  const lat = valid.reduce((s, p) => s + p[1], 0) / valid.length;
+
+  return [lat, lon];
 }
 
-// --- CenterPoint ArcGIS
-async function fetchCenterPoint(){
-  try{
-    const res = await fetch("https://gis.centerpointenergy.com/arcgis/rest/services/Outage/OUTAGE_TRACKER_OEP_ALL/MapServer/0/query?where=1%3D1&outFields=*&f=json");
-    const json = await res.json();
-
-    return (json.features||[]).map(f=>{
-      const a = f.attributes;
-      return normalize({
-        utility:"CenterPoint",
-        county:a.COUNTY,
-        customersOut:a.CUST_OUT,
-        lat:f.geometry?.y,
-        lon:f.geometry?.x
-      });
-    }).filter(r=>r && r.customersOut>0);
-
-  }catch(e){
-    console.log("CenterPoint failed", e.message);
-    return [];
-  }
+function num(value) {
+  const n = Number(String(value ?? 0).replace(/,/g, ""));
+  return Number.isFinite(n) ? n : 0;
 }
 
-// --- Merge
-function merge(arr){
-  const map = new Map();
-  arr.forEach(r=>{
-    const key = r.utility + "|" + r.county;
-    if(!map.has(key)) map.set(key, {...r});
-    else map.get(key).customersOut += r.customersOut;
+async function fetchTexasCountyOutages() {
+  const res = await fetch(TEXAS_COUNTY_OUTAGE_URL, {
+    headers: { accept: "application/json" }
   });
-  return [...map.values()];
+
+  if (!res.ok) {
+    throw new Error(`Texas county outage layer failed: ${res.status} ${res.statusText}`);
+  }
+
+  const json = await res.json();
+
+  return (json.features || [])
+    .map(feature => {
+      const p = feature.properties || {};
+      const county = String(p.NAME || "").replace(/ County$/i, "").trim();
+
+      const customersOut = num(p.Number_Impacted_Customers);
+      const incidents = num(p.Number_Incidents);
+      const planned = num(p.Impacted_Customers_Planned);
+      const unplanned = num(p.Impacted_Cutomers_Not_Planned);
+
+      const [lat, lon] = feature.geometry
+        ? centroid(feature.geometry.coordinates)
+        : [31, -99];
+
+      return {
+        state: "TX",
+        county,
+        utility: "Texas County Aggregate",
+        customersOut,
+        customersTracked: 0,
+        incidents,
+        plannedCustomersOut: planned,
+        unplannedCustomersOut: unplanned,
+        lat,
+        lon,
+        updated: new Date().toISOString(),
+        source: "Texas county outage ArcGIS layer"
+      };
+    })
+    .filter(r => r.county && r.customersOut > 0);
 }
 
-// --- Main
-async function main(){
-  const odin = await fetchODIN();
-  const cp = await fetchCenterPoint();
+async function main() {
+  let outages = [];
+  let sourceStatus = [];
 
-  const outages = merge([...odin, ...cp]);
+  try {
+    outages = await fetchTexasCountyOutages();
+    sourceStatus.push({
+      name: "Texas county outage ArcGIS layer",
+      ok: true,
+      count: outages.length
+    });
+  } catch (err) {
+    sourceStatus.push({
+      name: "Texas county outage ArcGIS layer",
+      ok: false,
+      error: err.message
+    });
+  }
 
   const payload = {
     updated: new Date().toISOString(),
     count: outages.length,
-    totalCustomersOut: outages.reduce((s,o)=>s+o.customersOut,0),
+    totalCustomersOut: outages.reduce((s, o) => s + o.customersOut, 0),
+    sourceStatus,
     outages
   };
 
-  await fs.writeFile(OUT, JSON.stringify(payload,null,2));
-  console.log("Wrote outages.json", payload.count);
+  await fs.writeFile(OUT, JSON.stringify(payload, null, 2));
+  console.log(`Wrote ${outages.length} outage records / ${payload.totalCustomersOut} customers out`);
 }
 
 main();
