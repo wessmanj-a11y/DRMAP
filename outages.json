@@ -1,7 +1,14 @@
 {
-  "updated": "2026-04-25T20:41:38.785Z",
-  "note": "Diagnostic run. Check GitHub Action logs for ONCOR HTML output.",
+  "updated": "2026-04-25T20:45:37.230Z",
+  "sourceStatus": [
+    {
+      "name": "Oncor",
+      "ok": true,
+      "count": 0
+    }
+  ],
   "count": 0,
+  "countiesWithOutages": 0,
   "totalCustomersOut": 0,
   "outages": []
 }
