@@ -2,192 +2,84 @@ const fs = require("fs/promises");
 
 const OUT = "outages.json";
 
-const VALID_TX_COUNTIES = new Set([
-  "Archer","Bell","Brown","Collin","Dallas","Denton","Ellis","Erath","Grayson",
-  "Hood","Hunt","Johnson","Kaufman","McLennan","Midland","Parker","Rockwall",
-  "Smith","Tarrant","Taylor","Wichita","Wise"
-]);
-
-function num(v) {
-  const n = Number(String(v ?? "").replace(/,/g, "").replace(/[^\d.-]/g, ""));
-  return Number.isFinite(n) ? n : 0;
-}
-
-function cleanCounty(v) {
-  return String(v || "").replace(/\s+County$/i, "").trim();
-}
-
 async function fetchText(url) {
   const res = await fetch(url, {
     headers: {
-      accept: "application/json,text/html,*/*",
+      accept: "text/html,application/javascript,application/json,*/*",
       "user-agent": "Mozilla/5.0"
     }
   });
+
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   return res.text();
 }
 
-async function fetchJson(url) {
-  const text = await fetchText(url);
-  return JSON.parse(text);
-}
-
-function findIds(html) {
-  const instanceId = html.match(/instanceId:\s*'([^']+)'/)?.[1];
-  const viewId = html.match(/viewId:\s*'([^']+)'/)?.[1];
-  return { instanceId, viewId };
-}
-
-function walk(obj, records = []) {
-  if (!obj || typeof obj !== "object") return records;
-
-  if (Array.isArray(obj)) {
-    obj.forEach(x => walk(x, records));
-    return records;
-  }
-
-  const keys = Object.keys(obj);
-  const lower = Object.fromEntries(keys.map(k => [k.toLowerCase(), k]));
-
-  const countyKey = lower.county || lower.countyname || lower.name || lower.area || lower.region;
-  const affectedKey =
-    lower.customersaffected ||
-    lower.customersout ||
-    lower.outages ||
-    lower.affected ||
-    lower.customer_count ||
-    lower.customers;
-
-  if (countyKey && affectedKey) {
-    records.push(obj);
-  }
-
-  keys.forEach(k => walk(obj[k], records));
-  return records;
-}
-
-async function fetchOncorKubra() {
-  const pageUrl = "https://stormcenter.oncor.com/";
-  const html = await fetchText(pageUrl);
-  const { instanceId } = findIds(html);
-
-  if (!instanceId) {
-    throw new Error("Could not find Oncor KUBRA instanceId");
-  }
-
-  const candidateUrls = [
-    `https://kubra.io/data/${instanceId}/public/thematic-1/thematic_areas.json`,
-    `https://kubra.io/data/${instanceId}/public/summary.json`,
-    `https://kubra.io/data/${instanceId}/public/config.json`,
-    `https://kubra.io/data/${instanceId}/public/metadata.json`
-  ];
-
-  const outages = [];
-  const debug = [];
-
-  for (const url of candidateUrls) {
-    try {
-      const json = await fetchJson(url);
-      debug.push({ url, ok: true });
-
-      const found = walk(json);
-
-      for (const row of found) {
-        const county =
-          cleanCounty(row.county || row.County || row.countyName || row.CountyName || row.name || row.Name);
-
-        if (!VALID_TX_COUNTIES.has(county)) continue;
-
-        const customersOut = num(
-          row.customersAffected ??
-          row.CustomersAffected ??
-          row.customersOut ??
-          row.CustomersOut ??
-          row.affected ??
-          row.Affected ??
-          row.outages ??
-          row.Outages
-        );
-
-        if (customersOut <= 0) continue;
-
-        outages.push({
-          state: "TX",
-          county,
-          utility: "Oncor",
-          customersOut,
-          updated: new Date().toISOString(),
-          source: url
-        });
-      }
-    } catch (err) {
-      debug.push({ url, ok: false, error: err.message });
-    }
-  }
-
-  return { outages, debug, instanceId };
-}
-
-function merge(records) {
-  const map = new Map();
-
-  for (const r of records) {
-    const key = `${r.utility}|${r.county}`;
-    if (!map.has(key)) map.set(key, { ...r });
-    else map.get(key).customersOut += r.customersOut;
-  }
-
-  return [...map.values()].sort((a, b) => b.customersOut - a.customersOut);
+function uniq(arr) {
+  return [...new Set(arr)].filter(Boolean);
 }
 
 async function main() {
-  const sourceStatus = [];
-  let all = [];
+  const pageUrl = "https://stormcenter.oncor.com/reports/8a3a0248-66cb-4e05-b7d8-649e570562d5";
+  const html = await fetchText(pageUrl);
 
-  try {
-    const result = await fetchOncorKubra();
-    all.push(...result.outages);
-    sourceStatus.push({
-      name: "Oncor KUBRA",
-      ok: true,
-      count: result.outages.length,
-      instanceId: result.instanceId,
-      tried: result.debug
-    });
-  } catch (err) {
-    sourceStatus.push({
-      name: "Oncor KUBRA",
-      ok: false,
-      count: 0,
-      error: err.message
-    });
+  const scriptUrls = uniq(
+    [...html.matchAll(/<script[^>]+src=["']([^"']+)["']/gi)].map(m => m[1])
+  ).map(src => src.startsWith("http") ? src : new URL(src, pageUrl).href);
+
+  console.log("SCRIPT URLS:", scriptUrls);
+
+  const findings = [];
+
+  for (const scriptUrl of scriptUrls) {
+    try {
+      const js = await fetchText(scriptUrl);
+
+      const urls = uniq([
+        ...[...js.matchAll(/https?:\/\/[^"'\\\s)]+/g)].map(m => m[0]),
+        ...[...js.matchAll(/\/[A-Za-z0-9_\-./{}?=&:%]+\.json/g)].map(m => m[0]),
+        ...[...js.matchAll(/[A-Za-z0-9_\-./{}?=&:%]+thematic[A-Za-z0-9_\-./{}?=&:%]*/gi)].map(m => m[0]),
+        ...[...js.matchAll(/[A-Za-z0-9_\-./{}?=&:%]+outage[A-Za-z0-9_\-./{}?=&:%]*/gi)].map(m => m[0]),
+        ...[...js.matchAll(/[A-Za-z0-9_\-./{}?=&:%]+incident[A-Za-z0-9_\-./{}?=&:%]*/gi)].map(m => m[0])
+      ]);
+
+      findings.push({
+        scriptUrl,
+        length: js.length,
+        interestingMatches: urls.slice(0, 100)
+      });
+
+      console.log("SCRIPT:", scriptUrl);
+      console.log("LENGTH:", js.length);
+      console.log("MATCHES:", urls.slice(0, 50));
+    } catch (err) {
+      findings.push({
+        scriptUrl,
+        error: err.message
+      });
+    }
   }
-
-  const outages = merge(all);
 
   const payload = {
     updated: new Date().toISOString(),
-    note: "Texas outage feed using Oncor KUBRA data probe.",
-    sourceStatus,
-    count: outages.length,
-    countiesWithOutages: new Set(outages.map(o => o.county)).size,
-    totalCustomersOut: outages.reduce((s, o) => s + o.customersOut, 0),
-    outages
+    note: "KUBRA endpoint discovery diagnostic. Send ChatGPT the interestingMatches output.",
+    pageUrl,
+    scriptUrls,
+    findings,
+    count: 0,
+    totalCustomersOut: 0,
+    outages: []
   };
 
   await fs.writeFile(OUT, JSON.stringify(payload, null, 2));
-  console.log(JSON.stringify(payload.sourceStatus, null, 2));
-  console.log(`Wrote ${payload.count} records / ${payload.totalCustomersOut} customers out`);
+  console.log("Wrote KUBRA discovery diagnostic");
 }
 
 main().catch(async err => {
   await fs.writeFile(OUT, JSON.stringify({
     updated: new Date().toISOString(),
     error: err.message,
-    count: 0,
-    totalCustomersOut: 0,
     outages: []
   }, null, 2));
+
   process.exitCode = 1;
 });
