@@ -21,11 +21,11 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Fetch outage data
+      - name: Run outage script
         run: node scripts/fetch-outages.js
 
-      - name: Commit data
+      - name: Commit updated outages.json
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update outage data"
-          file_pattern: data/outages.json
+          file_pattern: outages.json
