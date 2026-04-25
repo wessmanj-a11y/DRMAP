@@ -1,5 +1,6 @@
 {
-  "updated": "2026-04-25T20:37:50.210Z",
+  "updated": "2026-04-25T20:41:38.785Z",
+  "note": "Diagnostic run. Check GitHub Action logs for ONCOR HTML output.",
   "count": 0,
   "totalCustomersOut": 0,
   "outages": []
