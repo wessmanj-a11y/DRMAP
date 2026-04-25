@@ -1,0 +1,7 @@
+{
+  "updated": "not yet refreshed",
+  "source": "DOE/ORNL ODIN county outage dataset",
+  "sourceStatus": "starter file - run GitHub Action to refresh",
+  "count": 0,
+  "outages": []
+}
