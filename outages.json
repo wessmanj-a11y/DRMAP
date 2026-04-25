@@ -1,10 +1,34 @@
 {
-  "updated": "2026-04-25T20:45:37.230Z",
+  "updated": "2026-04-25T20:49:33.711Z",
+  "note": "Texas outage feed using Oncor KUBRA data probe.",
   "sourceStatus": [
     {
-      "name": "Oncor",
+      "name": "Oncor KUBRA",
       "ok": true,
-      "count": 0
+      "count": 0,
+      "instanceId": "560abba3-7881-4741-b538-ca416b58ba1e",
+      "tried": [
+        {
+          "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/public/thematic-1/thematic_areas.json",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/public/summary.json",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/public/config.json",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://kubra.io/data/560abba3-7881-4741-b538-ca416b58ba1e/public/metadata.json",
+          "ok": false,
+          "error": "404 Not Found"
+        }
+      ]
     }
   ],
   "count": 0,
