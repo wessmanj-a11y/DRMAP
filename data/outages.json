@@ -1,7 +1,1008 @@
 {
-  "updated": "not yet refreshed",
+  "updated": "2026-04-25T15:12:32.416Z",
   "source": "DOE/ORNL ODIN county outage dataset",
-  "sourceStatus": "starter file - run GitHub Action to refresh",
-  "count": 0,
-  "outages": []
+  "sourceStatus": "ok",
+  "count": 100,
+  "outages": [
+    {
+      "state": "TN",
+      "county": "Blount",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 35.68673079243718,
+      "lon": -83.92531198829994
+    },
+    {
+      "state": "NC",
+      "county": "Watauga",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 36.23101719638671,
+      "lon": -81.6965516146841
+    },
+    {
+      "state": "SC",
+      "county": "Berkeley",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 33.19756112666915,
+      "lon": -79.95227413162246
+    },
+    {
+      "state": "LA",
+      "county": "St. Helena",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 30.821705444681243,
+      "lon": -90.71036152312551
+    },
+    {
+      "state": "KS",
+      "county": "Butler",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 37.78117274040125,
+      "lon": -96.83907011299543
+    },
+    {
+      "state": "KS",
+      "county": "Butler",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 37.78117274040125,
+      "lon": -96.83907011299543
+    },
+    {
+      "state": "MI",
+      "county": "Newaygo",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 43.55406711080299,
+      "lon": -85.8008464714421
+    },
+    {
+      "state": "MI",
+      "county": "Newaygo",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 43.55406711080299,
+      "lon": -85.8008464714421
+    },
+    {
+      "state": "MI",
+      "county": "Wexford",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 44.33836133758267,
+      "lon": -85.57856901197368
+    },
+    {
+      "state": "MI",
+      "county": "Wexford",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 44.33836133758267,
+      "lon": -85.57856901197368
+    },
+    {
+      "state": "MI",
+      "county": "Wexford",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 44.33836133758267,
+      "lon": -85.57856901197368
+    },
+    {
+      "state": "CO",
+      "county": "Montezuma",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 37.33884554537474,
+      "lon": -108.59659471870016
+    },
+    {
+      "state": "OR",
+      "county": "Douglas",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 43.27936680060187,
+      "lon": -123.1661754286756
+    },
+    {
+      "state": "PA",
+      "county": "Allegheny",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 40.468876394809506,
+      "lon": -79.98146841187318
+    },
+    {
+      "state": "MN",
+      "county": "Chisago",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 45.50244068139388,
+      "lon": -92.9083366954261
+    },
+    {
+      "state": "NC",
+      "county": "Edgecombe",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 35.91304008003896,
+      "lon": -77.59717564109962
+    },
+    {
+      "state": "NC",
+      "county": "Mitchell",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 36.01346890014129,
+      "lon": -82.16317070713338
+    },
+    {
+      "state": "NC",
+      "county": "Yancey",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.413Z",
+      "lat": 35.89917649096109,
+      "lon": -82.30769414617008
+    },
+    {
+      "state": "TN",
+      "county": "Rutherford",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 35.8422400415261,
+      "lon": -86.41730081901055
+    },
+    {
+      "state": "NC",
+      "county": "Macon",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 35.15062637521458,
+      "lon": -83.42177808445557
+    },
+    {
+      "state": "KY",
+      "county": "Henderson",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 37.79607177808311,
+      "lon": -87.5736419883093
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.414Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.857466154999365,
+      "lon": -95.39301528631606
+    },
+    {
+      "state": "TX",
+      "county": "Brazoria",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.18958576937532,
+      "lon": -95.4512838215284
+    },
+    {
+      "state": "TX",
+      "county": "Galveston",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.38948593422137,
+      "lon": -94.95975748359828
+    },
+    {
+      "state": "TX",
+      "county": "Galveston",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.38948593422137,
+      "lon": -94.95975748359828
+    },
+    {
+      "state": "TX",
+      "county": "Fort Bend",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 29.527427679918883,
+      "lon": -95.77101510577987
+    },
+    {
+      "state": "NJ",
+      "county": "Hunterdon",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 40.56764653353759,
+      "lon": -74.91248513609621
+    },
+    {
+      "state": "NJ",
+      "county": "Monmouth",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 40.26045969579445,
+      "lon": -74.22086389055636
+    },
+    {
+      "state": "NJ",
+      "county": "Sussex",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 41.13926233986086,
+      "lon": -74.69097438872444
+    },
+    {
+      "state": "KY",
+      "county": "Estill",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 37.69195095744623,
+      "lon": -83.96341865507685
+    },
+    {
+      "state": "KY",
+      "county": "Jackson",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 37.41968524843303,
+      "lon": -84.0060290200328
+    },
+    {
+      "state": "MO",
+      "county": "Lafayette",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 39.0653159136721,
+      "lon": -93.78557897861155
+    },
+    {
+      "state": "KS",
+      "county": "Sedgwick",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 37.68470257220585,
+      "lon": -97.46100886512676
+    },
+    {
+      "state": "MO",
+      "county": "Benton",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 38.29483862286399,
+      "lon": -93.28818394870774
+    },
+    {
+      "state": "MO",
+      "county": "Henry",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 38.38527800732796,
+      "lon": -93.79286285822074
+    },
+    {
+      "state": "KS",
+      "county": "Douglas",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 38.88468787965181,
+      "lon": -95.29236573075241
+    },
+    {
+      "state": "KS",
+      "county": "Crawford",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 37.50726827241201,
+      "lon": -94.85178331254245
+    },
+    {
+      "state": "MN",
+      "county": "Cass",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 46.949270048145266,
+      "lon": -94.32578684818316
+    },
+    {
+      "state": "MA",
+      "county": "Essex",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.671860830057796,
+      "lon": -70.9515214537114
+    },
+    {
+      "state": "MA",
+      "county": "Essex",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.671860830057796,
+      "lon": -70.9515214537114
+    },
+    {
+      "state": "MA",
+      "county": "Essex",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.671860830057796,
+      "lon": -70.9515214537114
+    },
+    {
+      "state": "MA",
+      "county": "Hampden",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.13525660471921,
+      "lon": -72.63152561290941
+    },
+    {
+      "state": "MA",
+      "county": "Worcester",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.351344119452236,
+      "lon": -71.90772177653204
+    },
+    {
+      "state": "MA",
+      "county": "Worcester",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.351344119452236,
+      "lon": -71.90772177653204
+    },
+    {
+      "state": "MN",
+      "county": "Aitkin",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 46.60811623728705,
+      "lon": -93.41537052553628
+    },
+    {
+      "state": "MN",
+      "county": "Crow Wing",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 46.482519405465254,
+      "lon": -94.07066040907839
+    },
+    {
+      "state": "IA",
+      "county": "Sioux",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 43.082513100962174,
+      "lon": -96.17781150965799
+    },
+    {
+      "state": "IA",
+      "county": "Polk",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 41.68549891825064,
+      "lon": -93.5735261182711
+    },
+    {
+      "state": "IA",
+      "county": "Dallas",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 41.68480365944066,
+      "lon": -94.03965403251658
+    },
+    {
+      "state": "IL",
+      "county": "Henry",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 41.353196772720786,
+      "lon": -90.13114700264379
+    },
+    {
+      "state": "IA",
+      "county": "Black Hawk",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.470091342081346,
+      "lon": -92.30872484908123
+    },
+    {
+      "state": "PA",
+      "county": "Berks",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 40.41631997396437,
+      "lon": -75.92580936476728
+    },
+    {
+      "state": "PA",
+      "county": "Lehigh",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 40.61262200417764,
+      "lon": -75.59242117138608
+    },
+    {
+      "state": "PA",
+      "county": "Northampton",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 40.754555260522736,
+      "lon": -75.30748513320152
+    },
+    {
+      "state": "MN",
+      "county": "Scott",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 44.64847375576291,
+      "lon": -93.5357741352851
+    },
+    {
+      "state": "WV",
+      "county": "Barbour",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 39.13262145272828,
+      "lon": -80.00379874925227
+    },
+    {
+      "state": "WV",
+      "county": "Nicholas",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 38.29164331451578,
+      "lon": -80.79951580236155
+    },
+    {
+      "state": "NC",
+      "county": "Anson",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 34.973652958589334,
+      "lon": -80.10268727054485
+    },
+    {
+      "state": "NC",
+      "county": "Richmond",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 35.00597316186424,
+      "lon": -79.74805011944792
+    },
+    {
+      "state": "NY",
+      "county": "Monroe",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 43.146714881885494,
+      "lon": -77.69598248870767
+    },
+    {
+      "state": "NY",
+      "county": "Onondaga",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 43.00590125786571,
+      "lon": -76.19475060097477
+    },
+    {
+      "state": "NY",
+      "county": "Onondaga",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 43.00590125786571,
+      "lon": -76.19475060097477
+    },
+    {
+      "state": "NY",
+      "county": "Onondaga",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 43.00590125786571,
+      "lon": -76.19475060097477
+    },
+    {
+      "state": "NY",
+      "county": "Ontario",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.85262866516919,
+      "lon": -77.2997879572199
+    },
+    {
+      "state": "NY",
+      "county": "Rensselaer",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.71104282539617,
+      "lon": -73.50945931029783
+    },
+    {
+      "state": "NY",
+      "county": "Rensselaer",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 42.71104282539617,
+      "lon": -73.50945931029783
+    },
+    {
+      "state": "NY",
+      "county": "Warren",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 43.560824701615815,
+      "lon": -73.84601796171748
+    },
+    {
+      "state": "MN",
+      "county": "Itasca",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 47.50918604150071,
+      "lon": -93.63201003611715
+    },
+    {
+      "state": "OH",
+      "county": "Mahoning",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.415Z",
+      "lat": 41.01463807243789,
+      "lon": -80.77630893358987
+    },
+    {
+      "state": "OH",
+      "county": "Richland",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 40.774869423657684,
+      "lon": -82.5363256693402
+    },
+    {
+      "state": "OR",
+      "county": "Klamath",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 42.68613795164789,
+      "lon": -121.6500135786347
+    },
+    {
+      "state": "OR",
+      "county": "Linn",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 44.48864190553694,
+      "lon": -122.53406736783757
+    },
+    {
+      "state": "UT",
+      "county": "Salt Lake",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 40.66684929087748,
+      "lon": -111.92382141406085
+    },
+    {
+      "state": "UT",
+      "county": "Salt Lake",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 40.66684929087748,
+      "lon": -111.92382141406085
+    },
+    {
+      "state": "UT",
+      "county": "Tooele",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 40.44863286263816,
+      "lon": -113.13105091000293
+    },
+    {
+      "state": "UT",
+      "county": "Tooele",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 40.44863286263816,
+      "lon": -113.13105091000293
+    },
+    {
+      "state": "UT",
+      "county": "Davis",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 40.98994074645683,
+      "lon": -112.1116264561129
+    },
+    {
+      "state": "UT",
+      "county": "Davis",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 40.98994074645683,
+      "lon": -112.1116264561129
+    },
+    {
+      "state": "UT",
+      "county": "Cache",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 41.722644536592085,
+      "lon": -111.74348373965316
+    },
+    {
+      "state": "MN",
+      "county": "Olmsted",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 44.00382802526997,
+      "lon": -92.40189229419464
+    },
+    {
+      "state": "PA",
+      "county": "Cambria",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 40.49537562233151,
+      "lon": -78.71350199305712
+    },
+    {
+      "state": "PA",
+      "county": "Clearfield",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 41.00006136950442,
+      "lon": -78.47421993504844
+    },
+    {
+      "state": "PA",
+      "county": "McKean",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 41.80759174122234,
+      "lon": -78.56901934351981
+    },
+    {
+      "state": "PA",
+      "county": "Potter",
+      "customersOut": 0,
+      "customersTracked": 0,
+      "frequency": 1,
+      "updated": "2026-04-25T15:12:32.416Z",
+      "lat": 41.74491063283168,
+      "lon": -77.89588448440108
+    }
+  ]
 }
