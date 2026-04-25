@@ -1,30 +1,6 @@
 {
-  "updated": "2026-04-25T20:33:19.934Z",
-  "note": "Texas-only outage file. Non-Texas counties are filtered out.",
-  "sourceStatus": [
-    {
-      "name": "ODIN",
-      "ok": true,
-      "count": 21
-    },
-    {
-      "name": "CenterPoint",
-      "ok": true,
-      "count": 0
-    },
-    {
-      "name": "Oncor",
-      "ok": true,
-      "count": 0
-    },
-    {
-      "name": "AEP Texas",
-      "ok": true,
-      "count": 0
-    }
-  ],
+  "updated": "2026-04-25T20:37:50.210Z",
   "count": 0,
-  "countiesWithOutages": 0,
   "totalCustomersOut": 0,
   "outages": []
 }
