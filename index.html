@@ -1388,6 +1388,10 @@ async function loadData(){
       c.weatherEvents = o.weatherEvents || [];
       c.predictionExplanation = o.predictionExplanation || "";
       c.maxSingleOutage = safeNum(o.maxSingleOutage);
+      c.roadClosures = safeNum(o.roadClosures);
+      c.roadClosureRisk = safeNum(o.roadClosureRisk);
+      c.restorationDifficulty = safeNum(o.restorationDifficulty);
+      c.roadEvents = o.roadEvents || [];
     });
   }
 
