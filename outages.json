@@ -1,20 +1,44 @@
 {
-  "updated": "2026-04-26T02:55:13.543Z",
-  "note": "Texas outage file generated from Oncor KUBRA tile data.",
+  "updated": "2026-04-26T02:59:40.954Z",
+  "note": "KUBRA layer/tile diagnostic. Send layerSummary and tileSamples with rowCount > 0.",
   "sourceStatus": [
     {
-      "name": "Oncor KUBRA",
+      "name": "Oncor KUBRA diagnostic",
       "ok": true,
-      "requests": 24,
+      "requests": 387,
       "deploymentId": "aff522e9-3cbc-4b9c-a858-8ca70e764634",
-      "layerId": "cluster-3",
-      "quadkeysChecked": 10,
-      "rawOutages": 0,
-      "countyRecords": 0
+      "regionKey": "a05c6257-beb4-4b4c-bc23-e973aa40798e",
+      "bounds": {
+        "minLat": 29.96731,
+        "maxLat": 34.22122,
+        "minLon": -105.50187,
+        "maxLon": -93.86571
+      },
+      "clusterPath": "cluster-data/{qkh}/9a815606-a2a9-4339-8930-3d14bfa385cd/f36a9e31-63df-4872-9ff2-8f23e8863d98",
+      "normalPath": "data/f36a9e31-63df-4872-9ff2-8f23e8863d98"
     }
   ],
+  "layerSummary": [
+    {
+      "id": "thematic-1",
+      "type": "THEMATIC_LAYER_V2"
+    },
+    {
+      "id": "thematic-2",
+      "type": "THEMATIC_LAYER_V2"
+    },
+    {
+      "id": "thematic-3",
+      "type": "THEMATIC_LAYER_V2"
+    },
+    {
+      "id": "cluster-3",
+      "type": "CLUSTER_LAYER_V2"
+    }
+  ],
+  "successfulTileSamples": [],
+  "failedSampleCount": 384,
   "count": 0,
-  "countiesWithOutages": 0,
   "totalCustomersOut": 0,
   "outages": []
 }
