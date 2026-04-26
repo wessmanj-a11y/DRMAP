@@ -1,22 +1,22 @@
 {
-  "updated": "2026-04-26T10:41:26.771Z",
+  "updated": "2026-04-26T11:36:25.768Z",
   "sourceStatus": [
     {
       "name": "TDIS Power Outage Data",
       "ok": true,
-      "rawPointRecords": 2214,
-      "pointRecordsUsed": 569,
-      "countyRecords": 46
+      "rawPointRecords": 2420,
+      "pointRecordsUsed": 585,
+      "countyRecords": 44
     },
     {
       "name": "NWS Active Alerts",
       "ok": true,
-      "activeTexasAlerts": 20
+      "activeTexasAlerts": 19
     },
     {
       "name": "History",
       "ok": true,
-      "snapshots": 6
+      "snapshots": 7
     },
     {
       "name": "Road Closures",
@@ -24,145 +24,183 @@
       "note": "Not configured yet"
     }
   ],
-  "count": 46,
-  "countiesWithOutages": 46,
-  "totalCustomersOut": 26904,
-  "highestPredictedRisk": 78,
-  "highestCurrentSeverity": 73,
+  "count": 44,
+  "countiesWithOutages": 44,
+  "totalCustomersOut": 24156,
+  "highestPredictedRisk": 96,
+  "highestCurrentSeverity": 77,
   "outages": [
     {
       "state": "TX",
-      "county": "Franklin",
+      "county": "Grayson",
       "utility": "TDIS Aggregate",
-      "customersOut": 727,
-      "incidents": 41,
-      "maxSingleOutage": 214,
-      "weatherAlerts": 1,
-      "weatherRisk": 54,
+      "customersOut": 481,
+      "incidents": 21,
+      "maxSingleOutage": 110,
+      "weatherAlerts": 2,
+      "weatherRisk": 108,
       "weatherEvents": [
         {
-          "event": "Severe Thunderstorm Watch",
+          "event": "Severe Thunderstorm Warning",
           "severity": "Severe",
-          "headline": "Severe Thunderstorm Watch issued April 25 at 10:14PM CDT until April 26 at 6:00AM CDT by NWS Shreveport LA",
+          "headline": "Severe Thunderstorm Warning issued April 26 at 6:28AM CDT until April 26 at 7:15AM CDT by NWS Fort Worth TX",
+          "weight": 54
+        },
+        {
+          "event": "Severe Thunderstorm Warning",
+          "severity": "Severe",
+          "headline": "Severe Thunderstorm Warning issued April 26 at 6:25AM CDT until April 26 at 7:30AM CDT by NWS Fort Worth TX",
           "weight": 54
         }
       ],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.686Z",
+      "updated": "2026-04-26T11:36:25.572Z",
       "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 73,
-      "predictedRisk": 78,
+      "currentSeverity": 77,
+      "predictedRisk": 96,
       "predictedRiskBand": "High",
-      "trend24h": 727,
-      "sevenDayPeak": 758,
-      "predictionExplanation": "1 active weather alert(s) + 727 current customers out + 24h trend worsening by 727"
-    },
-    {
-      "state": "TX",
-      "county": "Harris",
-      "utility": "TDIS Aggregate",
-      "customersOut": 148,
-      "incidents": 12,
-      "maxSingleOutage": 55,
-      "weatherAlerts": 1,
-      "weatherRisk": 54,
-      "weatherEvents": [
-        {
-          "event": "Severe Thunderstorm Watch",
-          "severity": "Severe",
-          "headline": "Severe Thunderstorm Watch issued April 25 at 10:14PM CDT until April 26 at 6:00AM CDT by NWS Shreveport LA",
-          "weight": 54
-        }
-      ],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.524Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 65,
-      "predictedRisk": 71,
-      "predictedRiskBand": "Elevated",
-      "trend24h": 148,
-      "sevenDayPeak": 276,
-      "predictionExplanation": "1 active weather alert(s) + 148 current customers out + 24h trend worsening by 148"
-    },
-    {
-      "state": "TX",
-      "county": "Dallas",
-      "utility": "TDIS Aggregate",
-      "customersOut": 5234,
-      "incidents": 106,
-      "maxSingleOutage": 416,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.529Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 65,
-      "predictedRisk": 50,
-      "predictedRiskBand": "Elevated",
-      "trend24h": 5234,
-      "sevenDayPeak": 9181,
-      "predictionExplanation": "No active weather alerts + 5,234 current customers out + 24h trend worsening by 5,234"
+      "trend24h": 481,
+      "sevenDayPeak": 481,
+      "predictionExplanation": "2 active weather alert(s) + 481 current customers out + 24h trend worsening by 481"
     },
     {
       "state": "TX",
       "county": "Tarrant",
       "utility": "TDIS Aggregate",
-      "customersOut": 15637,
-      "incidents": 243,
-      "maxSingleOutage": 2800,
+      "customersOut": 13067,
+      "incidents": 236,
+      "maxSingleOutage": 2106,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.530Z",
+      "updated": "2026-04-26T11:36:25.558Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 65,
       "predictedRisk": 50,
       "predictedRiskBand": "Elevated",
-      "trend24h": 15637,
+      "trend24h": 13067,
       "sevenDayPeak": 23054,
-      "predictionExplanation": "No active weather alerts + 15,637 current customers out + 24h trend worsening by 15,637"
+      "predictionExplanation": "No active weather alerts + 13,067 current customers out + 24h trend worsening by 13,067"
+    },
+    {
+      "state": "TX",
+      "county": "Dallas",
+      "utility": "TDIS Aggregate",
+      "customersOut": 4570,
+      "incidents": 110,
+      "maxSingleOutage": 387,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.566Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 64,
+      "predictedRisk": 50,
+      "predictedRiskBand": "Elevated",
+      "trend24h": 4570,
+      "sevenDayPeak": 9181,
+      "predictionExplanation": "No active weather alerts + 4,570 current customers out + 24h trend worsening by 4,570"
     },
     {
       "state": "TX",
       "county": "Wise",
       "utility": "TDIS Aggregate",
-      "customersOut": 3074,
-      "incidents": 52,
-      "maxSingleOutage": 794,
+      "customersOut": 1842,
+      "incidents": 64,
+      "maxSingleOutage": 635,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.552Z",
+      "updated": "2026-04-26T11:36:25.572Z",
       "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 62,
+      "currentSeverity": 59,
       "predictedRisk": 50,
       "predictedRiskBand": "Elevated",
-      "trend24h": 3074,
+      "trend24h": 1842,
       "sevenDayPeak": 7047,
-      "predictionExplanation": "No active weather alerts + 3,074 current customers out + 24h trend worsening by 3,074"
+      "predictionExplanation": "No active weather alerts + 1,842 current customers out + 24h trend worsening by 1,842"
     },
     {
       "state": "TX",
       "county": "Parker",
       "utility": "TDIS Aggregate",
-      "customersOut": 830,
-      "incidents": 24,
-      "maxSingleOutage": 346,
+      "customersOut": 841,
+      "incidents": 22,
+      "maxSingleOutage": 349,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.547Z",
+      "updated": "2026-04-26T11:36:25.586Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 55,
       "predictedRisk": 48,
       "predictedRiskBand": "Watch",
-      "trend24h": 830,
+      "trend24h": 841,
       "sevenDayPeak": 1665,
-      "predictionExplanation": "No active weather alerts + 830 current customers out + 24h trend worsening by 830"
+      "predictionExplanation": "No active weather alerts + 841 current customers out + 24h trend worsening by 841"
+    },
+    {
+      "state": "TX",
+      "county": "Franklin",
+      "utility": "TDIS Aggregate",
+      "customersOut": 763,
+      "incidents": 41,
+      "maxSingleOutage": 214,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.691Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 55,
+      "predictedRisk": 48,
+      "predictedRiskBand": "Watch",
+      "trend24h": 763,
+      "sevenDayPeak": 763,
+      "predictionExplanation": "No active weather alerts + 763 current customers out + 24h trend worsening by 763"
+    },
+    {
+      "state": "TX",
+      "county": "Gray",
+      "utility": "TDIS Aggregate",
+      "customersOut": 143,
+      "incidents": 1,
+      "maxSingleOutage": 143,
+      "weatherAlerts": 3,
+      "weatherRisk": 152,
+      "weatherEvents": [
+        {
+          "event": "Severe Thunderstorm Warning",
+          "severity": "Severe",
+          "headline": "Severe Thunderstorm Warning issued April 26 at 6:28AM CDT until April 26 at 7:15AM CDT by NWS Fort Worth TX",
+          "weight": 54
+        },
+        {
+          "event": "Severe Thunderstorm Warning",
+          "severity": "Severe",
+          "headline": "Severe Thunderstorm Warning issued April 26 at 6:25AM CDT until April 26 at 7:30AM CDT by NWS Fort Worth TX",
+          "weight": 54
+        },
+        {
+          "event": "Red Flag Warning",
+          "severity": "Severe",
+          "headline": "Red Flag Warning issued April 26 at 4:51AM CDT until April 26 at 9:00PM CDT by NWS Amarillo TX",
+          "weight": 44
+        }
+      ],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.587Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 53,
+      "predictedRisk": 78,
+      "predictedRiskBand": "High",
+      "trend24h": 143,
+      "sevenDayPeak": 143,
+      "predictionExplanation": "3 active weather alert(s) + 143 current customers out + 24h trend worsening by 143"
     },
     {
       "state": "TX",
@@ -182,7 +220,7 @@
         }
       ],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.689Z",
+      "updated": "2026-04-26T11:36:25.694Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 49,
       "predictedRisk": 56,
@@ -193,218 +231,11 @@
     },
     {
       "state": "TX",
-      "county": "Rockwall",
-      "utility": "TDIS Aggregate",
-      "customersOut": 234,
-      "incidents": 13,
-      "maxSingleOutage": 141,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.555Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 48,
-      "predictedRisk": 43,
-      "predictedRiskBand": "Watch",
-      "trend24h": 234,
-      "sevenDayPeak": 238,
-      "predictionExplanation": "No active weather alerts + 234 current customers out + 24h trend worsening by 234"
-    },
-    {
-      "state": "TX",
-      "county": "Titus",
-      "utility": "TDIS Aggregate",
-      "customersOut": 23,
-      "incidents": 4,
-      "maxSingleOutage": 10,
-      "weatherAlerts": 1,
-      "weatherRisk": 54,
-      "weatherEvents": [
-        {
-          "event": "Severe Thunderstorm Watch",
-          "severity": "Severe",
-          "headline": "Severe Thunderstorm Watch issued April 25 at 10:14PM CDT until April 26 at 6:00AM CDT by NWS Shreveport LA",
-          "weight": 54
-        }
-      ],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.686Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 45,
-      "predictedRisk": 54,
-      "predictedRiskBand": "Elevated",
-      "trend24h": 23,
-      "sevenDayPeak": 23,
-      "predictionExplanation": "1 active weather alert(s) + 23 current customers out + 24h trend worsening by 23"
-    },
-    {
-      "state": "TX",
-      "county": "Brazoria",
-      "utility": "TDIS Aggregate",
-      "customersOut": 126,
-      "incidents": 6,
-      "maxSingleOutage": 69,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.524Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 40,
-      "predictedRisk": 37,
-      "predictedRiskBand": "Watch",
-      "trend24h": 126,
-      "sevenDayPeak": 138,
-      "predictionExplanation": "No active weather alerts + 126 current customers out + 24h trend worsening by 126"
-    },
-    {
-      "state": "TX",
-      "county": "Camp",
-      "utility": "TDIS Aggregate",
-      "customersOut": 6,
-      "incidents": 3,
-      "maxSingleOutage": 3,
-      "weatherAlerts": 1,
-      "weatherRisk": 54,
-      "weatherEvents": [
-        {
-          "event": "Severe Thunderstorm Watch",
-          "severity": "Severe",
-          "headline": "Severe Thunderstorm Watch issued April 25 at 10:14PM CDT until April 26 at 6:00AM CDT by NWS Shreveport LA",
-          "weight": 54
-        }
-      ],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.686Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 37,
-      "predictedRisk": 46,
-      "predictedRiskBand": "Watch",
-      "trend24h": 6,
-      "sevenDayPeak": 6,
-      "predictionExplanation": "1 active weather alert(s) + 6 current customers out + 24h trend worsening by 6"
-    },
-    {
-      "state": "TX",
-      "county": "Grayson",
-      "utility": "TDIS Aggregate",
-      "customersOut": 44,
-      "incidents": 6,
-      "maxSingleOutage": 18,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.556Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 35,
-      "predictedRisk": 32,
-      "predictedRiskBand": "Watch",
-      "trend24h": 44,
-      "sevenDayPeak": 44,
-      "predictionExplanation": "No active weather alerts + 44 current customers out + 24h trend worsening by 44"
-    },
-    {
-      "state": "TX",
-      "county": "Wood",
-      "utility": "TDIS Aggregate",
-      "customersOut": 2,
-      "incidents": 1,
-      "maxSingleOutage": 2,
-      "weatherAlerts": 2,
-      "weatherRisk": 98,
-      "weatherEvents": [
-        {
-          "event": "Severe Thunderstorm Watch",
-          "severity": "Severe",
-          "headline": "Severe Thunderstorm Watch issued April 25 at 10:14PM CDT until April 26 at 6:00AM CDT by NWS Shreveport LA",
-          "weight": 54
-        },
-        {
-          "event": "Flood Warning",
-          "severity": "Severe",
-          "headline": "Flood Warning issued April 25 at 9:40PM CDT by NWS Shreveport LA",
-          "weight": 44
-        }
-      ],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.690Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 33,
-      "predictedRisk": 58,
-      "predictedRiskBand": "Elevated",
-      "trend24h": 2,
-      "sevenDayPeak": 5,
-      "predictionExplanation": "2 active weather alert(s) + 2 current customers out + 24h trend worsening by 2"
-    },
-    {
-      "state": "TX",
-      "county": "Lamar",
-      "utility": "TDIS Aggregate",
-      "customersOut": 65,
-      "incidents": 4,
-      "maxSingleOutage": 47,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.557Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 32,
-      "predictedRisk": 30,
-      "predictedRiskBand": "Watch",
-      "trend24h": 65,
-      "sevenDayPeak": 127,
-      "predictionExplanation": "No active weather alerts + 65 current customers out + 24h trend worsening by 65"
-    },
-    {
-      "state": "TX",
-      "county": "Walker",
-      "utility": "TDIS Aggregate",
-      "customersOut": 173,
-      "incidents": 1,
-      "maxSingleOutage": 173,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.570Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 29,
-      "predictedRisk": 29,
-      "predictedRiskBand": "Watch",
-      "trend24h": 173,
-      "sevenDayPeak": 173,
-      "predictionExplanation": "No active weather alerts + 173 current customers out + 24h trend worsening by 173"
-    },
-    {
-      "state": "TX",
-      "county": "Kaufman",
-      "utility": "TDIS Aggregate",
-      "customersOut": 18,
-      "incidents": 5,
-      "maxSingleOutage": 14,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.556Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 28,
-      "predictedRisk": 25,
-      "predictedRiskBand": "Watch",
-      "trend24h": 18,
-      "sevenDayPeak": 512,
-      "predictionExplanation": "No active weather alerts + 18 current customers out + 24h trend worsening by 18"
-    },
-    {
-      "state": "TX",
       "county": "Hansford",
       "utility": "TDIS Aggregate",
-      "customersOut": 1,
+      "customersOut": 102,
       "incidents": 1,
-      "maxSingleOutage": 1,
+      "maxSingleOutage": 102,
       "weatherAlerts": 2,
       "weatherRisk": 60,
       "weatherEvents": [
@@ -422,11 +253,151 @@
         }
       ],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.690Z",
+      "updated": "2026-04-26T11:36:25.695Z",
       "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 27,
-      "predictedRisk": 39,
+      "currentSeverity": 48,
+      "predictedRisk": 59,
+      "predictedRiskBand": "Elevated",
+      "trend24h": 102,
+      "sevenDayPeak": 102,
+      "predictionExplanation": "2 active weather alert(s) + 102 current customers out + 24h trend worsening by 102"
+    },
+    {
+      "state": "TX",
+      "county": "Rockwall",
+      "utility": "TDIS Aggregate",
+      "customersOut": 193,
+      "incidents": 10,
+      "maxSingleOutage": 141,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.570Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 47,
+      "predictedRisk": 42,
       "predictedRiskBand": "Watch",
+      "trend24h": 193,
+      "sevenDayPeak": 238,
+      "predictionExplanation": "No active weather alerts + 193 current customers out + 24h trend worsening by 193"
+    },
+    {
+      "state": "TX",
+      "county": "Harris",
+      "utility": "TDIS Aggregate",
+      "customersOut": 143,
+      "incidents": 12,
+      "maxSingleOutage": 55,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.552Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 46,
+      "predictedRisk": 41,
+      "predictedRiskBand": "Watch",
+      "trend24h": 143,
+      "sevenDayPeak": 276,
+      "predictionExplanation": "No active weather alerts + 143 current customers out + 24h trend worsening by 143"
+    },
+    {
+      "state": "TX",
+      "county": "Bexar",
+      "utility": "TDIS Aggregate",
+      "customersOut": 1495,
+      "incidents": 3,
+      "maxSingleOutage": 1451,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.700Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 46,
+      "predictedRisk": 41,
+      "predictedRiskBand": "Watch",
+      "trend24h": 1495,
+      "sevenDayPeak": 1495,
+      "predictionExplanation": "No active weather alerts + 1,495 current customers out + 24h trend worsening by 1,495"
+    },
+    {
+      "state": "TX",
+      "county": "Hunt",
+      "utility": "TDIS Aggregate",
+      "customersOut": 25,
+      "incidents": 3,
+      "maxSingleOutage": 19,
+      "weatherAlerts": 1,
+      "weatherRisk": 54,
+      "weatherEvents": [
+        {
+          "event": "Severe Thunderstorm Warning",
+          "severity": "Severe",
+          "headline": "Severe Thunderstorm Warning issued April 26 at 6:25AM CDT until April 26 at 7:30AM CDT by NWS Fort Worth TX",
+          "weight": 54
+        }
+      ],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.694Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 43,
+      "predictedRisk": 53,
+      "predictedRiskBand": "Elevated",
+      "trend24h": 25,
+      "sevenDayPeak": 845,
+      "predictionExplanation": "1 active weather alert(s) + 25 current customers out + 24h trend worsening by 25"
+    },
+    {
+      "state": "TX",
+      "county": "Lamar",
+      "utility": "TDIS Aggregate",
+      "customersOut": 76,
+      "incidents": 5,
+      "maxSingleOutage": 40,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.574Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 35,
+      "predictedRisk": 33,
+      "predictedRiskBand": "Watch",
+      "trend24h": 76,
+      "sevenDayPeak": 127,
+      "predictionExplanation": "No active weather alerts + 76 current customers out + 24h trend worsening by 76"
+    },
+    {
+      "state": "TX",
+      "county": "Garza",
+      "utility": "TDIS Aggregate",
+      "customersOut": 1,
+      "incidents": 1,
+      "maxSingleOutage": 1,
+      "weatherAlerts": 2,
+      "weatherRisk": 88,
+      "weatherEvents": [
+        {
+          "event": "Red Flag Warning",
+          "severity": "Severe",
+          "headline": "Red Flag Warning issued April 25 at 10:29PM CDT until April 26 at 8:00PM CDT by NWS Lubbock TX",
+          "weight": 44
+        },
+        {
+          "event": "Fire Weather Watch",
+          "severity": "Severe",
+          "headline": "Fire Weather Watch issued April 25 at 10:29PM CDT until April 27 at 8:00PM CDT by NWS Lubbock TX",
+          "weight": 44
+        }
+      ],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.695Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 31,
+      "predictedRisk": 54,
+      "predictedRiskBand": "Elevated",
       "trend24h": 1,
       "sevenDayPeak": 1,
       "predictionExplanation": "2 active weather alert(s) + 1 current customers out + 24h trend worsening by 1"
@@ -435,208 +406,188 @@
       "state": "TX",
       "county": "Archer",
       "utility": "TDIS Aggregate",
-      "customersOut": 59,
-      "incidents": 2,
+      "customersOut": 60,
+      "incidents": 3,
       "maxSingleOutage": 57,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.555Z",
+      "updated": "2026-04-26T11:36:25.572Z",
       "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 26,
-      "predictedRisk": 25,
+      "currentSeverity": 29,
+      "predictedRisk": 27,
       "predictedRiskBand": "Watch",
-      "trend24h": 59,
-      "sevenDayPeak": 77,
-      "predictionExplanation": "No active weather alerts + 59 current customers out + 24h trend worsening by 59"
-    },
-    {
-      "state": "TX",
-      "county": "Clay",
-      "utility": "TDIS Aggregate",
-      "customersOut": 69,
-      "incidents": 1,
-      "maxSingleOutage": 69,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.555Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 25,
-      "predictedRisk": 24,
-      "predictedRiskBand": "Low",
-      "trend24h": 69,
-      "sevenDayPeak": 77,
-      "predictionExplanation": "No active weather alerts + 69 current customers out + 24h trend worsening by 69"
-    },
-    {
-      "state": "TX",
-      "county": "Mills",
-      "utility": "TDIS Aggregate",
-      "customersOut": 42,
-      "incidents": 2,
-      "maxSingleOutage": 41,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.690Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 25,
-      "predictedRisk": 24,
-      "predictedRiskBand": "Low",
-      "trend24h": 42,
-      "sevenDayPeak": 42,
-      "predictionExplanation": "No active weather alerts + 42 current customers out + 24h trend worsening by 42"
-    },
-    {
-      "state": "TX",
-      "county": "Jack",
-      "utility": "TDIS Aggregate",
-      "customersOut": 1,
-      "incidents": 1,
-      "maxSingleOutage": 1,
-      "weatherAlerts": 1,
-      "weatherRisk": 54,
-      "weatherEvents": [
-        {
-          "event": "Severe Thunderstorm Watch",
-          "severity": "Severe",
-          "headline": "Severe Thunderstorm Watch issued April 25 at 10:14PM CDT until April 26 at 6:00AM CDT by NWS Shreveport LA",
-          "weight": 54
-        }
-      ],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.690Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 25,
-      "predictedRisk": 35,
-      "predictedRiskBand": "Watch",
-      "trend24h": 1,
-      "sevenDayPeak": 114,
-      "predictionExplanation": "1 active weather alert(s) + 1 current customers out + 24h trend worsening by 1"
-    },
-    {
-      "state": "TX",
-      "county": "Liberty",
-      "utility": "TDIS Aggregate",
-      "customersOut": 60,
-      "incidents": 1,
-      "maxSingleOutage": 60,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.657Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 24,
-      "predictedRisk": 23,
-      "predictedRiskBand": "Low",
       "trend24h": 60,
-      "sevenDayPeak": 60,
+      "sevenDayPeak": 77,
       "predictionExplanation": "No active weather alerts + 60 current customers out + 24h trend worsening by 60"
     },
     {
       "state": "TX",
-      "county": "Wichita",
+      "county": "Titus",
       "utility": "TDIS Aggregate",
-      "customersOut": 27,
-      "incidents": 2,
-      "maxSingleOutage": 26,
+      "customersOut": 24,
+      "incidents": 5,
+      "maxSingleOutage": 10,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.555Z",
+      "updated": "2026-04-26T11:36:25.692Z",
       "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 22,
-      "predictedRisk": 21,
-      "predictedRiskBand": "Low",
-      "trend24h": 27,
-      "sevenDayPeak": 69,
-      "predictionExplanation": "No active weather alerts + 27 current customers out + 24h trend worsening by 27"
+      "currentSeverity": 29,
+      "predictedRisk": 27,
+      "predictedRiskBand": "Watch",
+      "trend24h": 24,
+      "sevenDayPeak": 24,
+      "predictionExplanation": "No active weather alerts + 24 current customers out + 24h trend worsening by 24"
     },
     {
       "state": "TX",
-      "county": "Bexar",
+      "county": "Kaufman",
       "utility": "TDIS Aggregate",
-      "customersOut": 43,
-      "incidents": 1,
-      "maxSingleOutage": 43,
+      "customersOut": 18,
+      "incidents": 5,
+      "maxSingleOutage": 14,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.696Z",
+      "updated": "2026-04-26T11:36:25.571Z",
       "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 22,
-      "predictedRisk": 22,
-      "predictedRiskBand": "Low",
-      "trend24h": 43,
-      "sevenDayPeak": 45,
-      "predictionExplanation": "No active weather alerts + 43 current customers out + 24h trend worsening by 43"
-    },
-    {
-      "state": "TX",
-      "county": "Hunt",
-      "utility": "TDIS Aggregate",
-      "customersOut": 20,
-      "incidents": 2,
-      "maxSingleOutage": 19,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.689Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 21,
-      "predictedRisk": 20,
-      "predictedRiskBand": "Low",
-      "trend24h": 20,
-      "sevenDayPeak": 845,
-      "predictionExplanation": "No active weather alerts + 20 current customers out + 24h trend worsening by 20"
-    },
-    {
-      "state": "TX",
-      "county": "Hopkins",
-      "utility": "TDIS Aggregate",
-      "customersOut": 10,
-      "incidents": 3,
-      "maxSingleOutage": 7,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.558Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 20,
-      "predictedRisk": 18,
-      "predictedRiskBand": "Low",
-      "trend24h": 10,
-      "sevenDayPeak": 10,
-      "predictionExplanation": "No active weather alerts + 10 current customers out + 24h trend worsening by 10"
+      "currentSeverity": 28,
+      "predictedRisk": 25,
+      "predictedRiskBand": "Watch",
+      "trend24h": 18,
+      "sevenDayPeak": 512,
+      "predictionExplanation": "No active weather alerts + 18 current customers out + 24h trend worsening by 18"
     },
     {
       "state": "TX",
       "county": "Montgomery",
       "utility": "TDIS Aggregate",
-      "customersOut": 11,
-      "incidents": 3,
+      "customersOut": 15,
+      "incidents": 4,
       "maxSingleOutage": 6,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.573Z",
+      "updated": "2026-04-26T11:36:25.598Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 24,
+      "predictedRisk": 22,
+      "predictedRiskBand": "Low",
+      "trend24h": 15,
+      "sevenDayPeak": 306,
+      "predictionExplanation": "No active weather alerts + 15 current customers out + 24h trend worsening by 15"
+    },
+    {
+      "state": "TX",
+      "county": "Wood",
+      "utility": "TDIS Aggregate",
+      "customersOut": 2,
+      "incidents": 1,
+      "maxSingleOutage": 2,
+      "weatherAlerts": 1,
+      "weatherRisk": 44,
+      "weatherEvents": [
+        {
+          "event": "Flood Warning",
+          "severity": "Severe",
+          "headline": "Flood Warning issued April 25 at 9:40PM CDT by NWS Shreveport LA",
+          "weight": 44
+        }
+      ],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.695Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 24,
+      "predictedRisk": 32,
+      "predictedRiskBand": "Watch",
+      "trend24h": 2,
+      "sevenDayPeak": 5,
+      "predictionExplanation": "1 active weather alert(s) + 2 current customers out + 24h trend worsening by 2"
+    },
+    {
+      "state": "TX",
+      "county": "Wichita",
+      "utility": "TDIS Aggregate",
+      "customersOut": 26,
+      "incidents": 1,
+      "maxSingleOutage": 26,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.572Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 20,
       "predictedRisk": 19,
       "predictedRiskBand": "Low",
-      "trend24h": 11,
-      "sevenDayPeak": 306,
-      "predictionExplanation": "No active weather alerts + 11 current customers out + 24h trend worsening by 11"
+      "trend24h": 26,
+      "sevenDayPeak": 69,
+      "predictionExplanation": "No active weather alerts + 26 current customers out + 24h trend worsening by 26"
+    },
+    {
+      "state": "TX",
+      "county": "Anderson",
+      "utility": "TDIS Aggregate",
+      "customersOut": 24,
+      "incidents": 1,
+      "maxSingleOutage": 24,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.694Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 19,
+      "predictedRisk": 19,
+      "predictedRiskBand": "Low",
+      "trend24h": 24,
+      "sevenDayPeak": 24,
+      "predictionExplanation": "No active weather alerts + 24 current customers out + 24h trend worsening by 24"
+    },
+    {
+      "state": "TX",
+      "county": "Ellis",
+      "utility": "TDIS Aggregate",
+      "customersOut": 7,
+      "incidents": 3,
+      "maxSingleOutage": 5,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.572Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 18,
+      "predictedRisk": 17,
+      "predictedRiskBand": "Low",
+      "trend24h": 7,
+      "sevenDayPeak": 7,
+      "predictionExplanation": "No active weather alerts + 7 current customers out + 24h trend worsening by 7"
+    },
+    {
+      "state": "TX",
+      "county": "Orange",
+      "utility": "TDIS Aggregate",
+      "customersOut": 18,
+      "incidents": 1,
+      "maxSingleOutage": 18,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.674Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 18,
+      "predictedRisk": 17,
+      "predictedRiskBand": "Low",
+      "trend24h": 18,
+      "sevenDayPeak": 18,
+      "predictionExplanation": "No active weather alerts + 18 current customers out + 24h trend worsening by 18"
     },
     {
       "state": "TX",
@@ -649,7 +600,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.686Z",
+      "updated": "2026-04-26T11:36:25.691Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 18,
       "predictedRisk": 17,
@@ -660,39 +611,19 @@
     },
     {
       "state": "TX",
-      "county": "Fort Bend",
-      "utility": "TDIS Aggregate",
-      "customersOut": 3,
-      "incidents": 3,
-      "maxSingleOutage": 1,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.525Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 15,
-      "predictedRisk": 13,
-      "predictedRiskBand": "Low",
-      "trend24h": 3,
-      "sevenDayPeak": 146,
-      "predictionExplanation": "No active weather alerts + 3 current customers out + 24h trend worsening by 3"
-    },
-    {
-      "state": "TX",
-      "county": "Ellis",
+      "county": "Camp",
       "utility": "TDIS Aggregate",
       "customersOut": 6,
-      "incidents": 2,
-      "maxSingleOutage": 5,
+      "incidents": 3,
+      "maxSingleOutage": 3,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.533Z",
+      "updated": "2026-04-26T11:36:25.692Z",
       "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 15,
-      "predictedRisk": 14,
+      "currentSeverity": 18,
+      "predictedRisk": 16,
       "predictedRiskBand": "Low",
       "trend24h": 6,
       "sevenDayPeak": 6,
@@ -702,21 +633,41 @@
       "state": "TX",
       "county": "Cooke",
       "utility": "TDIS Aggregate",
-      "customersOut": 3,
-      "incidents": 3,
+      "customersOut": 4,
+      "incidents": 4,
       "maxSingleOutage": 1,
       "weatherAlerts": 0,
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.688Z",
+      "updated": "2026-04-26T11:36:25.693Z",
       "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 15,
-      "predictedRisk": 13,
+      "currentSeverity": 18,
+      "predictedRisk": 16,
       "predictedRiskBand": "Low",
-      "trend24h": 3,
+      "trend24h": 4,
       "sevenDayPeak": 1111,
-      "predictionExplanation": "No active weather alerts + 3 current customers out + 24h trend worsening by 3"
+      "predictionExplanation": "No active weather alerts + 4 current customers out + 24h trend worsening by 4"
+    },
+    {
+      "state": "TX",
+      "county": "Hopkins",
+      "utility": "TDIS Aggregate",
+      "customersOut": 8,
+      "incidents": 2,
+      "maxSingleOutage": 7,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.574Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 16,
+      "predictedRisk": 15,
+      "predictedRiskBand": "Low",
+      "trend24h": 8,
+      "sevenDayPeak": 10,
+      "predictionExplanation": "No active weather alerts + 8 current customers out + 24h trend worsening by 8"
     },
     {
       "state": "TX",
@@ -729,7 +680,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.690Z",
+      "updated": "2026-04-26T11:36:25.695Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 15,
       "predictedRisk": 14,
@@ -749,33 +700,13 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.529Z",
+      "updated": "2026-04-26T11:36:25.574Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 14,
       "predictedRisk": 13,
       "predictedRiskBand": "Low",
       "trend24h": 8,
       "sevenDayPeak": 8,
-      "predictionExplanation": "No active weather alerts + 8 current customers out + 24h trend worsening by 8"
-    },
-    {
-      "state": "TX",
-      "county": "Freestone",
-      "utility": "TDIS Aggregate",
-      "customersOut": 8,
-      "incidents": 1,
-      "maxSingleOutage": 8,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.555Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 14,
-      "predictedRisk": 13,
-      "predictedRiskBand": "Low",
-      "trend24h": 8,
-      "sevenDayPeak": 23,
       "predictionExplanation": "No active weather alerts + 8 current customers out + 24h trend worsening by 8"
     },
     {
@@ -789,27 +720,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.528Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 11,
-      "predictedRisk": 10,
-      "predictedRiskBand": "Low",
-      "trend24h": 4,
-      "sevenDayPeak": 4,
-      "predictionExplanation": "No active weather alerts + 4 current customers out + 24h trend worsening by 4"
-    },
-    {
-      "state": "TX",
-      "county": "Nacogdoches",
-      "utility": "TDIS Aggregate",
-      "customersOut": 4,
-      "incidents": 1,
-      "maxSingleOutage": 4,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.555Z",
+      "updated": "2026-04-26T11:36:25.555Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 11,
       "predictedRisk": 10,
@@ -829,7 +740,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.555Z",
+      "updated": "2026-04-26T11:36:25.574Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 11,
       "predictedRisk": 10,
@@ -849,13 +760,53 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.749Z",
+      "updated": "2026-04-26T11:36:25.744Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 11,
       "predictedRisk": 10,
       "predictedRiskBand": "Low",
       "trend24h": 2,
       "sevenDayPeak": 3929,
+      "predictionExplanation": "No active weather alerts + 2 current customers out + 24h trend worsening by 2"
+    },
+    {
+      "state": "TX",
+      "county": "Liberty",
+      "utility": "TDIS Aggregate",
+      "customersOut": 3,
+      "incidents": 1,
+      "maxSingleOutage": 3,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.664Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 10,
+      "predictedRisk": 9,
+      "predictedRiskBand": "Low",
+      "trend24h": 3,
+      "sevenDayPeak": 60,
+      "predictionExplanation": "No active weather alerts + 3 current customers out + 24h trend worsening by 3"
+    },
+    {
+      "state": "TX",
+      "county": "Fort Bend",
+      "utility": "TDIS Aggregate",
+      "customersOut": 2,
+      "incidents": 1,
+      "maxSingleOutage": 2,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.555Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 8,
+      "predictedRisk": 8,
+      "predictedRiskBand": "Low",
+      "trend24h": 2,
+      "sevenDayPeak": 146,
       "predictionExplanation": "No active weather alerts + 2 current customers out + 24h trend worsening by 2"
     },
     {
@@ -869,7 +820,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.546Z",
+      "updated": "2026-04-26T11:36:25.580Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 8,
       "predictedRisk": 8,
@@ -880,7 +831,7 @@
     },
     {
       "state": "TX",
-      "county": "Travis",
+      "county": "Madison",
       "utility": "TDIS Aggregate",
       "customersOut": 2,
       "incidents": 1,
@@ -889,7 +840,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.696Z",
+      "updated": "2026-04-26T11:36:25.694Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 8,
       "predictedRisk": 8,
@@ -909,33 +860,13 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.552Z",
+      "updated": "2026-04-26T11:36:25.578Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 6,
       "predictedRisk": 6,
       "predictedRiskBand": "Low",
       "trend24h": 1,
       "sevenDayPeak": 41,
-      "predictionExplanation": "No active weather alerts + 1 current customers out + 24h trend worsening by 1"
-    },
-    {
-      "state": "TX",
-      "county": "Hood",
-      "utility": "TDIS Aggregate",
-      "customersOut": 1,
-      "incidents": 1,
-      "maxSingleOutage": 1,
-      "weatherAlerts": 0,
-      "weatherRisk": 0,
-      "weatherEvents": [],
-      "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.555Z",
-      "source": "TDIS Power_Outage_Data + NWS",
-      "currentSeverity": 6,
-      "predictedRisk": 6,
-      "predictedRiskBand": "Low",
-      "trend24h": 1,
-      "sevenDayPeak": 1,
       "predictionExplanation": "No active weather alerts + 1 current customers out + 24h trend worsening by 1"
     },
     {
@@ -949,13 +880,33 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.688Z",
+      "updated": "2026-04-26T11:36:25.693Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 6,
       "predictedRisk": 6,
       "predictedRiskBand": "Low",
       "trend24h": 1,
       "sevenDayPeak": 14,
+      "predictionExplanation": "No active weather alerts + 1 current customers out + 24h trend worsening by 1"
+    },
+    {
+      "state": "TX",
+      "county": "Jim Wells",
+      "utility": "TDIS Aggregate",
+      "customersOut": 1,
+      "incidents": 1,
+      "maxSingleOutage": 1,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.695Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 6,
+      "predictedRisk": 6,
+      "predictedRiskBand": "Low",
+      "trend24h": 1,
+      "sevenDayPeak": 1,
       "predictionExplanation": "No active weather alerts + 1 current customers out + 24h trend worsening by 1"
     },
     {
@@ -969,7 +920,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.690Z",
+      "updated": "2026-04-26T11:36:25.695Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 6,
       "predictedRisk": 6,
@@ -989,7 +940,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.690Z",
+      "updated": "2026-04-26T11:36:25.695Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 6,
       "predictedRisk": 6,
@@ -1009,7 +960,7 @@
       "weatherRisk": 0,
       "weatherEvents": [],
       "roadClosures": 0,
-      "updated": "2026-04-26T10:41:26.690Z",
+      "updated": "2026-04-26T11:36:25.695Z",
       "source": "TDIS Power_Outage_Data + NWS",
       "currentSeverity": 6,
       "predictedRisk": 6,
@@ -1017,40 +968,52 @@
       "trend24h": 1,
       "sevenDayPeak": 33,
       "predictionExplanation": "No active weather alerts + 1 current customers out + 24h trend worsening by 1"
+    },
+    {
+      "state": "TX",
+      "county": "Jack",
+      "utility": "TDIS Aggregate",
+      "customersOut": 1,
+      "incidents": 1,
+      "maxSingleOutage": 1,
+      "weatherAlerts": 0,
+      "weatherRisk": 0,
+      "weatherEvents": [],
+      "roadClosures": 0,
+      "updated": "2026-04-26T11:36:25.695Z",
+      "source": "TDIS Power_Outage_Data + NWS",
+      "currentSeverity": 6,
+      "predictedRisk": 6,
+      "predictedRiskBand": "Low",
+      "trend24h": 1,
+      "sevenDayPeak": 114,
+      "predictionExplanation": "No active weather alerts + 1 current customers out + 24h trend worsening by 1"
     }
   ],
   "outagePoints": [
     {
       "county": "Tarrant",
-      "customersOut": 2800,
-      "outageCause": "Aggregated outage point",
+      "customersOut": 2106,
+      "outageCause": "Equipment Issue",
       "estimatedRestoration": "null",
-      "lat": 32.68755,
-      "lon": -97.2733
+      "lat": 32.69313,
+      "lon": -97.27305
     },
     {
       "county": "Tarrant",
-      "customersOut": 1701,
-      "outageCause": "Equipment Issue",
+      "customersOut": 1685,
+      "outageCause": "Adverse weather ",
       "estimatedRestoration": "null",
-      "lat": 32.705,
-      "lon": -97.25312
+      "lat": 32.70513,
+      "lon": -97.25319
     },
     {
-      "county": "Wise",
-      "customersOut": 794,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.0644182436192,
-      "lon": -97.6423568823449
-    },
-    {
-      "county": "Wise",
-      "customersOut": 658,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.0102165021673,
-      "lon": -97.6767910849935
+      "county": "Bexar",
+      "customersOut": 1451,
+      "outageCause": "Unknown",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 29.4540814617132,
+      "lon": -98.5304248253136
     },
     {
       "county": "Wise",
@@ -1062,43 +1025,11 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 541,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.75829,
-      "lon": -97.39837
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 506,
+      "customersOut": 508,
       "outageCause": "Vegetation ",
       "estimatedRestoration": "null",
-      "lat": 32.74316,
-      "lon": -97.13967
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 477,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.88544,
-      "lon": -97.28583
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 416,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.62318,
-      "lon": -96.90395
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 400,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.7591,
-      "lon": -97.1772
+      "lat": 32.74317,
+      "lon": -97.13969
     },
     {
       "county": "Dallas",
@@ -1110,19 +1041,19 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 371,
+      "customersOut": 370,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.94513,
-      "lon": -97.50222
+      "lat": 32.94326,
+      "lon": -97.50171
     },
     {
-      "county": "Tarrant",
-      "customersOut": 352,
-      "outageCause": "Lightning",
+      "county": "Parker",
+      "customersOut": 349,
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.8642,
-      "lon": -97.41325
+      "lat": 32.8885,
+      "lon": -97.55517
     },
     {
       "county": "Tarrant",
@@ -1131,14 +1062,6 @@
       "estimatedRestoration": "null",
       "lat": 32.74483,
       "lon": -97.34192
-    },
-    {
-      "county": "Parker",
-      "customersOut": 346,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.88827,
-      "lon": -97.55521
     },
     {
       "county": "Tarrant",
@@ -1166,11 +1089,11 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 270,
+      "customersOut": 274,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.78241,
-      "lon": -97.30962
+      "lat": 32.7824,
+      "lon": -97.30961
     },
     {
       "county": "Dallas",
@@ -1190,6 +1113,14 @@
     },
     {
       "county": "Tarrant",
+      "customersOut": 250,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.88452,
+      "lon": -97.28496
+    },
+    {
+      "county": "Tarrant",
       "customersOut": 230,
       "outageCause": "Equipment ",
       "estimatedRestoration": "null",
@@ -1205,12 +1136,28 @@
       "lon": -95.1590500627104
     },
     {
-      "county": "Tarrant",
-      "customersOut": 200,
+      "county": "Wise",
+      "customersOut": 207,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.81683,
-      "lon": -97.48301
+      "lat": 33.0143062360688,
+      "lon": -97.6555455763952
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 205,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.72594,
+      "lon": -96.86727
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 200,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.72626,
+      "lon": -97.33774
     },
     {
       "county": "Wise",
@@ -1221,28 +1168,20 @@
       "lon": -97.80917
     },
     {
-      "county": "Tarrant",
-      "customersOut": 190,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.72397,
-      "lon": -97.33893
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 181,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.72594,
-      "lon": -96.86727
-    },
-    {
       "county": "Dallas",
       "customersOut": 180,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
       "lat": 32.65468,
       "lon": -96.8867
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 177,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.84538,
+      "lon": -97.52294
     },
     {
       "county": "Dallas",
@@ -1254,35 +1193,11 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 174,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.84655,
-      "lon": -97.52324
-    },
-    {
-      "county": "Tarrant",
       "customersOut": 173,
       "outageCause": "Vegetation ",
       "estimatedRestoration": "null",
       "lat": 32.68482,
       "lon": -97.50718
-    },
-    {
-      "county": "Walker",
-      "customersOut": 173,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T11:30:00Z",
-      "lat": 30.6266692006566,
-      "lon": -95.4901201693758
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 171,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.63873,
-      "lon": -96.91871
     },
     {
       "county": "Dallas",
@@ -1294,11 +1209,11 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 165,
+      "customersOut": 169,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.72975,
-      "lon": -97.51323
+      "lat": 32.87975,
+      "lon": -97.54355
     },
     {
       "county": "Tarrant",
@@ -1318,11 +1233,19 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 157,
+      "customersOut": 162,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.87997,
-      "lon": -97.54361
+      "lat": 32.72999,
+      "lon": -97.51451
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 158,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.66949,
+      "lon": -96.89351
     },
     {
       "county": "Tarrant",
@@ -1333,36 +1256,36 @@
       "lon": -97.25798
     },
     {
-      "county": "Dallas",
-      "customersOut": 146,
-      "outageCause": "Vegetation ",
+      "county": "Tarrant",
+      "customersOut": 145,
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.69483,
-      "lon": -96.92319
+      "lat": 32.73299,
+      "lon": -97.15329
     },
     {
-      "county": "Dallas",
-      "customersOut": 142,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.66711,
-      "lon": -96.89349
+      "county": "Gray",
+      "customersOut": 143,
+      "outageCause": "Outage",
+      "estimatedRestoration": "2026-04-26T09:30:00Z",
+      "lat": 35.5038,
+      "lon": -100.96187
     },
     {
       "county": "Rockwall",
       "customersOut": 141,
-      "outageCause": "null",
+      "outageCause": "Equipment Issue",
       "estimatedRestoration": "2026-04-26T12:00:00Z",
       "lat": 32.90004,
       "lon": -96.51546
     },
     {
-      "county": "Tarrant",
+      "county": "Wise",
       "customersOut": 140,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.69161,
-      "lon": -97.34895
+      "lat": 33.16127,
+      "lon": -97.89505
     },
     {
       "county": "Donley",
@@ -1374,19 +1297,19 @@
     },
     {
       "county": "Dallas",
-      "customersOut": 139,
-      "outageCause": "Aggregated outage point",
+      "customersOut": 136,
+      "outageCause": "Vegetation ",
       "estimatedRestoration": "null",
-      "lat": 32.65584,
-      "lon": -96.87126
+      "lat": 32.69453,
+      "lon": -96.92289
     },
     {
-      "county": "Wise",
-      "customersOut": 139,
-      "outageCause": "Aggregated outage point",
+      "county": "Parker",
+      "customersOut": 131,
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.16144,
-      "lon": -97.89493
+      "lat": 32.80946,
+      "lon": -97.58413
     },
     {
       "county": "Dallas",
@@ -1398,27 +1321,11 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 123,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.74165,
-      "lon": -97.15301
-    },
-    {
-      "county": "Tarrant",
       "customersOut": 122,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
       "lat": 32.77097,
       "lon": -97.46998
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 121,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.80368,
-      "lon": -97.44903
     },
     {
       "county": "Dallas",
@@ -1430,11 +1337,11 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 120,
+      "customersOut": 121,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.76584,
-      "lon": -97.16252
+      "lat": 32.80368,
+      "lon": -97.44903
     },
     {
       "county": "Tarrant",
@@ -1453,6 +1360,22 @@
       "lon": -97.36596
     },
     {
+      "county": "Tarrant",
+      "customersOut": 111,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.79942,
+      "lon": -97.28448
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 111,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.68154,
+      "lon": -97.34111
+    },
+    {
       "county": "Parker",
       "customersOut": 111,
       "outageCause": "null",
@@ -1461,12 +1384,20 @@
       "lon": -97.54557
     },
     {
-      "county": "Tarrant",
-      "customersOut": 111,
+      "county": "Grayson",
+      "customersOut": 110,
       "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T14:00:00Z",
+      "lat": 33.64876,
+      "lon": -96.6367
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 105,
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.79942,
-      "lon": -97.28448
+      "lat": 32.74639,
+      "lon": -97.1822
     },
     {
       "county": "Tarrant",
@@ -1477,12 +1408,12 @@
       "lon": -97.53035
     },
     {
-      "county": "Tarrant",
-      "customersOut": 105,
+      "county": "Wise",
+      "customersOut": 103,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.74639,
-      "lon": -97.1822
+      "lat": 33.17333,
+      "lon": -97.88706
     },
     {
       "county": "Tarrant",
@@ -1501,6 +1432,14 @@
       "lon": -95.1564682756362
     },
     {
+      "county": "Hansford",
+      "customersOut": 102,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 36.3199748112567,
+      "lon": -101.12562405426
+    },
+    {
       "county": "Tarrant",
       "customersOut": 100,
       "outageCause": "null",
@@ -1515,14 +1454,6 @@
       "estimatedRestoration": "null",
       "lat": 32.73622,
       "lon": -97.38024
-    },
-    {
-      "county": "Wise",
-      "customersOut": 99,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 33.17368,
-      "lon": -97.88521
     },
     {
       "county": "Dallas",
@@ -1542,19 +1473,11 @@
     },
     {
       "county": "Tarrant",
-      "customersOut": 90,
+      "customersOut": 91,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.7411,
-      "lon": -97.50384
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 89,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.67914,
-      "lon": -96.81595
+      "lat": 32.69154,
+      "lon": -97.35072
     },
     {
       "county": "Tarrant",
@@ -1566,27 +1489,19 @@
     },
     {
       "county": "Dallas",
-      "customersOut": 88,
+      "customersOut": 89,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.57694,
-      "lon": -96.79684
+      "lat": 32.67914,
+      "lon": -96.81595
     },
     {
       "county": "Tarrant",
-      "customersOut": 88,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.8204,
-      "lon": -97.21824
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 86,
+      "customersOut": 87,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.70455,
-      "lon": -97.35911
+      "lat": 32.7444,
+      "lon": -97.50741
     },
     {
       "county": "Tarrant",
@@ -1597,12 +1512,12 @@
       "lon": -97.19596
     },
     {
-      "county": "Wise",
+      "county": "Tarrant",
       "customersOut": 86,
-      "outageCause": "null",
+      "outageCause": "Vegetation ",
       "estimatedRestoration": "null",
-      "lat": 33.027668661809,
-      "lon": -97.7951770099832
+      "lat": 32.70455,
+      "lon": -97.35911
     },
     {
       "county": "Dallas",
@@ -1621,12 +1536,12 @@
       "lon": -97.47045
     },
     {
-      "county": "Tarrant",
+      "county": "Dallas",
       "customersOut": 84,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.8404,
-      "lon": -97.54028
+      "lat": 32.73107,
+      "lon": -96.85402
     },
     {
       "county": "Wise",
@@ -1637,20 +1552,12 @@
       "lon": -97.70673
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 84,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.73107,
-      "lon": -96.85402
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 83,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "2026-04-26T15:30:00Z",
-      "lat": 32.81598,
-      "lon": -96.95687
+      "lat": 32.8404,
+      "lon": -97.54028
     },
     {
       "county": "Tarrant",
@@ -1661,6 +1568,30 @@
       "lon": -97.36626
     },
     {
+      "county": "Dallas",
+      "customersOut": 83,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "2026-04-26T15:30:00Z",
+      "lat": 32.81598,
+      "lon": -96.95687
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 82,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.56786,
+      "lon": -96.73512
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 79,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.62682,
+      "lon": -96.59505
+    },
+    {
       "county": "Tarrant",
       "customersOut": 77,
       "outageCause": "null",
@@ -1669,20 +1600,20 @@
       "lon": -97.04423
     },
     {
-      "county": "Tarrant",
-      "customersOut": 76,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.75769,
-      "lon": -97.36963
-    },
-    {
       "county": "Dallas",
       "customersOut": 76,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "2026-04-26T14:00:00Z",
       "lat": 32.69639,
       "lon": -96.56537
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 76,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.75769,
+      "lon": -97.36963
     },
     {
       "county": "Tarrant",
@@ -1695,18 +1626,10 @@
     {
       "county": "Parker",
       "customersOut": 75,
-      "outageCause": "null",
+      "outageCause": "Equipment ",
       "estimatedRestoration": "null",
       "lat": 32.98254,
       "lon": -97.91041
-    },
-    {
-      "county": "Wise",
-      "customersOut": 75,
-      "outageCause": "Equipment Issue",
-      "estimatedRestoration": "null",
-      "lat": 33.16152,
-      "lon": -97.87659
     },
     {
       "county": "Tarrant",
@@ -1733,20 +1656,12 @@
       "lon": -97.27913
     },
     {
-      "county": "Brazoria",
+      "county": "Grayson",
       "customersOut": 69,
-      "outageCause": "Planned Outage",
-      "estimatedRestoration": "2026-04-26T12:30:00Z",
-      "lat": 29.57147,
-      "lon": -95.26701
-    },
-    {
-      "county": "Clay",
-      "customersOut": 69,
-      "outageCause": "Lightning",
-      "estimatedRestoration": "2026-04-26T16:00:00Z",
-      "lat": 33.54497,
-      "lon": -98.04179
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.63292,
+      "lon": -96.58153
     },
     {
       "county": "Tarrant",
@@ -1773,6 +1688,14 @@
       "lon": -96.92173
     },
     {
+      "county": "Grayson",
+      "customersOut": 65,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.6444,
+      "lon": -96.61601
+    },
+    {
       "county": "Tarrant",
       "customersOut": 65,
       "outageCause": "null",
@@ -1797,6 +1720,14 @@
       "lon": -97.40712
     },
     {
+      "county": "Tarrant",
+      "customersOut": 63,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.82018,
+      "lon": -97.21889
+    },
+    {
       "county": "Dallas",
       "customersOut": 63,
       "outageCause": "Aggregated outage point",
@@ -1817,22 +1748,6 @@
       "customersOut": 60,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.56531,
-      "lon": -96.97089
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 60,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.69416,
-      "lon": -96.84842
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 60,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
       "lat": 32.64252,
       "lon": -96.88743
     },
@@ -1845,18 +1760,18 @@
       "lon": -96.76343
     },
     {
-      "county": "Liberty",
+      "county": "Dallas",
       "customersOut": 60,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T12:00:00Z",
-      "lat": 30.0598483903088,
-      "lon": -94.7510354678542
+      "estimatedRestoration": "null",
+      "lat": 32.56531,
+      "lon": -96.97089
     },
     {
       "county": "Dallas",
       "customersOut": 59,
       "outageCause": "Lightning",
-      "estimatedRestoration": "2026-04-26T11:30:00Z",
+      "estimatedRestoration": "2026-04-26T12:30:00Z",
       "lat": 32.83354,
       "lon": -96.91216
     },
@@ -1875,6 +1790,14 @@
       "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.0675353499085,
       "lon": -95.1779020082665
+    },
+    {
+      "county": "Archer",
+      "customersOut": 57,
+      "outageCause": "Equipment Issue",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.6986,
+      "lon": -98.63586
     },
     {
       "county": "Tarrant",
@@ -1901,28 +1824,12 @@
       "lon": -97.87899
     },
     {
-      "county": "Archer",
-      "customersOut": 57,
-      "outageCause": "Equipment Issue",
-      "estimatedRestoration": "2026-04-26T13:30:00Z",
-      "lat": 33.6986,
-      "lon": -98.63586
-    },
-    {
       "county": "Harris",
       "customersOut": 55,
       "outageCause": "Planned Outage",
       "estimatedRestoration": "2026-04-26T12:30:00Z",
       "lat": 30.04061,
       "lon": -95.34569
-    },
-    {
-      "county": "Parker",
-      "customersOut": 55,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.96039,
-      "lon": -97.67722
     },
     {
       "county": "Dallas",
@@ -1957,20 +1864,20 @@
       "lon": -96.86043
     },
     {
-      "county": "Tarrant",
-      "customersOut": 50,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.68454,
-      "lon": -97.36271
-    },
-    {
       "county": "Dallas",
       "customersOut": 50,
       "outageCause": "null",
       "estimatedRestoration": "null",
       "lat": 32.71654,
       "lon": -96.8385
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 50,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.68454,
+      "lon": -97.36271
     },
     {
       "county": "Parker",
@@ -1987,6 +1894,30 @@
       "estimatedRestoration": "null",
       "lat": 32.71802,
       "lon": -96.89439
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 48,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.66435,
+      "lon": -97.35784
+    },
+    {
+      "county": "Wise",
+      "customersOut": 48,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 33.17196,
+      "lon": -97.89724
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 47,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.74448,
+      "lon": -97.15208
     },
     {
       "county": "Dallas",
@@ -2013,18 +1944,10 @@
       "lon": -97.45544
     },
     {
-      "county": "Lamar",
-      "customersOut": 47,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 33.65868,
-      "lon": -95.60541
-    },
-    {
       "county": "Franklin",
       "customersOut": 47,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.073863066548,
       "lon": -95.2097160955363
     },
@@ -2037,20 +1960,20 @@
       "lon": -97.34935
     },
     {
-      "county": "Harris",
-      "customersOut": 45,
-      "outageCause": "Planned Outage",
-      "estimatedRestoration": "2026-04-26T11:15:00Z",
-      "lat": 29.73841,
-      "lon": -95.59767
-    },
-    {
       "county": "Dallas",
       "customersOut": 45,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
       "lat": 32.65673,
       "lon": -96.90102
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 45,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.68981,
+      "lon": -96.553
     },
     {
       "county": "Tarrant",
@@ -2069,20 +1992,20 @@
       "lon": -97.49889
     },
     {
-      "county": "Dallas",
-      "customersOut": 43,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.68127,
-      "lon": -96.91788
-    },
-    {
       "county": "Tarrant",
       "customersOut": 43,
       "outageCause": "null",
       "estimatedRestoration": "null",
       "lat": 32.80577,
       "lon": -97.27096
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 43,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.68127,
+      "lon": -96.91788
     },
     {
       "county": "Bexar",
@@ -2101,28 +2024,12 @@
       "lon": -95.1518916195081
     },
     {
-      "county": "Tarrant",
-      "customersOut": 41,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.89828,
-      "lon": -97.46751
-    },
-    {
-      "county": "Mills",
-      "customersOut": 41,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 31.50738,
-      "lon": -98.62756
-    },
-    {
-      "county": "Tarrant",
+      "county": "Lamar",
       "customersOut": 40,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.72457,
-      "lon": -97.13834
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.65937,
+      "lon": -95.60667
     },
     {
       "county": "Tarrant",
@@ -2145,24 +2052,24 @@
       "customersOut": 39,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.7387,
-      "lon": -97.49175
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 39,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
       "lat": 32.79648,
       "lon": -97.35011
     },
     {
-      "county": "Rockwall",
+      "county": "Franklin",
       "customersOut": 39,
       "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.9086714350378,
-      "lon": -96.3648018700576
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
+      "lat": 33.0823835859162,
+      "lon": -95.1903470287055
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 38,
+      "outageCause": "Equipment Issue",
+      "estimatedRestoration": "2026-04-26T12:00:00Z",
+      "lat": 32.90479,
+      "lon": -96.57953
     },
     {
       "county": "Tarrant",
@@ -2173,12 +2080,20 @@
       "lon": -97.05655
     },
     {
-      "county": "Dallas",
-      "customersOut": 38,
+      "county": "Harris",
+      "customersOut": 37,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T12:00:00Z",
-      "lat": 32.90479,
-      "lon": -96.57953
+      "estimatedRestoration": "2026-04-26T12:25:00Z",
+      "lat": 29.84695,
+      "lon": -95.56139
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 37,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.72644,
+      "lon": -97.4276
     },
     {
       "county": "Tarrant",
@@ -2187,14 +2102,6 @@
       "estimatedRestoration": "null",
       "lat": 32.75995,
       "lon": -97.41276
-    },
-    {
-      "county": "Parker",
-      "customersOut": 37,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.80955,
-      "lon": -97.57852
     },
     {
       "county": "Franklin",
@@ -2208,9 +2115,17 @@
       "county": "Franklin",
       "customersOut": 36,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.065661060798,
       "lon": -95.1742285416545
+    },
+    {
+      "county": "Wise",
+      "customersOut": 36,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0334364952958,
+      "lon": -97.6651849847401
     },
     {
       "county": "Dallas",
@@ -2229,14 +2144,6 @@
       "lon": -97.4478
     },
     {
-      "county": "Tarrant",
-      "customersOut": 35,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.73835,
-      "lon": -97.19782
-    },
-    {
       "county": "Franklin",
       "customersOut": 35,
       "outageCause": "null",
@@ -2253,14 +2160,6 @@
       "lon": -97.7659979386072
     },
     {
-      "county": "Dallas",
-      "customersOut": 34,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.63007,
-      "lon": -96.8957
-    },
-    {
       "county": "Tarrant",
       "customersOut": 34,
       "outageCause": "null",
@@ -2269,12 +2168,12 @@
       "lon": -97.38107
     },
     {
-      "county": "Tarrant",
-      "customersOut": 33,
+      "county": "Dallas",
+      "customersOut": 34,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.82657,
-      "lon": -97.28154
+      "lat": 32.63007,
+      "lon": -96.8957
     },
     {
       "county": "Tarrant",
@@ -2289,8 +2188,24 @@
       "customersOut": 33,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.74656,
-      "lon": -97.12213
+      "lat": 32.82657,
+      "lon": -97.28154
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 33,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.73974,
+      "lon": -97.49307
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 32,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.72376,
+      "lon": -96.8461
     },
     {
       "county": "Tarrant",
@@ -2309,14 +2224,6 @@
       "lon": -97.77242
     },
     {
-      "county": "Dallas",
-      "customersOut": 32,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.72376,
-      "lon": -96.8461
-    },
-    {
       "county": "Franklin",
       "customersOut": 32,
       "outageCause": "null",
@@ -2325,12 +2232,28 @@
       "lon": -95.1937223539976
     },
     {
-      "county": "Parker",
+      "county": "Dallas",
       "customersOut": 31,
       "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T16:00:00Z",
+      "lat": 32.81627,
+      "lon": -96.65658
+    },
+    {
+      "county": "Parker",
+      "customersOut": 31,
+      "outageCause": "Vegetation ",
       "estimatedRestoration": "null",
       "lat": 32.79971,
       "lon": -97.56549
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 30,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.7521,
+      "lon": -96.67664
     },
     {
       "county": "Wise",
@@ -2342,11 +2265,11 @@
     },
     {
       "county": "Dallas",
-      "customersOut": 30,
-      "outageCause": "null",
+      "customersOut": 29,
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.7521,
-      "lon": -96.67664
+      "lat": 32.66741,
+      "lon": -96.89807
     },
     {
       "county": "Tarrant",
@@ -2357,20 +2280,28 @@
       "lon": -97.08449
     },
     {
-      "county": "Tarrant",
+      "county": "Parker",
       "customersOut": 29,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.7261,
-      "lon": -97.42775
+      "lat": 32.96928,
+      "lon": -97.68014
     },
     {
-      "county": "Parker",
+      "county": "Tarrant",
       "customersOut": 28,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.97053,
-      "lon": -97.68087
+      "lat": 32.81742,
+      "lon": -97.47587
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 27,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.71555,
+      "lon": -96.87561
     },
     {
       "county": "Tarrant",
@@ -2381,44 +2312,28 @@
       "lon": -97.36224
     },
     {
-      "county": "Tarrant",
-      "customersOut": 27,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.81743,
-      "lon": -97.47318
-    },
-    {
-      "county": "Parker",
-      "customersOut": 27,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.80628,
-      "lon": -97.58799
-    },
-    {
       "county": "Dallas",
       "customersOut": 26,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.71387,
-      "lon": -96.87496
+      "lat": 32.62238,
+      "lon": -96.90413
     },
     {
-      "county": "Tarrant",
+      "county": "Dallas",
       "customersOut": 26,
-      "outageCause": "Equipment Issue",
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.67117,
-      "lon": -97.27089
+      "lat": 32.65368,
+      "lon": -96.87101
     },
     {
-      "county": "Tarrant",
+      "county": "Rockwall",
       "customersOut": 26,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.76903,
-      "lon": -97.19955
+      "outageCause": "Adverse weather ",
+      "estimatedRestoration": "2026-04-26T14:30:00Z",
+      "lat": 32.85002,
+      "lon": -96.40044
     },
     {
       "county": "Wichita",
@@ -2429,12 +2344,20 @@
       "lon": -98.57639
     },
     {
-      "county": "Rockwall",
+      "county": "Tarrant",
       "customersOut": 26,
+      "outageCause": "Equipment Issue",
+      "estimatedRestoration": "null",
+      "lat": 32.67117,
+      "lon": -97.27089
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 25,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T12:00:00Z",
-      "lat": 32.85002,
-      "lon": -96.40044
+      "estimatedRestoration": "2026-04-26T14:00:00Z",
+      "lat": 32.65552,
+      "lon": -96.5346
     },
     {
       "county": "Tarrant",
@@ -2453,14 +2376,6 @@
       "lon": -97.36269
     },
     {
-      "county": "Dallas",
-      "customersOut": 25,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T14:00:00Z",
-      "lat": 32.65552,
-      "lon": -96.5346
-    },
-    {
       "county": "Franklin",
       "customersOut": 25,
       "outageCause": "PLANNED MAINTENANCE",
@@ -2477,6 +2392,14 @@
       "lon": -94.95279
     },
     {
+      "county": "Tarrant",
+      "customersOut": 24,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.75251,
+      "lon": -97.19274
+    },
+    {
       "county": "Dallas",
       "customersOut": 24,
       "outageCause": "null",
@@ -2485,20 +2408,20 @@
       "lon": -96.89487
     },
     {
-      "county": "Tarrant",
+      "county": "Anderson",
       "customersOut": 24,
-      "outageCause": "Aggregated outage point",
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.66408,
-      "lon": -97.35799
+      "lat": 31.5389799964585,
+      "lon": -95.6667268121713
     },
     {
       "county": "Tarrant",
-      "customersOut": 24,
-      "outageCause": "Aggregated outage point",
+      "customersOut": 23,
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.75251,
-      "lon": -97.19274
+      "lat": 32.74513,
+      "lon": -97.12317
     },
     {
       "county": "Tarrant",
@@ -2509,12 +2432,20 @@
       "lon": -97.4571
     },
     {
-      "county": "Brazoria",
+      "county": "Wise",
+      "customersOut": 23,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0031300305874,
+      "lon": -97.6797994167886
+    },
+    {
+      "county": "Dallas",
       "customersOut": 22,
-      "outageCause": "Planned Outage",
-      "estimatedRestoration": "2026-04-26T10:45:00Z",
-      "lat": 29.57359,
-      "lon": -95.2671
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.63571,
+      "lon": -96.91998
     },
     {
       "county": "Tarrant",
@@ -2525,12 +2456,12 @@
       "lon": -97.29303
     },
     {
-      "county": "Tarrant",
-      "customersOut": 21,
-      "outageCause": "Aggregated outage point",
+      "county": "Wise",
+      "customersOut": 22,
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.67728,
-      "lon": -97.18489
+      "lat": 33.0146310013185,
+      "lon": -97.6948205973207
     },
     {
       "county": "Dallas",
@@ -2541,12 +2472,12 @@
       "lon": -96.83257
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 21,
-      "outageCause": "null",
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.75574,
-      "lon": -96.89231
+      "lat": 32.67728,
+      "lon": -97.18489
     },
     {
       "county": "Tarrant",
@@ -2565,6 +2496,22 @@
       "lon": -97.39606
     },
     {
+      "county": "Dallas",
+      "customersOut": 20,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.68873,
+      "lon": -96.60401
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 20,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.66731,
+      "lon": -96.63708
+    },
+    {
       "county": "Tarrant",
       "customersOut": 20,
       "outageCause": "Aggregated outage point",
@@ -2577,8 +2524,8 @@
       "customersOut": 20,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.71842,
-      "lon": -97.29073
+      "lat": 32.77523,
+      "lon": -97.194
     },
     {
       "county": "Tarrant",
@@ -2589,12 +2536,12 @@
       "lon": -97.254
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 20,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.68873,
-      "lon": -96.60401
+      "lat": 32.71842,
+      "lon": -97.29073
     },
     {
       "county": "Franklin",
@@ -2605,12 +2552,12 @@
       "lon": -95.1685921191211
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 19,
-      "outageCause": "Vegetation ",
-      "estimatedRestoration": "2026-04-26T14:00:00Z",
-      "lat": 32.78924,
-      "lon": -96.97542
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.75931,
+      "lon": -97.17708
     },
     {
       "county": "Dallas",
@@ -2621,12 +2568,12 @@
       "lon": -96.8829
     },
     {
-      "county": "Tarrant",
+      "county": "Dallas",
       "customersOut": 19,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.71119,
-      "lon": -97.40336
+      "outageCause": "Vegetation ",
+      "estimatedRestoration": "2026-04-26T17:00:00Z",
+      "lat": 32.78924,
+      "lon": -96.97542
     },
     {
       "county": "Hunt",
@@ -2635,6 +2582,30 @@
       "estimatedRestoration": "null",
       "lat": 32.8481716413889,
       "lon": -96.1484669377046
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 18,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.62702,
+      "lon": -97.08461
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 18,
+      "outageCause": "Equipment Issue",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.7975,
+      "lon": -96.55736
+    },
+    {
+      "county": "Lamar",
+      "customersOut": 18,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.67056,
+      "lon": -95.53186
     },
     {
       "county": "Tarrant",
@@ -2653,20 +2624,12 @@
       "lon": -97.3808
     },
     {
-      "county": "Tarrant",
+      "county": "Orange",
       "customersOut": 18,
       "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.62702,
-      "lon": -97.08461
-    },
-    {
-      "county": "Grayson",
-      "customersOut": 18,
-      "outageCause": "Equipment Issue",
-      "estimatedRestoration": "null",
-      "lat": 33.7975,
-      "lon": -96.55736
+      "estimatedRestoration": "2026-04-26T15:00:00Z",
+      "lat": 30.2293290038245,
+      "lon": -93.8429961873358
     },
     {
       "county": "Panola",
@@ -2685,12 +2648,20 @@
       "lon": -97.7719985225383
     },
     {
-      "county": "Tarrant",
-      "customersOut": 17,
-      "outageCause": "Aggregated outage point",
+      "county": "Wise",
+      "customersOut": 18,
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.74033,
-      "lon": -97.42306
+      "lat": 33.0615616695384,
+      "lon": -97.6553910725057
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 17,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.63451,
+      "lon": -96.59071
     },
     {
       "county": "Tarrant",
@@ -2711,18 +2682,10 @@
     {
       "county": "Tarrant",
       "customersOut": 16,
-      "outageCause": "null",
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.75326,
-      "lon": -97.09945
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 16,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.59601,
-      "lon": -96.92389
+      "lat": 32.76836,
+      "lon": -97.16361
     },
     {
       "county": "Dallas",
@@ -2731,38 +2694,6 @@
       "estimatedRestoration": "null",
       "lat": 32.69453,
       "lon": -96.86726
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 16,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.75166,
-      "lon": -97.25234
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 16,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.83286,
-      "lon": -97.16854
-    },
-    {
-      "county": "Parker",
-      "customersOut": 16,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.97234,
-      "lon": -97.85556
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 16,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "2026-04-26T11:00:00Z",
-      "lat": 32.83769,
-      "lon": -96.75774
     },
     {
       "county": "Dallas",
@@ -2774,11 +2705,43 @@
     },
     {
       "county": "Dallas",
-      "customersOut": 15,
+      "customersOut": 16,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.59601,
+      "lon": -96.92389
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 16,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.75326,
+      "lon": -97.09945
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 16,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.66752,
-      "lon": -96.89881
+      "lat": 32.75166,
+      "lon": -97.25234
+    },
+    {
+      "county": "Parker",
+      "customersOut": 16,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.97234,
+      "lon": -97.85556
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 15,
+      "outageCause": "Vegetation ",
+      "estimatedRestoration": "null",
+      "lat": 32.84065,
+      "lon": -96.75986
     },
     {
       "county": "Rockwall",
@@ -2789,20 +2752,28 @@
       "lon": -96.47946
     },
     {
-      "county": "Brazoria",
-      "customersOut": 14,
-      "outageCause": "Planned Outage",
-      "estimatedRestoration": "2026-04-26T10:45:00Z",
-      "lat": 29.57427,
-      "lon": -95.2662
+      "county": "Dallas",
+      "customersOut": 15,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.71183,
+      "lon": -96.77454
     },
     {
-      "county": "Tarrant",
+      "county": "Grayson",
+      "customersOut": 15,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.61346,
+      "lon": -96.60115
+    },
+    {
+      "county": "Dallas",
       "customersOut": 14,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.68737,
-      "lon": -97.20407
+      "lat": 32.64541,
+      "lon": -96.9131
     },
     {
       "county": "Dallas",
@@ -2821,33 +2792,9 @@
       "lon": -96.84196
     },
     {
-      "county": "Parker",
-      "customersOut": 14,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.78019,
-      "lon": -97.5533
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 14,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.72644,
-      "lon": -97.25334
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 14,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.82488,
-      "lon": -97.14175
-    },
-    {
       "county": "Dallas",
       "customersOut": 14,
-      "outageCause": "null",
+      "outageCause": "Equipment Issue",
       "estimatedRestoration": "2026-04-26T14:00:00Z",
       "lat": 32.64115,
       "lon": -96.56898
@@ -2861,12 +2808,92 @@
       "lon": -96.27412
     },
     {
+      "county": "Tarrant",
+      "customersOut": 14,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.68737,
+      "lon": -97.20407
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 14,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.82488,
+      "lon": -97.14175
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 14,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.72644,
+      "lon": -97.25334
+    },
+    {
+      "county": "Wise",
+      "customersOut": 14,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 33.12991,
+      "lon": -97.80142
+    },
+    {
+      "county": "Parker",
+      "customersOut": 14,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.78019,
+      "lon": -97.5533
+    },
+    {
+      "county": "Wise",
+      "customersOut": 14,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0060436994741,
+      "lon": -97.7053591328205
+    },
+    {
       "county": "Dallas",
       "customersOut": 13,
       "outageCause": "Equipment ",
-      "estimatedRestoration": "2026-04-26T11:00:00Z",
+      "estimatedRestoration": "null",
       "lat": 32.80234,
       "lon": -96.93616
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 13,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.7154,
+      "lon": -96.85791
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 13,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.74322,
+      "lon": -96.80121
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 13,
+      "outageCause": "Vegetation ",
+      "estimatedRestoration": "2026-04-26T19:30:00Z",
+      "lat": 33.76812,
+      "lon": -96.5625
+    },
+    {
+      "county": "Lamar",
+      "customersOut": 13,
+      "outageCause": "Vegetation ",
+      "estimatedRestoration": "2026-04-26T18:30:00Z",
+      "lat": 33.65346,
+      "lon": -95.54695
     },
     {
       "county": "Tarrant",
@@ -2887,50 +2914,18 @@
     {
       "county": "Tarrant",
       "customersOut": 13,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.80713,
-      "lon": -97.39371
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 13,
       "outageCause": "Equipment Issue",
       "estimatedRestoration": "null",
       "lat": 32.81569,
       "lon": -97.3388
     },
     {
-      "county": "Grayson",
-      "customersOut": 13,
-      "outageCause": "Vegetation ",
-      "estimatedRestoration": "null",
-      "lat": 33.76812,
-      "lon": -96.5625
-    },
-    {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 13,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.74322,
-      "lon": -96.80121
-    },
-    {
-      "county": "Wise",
-      "customersOut": 13,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 33.13015,
-      "lon": -97.80157
-    },
-    {
-      "county": "Lamar",
-      "customersOut": 13,
-      "outageCause": "Vegetation ",
-      "estimatedRestoration": "null",
-      "lat": 33.65346,
-      "lon": -95.54695
+      "lat": 32.80713,
+      "lon": -97.39371
     },
     {
       "county": "Franklin",
@@ -2949,12 +2944,20 @@
       "lon": -97.614172505923
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 12,
-      "outageCause": "Equipment ",
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.7168,
-      "lon": -96.85854
+      "lat": 32.70303,
+      "lon": -97.13494
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 12,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.73975,
+      "lon": -97.20092
     },
     {
       "county": "Dallas",
@@ -2963,6 +2966,22 @@
       "estimatedRestoration": "null",
       "lat": 32.60795,
       "lon": -96.77066
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 12,
+      "outageCause": "Equipment ",
+      "estimatedRestoration": "2026-04-26T12:30:00Z",
+      "lat": 32.78848,
+      "lon": -96.60222
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 12,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.68986,
+      "lon": -97.33707
     },
     {
       "county": "Tarrant",
@@ -2983,66 +3002,18 @@
     {
       "county": "Tarrant",
       "customersOut": 12,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.68986,
-      "lon": -97.33707
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 12,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.70303,
-      "lon": -97.13494
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 12,
-      "outageCause": "Equipment ",
-      "estimatedRestoration": "2026-04-26T12:30:00Z",
-      "lat": 32.78848,
-      "lon": -96.60222
-    },
-    {
-      "county": "Brazoria",
-      "customersOut": 11,
-      "outageCause": "Planned Outage",
-      "estimatedRestoration": "2026-04-26T10:45:00Z",
-      "lat": 29.57389,
-      "lon": -95.26423
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 11,
-      "outageCause": "Lightning",
-      "estimatedRestoration": "null",
-      "lat": 32.88769,
-      "lon": -96.87881
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 11,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T14:00:00Z",
-      "lat": 32.81703,
-      "lon": -96.96902
+      "lat": 32.73806,
+      "lon": -97.31311
     },
     {
       "county": "Tarrant",
       "customersOut": 11,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.73809,
-      "lon": -97.31259
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 11,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.73134,
-      "lon": -97.33328
+      "lat": 32.72413,
+      "lon": -97.13801
     },
     {
       "county": "Tarrant",
@@ -3065,8 +3036,24 @@
       "customersOut": 11,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
+      "lat": 32.70618,
+      "lon": -97.23874
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 11,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
       "lat": 32.81747,
       "lon": -97.46499
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 11,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.77314,
+      "lon": -97.38566
     },
     {
       "county": "Tarrant",
@@ -3085,36 +3072,28 @@
       "lon": -97.45051
     },
     {
-      "county": "Tarrant",
-      "customersOut": 11,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.77314,
-      "lon": -97.38566
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 11,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.70618,
-      "lon": -97.23874
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 11,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.64286,
-      "lon": -97.11378
-    },
-    {
       "county": "Wise",
       "customersOut": 11,
       "outageCause": "null",
       "estimatedRestoration": "null",
       "lat": 33.0778882599154,
       "lon": -97.6867429479236
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 10,
+      "outageCause": "Equipment Issue",
+      "estimatedRestoration": "null",
+      "lat": 32.69432,
+      "lon": -96.84835
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 10,
+      "outageCause": "Vegetation ",
+      "estimatedRestoration": "null",
+      "lat": 32.82175,
+      "lon": -97.18162
     },
     {
       "county": "Tarrant",
@@ -3143,14 +3122,6 @@
     {
       "county": "Tarrant",
       "customersOut": 10,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.79464,
-      "lon": -97.3933
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 10,
       "outageCause": "null",
       "estimatedRestoration": "null",
       "lat": 32.79155,
@@ -3159,24 +3130,16 @@
     {
       "county": "Tarrant",
       "customersOut": 10,
-      "outageCause": "Vegetation ",
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.82175,
-      "lon": -97.18162
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 10,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.84199,
-      "lon": -97.17739
+      "lat": 32.79464,
+      "lon": -97.3933
     },
     {
       "county": "Titus",
       "customersOut": 10,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.0468657508264,
       "lon": -95.1052004668216
     },
@@ -3189,12 +3152,12 @@
       "lon": -93.6968905529863
     },
     {
-      "county": "Brazoria",
+      "county": "Grayson",
       "customersOut": 9,
-      "outageCause": "Planned Outage",
-      "estimatedRestoration": "2026-04-26T10:45:00Z",
-      "lat": 29.57632,
-      "lon": -95.26567
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.65722,
+      "lon": -96.61355
     },
     {
       "county": "Dallas",
@@ -3237,36 +3200,12 @@
       "lon": -97.39232
     },
     {
-      "county": "Grayson",
-      "customersOut": 9,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 33.71285,
-      "lon": -96.63717
-    },
-    {
-      "county": "Ector",
-      "customersOut": 8,
-      "outageCause": "Adverse weather ",
-      "estimatedRestoration": "null",
-      "lat": 31.88196,
-      "lon": -102.41358
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 8,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.64312,
-      "lon": -96.91202
-    },
-    {
       "county": "Tarrant",
       "customersOut": 8,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.84925,
-      "lon": -97.08768
+      "lat": 32.82286,
+      "lon": -97.26148
     },
     {
       "county": "Dallas",
@@ -3277,20 +3216,20 @@
       "lon": -96.82591
     },
     {
-      "county": "Tarrant",
+      "county": "Ector",
       "customersOut": 8,
-      "outageCause": "null",
+      "outageCause": "Adverse weather ",
       "estimatedRestoration": "null",
-      "lat": 32.82276,
-      "lon": -97.42319
+      "lat": 31.88196,
+      "lon": -102.41358
     },
     {
       "county": "Tarrant",
       "customersOut": 8,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.80525,
-      "lon": -97.29642
+      "lat": 32.84925,
+      "lon": -97.08768
     },
     {
       "county": "Tarrant",
@@ -3305,16 +3244,24 @@
       "customersOut": 8,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.82286,
-      "lon": -97.26148
+      "lat": 32.80525,
+      "lon": -97.29642
     },
     {
-      "county": "Freestone",
+      "county": "Tarrant",
       "customersOut": 8,
-      "outageCause": "Equipment ",
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 31.73104,
-      "lon": -96.1466
+      "lat": 32.82276,
+      "lon": -97.42319
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 7,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.85104,
+      "lon": -97.50733
     },
     {
       "county": "Dallas",
@@ -3329,24 +3276,8 @@
       "customersOut": 7,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.67958,
-      "lon": -97.4615
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 7,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.77067,
-      "lon": -97.52621
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 7,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.76821,
-      "lon": -97.39797
+      "lat": 32.82975,
+      "lon": -97.18504
     },
     {
       "county": "Tarrant",
@@ -3359,18 +3290,18 @@
     {
       "county": "Tarrant",
       "customersOut": 7,
-      "outageCause": "null",
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.85104,
-      "lon": -97.50733
+      "lat": 32.67958,
+      "lon": -97.4615
     },
     {
       "county": "Tarrant",
       "customersOut": 7,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.78003,
-      "lon": -97.34491
+      "lat": 32.76821,
+      "lon": -97.39797
     },
     {
       "county": "Tarrant",
@@ -3383,42 +3314,18 @@
     {
       "county": "Tarrant",
       "customersOut": 7,
-      "outageCause": "Aggregated outage point",
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.62514,
-      "lon": -97.13097
+      "lat": 32.78003,
+      "lon": -97.34491
     },
     {
       "county": "Tarrant",
-      "customersOut": 7,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.82975,
-      "lon": -97.18504
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 7,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.7746,
-      "lon": -97.12386
-    },
-    {
-      "county": "Dallas",
       "customersOut": 7,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.71244,
-      "lon": -96.77625
-    },
-    {
-      "county": "Wise",
-      "customersOut": 7,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 33.1739,
-      "lon": -97.89844
+      "lat": 32.77067,
+      "lon": -97.52621
     },
     {
       "county": "Parker",
@@ -3448,9 +3355,17 @@
       "county": "Harris",
       "customersOut": 6,
       "outageCause": "null",
-      "estimatedRestoration": "null",
+      "estimatedRestoration": "2026-04-26T12:27:00Z",
       "lat": 30.0414,
       "lon": -95.34484
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 6,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.75177,
+      "lon": -96.9904
     },
     {
       "county": "Tarrant",
@@ -3459,6 +3374,14 @@
       "estimatedRestoration": "null",
       "lat": 32.74762,
       "lon": -97.07871
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 6,
+      "outageCause": "Vegetation ",
+      "estimatedRestoration": "null",
+      "lat": 32.67198,
+      "lon": -97.14999
     },
     {
       "county": "Dallas",
@@ -3477,12 +3400,12 @@
       "lon": -97.18972
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 6,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.75177,
-      "lon": -96.9904
+      "lat": 32.76237,
+      "lon": -97.29259
     },
     {
       "county": "Tarrant",
@@ -3505,6 +3428,14 @@
       "customersOut": 6,
       "outageCause": "null",
       "estimatedRestoration": "null",
+      "lat": 32.86831,
+      "lon": -97.302
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 6,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
       "lat": 32.70252,
       "lon": -97.44945
     },
@@ -3517,54 +3448,6 @@
       "lon": -97.43176
     },
     {
-      "county": "Tarrant",
-      "customersOut": 6,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.8866,
-      "lon": -97.45859
-    },
-    {
-      "county": "Parker",
-      "customersOut": 6,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.81319,
-      "lon": -97.58647
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 6,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.76237,
-      "lon": -97.29259
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 6,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.68268,
-      "lon": -97.14626
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 6,
-      "outageCause": "Vegetation ",
-      "estimatedRestoration": "null",
-      "lat": 32.67198,
-      "lon": -97.14999
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 6,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.86831,
-      "lon": -97.302
-    },
-    {
       "county": "Wise",
       "customersOut": 6,
       "outageCause": "null",
@@ -3573,20 +3456,20 @@
       "lon": -97.52097
     },
     {
-      "county": "Dallas",
-      "customersOut": 6,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T12:00:00Z",
-      "lat": 32.71178,
-      "lon": -96.59867
-    },
-    {
       "county": "Parker",
       "customersOut": 6,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
       "lat": 32.98989,
       "lon": -97.81686
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 6,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.8866,
+      "lon": -97.45859
     },
     {
       "county": "Titus",
@@ -3621,6 +3504,38 @@
       "lon": -95.24246
     },
     {
+      "county": "Harris",
+      "customersOut": 5,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T14:15:52Z",
+      "lat": 29.82236,
+      "lon": -95.38005
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 5,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.64289,
+      "lon": -96.57471
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 5,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.61539,
+      "lon": -96.58579
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 5,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.71123,
+      "lon": -97.13101
+    },
+    {
       "county": "Dallas",
       "customersOut": 5,
       "outageCause": "null",
@@ -3637,28 +3552,20 @@
       "lon": -97.1828
     },
     {
-      "county": "Tarrant",
-      "customersOut": 5,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.71123,
-      "lon": -97.13101
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 5,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.73584,
-      "lon": -97.10152
-    },
-    {
       "county": "Ellis",
       "customersOut": 5,
       "outageCause": "null",
       "estimatedRestoration": "null",
       "lat": 32.54007,
       "lon": -96.76991
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 5,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.76887,
+      "lon": -97.03317
     },
     {
       "county": "Tarrant",
@@ -3669,12 +3576,12 @@
       "lon": -97.23848
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 5,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.76887,
-      "lon": -97.03317
+      "lat": 32.73584,
+      "lon": -97.10152
     },
     {
       "county": "Tarrant",
@@ -3709,20 +3616,12 @@
       "lon": -97.50763
     },
     {
-      "county": "Tarrant",
-      "customersOut": 5,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.95901,
-      "lon": -97.48016
-    },
-    {
-      "county": "Tarrant",
+      "county": "Wise",
       "customersOut": 5,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.89804,
-      "lon": -97.48489
+      "lat": 33.14706,
+      "lon": -97.57676
     },
     {
       "county": "Wise",
@@ -3731,22 +3630,6 @@
       "estimatedRestoration": "null",
       "lat": 33.17887,
       "lon": -97.77196
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 5,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T12:00:00Z",
-      "lat": 32.84391,
-      "lon": -96.56953
-    },
-    {
-      "county": "Wise",
-      "customersOut": 5,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 33.14706,
-      "lon": -97.57676
     },
     {
       "county": "Wise",
@@ -3765,6 +3648,22 @@
       "lon": -97.79357
     },
     {
+      "county": "Tarrant",
+      "customersOut": 5,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.89804,
+      "lon": -97.48489
+    },
+    {
+      "county": "Hunt",
+      "customersOut": 5,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.8461759031236,
+      "lon": -96.0861092017504
+    },
+    {
       "county": "Galveston",
       "customersOut": 4,
       "outageCause": "null",
@@ -3777,8 +3676,32 @@
       "customersOut": 4,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.72304,
-      "lon": -97.09629
+      "lat": 32.75698,
+      "lon": -97.12679
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 4,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.56206,
+      "lon": -96.85246
+    },
+    {
+      "county": "Wise",
+      "customersOut": 4,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.36115,
+      "lon": -97.38986
+    },
+    {
+      "county": "Lamar",
+      "customersOut": 4,
+      "outageCause": "Vegetation ",
+      "estimatedRestoration": "2026-04-26T12:00:00Z",
+      "lat": 33.63044,
+      "lon": -95.50399
     },
     {
       "county": "Dallas",
@@ -3789,12 +3712,12 @@
       "lon": -97.02044
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 4,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.56206,
-      "lon": -96.85246
+      "lat": 32.72304,
+      "lon": -97.09629
     },
     {
       "county": "Tarrant",
@@ -3817,56 +3740,8 @@
       "customersOut": 4,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.83495,
-      "lon": -97.49301
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 4,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
       "lat": 32.78974,
       "lon": -97.39934
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 4,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.75698,
-      "lon": -97.12679
-    },
-    {
-      "county": "Nacogdoches",
-      "customersOut": 4,
-      "outageCause": "Equipment ",
-      "estimatedRestoration": "2026-04-26T11:00:00Z",
-      "lat": 31.54316,
-      "lon": -94.57533
-    },
-    {
-      "county": "Wise",
-      "customersOut": 4,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.36115,
-      "lon": -97.38986
-    },
-    {
-      "county": "Wise",
-      "customersOut": 4,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.05079,
-      "lon": -97.919
-    },
-    {
-      "county": "Wise",
-      "customersOut": 4,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 33.10798,
-      "lon": -97.83057
     },
     {
       "county": "Parker",
@@ -3877,12 +3752,28 @@
       "lon": -97.64742
     },
     {
-      "county": "Lamar",
+      "county": "Tarrant",
       "customersOut": 4,
-      "outageCause": "Vegetation ",
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.63044,
-      "lon": -95.50399
+      "lat": 32.83495,
+      "lon": -97.49301
+    },
+    {
+      "county": "Wise",
+      "customersOut": 4,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 33.10798,
+      "lon": -97.83057
+    },
+    {
+      "county": "Wise",
+      "customersOut": 4,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.05079,
+      "lon": -97.919
     },
     {
       "county": "Franklin",
@@ -3904,7 +3795,7 @@
       "county": "Franklin",
       "customersOut": 4,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.0901315179867,
       "lon": -95.1733673679001
     },
@@ -3920,9 +3811,17 @@
       "county": "Franklin",
       "customersOut": 4,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.0671297321972,
       "lon": -95.1910538324204
+    },
+    {
+      "county": "Montgomery",
+      "customersOut": 4,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 30.32496,
+      "lon": -95.2003
     },
     {
       "county": "Wise",
@@ -3933,20 +3832,20 @@
       "lon": -97.7572497329178
     },
     {
-      "county": "Harris",
-      "customersOut": 3,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:07:00Z",
-      "lat": 29.73886,
-      "lon": -95.59948
-    },
-    {
       "county": "Tarrant",
       "customersOut": 3,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.75318,
-      "lon": -97.05653
+      "lat": 32.73559,
+      "lon": -97.13564
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 3,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.68457,
+      "lon": -96.88341
     },
     {
       "county": "Dallas",
@@ -3973,12 +3872,12 @@
       "lon": -96.88742
     },
     {
-      "county": "Dallas",
+      "county": "Tarrant",
       "customersOut": 3,
-      "outageCause": "Aggregated outage point",
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.68457,
-      "lon": -96.88341
+      "lat": 32.75318,
+      "lon": -97.05653
     },
     {
       "county": "Tarrant",
@@ -3999,6 +3898,14 @@
     {
       "county": "Tarrant",
       "customersOut": 3,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.71549,
+      "lon": -97.52823
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 3,
       "outageCause": "null",
       "estimatedRestoration": "null",
       "lat": 32.78708,
@@ -4007,26 +3914,18 @@
     {
       "county": "Wise",
       "customersOut": 3,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 33.18366,
-      "lon": -97.80492
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 3,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.73559,
-      "lon": -97.13564
-    },
-    {
-      "county": "Wise",
-      "customersOut": 3,
       "outageCause": "null",
       "estimatedRestoration": "null",
       "lat": 33.13078,
       "lon": -97.78959
+    },
+    {
+      "county": "Wise",
+      "customersOut": 3,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 33.18366,
+      "lon": -97.80492
     },
     {
       "county": "Parker",
@@ -4043,6 +3942,14 @@
       "estimatedRestoration": "2026-04-26T17:00:00Z",
       "lat": 30.2938991906482,
       "lon": -95.444857315149
+    },
+    {
+      "county": "Liberty",
+      "customersOut": 3,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T15:00:00Z",
+      "lat": 29.9455256710393,
+      "lon": -94.8426874101481
     },
     {
       "county": "Franklin",
@@ -4081,14 +3988,6 @@
       "customersOut": 3,
       "outageCause": "null",
       "estimatedRestoration": "2026-04-27T03:00:00Z",
-      "lat": 33.0814,
-      "lon": -95.1901933333333
-    },
-    {
-      "county": "Franklin",
-      "customersOut": 3,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.0814266666667,
       "lon": -95.1764533333333
     },
@@ -4096,7 +3995,7 @@
       "county": "Franklin",
       "customersOut": 3,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.0638566666667,
       "lon": -95.21124
     },
@@ -4120,17 +4019,105 @@
       "county": "Franklin",
       "customersOut": 3,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.0612866666667,
       "lon": -95.2039
+    },
+    {
+      "county": "Fort Bend",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:10:13Z",
+      "lat": 29.66307,
+      "lon": -95.64387
+    },
+    {
+      "county": "Harris",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:40:55Z",
+      "lat": 30.15356,
+      "lon": -95.54203
     },
     {
       "county": "Tarrant",
       "customersOut": 2,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.6656,
-      "lon": -97.17742
+      "lat": 32.85841,
+      "lon": -97.31792
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 2,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.5938,
+      "lon": -96.75483
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.69366,
+      "lon": -96.80452
+    },
+    {
+      "county": "Rockwall",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T14:00:00Z",
+      "lat": 32.8949,
+      "lon": -96.40131
+    },
+    {
+      "county": "Rockwall",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.88718,
+      "lon": -96.45448
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 2,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.63827,
+      "lon": -97.10646
+    },
+    {
+      "county": "Archer",
+      "customersOut": 2,
+      "outageCause": "Adverse weather ",
+      "estimatedRestoration": "2026-04-26T11:30:00Z",
+      "lat": 33.78052,
+      "lon": -98.58495
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.82004,
+      "lon": -96.6102
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.60062,
+      "lon": -96.56837
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.5818,
+      "lon": -96.5585
     },
     {
       "county": "Tarrant",
@@ -4143,10 +4130,18 @@
     {
       "county": "Tarrant",
       "customersOut": 2,
-      "outageCause": "null",
+      "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.73223,
-      "lon": -97.03966
+      "lat": 32.56195,
+      "lon": -97.29282
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 2,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.6656,
+      "lon": -97.17742
     },
     {
       "county": "Dallas",
@@ -4155,14 +4150,6 @@
       "estimatedRestoration": "null",
       "lat": 32.60779,
       "lon": -96.89894
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.69366,
-      "lon": -96.80452
     },
     {
       "county": "Tarrant",
@@ -4183,18 +4170,18 @@
     {
       "county": "Tarrant",
       "customersOut": 2,
-      "outageCause": "Aggregated outage point",
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.68857,
-      "lon": -97.21483
+      "lat": 32.73223,
+      "lon": -97.03966
     },
     {
       "county": "Tarrant",
       "customersOut": 2,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.56195,
-      "lon": -97.29282
+      "lat": 32.74871,
+      "lon": -97.21593
     },
     {
       "county": "Johnson",
@@ -4209,8 +4196,24 @@
       "customersOut": 2,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.71503,
-      "lon": -97.52834
+      "lat": 32.68857,
+      "lon": -97.21483
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 2,
+      "outageCause": "Aggregated outage point",
+      "estimatedRestoration": "null",
+      "lat": 32.78292,
+      "lon": -97.46687
+    },
+    {
+      "county": "Wise",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.17252,
+      "lon": -97.86133
     },
     {
       "county": "Tarrant",
@@ -4233,14 +4236,6 @@
       "customersOut": 2,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.81178,
-      "lon": -97.54513
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 2,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
       "lat": 32.82504,
       "lon": -97.4777
     },
@@ -4249,104 +4244,24 @@
       "customersOut": 2,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.7088,
-      "lon": -97.43072
+      "lat": 32.81178,
+      "lon": -97.54513
     },
     {
       "county": "Parker",
       "customersOut": 2,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.93875,
-      "lon": -97.63378
+      "lat": 32.79515,
+      "lon": -97.59379
     },
     {
-      "county": "Tarrant",
+      "county": "Parker",
       "customersOut": 2,
       "outageCause": "Aggregated outage point",
       "estimatedRestoration": "null",
-      "lat": 32.78292,
-      "lon": -97.46687
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 2,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.77104,
-      "lon": -97.17504
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 2,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.88493,
-      "lon": -97.24321
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 2,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.85841,
-      "lon": -97.31792
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 2,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.63827,
-      "lon": -97.10646
-    },
-    {
-      "county": "Archer",
-      "customersOut": 2,
-      "outageCause": "Adverse weather ",
-      "estimatedRestoration": "2026-04-26T11:30:00Z",
-      "lat": 33.78052,
-      "lon": -98.58495
-    },
-    {
-      "county": "Rockwall",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T14:00:00Z",
-      "lat": 32.8949,
-      "lon": -96.40131
-    },
-    {
-      "county": "Grayson",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.82004,
-      "lon": -96.6102
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 2,
-      "outageCause": "Aggregated outage point",
-      "estimatedRestoration": "null",
-      "lat": 32.5938,
-      "lon": -96.75483
-    },
-    {
-      "county": "Rockwall",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T11:00:00Z",
-      "lat": 32.88718,
-      "lon": -96.45448
-    },
-    {
-      "county": "Wise",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.17252,
-      "lon": -97.86133
+      "lat": 32.98341,
+      "lon": -97.83977
     },
     {
       "county": "Parker",
@@ -4357,12 +4272,12 @@
       "lon": -97.82501
     },
     {
-      "county": "Parker",
+      "county": "Tarrant",
       "customersOut": 2,
-      "outageCause": "Aggregated outage point",
+      "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.98341,
-      "lon": -97.83977
+      "lat": 32.89788,
+      "lon": -97.4653
     },
     {
       "county": "Montgomery",
@@ -4376,65 +4291,9 @@
       "county": "Franklin",
       "customersOut": 2,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
-      "lat": 33.08951,
-      "lon": -95.17918
-    },
-    {
-      "county": "Franklin",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
-      "lat": 33.06705,
-      "lon": -95.17139
-    },
-    {
-      "county": "Franklin",
-      "customersOut": 2,
-      "outageCause": "null",
       "estimatedRestoration": "2026-04-27T03:00:00Z",
-      "lat": 33.05576,
-      "lon": -95.18795
-    },
-    {
-      "county": "Franklin",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-27T03:00:00Z",
-      "lat": 33.18576,
-      "lon": -95.27308
-    },
-    {
-      "county": "Hopkins",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-27T03:00:00Z",
-      "lat": 33.16991,
-      "lon": -95.33255
-    },
-    {
-      "county": "Camp",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-27T03:00:00Z",
-      "lat": 33.00586,
-      "lon": -94.98638
-    },
-    {
-      "county": "Franklin",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-27T03:00:00Z",
-      "lat": 33.061,
-      "lon": -95.21308
-    },
-    {
-      "county": "Franklin",
-      "customersOut": 2,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-27T03:00:00Z",
-      "lat": 33.06295,
-      "lon": -95.20645
+      "lat": 33.07865,
+      "lon": -95.18045
     },
     {
       "county": "Franklin",
@@ -4449,8 +4308,56 @@
       "customersOut": 2,
       "outageCause": "null",
       "estimatedRestoration": "2026-04-27T03:00:00Z",
-      "lat": 33.07865,
-      "lon": -95.18045
+      "lat": 33.06295,
+      "lon": -95.20645
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
+      "lat": 33.061,
+      "lon": -95.21308
+    },
+    {
+      "county": "Camp",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
+      "lat": 33.00586,
+      "lon": -94.98638
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
+      "lat": 33.18576,
+      "lon": -95.27308
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
+      "lat": 33.05576,
+      "lon": -95.18795
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
+      "lat": 33.06705,
+      "lon": -95.17139
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
+      "lat": 33.08951,
+      "lon": -95.17918
     },
     {
       "county": "Rockwall",
@@ -4469,6 +4376,46 @@
       "lon": -96.44329
     },
     {
+      "county": "Madison",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 31.07513,
+      "lon": -95.73353
+    },
+    {
+      "county": "Wise",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0687592541234,
+      "lon": -97.5947836189336
+    },
+    {
+      "county": "Wise",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0698938730737,
+      "lon": -97.6000434515043
+    },
+    {
+      "county": "Wise",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0681450047822,
+      "lon": -97.59609196998
+    },
+    {
+      "county": "Wise",
+      "customersOut": 2,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0392067690501,
+      "lon": -97.7845604880738
+    },
+    {
       "county": "Wood",
       "customersOut": 2,
       "outageCause": "null",
@@ -4477,540 +4424,36 @@
       "lon": -95.31796
     },
     {
-      "county": "Travis",
-      "customersOut": 2,
-      "outageCause": "Unknown",
-      "estimatedRestoration": "2026-04-26T12:27:24Z",
-      "lat": 30.34047,
-      "lon": -97.97179
-    },
-    {
-      "county": "Brazoria",
-      "customersOut": 1,
-      "outageCause": "Planned Outage",
-      "estimatedRestoration": "2026-04-26T10:45:00Z",
-      "lat": 29.57467,
-      "lon": -95.26425
-    },
-    {
       "county": "Harris",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T10:22:20Z",
-      "lat": 29.67636,
-      "lon": -95.26922
-    },
-    {
-      "county": "Harris",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T12:58:50Z",
+      "estimatedRestoration": "2026-04-26T11:46:00Z",
       "lat": 29.82886,
       "lon": -95.04999
     },
     {
-      "county": "Fort Bend",
+      "county": "Harris",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:54Z",
-      "lat": 29.60226,
-      "lon": -95.96529
-    },
-    {
-      "county": "Fort Bend",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:10:13Z",
-      "lat": 29.66234,
-      "lon": -95.64398
-    },
-    {
-      "county": "Fort Bend",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:10:17Z",
-      "lat": 29.6638,
-      "lon": -95.64376
+      "estimatedRestoration": "2026-04-26T13:23:17Z",
+      "lat": 29.57096,
+      "lon": -95.04128
     },
     {
       "county": "Harris",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:14:38Z",
-      "lat": 29.6965,
-      "lon": -95.28319
+      "estimatedRestoration": "2026-04-26T13:25:44Z",
+      "lat": 29.6415,
+      "lon": -95.24192
     },
     {
       "county": "Harris",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:15:25Z",
-      "lat": 29.60903,
-      "lon": -95.26062
-    },
-    {
-      "county": "Harris",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:16:02Z",
-      "lat": 29.84696,
-      "lon": -95.56139
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.67866,
-      "lon": -97.04592
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.75436,
-      "lon": -97.09084
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.62086,
-      "lon": -96.95828
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.59877,
-      "lon": -96.97913
-    },
-    {
-      "county": "Ellis",
-      "customersOut": 1,
-      "outageCause": "Vegetation ",
-      "estimatedRestoration": "null",
-      "lat": 32.54677,
-      "lon": -96.95447
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.61354,
-      "lon": -96.8747
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.67986,
-      "lon": -97.01413
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.67864,
-      "lon": -96.79577
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.77855,
-      "lon": -96.86167
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.74275,
-      "lon": -96.85718
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.8763,
-      "lon": -96.8457
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.77615,
-      "lon": -96.88407
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T12:30:00Z",
-      "lat": 32.83676,
-      "lon": -96.97419
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.63311,
-      "lon": -96.93964
-    },
-    {
-      "county": "Dallas",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.68445,
-      "lon": -96.93181
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.88084,
-      "lon": -97.14958
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.89134,
-      "lon": -97.16561
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.79001,
-      "lon": -97.08205
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.56486,
-      "lon": -97.24879
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.73637,
-      "lon": -97.26197
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.76702,
-      "lon": -97.32709
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.71244,
-      "lon": -97.33262
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.67273,
-      "lon": -97.41068
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.65489,
-      "lon": -97.4774
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "Equipment Issue",
-      "estimatedRestoration": "null",
-      "lat": 32.78708,
-      "lon": -97.49786
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.72616,
-      "lon": -97.49466
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.72455,
-      "lon": -97.53728
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.72582,
-      "lon": -97.45775
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.74752,
-      "lon": -97.41323
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.6799,
-      "lon": -97.32893
-    },
-    {
-      "county": "Parker",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.87856,
-      "lon": -97.57423
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.85116,
-      "lon": -97.5366
-    },
-    {
-      "county": "Parker",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.79208,
-      "lon": -97.59344
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.89797,
-      "lon": -97.54414
-    },
-    {
-      "county": "Parker",
-      "customersOut": 1,
-      "outageCause": "Equipment Issue",
-      "estimatedRestoration": "null",
-      "lat": 32.90477,
-      "lon": -97.5545
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "Equipment Issue",
-      "estimatedRestoration": "null",
-      "lat": 32.91546,
-      "lon": -97.54334
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.77404,
-      "lon": -97.35702
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.83311,
-      "lon": -97.4227
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.83588,
-      "lon": -97.34266
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.80689,
-      "lon": -97.35282
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.82385,
-      "lon": -97.34426
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.70143,
-      "lon": -97.26266
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.70782,
-      "lon": -97.28465
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.77572,
-      "lon": -97.19361
-    },
-    {
-      "county": "Wise",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.05653,
-      "lon": -97.46972
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.87201,
-      "lon": -97.21087
-    },
-    {
-      "county": "Denton",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.08377,
-      "lon": -97.30126
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.8622,
-      "lon": -97.21125
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "Equipment Issue",
-      "estimatedRestoration": "null",
-      "lat": 32.77355,
-      "lon": -97.13652
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.89232,
-      "lon": -97.21259
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.93683,
-      "lon": -97.41493
-    },
-    {
-      "county": "Wise",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.06997,
-      "lon": -97.56704
-    },
-    {
-      "county": "Wise",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.17028,
-      "lon": -97.80591
-    },
-    {
-      "county": "Wise",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.14419,
-      "lon": -97.78851
-    },
-    {
-      "county": "Wise",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.09185,
-      "lon": -97.70184
-    },
-    {
-      "county": "Wise",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 33.15059,
-      "lon": -97.81893
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.89038,
-      "lon": -97.37327
+      "estimatedRestoration": "2026-04-26T13:45:01Z",
+      "lat": 29.73218,
+      "lon": -95.47601
     },
     {
       "county": "Tarrant",
@@ -5019,6 +4462,14 @@
       "estimatedRestoration": "null",
       "lat": 32.88245,
       "lon": -97.36278
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.89038,
+      "lon": -97.37327
     },
     {
       "county": "Tarrant",
@@ -5035,14 +4486,6 @@
       "estimatedRestoration": "null",
       "lat": 32.78614,
       "lon": -97.28222
-    },
-    {
-      "county": "Tarrant",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.74244,
-      "lon": -97.20586
     },
     {
       "county": "Tarrant",
@@ -5069,44 +4512,36 @@
       "lon": -97.13657
     },
     {
-      "county": "Limestone",
-      "customersOut": 1,
-      "outageCause": "Equipment ",
-      "estimatedRestoration": "null",
-      "lat": 31.68007,
-      "lon": -96.48405
-    },
-    {
-      "county": "Hood",
+      "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.37209,
-      "lon": -97.66813
-    },
-    {
-      "county": "Wichita",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
-      "lat": 33.88953,
-      "lon": -98.51432
+      "lat": 32.63311,
+      "lon": -96.93964
     },
     {
       "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.66277,
-      "lon": -96.64817
+      "lat": 32.64551,
+      "lon": -96.92178
     },
     {
-      "county": "Rockwall",
+      "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T12:00:00Z",
-      "lat": 32.826,
-      "lon": -96.36614
+      "estimatedRestoration": "null",
+      "lat": 32.57454,
+      "lon": -96.7434
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.68445,
+      "lon": -96.93181
     },
     {
       "county": "Dallas",
@@ -5117,28 +4552,68 @@
       "lon": -96.57683
     },
     {
-      "county": "Wise",
+      "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.37346,
-      "lon": -97.4585
+      "lat": 32.66277,
+      "lon": -96.64817
     },
     {
-      "county": "Kaufman",
-      "customersOut": 1,
-      "outageCause": "Adverse weather ",
-      "estimatedRestoration": "2026-04-26T14:00:00Z",
-      "lat": 32.71982,
-      "lon": -96.16533
-    },
-    {
-      "county": "Grayson",
+      "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.77132,
-      "lon": -96.64148
+      "lat": 32.61825,
+      "lon": -96.75382
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.59099,
+      "lon": -96.63678
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.66899,
+      "lon": -96.79818
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.74275,
+      "lon": -96.85718
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.67861,
+      "lon": -96.76696
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.75421,
+      "lon": -96.89226
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.67864,
+      "lon": -96.79577
     },
     {
       "county": "Dallas",
@@ -5149,12 +4624,36 @@
       "lon": -96.72966
     },
     {
-      "county": "Lamar",
+      "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.85465,
-      "lon": -95.47598
+      "lat": 32.95315,
+      "lon": -96.66792
+    },
+    {
+      "county": "Kaufman",
+      "customersOut": 1,
+      "outageCause": "Adverse weather ",
+      "estimatedRestoration": "2026-04-26T14:00:00Z",
+      "lat": 32.71982,
+      "lon": -96.16533
+    },
+    {
+      "county": "Rockwall",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T12:00:00Z",
+      "lat": 32.826,
+      "lon": -96.36614
+    },
+    {
+      "county": "Kaufman",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T16:00:00Z",
+      "lat": 32.81358,
+      "lon": -96.24761
     },
     {
       "county": "Rockwall",
@@ -5167,42 +4666,458 @@
     {
       "county": "Dallas",
       "customersOut": 1,
-      "outageCause": "Equipment ",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
-      "lat": 32.73007,
-      "lon": -96.6476
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.72746,
+      "lon": -96.80674
     },
     {
       "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.61825,
-      "lon": -96.75382
+      "lat": 32.77615,
+      "lon": -96.88407
     },
     {
-      "county": "Wise",
+      "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.10882,
-      "lon": -97.84241
+      "lat": 32.77855,
+      "lon": -96.86167
     },
     {
-      "county": "Wise",
+      "county": "Dallas",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.17928,
-      "lon": -97.84633
+      "lat": 32.74505,
+      "lon": -97.00296
+    },
+    {
+      "county": "Ellis",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.26834,
+      "lon": -96.69493
+    },
+    {
+      "county": "Archer",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T14:00:00Z",
+      "lat": 33.81745,
+      "lon": -98.67556
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.75737,
+      "lon": -96.52829
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.63933,
+      "lon": -96.55314
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T12:30:00Z",
+      "lat": 33.66241,
+      "lon": -96.63065
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T13:30:00Z",
+      "lat": 33.63075,
+      "lon": -96.5692
     },
     {
       "county": "Hopkins",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "null",
+      "estimatedRestoration": "2026-04-26T14:00:00Z",
       "lat": 33.19502,
       "lon": -95.6018
+    },
+    {
+      "county": "Lamar",
+      "customersOut": 1,
+      "outageCause": "Equipment ",
+      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "lat": 33.85465,
+      "lon": -95.47598
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.66611,
+      "lon": -97.20556
+    },
+    {
+      "county": "Limestone",
+      "customersOut": 1,
+      "outageCause": "Equipment ",
+      "estimatedRestoration": "null",
+      "lat": 31.68007,
+      "lon": -96.48405
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.67866,
+      "lon": -97.04592
+    },
+    {
+      "county": "Ellis",
+      "customersOut": 1,
+      "outageCause": "Vegetation ",
+      "estimatedRestoration": "null",
+      "lat": 32.54677,
+      "lon": -96.95447
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.59877,
+      "lon": -96.97913
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.56486,
+      "lon": -97.24879
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.62086,
+      "lon": -96.95828
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.61354,
+      "lon": -96.8747
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.67986,
+      "lon": -97.01413
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.77134,
+      "lon": -97.17802
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.79001,
+      "lon": -97.08205
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T12:30:00Z",
+      "lat": 32.82582,
+      "lon": -96.98026
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "2026-04-26T12:30:00Z",
+      "lat": 32.83676,
+      "lon": -96.97419
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.84713,
+      "lon": -97.19688
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.89134,
+      "lon": -97.16561
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.88084,
+      "lon": -97.14958
+    },
+    {
+      "county": "Denton",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.08377,
+      "lon": -97.30126
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.87201,
+      "lon": -97.21087
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.05653,
+      "lon": -97.46972
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.8622,
+      "lon": -97.21125
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.88311,
+      "lon": -97.24674
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.89232,
+      "lon": -97.21259
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "Equipment Issue",
+      "estimatedRestoration": "null",
+      "lat": 32.77355,
+      "lon": -97.13652
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.77335,
+      "lon": -97.12221
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.82874,
+      "lon": -97.17081
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.75436,
+      "lon": -97.09084
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.75362,
+      "lon": -97.04644
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.70782,
+      "lon": -97.28465
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.70143,
+      "lon": -97.26266
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.73637,
+      "lon": -97.26197
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.6799,
+      "lon": -97.32893
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.68492,
+      "lon": -97.27632
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.71244,
+      "lon": -97.33262
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.65489,
+      "lon": -97.4774
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.71136,
+      "lon": -97.43274
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.72582,
+      "lon": -97.45775
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.77404,
+      "lon": -97.35702
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.82385,
+      "lon": -97.34426
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.83588,
+      "lon": -97.34266
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.74752,
+      "lon": -97.41323
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.8617,
+      "lon": -97.41265
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.93683,
+      "lon": -97.41493
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.80689,
+      "lon": -97.35282
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.72455,
+      "lon": -97.53728
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.83311,
+      "lon": -97.4227
     },
     {
       "county": "Wise",
@@ -5217,8 +5132,80 @@
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.00125,
-      "lon": -97.83967
+      "lat": 33.06997,
+      "lon": -97.56704
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.16519,
+      "lon": -97.87837
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.17928,
+      "lon": -97.84633
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.17028,
+      "lon": -97.80591
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.14419,
+      "lon": -97.78851
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.15059,
+      "lon": -97.81893
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.09185,
+      "lon": -97.70184
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.85116,
+      "lon": -97.5366
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.7885,
+      "lon": -97.51154
+    },
+    {
+      "county": "Parker",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.94,
+      "lon": -97.63598
     },
     {
       "county": "Parker",
@@ -5227,6 +5214,62 @@
       "estimatedRestoration": "null",
       "lat": 32.947,
       "lon": -97.65889
+    },
+    {
+      "county": "Parker",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.87856,
+      "lon": -97.57423
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.10882,
+      "lon": -97.84241
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.00125,
+      "lon": -97.83967
+    },
+    {
+      "county": "Parker",
+      "customersOut": 1,
+      "outageCause": "Equipment Issue",
+      "estimatedRestoration": "null",
+      "lat": 32.90477,
+      "lon": -97.5545
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.89797,
+      "lon": -97.54414
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "Equipment Issue",
+      "estimatedRestoration": "null",
+      "lat": 32.91546,
+      "lon": -97.54334
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.86086,
+      "lon": -97.39521
     },
     {
       "county": "Franklin",
@@ -5264,7 +5307,7 @@
       "county": "Franklin",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.07287,
       "lon": -95.17209
     },
@@ -5272,7 +5315,7 @@
       "county": "Franklin",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.08944,
       "lon": -95.20468
     },
@@ -5280,7 +5323,7 @@
       "county": "Franklin",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.09111,
       "lon": -95.18447
     },
@@ -5288,7 +5331,7 @@
       "county": "Franklin",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.03556,
       "lon": -95.15904
     },
@@ -5296,9 +5339,17 @@
       "county": "Franklin",
       "customersOut": 1,
       "outageCause": "null",
-      "estimatedRestoration": "2026-04-26T13:00:00Z",
+      "estimatedRestoration": "2026-04-27T03:00:00Z",
       "lat": 33.06367,
       "lon": -95.21437
+    },
+    {
+      "county": "Titus",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0882,
+      "lon": -94.96846
     },
     {
       "county": "Cooke",
@@ -5307,6 +5358,14 @@
       "estimatedRestoration": "null",
       "lat": 33.644390403754,
       "lon": -97.0429911683029
+    },
+    {
+      "county": "Cooke",
+      "customersOut": 1,
+      "outageCause": "Unknown",
+      "estimatedRestoration": "null",
+      "lat": 33.5754876128027,
+      "lon": -96.9766030858621
     },
     {
       "county": "Cooke",
@@ -5373,20 +5432,12 @@
       "lon": -96.16182
     },
     {
-      "county": "Rockwall",
+      "county": "Donley",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.88763,
-      "lon": -96.44432
-    },
-    {
-      "county": "Rockwall",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 32.89256,
-      "lon": -96.44389
+      "lat": 34.87739,
+      "lon": -100.64328
     },
     {
       "county": "Donley",
@@ -5397,22 +5448,6 @@
       "lon": -100.63132
     },
     {
-      "county": "Donley",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 34.87739,
-      "lon": -100.64328
-    },
-    {
-      "county": "Mills",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
-      "lat": 31.50216,
-      "lon": -98.62541
-    },
-    {
       "county": "Limestone",
       "customersOut": 1,
       "outageCause": "null",
@@ -5421,12 +5456,12 @@
       "lon": -96.84188
     },
     {
-      "county": "Hansford",
+      "county": "Jim Wells",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 36.25673,
-      "lon": -101.13042
+      "lat": 27.93439,
+      "lon": -97.93779
     },
     {
       "county": "Callahan",
@@ -5453,12 +5488,76 @@
       "lon": -98.44489
     },
     {
-      "county": "Kaufman",
+      "county": "Garza",
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 32.54435,
-      "lon": -96.41703
+      "lat": 33.28429,
+      "lon": -101.1835
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0694481555622,
+      "lon": -97.59454809376
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0687297400589,
+      "lon": -97.5956288242442
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0692497400589,
+      "lon": -97.5952088242442
+    },
+    {
+      "county": "Parker",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 32.99284,
+      "lon": -97.69344
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.03984,
+      "lon": -97.7937
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.0384,
+      "lon": -97.79787
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.02095,
+      "lon": -97.66935
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "estimatedRestoration": "null",
+      "lat": 33.00012,
+      "lon": -97.68013
     },
     {
       "county": "Wise",
@@ -5481,8 +5580,8 @@
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.17559,
-      "lon": -97.71475
+      "lat": 33.0084,
+      "lon": -97.67701
     },
     {
       "county": "Wise",
@@ -5529,14 +5628,6 @@
       "customersOut": 1,
       "outageCause": "null",
       "estimatedRestoration": "null",
-      "lat": 33.02048,
-      "lon": -97.79905
-    },
-    {
-      "county": "Wise",
-      "customersOut": 1,
-      "outageCause": "null",
-      "estimatedRestoration": "null",
       "lat": 33.03458,
       "lon": -97.79889
     },
@@ -5555,6 +5646,14 @@
       "estimatedRestoration": "null",
       "lat": 32.99001,
       "lon": -95.09913
+    },
+    {
+      "county": "Bexar",
+      "customersOut": 1,
+      "outageCause": "Unknown",
+      "estimatedRestoration": "2026-04-26T13:15:00Z",
+      "lat": 29.48543,
+      "lon": -98.54773
     },
     {
       "county": "Hays",
@@ -7500,6 +7599,321 @@
         },
         {
           "county": "Hidalgo",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-26T11:36:25.766Z",
+      "totalCustomersOut": 24156,
+      "countiesImpacted": 44,
+      "counties": [
+        {
+          "county": "Grayson",
+          "customersOut": 481,
+          "incidents": 21,
+          "currentSeverity": 77,
+          "predictedRisk": 96
+        },
+        {
+          "county": "Tarrant",
+          "customersOut": 13067,
+          "incidents": 236,
+          "currentSeverity": 65,
+          "predictedRisk": 50
+        },
+        {
+          "county": "Dallas",
+          "customersOut": 4570,
+          "incidents": 110,
+          "currentSeverity": 64,
+          "predictedRisk": 50
+        },
+        {
+          "county": "Wise",
+          "customersOut": 1842,
+          "incidents": 64,
+          "currentSeverity": 59,
+          "predictedRisk": 50
+        },
+        {
+          "county": "Parker",
+          "customersOut": 841,
+          "incidents": 22,
+          "currentSeverity": 55,
+          "predictedRisk": 48
+        },
+        {
+          "county": "Franklin",
+          "customersOut": 763,
+          "incidents": 41,
+          "currentSeverity": 55,
+          "predictedRisk": 48
+        },
+        {
+          "county": "Gray",
+          "customersOut": 143,
+          "incidents": 1,
+          "currentSeverity": 53,
+          "predictedRisk": 78
+        },
+        {
+          "county": "Donley",
+          "customersOut": 142,
+          "incidents": 3,
+          "currentSeverity": 49,
+          "predictedRisk": 56
+        },
+        {
+          "county": "Hansford",
+          "customersOut": 102,
+          "incidents": 1,
+          "currentSeverity": 48,
+          "predictedRisk": 59
+        },
+        {
+          "county": "Rockwall",
+          "customersOut": 193,
+          "incidents": 10,
+          "currentSeverity": 47,
+          "predictedRisk": 42
+        },
+        {
+          "county": "Harris",
+          "customersOut": 143,
+          "incidents": 12,
+          "currentSeverity": 46,
+          "predictedRisk": 41
+        },
+        {
+          "county": "Bexar",
+          "customersOut": 1495,
+          "incidents": 3,
+          "currentSeverity": 46,
+          "predictedRisk": 41
+        },
+        {
+          "county": "Hunt",
+          "customersOut": 25,
+          "incidents": 3,
+          "currentSeverity": 43,
+          "predictedRisk": 53
+        },
+        {
+          "county": "Lamar",
+          "customersOut": 76,
+          "incidents": 5,
+          "currentSeverity": 35,
+          "predictedRisk": 33
+        },
+        {
+          "county": "Garza",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 31,
+          "predictedRisk": 54
+        },
+        {
+          "county": "Archer",
+          "customersOut": 60,
+          "incidents": 3,
+          "currentSeverity": 29,
+          "predictedRisk": 27
+        },
+        {
+          "county": "Titus",
+          "customersOut": 24,
+          "incidents": 5,
+          "currentSeverity": 29,
+          "predictedRisk": 27
+        },
+        {
+          "county": "Kaufman",
+          "customersOut": 18,
+          "incidents": 5,
+          "currentSeverity": 28,
+          "predictedRisk": 25
+        },
+        {
+          "county": "Montgomery",
+          "customersOut": 15,
+          "incidents": 4,
+          "currentSeverity": 24,
+          "predictedRisk": 22
+        },
+        {
+          "county": "Wood",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 24,
+          "predictedRisk": 32
+        },
+        {
+          "county": "Wichita",
+          "customersOut": 26,
+          "incidents": 1,
+          "currentSeverity": 20,
+          "predictedRisk": 19
+        },
+        {
+          "county": "Anderson",
+          "customersOut": 24,
+          "incidents": 1,
+          "currentSeverity": 19,
+          "predictedRisk": 19
+        },
+        {
+          "county": "Ellis",
+          "customersOut": 7,
+          "incidents": 3,
+          "currentSeverity": 18,
+          "predictedRisk": 17
+        },
+        {
+          "county": "Orange",
+          "customersOut": 18,
+          "incidents": 1,
+          "currentSeverity": 18,
+          "predictedRisk": 17
+        },
+        {
+          "county": "Panola",
+          "customersOut": 18,
+          "incidents": 1,
+          "currentSeverity": 18,
+          "predictedRisk": 17
+        },
+        {
+          "county": "Camp",
+          "customersOut": 6,
+          "incidents": 3,
+          "currentSeverity": 18,
+          "predictedRisk": 16
+        },
+        {
+          "county": "Cooke",
+          "customersOut": 4,
+          "incidents": 4,
+          "currentSeverity": 18,
+          "predictedRisk": 16
+        },
+        {
+          "county": "Hopkins",
+          "customersOut": 8,
+          "incidents": 2,
+          "currentSeverity": 16,
+          "predictedRisk": 15
+        },
+        {
+          "county": "Newton",
+          "customersOut": 10,
+          "incidents": 1,
+          "currentSeverity": 15,
+          "predictedRisk": 14
+        },
+        {
+          "county": "Ector",
+          "customersOut": 8,
+          "incidents": 1,
+          "currentSeverity": 14,
+          "predictedRisk": 13
+        },
+        {
+          "county": "Galveston",
+          "customersOut": 4,
+          "incidents": 1,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Limestone",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Hays",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Liberty",
+          "customersOut": 3,
+          "incidents": 1,
+          "currentSeverity": 10,
+          "predictedRisk": 9
+        },
+        {
+          "county": "Fort Bend",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 8
+        },
+        {
+          "county": "Johnson",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 8
+        },
+        {
+          "county": "Madison",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 8
+        },
+        {
+          "county": "Denton",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Montague",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Jim Wells",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Callahan",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Eastland",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Hidalgo",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Jack",
           "customersOut": 1,
           "incidents": 1,
           "currentSeverity": 6,
