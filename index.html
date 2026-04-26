@@ -111,7 +111,7 @@ button.inactive{opacity:.55}
 
 .metrics{
   display:grid;
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:repeat(7,1fr);
   gap:12px;
   margin-bottom:14px;
 }
@@ -422,6 +422,13 @@ aside{
       <div class="label">24h Trend</div>
       <div class="sub">net outage change</div>
     </div>
+
+    <div class="card metric">
+  <div class="value" id="hospitalOccupancy">—</div>
+  <div class="label">Hospital Occupancy</div>
+  <div class="sub">Texas inpatient beds</div>
+</div>
+    
   </div>
 
   <div class="card status-box">
@@ -505,6 +512,14 @@ aside{
   </div>
 
   <div class="card side-card">
+  <h3 style="margin-top:0;">Hospital Occupancy Trend</h3>
+  <p style="margin-top:0;color:var(--muted);font-size:12px;">
+    Weekly statewide Texas hospital occupancy from CDC/HHS.
+  </p>
+  <canvas id="hospitalTrendChart" height="240"></canvas>
+</div>
+
+  <div class="card side-card">
   <h3 style="margin-top:0;">Impactful Road Closures</h3>
   <p style="margin-top:0;color:var(--muted);font-size:12px;">
     DriveTexas closures and detours that may affect restoration access.
@@ -548,6 +563,7 @@ let countyGeo = null;
 let outageData = null;
 let nwsAlerts = [];
 let outageTrendChart = null;
+let hospitalTrendChart = null;
 
 let countyData = {};
 let selectedCounty = "Harris";
@@ -1203,6 +1219,12 @@ function updateAllMetrics(){
   const impacted = counties.filter(c=>c.customersOut>0).length;
   const severe = counties.filter(c=>c.currentSeverity>=70).length;
   const topPredicted = Math.max(0, ...counties.map(c=>c.predictedRisk || 0));
+ const hosp = outageData?.hospitalCapacity?.latest;
+
+document.getElementById("hospitalOccupancy").textContent =
+  hosp?.inpatientOccupancyPct != null
+    ? `${safeNum(hosp.inpatientOccupancyPct).toFixed(1)}%`
+    : "—";
   const trend = counties.reduce((s,c)=>s+safeNum(c.trend24h),0);
 
   document.getElementById("totalCustomers").textContent = totalCustomers.toLocaleString();
@@ -1352,6 +1374,81 @@ function updateAllMetrics(){
   `).join("");
 }
 
+  function renderHospitalTrendChart(){
+
+  const canvas = document.getElementById("hospitalTrendChart");
+  if(!canvas) return;
+
+  const trend = outageData?.hospitalCapacity?.trend || [];
+
+  if(!trend.length){
+    if(hospitalTrendChart) hospitalTrendChart.destroy();
+    return;
+  }
+
+  const labels = trend.map(r => {
+    const d = new Date(r.weekEndingDate);
+    return d.toLocaleDateString([], { month:"short", day:"numeric" });
+  });
+
+  const inpatientData = trend.map(r => safeNum(r.inpatientOccupancyPct));
+  const icuData = trend.map(r => safeNum(r.icuOccupancyPct));
+
+  const ctx = canvas.getContext("2d");
+
+  if(hospitalTrendChart) hospitalTrendChart.destroy();
+
+  hospitalTrendChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Inpatient Occupancy %",
+          data: inpatientData,
+          tension: 0.35,
+          borderWidth: 2,
+          pointRadius: 2
+        },
+        {
+          label: "ICU Occupancy %",
+          data: icuData,
+          tension: 0.35,
+          borderWidth: 2,
+          pointRadius: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: "#cbd5e1" }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${Number(ctx.raw).toFixed(1)}%`
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: "#94a3b8", maxTicksLimit: 8 },
+          grid: { color: "rgba(255,255,255,.08)" }
+        },
+        y: {
+          min: 0,
+          max: 100,
+          ticks: {
+            color: "#94a3b8",
+            callback: v => `${v}%`
+          },
+          grid: { color: "rgba(255,255,255,.08)" }
+        }
+      }
+    }
+  });
+}
   
 // ==============================
 // 🔄 RENDER EVERYTHING
@@ -1371,6 +1468,7 @@ function renderAll(){
   renderRoadTable();
   updateAllMetrics();
   renderOutageTrendChart();
+  renderHospitalTrendChart();
 }
 
 window.selectCounty = name => {
