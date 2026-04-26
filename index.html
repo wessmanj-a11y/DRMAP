@@ -680,20 +680,37 @@ function weatherWeight(alert){
 
   const sev = (alert.properties?.severity || "").toLowerCase();
   const event = (alert.properties?.event || "").toLowerCase();
+  const urgency = (alert.properties?.urgency || "").toLowerCase();
+  const certainty = (alert.properties?.certainty || "").toLowerCase();
 
   let w = 0;
 
-  if(sev==="extreme") w+=35;
-  else if(sev==="severe") w+=25;
-  else if(sev==="moderate") w+=14;
-  else if(sev==="minor") w+=6;
+  // NWS severity baseline
+  if(sev === "extreme") w += 30;
+  else if(sev === "severe") w += 22;
+  else if(sev === "moderate") w += 12;
+  else if(sev === "minor") w += 5;
 
-  if(event.includes("tornado")) w+=20;
-  if(event.includes("flood")) w+=18;
-  if(event.includes("storm")) w+=14;
-  if(event.includes("fire")) w+=12;
+  // Event-specific outage risk
+  if(event.includes("ice") || event.includes("winter storm")) w += 35;
+  else if(event.includes("high wind") || event.includes("wind advisory")) w += 28;
+  else if(event.includes("severe thunderstorm")) w += 25;
+  else if(event.includes("tornado")) w += 22;
+  else if(event.includes("flash flood")) w += 14;
+  else if(event.includes("flood")) w += 10;
+  else if(event.includes("red flag") || event.includes("fire")) w += 12;
+  else if(event.includes("heat")) w += 8;
+  else if(event.includes("cold")) w += 8;
+  else if(event.includes("storm")) w += 14;
 
-  return w;
+  // Urgency / certainty modifiers
+  if(urgency === "immediate") w += 8;
+  else if(urgency === "expected") w += 5;
+
+  if(certainty === "observed") w += 8;
+  else if(certainty === "likely") w += 5;
+
+  return Math.min(75, w);
 }
 
 function processWeather(){
