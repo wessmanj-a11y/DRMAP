@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-26T19:36:49.127Z",
+  "updated": "2026-04-26T20:02:57.629Z",
   "snapshots": [
     {
       "timestamp": "2026-04-26T04:30:43.014Z",
@@ -5979,6 +5979,447 @@
         },
         {
           "county": "Bexar",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-26T20:02:57.628Z",
+      "totalCustomersOut": 10544,
+      "countiesImpacted": 62,
+      "counties": [
+        {
+          "county": "Tarrant",
+          "customersOut": 4329,
+          "incidents": 184,
+          "currentSeverity": 64,
+          "predictedRisk": 50
+        },
+        {
+          "county": "Dallas",
+          "customersOut": 2813,
+          "incidents": 64,
+          "currentSeverity": 61,
+          "predictedRisk": 50
+        },
+        {
+          "county": "Donley",
+          "customersOut": 142,
+          "incidents": 3,
+          "currentSeverity": 58,
+          "predictedRisk": 80
+        },
+        {
+          "county": "Wise",
+          "customersOut": 1269,
+          "incidents": 33,
+          "currentSeverity": 57,
+          "predictedRisk": 50
+        },
+        {
+          "county": "Parker",
+          "customersOut": 671,
+          "incidents": 19,
+          "currentSeverity": 54,
+          "predictedRisk": 48
+        },
+        {
+          "county": "Franklin",
+          "customersOut": 356,
+          "incidents": 16,
+          "currentSeverity": 51,
+          "predictedRisk": 45
+        },
+        {
+          "county": "El Paso",
+          "customersOut": 31,
+          "incidents": 3,
+          "currentSeverity": 51,
+          "predictedRisk": 74
+        },
+        {
+          "county": "Smith",
+          "customersOut": 25,
+          "incidents": 3,
+          "currentSeverity": 49,
+          "predictedRisk": 73
+        },
+        {
+          "county": "Harris",
+          "customersOut": 190,
+          "incidents": 26,
+          "currentSeverity": 47,
+          "predictedRisk": 42
+        },
+        {
+          "county": "Lubbock",
+          "customersOut": 14,
+          "incidents": 2,
+          "currentSeverity": 44,
+          "predictedRisk": 68
+        },
+        {
+          "county": "Wheeler",
+          "customersOut": 10,
+          "incidents": 1,
+          "currentSeverity": 40,
+          "predictedRisk": 63
+        },
+        {
+          "county": "Grayson",
+          "customersOut": 68,
+          "incidents": 6,
+          "currentSeverity": 37,
+          "predictedRisk": 34
+        },
+        {
+          "county": "Collin",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 36,
+          "predictedRisk": 58
+        },
+        {
+          "county": "Denton",
+          "customersOut": 97,
+          "incidents": 4,
+          "currentSeverity": 34,
+          "predictedRisk": 32
+        },
+        {
+          "county": "Randall",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 33,
+          "predictedRisk": 58
+        },
+        {
+          "county": "Walker",
+          "customersOut": 81,
+          "incidents": 4,
+          "currentSeverity": 33,
+          "predictedRisk": 31
+        },
+        {
+          "county": "Gray",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 31,
+          "predictedRisk": 54
+        },
+        {
+          "county": "Webb",
+          "customersOut": 22,
+          "incidents": 4,
+          "currentSeverity": 26,
+          "predictedRisk": 24
+        },
+        {
+          "county": "Angelina",
+          "customersOut": 72,
+          "incidents": 1,
+          "currentSeverity": 25,
+          "predictedRisk": 24
+        },
+        {
+          "county": "Camp",
+          "customersOut": 26,
+          "incidents": 3,
+          "currentSeverity": 25,
+          "predictedRisk": 23
+        },
+        {
+          "county": "Hays",
+          "customersOut": 50,
+          "incidents": 2,
+          "currentSeverity": 25,
+          "predictedRisk": 24
+        },
+        {
+          "county": "Archer",
+          "customersOut": 39,
+          "incidents": 1,
+          "currentSeverity": 22,
+          "predictedRisk": 21
+        },
+        {
+          "county": "Bell",
+          "customersOut": 22,
+          "incidents": 2,
+          "currentSeverity": 21,
+          "predictedRisk": 20
+        },
+        {
+          "county": "Galveston",
+          "customersOut": 22,
+          "incidents": 1,
+          "currentSeverity": 19,
+          "predictedRisk": 18
+        },
+        {
+          "county": "Brewster",
+          "customersOut": 22,
+          "incidents": 1,
+          "currentSeverity": 19,
+          "predictedRisk": 18
+        },
+        {
+          "county": "Fort Bend",
+          "customersOut": 6,
+          "incidents": 3,
+          "currentSeverity": 18,
+          "predictedRisk": 16
+        },
+        {
+          "county": "Cooke",
+          "customersOut": 7,
+          "incidents": 3,
+          "currentSeverity": 18,
+          "predictedRisk": 17
+        },
+        {
+          "county": "Panola",
+          "customersOut": 18,
+          "incidents": 1,
+          "currentSeverity": 18,
+          "predictedRisk": 17
+        },
+        {
+          "county": "Gregg",
+          "customersOut": 6,
+          "incidents": 3,
+          "currentSeverity": 18,
+          "predictedRisk": 16
+        },
+        {
+          "county": "Harrison",
+          "customersOut": 11,
+          "incidents": 2,
+          "currentSeverity": 18,
+          "predictedRisk": 17
+        },
+        {
+          "county": "Taylor",
+          "customersOut": 7,
+          "incidents": 3,
+          "currentSeverity": 18,
+          "predictedRisk": 17
+        },
+        {
+          "county": "Marion",
+          "customersOut": 15,
+          "incidents": 1,
+          "currentSeverity": 17,
+          "predictedRisk": 16
+        },
+        {
+          "county": "Lamar",
+          "customersOut": 8,
+          "incidents": 2,
+          "currentSeverity": 16,
+          "predictedRisk": 15
+        },
+        {
+          "county": "Wichita",
+          "customersOut": 8,
+          "incidents": 2,
+          "currentSeverity": 16,
+          "predictedRisk": 15
+        },
+        {
+          "county": "Starr",
+          "customersOut": 7,
+          "incidents": 2,
+          "currentSeverity": 16,
+          "predictedRisk": 15
+        },
+        {
+          "county": "Nueces",
+          "customersOut": 8,
+          "incidents": 2,
+          "currentSeverity": 16,
+          "predictedRisk": 15
+        },
+        {
+          "county": "Midland",
+          "customersOut": 3,
+          "incidents": 3,
+          "currentSeverity": 15,
+          "predictedRisk": 13
+        },
+        {
+          "county": "Kaufman",
+          "customersOut": 8,
+          "incidents": 1,
+          "currentSeverity": 14,
+          "predictedRisk": 13
+        },
+        {
+          "county": "Tom Green",
+          "customersOut": 8,
+          "incidents": 1,
+          "currentSeverity": 14,
+          "predictedRisk": 13
+        },
+        {
+          "county": "Travis",
+          "customersOut": 5,
+          "incidents": 2,
+          "currentSeverity": 14,
+          "predictedRisk": 13
+        },
+        {
+          "county": "Rusk",
+          "customersOut": 6,
+          "incidents": 1,
+          "currentSeverity": 13,
+          "predictedRisk": 12
+        },
+        {
+          "county": "Rockwall",
+          "customersOut": 3,
+          "incidents": 2,
+          "currentSeverity": 12,
+          "predictedRisk": 11
+        },
+        {
+          "county": "Caldwell",
+          "customersOut": 5,
+          "incidents": 1,
+          "currentSeverity": 12,
+          "predictedRisk": 11
+        },
+        {
+          "county": "Fannin",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Ellis",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Henderson",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "La Salle",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Hidalgo",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Bexar",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Jackson",
+          "customersOut": 3,
+          "incidents": 1,
+          "currentSeverity": 10,
+          "predictedRisk": 9
+        },
+        {
+          "county": "Van Zandt",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 8
+        },
+        {
+          "county": "Bastrop",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 8
+        },
+        {
+          "county": "Ector",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Reagan",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "McLennan",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Leon",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Hunt",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Liberty",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Val Verde",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Kleberg",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Colorado",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Williamson",
           "customersOut": 1,
           "incidents": 1,
           "currentSeverity": 6,
