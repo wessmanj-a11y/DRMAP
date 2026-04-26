@@ -1,14 +1,20 @@
 {
-  "updated": "2026-04-26T02:50:23.138Z",
+  "updated": "2026-04-26T02:55:13.543Z",
+  "note": "Texas outage file generated from Oncor KUBRA tile data.",
   "sourceStatus": [
     {
       "name": "Oncor KUBRA",
       "ok": true,
-      "requests": 4,
-      "note": "Reached service areas successfully"
+      "requests": 24,
+      "deploymentId": "aff522e9-3cbc-4b9c-a858-8ca70e764634",
+      "layerId": "cluster-3",
+      "quadkeysChecked": 10,
+      "rawOutages": 0,
+      "countyRecords": 0
     }
   ],
   "count": 0,
+  "countiesWithOutages": 0,
   "totalCustomersOut": 0,
   "outages": []
 }
