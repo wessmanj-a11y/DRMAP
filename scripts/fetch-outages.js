@@ -66,11 +66,6 @@ function buildHospitalCapacity(hhsRows) {
     latest,
     trend
   };
-}
-
-function buildHospitalCapacity(hhsRows) {
-
-}
 
 function buildGridStress(supply, outages) {
 
