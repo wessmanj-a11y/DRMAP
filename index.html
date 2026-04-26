@@ -553,16 +553,9 @@ setBaseMap("streets");
 // ==============================
 // 🌧 RADAR (YOUR API KEY map.createPane("radarPane");
 
-map.getPane("radarPane").style.zIndex = 425;
-map.getPane("radarPane").style.pointerEvents = "none";
-
 radarLayer = L.tileLayer(
   "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=e6c1d29fe661aa4fa0a8a050d7e1e84c",
-  {
-    opacity:0.75,
-    pane:"radarPane",
-    attribution:"Weather data © OpenWeather"
-  }
+  { opacity:0.5 }
 );
 
 
