@@ -117,46 +117,6 @@ function bboxQuadkeys(bounds, zoom) {
   return out;
 }
 
-function pointInRing(point, ring) {
-  const [lat, lon] = point;
-  let inside = false;
-
-  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-    const xi = ring[i][1], yi = ring[i][0];
-    const xj = ring[j][1], yj = ring[j][0];
-
-    const intersect =
-      ((yi > lat) !== (yj > lat)) &&
-      lon < ((xj - xi) * (lat - yi)) / (yj - yi) + xi;
-
-    if (intersect) inside = !inside;
-  }
-
-  return inside;
-}
-
-function countyForPoint(lat, lon, counties) {
-  for (const feature of counties.features) {
-    if (feature.properties.STATE !== "48") continue;
-
-    const geom = feature.geometry;
-    const polys = geom.type === "Polygon" ? [geom.coordinates] : geom.coordinates;
-
-    for (const poly of polys) {
-      const ring = poly[0].map(([lng, lat]) => [lat, lng]);
-      if (pointInRing([lat, lon], ring)) {
-        return feature.properties.NAME;
-      }
-    }
-  }
-
-  return null;
-}
-
-async function fetchTexasCounties() {
-  return fetchJson("https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json");
-}
-
 async function getKubraState() {
   return fetchJson(
     `${BASE}/stormcenter/api/v1/stormcenters/${INSTANCE_ID}/views/${VIEW_ID}/currentState?preview=false`
@@ -169,71 +129,11 @@ async function getKubraConfig(deploymentId) {
   );
 }
 
-function getCustomerCount(desc) {
-  const candidates = [
-    desc?.cust_a?.val,
-    desc?.cust_a,
-    desc?.customers_affected,
-    desc?.customersAffected,
-    desc?.customersOut,
-    desc?.n_out,
-    desc?.outages
-  ];
-
-  for (const c of candidates) {
-    const n = Number(String(c ?? "").replace(/,/g, "").replace(/[^\d.-]/g, ""));
-    if (Number.isFinite(n) && n > 0) return n;
-  }
-
-  return 0;
-}
-
-function outageFromRaw(raw, url, counties) {
-  const desc = raw.desc || {};
-  const encoded = raw.geom?.p?.[0];
-
-  if (!encoded) return null;
-
-  let decoded;
-  try {
-    decoded = decodePolyline(encoded);
-  } catch {
-    return null;
-  }
-
-  if (!decoded || !decoded[0]) return null;
-
-  const [lat, lon] = decoded[0];
-  const county = countyForPoint(lat, lon, counties);
-
-  if (!county) return null;
-
-  const customersOut = getCustomerCount(desc);
-
-  return {
-    state: "TX",
-    county,
-    utility: "Oncor",
-    customersOut,
-    incidents: 1,
-    latitude: lat,
-    longitude: lon,
-    estimatedRestoration: desc?.etr || null,
-    cause: desc?.cause?.["EN-US"] || desc?.cause || null,
-    crewStatus: desc?.crew_status || null,
-    updated: new Date().toISOString(),
-    source: url
-  };
-}
-
 async function main() {
-  let sourceStatus = [];
-  let countyRows = [];
+  let payload;
 
   try {
-    const counties = await fetchTexasCounties();
     const state = await getKubraState();
-
     const deploymentId = state.stormcenterDeploymentId;
     const config = await getKubraConfig(deploymentId);
 
@@ -252,102 +152,106 @@ async function main() {
 
     const bounds = bbox(servicePoints);
 
-    const layerList = config?.config?.layers?.data?.interval_generation_data || [];
-    const clusterLayer =
-      layerList.find(l => String(l.type || "").includes("CLUSTER")) ||
-      layerList.find(l => String(l.id || "").toLowerCase().includes("outage")) ||
-      layerList[0];
-
-    if (!clusterLayer) throw new Error("No KUBRA outage layer found in config");
-
-    const layerId = clusterLayer.id;
+    const intervalLayers = config?.config?.layers?.data?.interval_generation_data || [];
     const clusterPath = state.data.cluster_interval_generation_data;
     const normalPath = state.data.interval_generation_data;
 
-    const zoom = 7;
-    const quadkeys = bboxQuadkeys(bounds, zoom);
+    const layerSummary = intervalLayers.map(l => ({
+      id: l.id,
+      type: l.type,
+      name: l.name,
+      enabled: l.enabled,
+      visible: l.visible
+    }));
 
-    const rawOutages = [];
+    const tileSamples = [];
 
-    for (const q of quadkeys) {
-      const qkh = q.slice(-3).split("").reverse().join("");
+    for (let zoom = 7; zoom <= 12; zoom++) {
+      const quadkeys = bboxQuadkeys(bounds, zoom).slice(0, 30);
 
-      const urls = [
-        `${BASE}${clusterPath.replace("{qkh}", qkh)}/public/${layerId}/${q}.json`,
-        `${BASE}${normalPath.replace("{qkh}", qkh)}/public/${layerId}/${q}.json`
-      ];
+      for (const layer of intervalLayers) {
+        for (const q of quadkeys.slice(0, 8)) {
+          const qkh = q.slice(-3).split("").reverse().join("");
 
-      for (const url of urls) {
-        try {
-          const json = await fetchJson(url);
-          const rows = json.file_data || [];
+          const urls = [
+            `${BASE}${clusterPath.replace("{qkh}", qkh)}/public/${layer.id}/${q}.json`,
+            `${BASE}${normalPath.replace("{qkh}", qkh)}/public/${layer.id}/${q}.json`
+          ];
 
-          for (const raw of rows) {
-            const outage = outageFromRaw(raw, url, counties);
-            if (outage) rawOutages.push(outage);
+          for (const url of urls) {
+            try {
+              const json = await fetchJson(url);
+              const rows = json.file_data || [];
+              tileSamples.push({
+                zoom,
+                layerId: layer.id,
+                layerType: layer.type,
+                url,
+                ok: true,
+                rowCount: rows.length,
+                firstRow: rows[0] || null
+              });
+
+              if (tileSamples.filter(s => s.rowCount > 0).length >= 10) break;
+            } catch (err) {
+              tileSamples.push({
+                zoom,
+                layerId: layer.id,
+                layerType: layer.type,
+                url,
+                ok: false,
+                error: String(err.message).slice(0, 160)
+              });
+            }
           }
-        } catch {
-          // Missing tiles are normal.
+
+          if (tileSamples.filter(s => s.rowCount > 0).length >= 10) break;
         }
-      }
-    }
 
-    const byCounty = new Map();
-
-    for (const o of rawOutages) {
-      if (!byCounty.has(o.county)) {
-        byCounty.set(o.county, {
-          state: "TX",
-          county: o.county,
-          utility: "Oncor",
-          customersOut: 0,
-          incidents: 0,
-          updated: new Date().toISOString(),
-          source: "Oncor KUBRA tile aggregation"
-        });
+        if (tileSamples.filter(s => s.rowCount > 0).length >= 10) break;
       }
 
-      const row = byCounty.get(o.county);
-      row.customersOut += Number(o.customersOut || 0);
-      row.incidents += 1;
+      if (tileSamples.filter(s => s.rowCount > 0).length >= 10) break;
     }
 
-    countyRows = [...byCounty.values()]
-      .filter(r => r.customersOut > 0 || r.incidents > 0)
-      .sort((a, b) => b.customersOut - a.customersOut);
-
-    sourceStatus.push({
-      name: "Oncor KUBRA",
-      ok: true,
-      requests: requestCount,
-      deploymentId,
-      layerId,
-      quadkeysChecked: quadkeys.length,
-      rawOutages: rawOutages.length,
-      countyRecords: countyRows.length
-    });
+    payload = {
+      updated: new Date().toISOString(),
+      note: "KUBRA layer/tile diagnostic. Send layerSummary and tileSamples with rowCount > 0.",
+      sourceStatus: [{
+        name: "Oncor KUBRA diagnostic",
+        ok: true,
+        requests: requestCount,
+        deploymentId,
+        regionKey,
+        bounds,
+        clusterPath,
+        normalPath
+      }],
+      layerSummary,
+      successfulTileSamples: tileSamples.filter(s => s.ok && s.rowCount > 0),
+      failedSampleCount: tileSamples.filter(s => !s.ok).length,
+      count: 0,
+      totalCustomersOut: 0,
+      outages: []
+    };
   } catch (err) {
-    sourceStatus.push({
-      name: "Oncor KUBRA",
-      ok: false,
-      error: err.message,
-      requests: requestCount
-    });
+    payload = {
+      updated: new Date().toISOString(),
+      note: "KUBRA diagnostic failed.",
+      sourceStatus: [{
+        name: "Oncor KUBRA diagnostic",
+        ok: false,
+        error: err.message,
+        requests: requestCount
+      }],
+      count: 0,
+      totalCustomersOut: 0,
+      outages: []
+    };
   }
 
-  const payload = {
-    updated: new Date().toISOString(),
-    note: "Texas outage file generated from Oncor KUBRA tile data.",
-    sourceStatus,
-    count: countyRows.length,
-    countiesWithOutages: new Set(countyRows.map(o => o.county)).size,
-    totalCustomersOut: countyRows.reduce((s, o) => s + Number(o.customersOut || 0), 0),
-    outages: countyRows
-  };
-
   await fs.writeFile(OUT, JSON.stringify(payload, null, 2));
-  console.log(JSON.stringify(payload.sourceStatus, null, 2));
-  console.log(`Wrote ${payload.count} county records / ${payload.totalCustomersOut} customers out`);
+  console.log(JSON.stringify(payload, null, 2));
 }
 
 main();
