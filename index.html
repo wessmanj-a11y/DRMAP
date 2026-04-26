@@ -690,18 +690,16 @@ function processWeather(){
 
   nwsAlerts.forEach(alert => {
 
+    const area = String(alert.properties?.areaDesc || "").toLowerCase();
     const w = weatherWeight(alert);
 
-    countyGeo.features.forEach(f => {
+    Object.values(countyData).forEach(c => {
 
-      const key = keyCounty(f.properties.NAME);
-
-      if(!countyData[key]) return;
-
-      // simple overlap assumption (fast + good enough)
-      countyData[key].weatherRisk += w;
-      countyData[key].weatherAlerts += 1;
-      countyData[key].weatherEvents.push(alert.properties.event);
+      if(area.includes(c.name.toLowerCase())){
+        c.weatherRisk += w;
+        c.weatherAlerts += 1;
+        c.weatherEvents.push(alert.properties?.event || "Weather alert");
+      }
 
     });
 
