@@ -1046,6 +1046,34 @@ function renderRadar(){
 // 📌 SELECTED COUNTY PANEL
 // ==============================
 
+function applyRoadClosuresToCounties(){
+
+  if(!outageData?.roadClosures) return;
+
+  Object.values(countyData).forEach(c=>{
+
+    c.roadClosures = 0;
+
+    c.restorationDifficulty = 0;
+
+  });
+
+  outageData.roadClosures.forEach(r => {
+
+    const key = keyCounty(r.county);
+
+    const c = countyData[key];
+
+    if(!c) return;
+
+    c.roadClosures += 1;
+
+    c.restorationDifficulty += safeNum(r.risk);
+
+  });
+
+}
+  
 function renderPanel(){
 
   const c =
@@ -1372,6 +1400,7 @@ async function loadData(){
 
   initCounties();
   processOutages();
+  applyRoadClosuresToCounties();
 
   // Use your pipeline’s scores if present, otherwise calculate locally
   if(outageData?.outages?.length){
