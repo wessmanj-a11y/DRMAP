@@ -1,555 +1,1235 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Texas Resilience Command Center</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <style>
-
 :root{
-
-  --bg:#07111f;--panel:#0f172a;--panel2:#111827;--panel3:#020617;
-
-  --line:rgba(255,255,255,.12);--text:#f8fafc;--muted:#94a3b8;
-
-  --red:#ef4444;--orange:#f97316;--yellow:#facc15;--blue:#38bdf8;--green:#22c55e;--purple:#a78bfa;
-
+  --bg:#07111f;
+  --panel:#0f172a;
+  --panel3:#020617;
+  --line:rgba(255,255,255,.12);
+  --text:#f8fafc;
+  --muted:#94a3b8;
+  --red:#ef4444;
+  --orange:#f97316;
+  --yellow:#facc15;
+  --blue:#38bdf8;
+  --green:#22c55e;
 }
 
 *{box-sizing:border-box}
 
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top left,rgba(239,68,68,.16),transparent 34%),linear-gradient(135deg,#020617,var(--bg));color:var(--text)}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:radial-gradient(circle at top left,rgba(239,68,68,.16),transparent 34%),linear-gradient(135deg,#020617,var(--bg));
+  color:var(--text);
+}
 
-header{padding:20px;border-bottom:1px solid var(--line);background:rgba(2,6,23,.95);position:sticky;top:0;z-index:500}
+header{
+  padding:20px;
+  border-bottom:1px solid var(--line);
+  background:rgba(2,6,23,.95);
+  position:sticky;
+  top:0;
+  z-index:500;
+}
 
 .wrap{max-width:1600px;margin:0 auto}
 
-.header-inner{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
 
-.badge{display:inline-block;margin-bottom:10px;padding:7px 11px;border:1px solid rgba(56,189,248,.35);background:rgba(56,189,248,.1);color:#bae6fd;border-radius:999px;font-size:13px;font-weight:800}
+.badge{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:7px 11px;
+  border:1px solid rgba(56,189,248,.35);
+  background:rgba(56,189,248,.1);
+  color:#bae6fd;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:800;
+}
 
-h1{margin:0;font-size:clamp(28px,4vw,48px);letter-spacing:-1.4px;line-height:1}
+h1{
+  margin:0;
+  font-size:clamp(28px,4vw,48px);
+  letter-spacing:-1.4px;
+  line-height:1;
+}
 
-header p{margin:9px 0 0;color:var(--muted);max-width:960px;line-height:1.45}
+header p{
+  margin:9px 0 0;
+  color:var(--muted);
+  max-width:960px;
+  line-height:1.45;
+}
 
-button,select{border:1px solid var(--line);border-radius:14px;padding:10px 13px;background:var(--panel3);color:var(--muted);cursor:pointer;font-weight:800;transition:.18s}
+button,select{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 13px;
+  background:var(--panel3);
+  color:var(--muted);
+  cursor:pointer;
+  font-weight:800;
+  transition:.18s;
+}
 
-button:hover{transform:translateY(-1px);color:white;border-color:rgba(255,255,255,.35)}
+button:hover{
+  transform:translateY(-1px);
+  color:white;
+  border-color:rgba(255,255,255,.35);
+}
 
-button.active{background:linear-gradient(135deg,var(--red),var(--orange));color:white;border-color:rgba(255,255,255,.35);box-shadow:0 0 0 2px rgba(239,68,68,.18),0 12px 25px rgba(239,68,68,.22)}
+button.active{
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  color:white;
+  border-color:rgba(255,255,255,.35);
+  box-shadow:0 0 0 2px rgba(239,68,68,.18),0 12px 25px rgba(239,68,68,.22);
+}
 
 button.inactive{opacity:.55}
 
-.layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(400px,.9fr);gap:18px;padding:18px}
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.75fr) minmax(400px,.9fr);
+  gap:18px;
+  padding:18px;
+}
 
-.metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:14px}
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+  margin-bottom:14px;
+}
 
-.card{background:rgba(15,23,42,.9);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+.card{
+  background:rgba(15,23,42,.9);
+  border:1px solid var(--line);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
 
-.metric{padding:15px;min-height:98px}
+.metric{
+  padding:15px;
+  min-height:98px;
+}
 
-.metric .value{font-size:27px;font-weight:900;line-height:1}
+.metric .value{
+  font-size:27px;
+  font-weight:900;
+  line-height:1;
+}
 
-.metric .label{color:var(--muted);font-size:12px;margin-top:7px;line-height:1.25}
+.metric .label{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:7px;
+  line-height:1.25;
+}
 
-.metric .sub{font-size:11px;color:#64748b;margin-top:6px}
+.metric .sub{
+  font-size:11px;
+  color:#64748b;
+  margin-top:6px;
+}
 
-.status-box{padding:12px;margin-bottom:14px;color:#cbd5e1;font-size:13px}
+.status-box{
+  padding:12px;
+  margin-bottom:14px;
+  color:#cbd5e1;
+  font-size:13px;
+}
 
-.map-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.map-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:15px;
+  border-bottom:1px solid var(--line);
+  flex-wrap:wrap;
+}
 
-.map-header h2{margin:0;font-size:20px}
+.map-header h2{
+  margin:0;
+  font-size:20px;
+}
 
-.map-header p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.map-header p{
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:13px;
+}
 
-.controls{display:flex;gap:8px;flex-wrap:wrap}
+.controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
 
-#map{height:670px;background:#dbeafe}
+#map{
+  height:670px;
+  background:#dbeafe;
+}
 
-.legend{display:flex;flex-wrap:wrap;gap:10px;padding:12px 15px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:12px 15px;
+  color:var(--muted);
+  font-size:12px;
+  border-top:1px solid var(--line);
+}
 
-.legend span{display:inline-flex;align-items:center;gap:6px}.swatch{width:14px;height:14px;border-radius:4px;display:inline-block}
+.legend span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
 
-aside{display:flex;flex-direction:column;gap:16px}.side-card{padding:17px}.side-card h2{margin:0;font-size:30px}
+.swatch{
+  width:14px;
+  height:14px;
+  border-radius:4px;
+  display:inline-block;
+}
 
-.pill{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:999px;background:rgba(239,68,68,.2);color:#fecaca;font-weight:800;font-size:12px}
+aside{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
 
-.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}.mini{padding:12px;background:#020617;border:1px solid rgba(255,255,255,.06);border-radius:15px}.mini strong{display:block;font-size:21px}.mini span{color:var(--muted);font-size:12px}
+.side-card{padding:17px}
 
-.explain{margin-top:14px;padding:13px;border-radius:15px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);color:#dbeafe;font-size:13px;line-height:1.45}
+.side-card h2{
+  margin:0;
+  font-size:30px;
+}
 
-.rank-row{width:100%;margin-bottom:9px;text-align:left;background:#020617;border:1px solid var(--line)}.bar{height:7px;margin-top:9px;background:#334155;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--red))}
+.pill{
+  display:inline-block;
+  margin-top:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(239,68,68,.2);
+  color:#fecaca;
+  font-weight:800;
+  font-size:12px;
+}
 
-.incident{margin-top:10px;padding:12px;background:#020617;border:1px solid var(--line);border-radius:15px}.incident-top{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.incident h3{margin:8px 0 4px;font-size:15px}.incident p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}
+.mini-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:16px;
+}
 
-.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{padding:9px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}.table th{color:#cbd5e1;font-size:12px}.source-note{color:var(--muted);font-size:12px;line-height:1.45}.leaflet-container{font-family:Arial,Helvetica,sans-serif}
+.mini{
+  padding:12px;
+  background:#020617;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:15px;
+}
 
-@media(max-width:1180px){.layout{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}#map{height:560px}}
+.mini strong{
+  display:block;
+  font-size:21px;
+}
 
-@media(max-width:640px){.layout{padding:12px}.metrics{grid-template-columns:1fr 1fr}.metric .value{font-size:23px}.map-header{align-items:flex-start;flex-direction:column}.side-card h2{font-size:26px}#map{height:460px}}
+.mini span{
+  color:var(--muted);
+  font-size:12px;
+}
 
+.explain{
+  margin-top:14px;
+  padding:13px;
+  border-radius:15px;
+  background:rgba(56,189,248,.08);
+  border:1px solid rgba(56,189,248,.2);
+  color:#dbeafe;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.rank-row{
+  width:100%;
+  margin-bottom:9px;
+  text-align:left;
+  background:#020617;
+  border:1px solid var(--line);
+}
+
+.bar{
+  height:7px;
+  margin-top:9px;
+  background:#334155;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.bar span{
+  display:block;
+  height:100%;
+  background:linear-gradient(90deg,var(--orange),var(--red));
+}
+
+.incident{
+  margin-top:10px;
+  padding:12px;
+  background:#020617;
+  border:1px solid var(--line);
+  border-radius:15px;
+}
+
+.incident-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.incident h3{
+  margin:8px 0 4px;
+  font-size:15px;
+}
+
+.incident p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.4;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+
+.table th,.table td{
+  padding:9px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  text-align:left;
+}
+
+.table th{
+  color:#cbd5e1;
+  font-size:12px;
+}
+
+.source-note{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.leaflet-container{
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+@media(max-width:1180px){
+  .layout{grid-template-columns:1fr}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  #map{height:560px}
+}
+
+@media(max-width:640px){
+  .layout{padding:12px}
+  .metrics{grid-template-columns:1fr 1fr}
+  .metric .value{font-size:23px}
+  .map-header{align-items:flex-start;flex-direction:column}
+  .side-card h2{font-size:26px}
+  #map{height:460px}
+}
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <div class="wrap header-inner">
-
   <div>
-
     <div class="badge">● Texas Resilience Command Center</div>
-
     <h1>County-level disruption intelligence</h1>
-
-    <p>Current outage severity, predicted outage risk, active NWS alerts, trend context, and outage point intelligence.</p>
-
+    <p>Current outage severity, predicted outage risk, active NWS alerts, trend context, radar, and outage point intelligence.</p>
   </div>
 
   <div>
-
     <button id="refreshBtn">Refresh</button>
-
-    <select id="basemap"><option value="streets">Street Map</option><option value="dark">Dark Map</option></select>
-
+    <select id="basemap">
+      <option value="streets">Street Map</option>
+      <option value="dark">Dark Map</option>
+    </select>
   </div>
-
 </div>
-
 </header>
 
 <main class="wrap layout">
 
 <section>
-
   <div class="metrics">
+    <div class="card metric">
+      <div class="value" id="totalCustomers">—</div>
+      <div class="label">Customers Out</div>
+      <div class="sub">current outage load</div>
+    </div>
 
-    <div class="card metric"><div class="value" id="totalCustomers">—</div><div class="label">Customers Out</div><div class="sub">current outage load</div></div>
+    <div class="card metric">
+      <div class="value" id="countyImpacted">—</div>
+      <div class="label">Counties Impacted</div>
+      <div class="sub">active outage records</div>
+    </div>
 
-    <div class="card metric"><div class="value" id="countyImpacted">—</div><div class="label">Counties Impacted</div><div class="sub">active outage records</div></div>
+    <div class="card metric">
+      <div class="value" id="severeCounties">—</div>
+      <div class="label">Severe Counties</div>
+      <div class="sub">severity score ≥ 70</div>
+    </div>
 
-    <div class="card metric"><div class="value" id="severeCounties">—</div><div class="label">Severe Counties</div><div class="sub">severity score ≥ 70</div></div>
+    <div class="card metric">
+      <div class="value" id="highestPredicted">—</div>
+      <div class="label">Top Predicted Risk</div>
+      <div class="sub">weather + fragility</div>
+    </div>
 
-    <div class="card metric"><div class="value" id="highestPredicted">—</div><div class="label">Top Predicted Risk</div><div class="sub">weather + fragility</div></div>
+    <div class="card metric">
+      <div class="value" id="weatherAlerts">—</div>
+      <div class="label">NWS TX Alerts</div>
+      <div class="sub">active weather feed</div>
+    </div>
 
-    <div class="card metric"><div class="value" id="weatherAlerts">—</div><div class="label">NWS TX Alerts</div><div class="sub">active weather feed</div></div>
-
-    <div class="card metric"><div class="value" id="trendMetric">—</div><div class="label">24h Trend</div><div class="sub">net outage change</div></div>
-
+    <div class="card metric">
+      <div class="value" id="trendMetric">—</div>
+      <div class="label">24h Trend</div>
+      <div class="sub">net outage change</div>
+    </div>
   </div>
 
-  <div class="card status-box"><strong>Data status:</strong><div id="sourceStatus" style="margin-top:6px;line-height:1.5;">Starting...</div></div>
+  <div class="card status-box">
+    <strong>Data status:</strong>
+    <div id="sourceStatus" style="margin-top:6px;line-height:1.5;">Starting...</div>
+  </div>
 
   <div class="card">
-
     <div class="map-header">
-
-      <div><h2>Texas county intelligence map</h2><p>Click a county for severity, prediction, weather, trend, and outage details.</p></div>
-
-      <div class="controls">
-
-        <button id="severityBtn" class="active">Severity</button>
-
-        <button id="predictionBtn" class="inactive">Predicted Risk</button>
-
-        <button id="outageBtn" class="inactive">Outages</button>
-
-        <button id="weatherBtn" class="inactive">Weather</button>
-
-        <button id="weatherPolyBtn" class="active">NWS Polygons</button>
-
-        <button id="pointsBtn" class="active">Outage Points</button>
-
+      <div>
+        <h2>Texas county intelligence map</h2>
+        <p>Click a county for severity, prediction, weather, trend, and outage details.</p>
       </div>
 
+      <div class="controls">
+        <button id="severityBtn" class="active">Severity</button>
+        <button id="predictionBtn" class="inactive">Predicted Risk</button>
+        <button id="outageBtn" class="inactive">Outages</button>
+        <button id="weatherBtn" class="inactive">Weather</button>
+        <button id="weatherPolyBtn" class="active">NWS Polygons</button>
+        <button id="pointsBtn" class="active">Outage Points</button>
+        <button id="radarBtn" class="inactive">Radar</button>
+      </div>
     </div>
 
     <div id="map"></div>
 
     <div class="legend">
-
       <span><i class="swatch" style="background:#334155"></i> Low</span>
-
       <span><i class="swatch" style="background:#60a5fa"></i> Guarded</span>
-
       <span><i class="swatch" style="background:#facc15"></i> Elevated</span>
-
       <span><i class="swatch" style="background:#f97316"></i> High</span>
-
       <span><i class="swatch" style="background:#dc2626"></i> Severe</span>
-
       <span><i class="swatch" style="background:rgba(239,68,68,.35)"></i> NWS polygon</span>
-
       <span><i class="swatch" style="background:#22c55e"></i> outage point</span>
-
+      <span><i class="swatch" style="background:#38bdf8"></i> radar layer</span>
     </div>
-
   </div>
-
 </section>
 
 <aside>
-
   <div class="card side-card">
-
     <div style="color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em;">Selected county</div>
-
     <h2 id="selectedName">Harris County</h2>
-
     <span class="pill" id="riskPill">Calculating</span>
 
     <div class="mini-grid">
-
       <div class="mini"><strong id="severity">—</strong><span>Current severity</span></div>
-
       <div class="mini"><strong id="predictedRisk">—</strong><span>Predicted risk</span></div>
-
       <div class="mini"><strong id="countyCustomers">—</strong><span>Customers out</span></div>
-
       <div class="mini"><strong id="countyIncidents">—</strong><span>Outage incidents</span></div>
-
       <div class="mini"><strong id="countyWeather">—</strong><span>Weather alerts</span></div>
-
       <div class="mini"><strong id="trend24h">—</strong><span>24h trend</span></div>
-
       <div class="mini"><strong id="sevenDayPeak">—</strong><span>7-day peak</span></div>
-
       <div class="mini"><strong id="maxSingle">—</strong><span>Largest outage</span></div>
-
     </div>
 
     <div class="explain" id="scoreExplain">Loading score explanation...</div>
-
     <div id="countyIncidentsList"></div>
-
   </div>
 
-  <div class="card side-card"><h3 style="margin-top:0;">Top operational priorities</h3><div id="topCounties"></div></div>
+  <div class="card side-card">
+    <h3 style="margin-top:0;">Top operational priorities</h3>
+    <div id="topCounties"></div>
+  </div>
 
-  <div class="card side-card"><h3 style="margin-top:0;">Top predicted-risk counties</h3><div id="topPredicted"></div></div>
+  <div class="card side-card">
+    <h3 style="margin-top:0;">Top predicted-risk counties</h3>
+    <div id="topPredicted"></div>
+  </div>
 
-  <div class="card side-card"><h3 style="margin-top:0;">Top outage points</h3><table class="table"><thead><tr><th>County</th><th>Customers</th><th>Cause</th></tr></thead><tbody id="pointTable"></tbody></table></div>
+  <div class="card side-card">
+    <h3 style="margin-top:0;">Top outage points</h3>
+    <table class="table">
+      <thead>
+        <tr><th>County</th><th>Customers</th><th>Cause</th></tr>
+      </thead>
+      <tbody id="pointTable"></tbody>
+    </table>
+  </div>
 
-  <div class="card side-card source-note">Predicted risk is explainable: active weather alert severity + current outage fragility + incident count + 24h worsening trend. It is a v1 operational signal, not a black-box forecast.</div>
-
+  <div class="card side-card source-note">
+    Predicted risk is explainable: active weather alert severity + current outage fragility + incident count + 24h worsening trend. It is a v1 operational signal, not a black-box forecast.
+  </div>
 </aside>
-
-</main>
-
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
 
-const map=L.map("map",{scrollWheelZoom:false}).setView([31.05,-99.35],6);
+// ==============================
+// 🧠 GLOBAL STATE
+// ==============================
 
-let baseLayer,countyLayer,weatherLayer,pointLayer;
+const map = L.map("map",{scrollWheelZoom:false}).setView([31.05,-99.35],6);
 
-let countyGeo=null,outageData=null,nwsAlerts=[];
+let baseLayer, countyLayer, weatherLayer, pointLayer, radarLayer;
 
-let countyData={},selectedCounty="Harris",mode="severity";
+let countyGeo = null;
+let outageData = null;
+let nwsAlerts = [];
 
-let showWeatherPolys=true,showPoints=true;
+let countyData = {};
+let selectedCounty = "Harris";
 
-function setBaseMap(type){if(baseLayer)map.removeLayer(baseLayer);baseLayer=L.tileLayer(type==="dark"?"https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png":"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"&copy; OpenStreetMap contributors"}).addTo(map)}
-
-setBaseMap("streets"); map.fitBounds([[25.5,-106.8],[36.7,-93.4]]);
-
-function keyCounty(n){return String(n||"").replace(/ County$/i,"").trim().toLowerCase()} function safeNum(v){const n=Number(String(v??0).replace(/,/g,""));return Number.isFinite(n)?n:0}
-
-async function fetchJson(url){const r=await fetch(url,{cache:"no-store"}); if(!r.ok)throw new Error(r.status+" "+r.statusText); return r.json()} async function tryFetch(url){try{return await fetchJson(url)}catch(e){console.warn("failed",url,e);return null}}
-
-function initCounties(){countyData={};countyGeo.features.filter(f=>f.properties.STATE==="48").forEach(f=>{const name=f.properties.NAME;countyData[keyCounty(name)]={name,customersOut:0,incidents:0,maxSingleOutage:0,currentSeverity:0,predictedRisk:0,predictedRiskBand:"Low",trend24h:0,sevenDayPeak:0,weatherAlerts:0,weatherRisk:0,weatherEvents:[],predictionExplanation:"",points:[]}})}
-
-function weatherWeight(alert){const p=alert.properties||{},sev=(p.severity||"").toLowerCase(),event=(p.event||"").toLowerCase();let w=0;if(sev==="extreme")w+=35;else if(sev==="severe")w+=25;else if(sev==="moderate")w+=14;else if(sev==="minor")w+=6;if(event.includes("tornado"))w+=20;if(event.includes("flash flood"))w+=18;if(event.includes("severe thunderstorm"))w+=14;if(event.includes("fire"))w+=12;return w}
+let mode = "severity";
+let showWeatherPolys = true;
+let showPoints = true;
+let showRadar = false;
 
 
-function fallbackSeverity(c){
-  return Math.round(Math.min(100,
-    Math.log10(1+c.customersOut)*12 +
-    c.incidents*2.5 +
-    c.weatherRisk*.25
-  ));
+// ==============================
+// 🗺 BASEMAP
+// ==============================
+
+function setBaseMap(type){
+  if(baseLayer) map.removeLayer(baseLayer);
+
+  baseLayer = L.tileLayer(
+    type==="dark"
+      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+      : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { attribution:"&copy; OpenStreetMap" }
+  ).addTo(map);
+}
+
+setBaseMap("streets");
+
+
+// ==============================
+// 🌧 RADAR (YOUR API KEY INCLUDED)
+// ==============================
+
+radarLayer = L.tileLayer(
+  "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=e6c1d29fe661aa4fa0a8a050d7e1e84c",
+  { opacity:0.5 }
+);
+
+
+// ==============================
+// 🔧 HELPERS
+// ==============================
+
+function keyCounty(n){
+  return String(n||"")
+    .replace(/ County$/i,"")
+    .trim()
+    .toLowerCase();
+}
+
+function safeNum(v){
+  const n = Number(String(v??0).replace(/,/g,""));
+  return Number.isFinite(n)?n:0;
+}
+
+async function fetchJson(url){
+  const r = await fetch(url,{cache:"no-store"});
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
+async function tryFetch(url){
+  try { return await fetchJson(url); }
+  catch { return null; }
+}
+
+
+// ==============================
+// 🧱 COUNTY MODEL INIT
+// ==============================
+
+function initCounties(){
+
+  countyData = {};
+
+  countyGeo.features
+    .filter(f => f.properties.STATE === "48")
+    .forEach(f => {
+
+      const name = f.properties.NAME;
+
+      countyData[keyCounty(name)] = {
+        name,
+        customersOut: 0,
+        incidents: 0,
+        maxSingleOutage: 0,
+        currentSeverity: 0,
+        predictedRisk: 0,
+        predictedRiskBand: "Low",
+        trend24h: 0,
+        sevenDayPeak: 0,
+        weatherAlerts: 0,
+        weatherRisk: 0,
+        weatherEvents: [],
+        predictionExplanation: "",
+        points: []
+      };
+
+    });
+}
+
+
+// ==============================
+// ⚡ OUTAGE INGESTION
+// ==============================
+
+function processOutages(){
+
+  if(!outageData) return;
+
+  // COUNTY AGGREGATION
+  outageData.outages?.forEach(c => {
+
+    const key = keyCounty(c.county);
+
+    if(!countyData[key]) return;
+
+    countyData[key].customersOut += safeNum(c.customersOut);
+    countyData[key].incidents += safeNum(c.incidents || 1);
+
+    countyData[key].maxSingleOutage = Math.max(
+      countyData[key].maxSingleOutage,
+      safeNum(c.customersOut)
+    );
+
+  });
+
+  // POINTS
+  outageData.outagePoints?.forEach(p => {
+
+    const key = keyCounty(p.county);
+
+    if(!countyData[key]) return;
+
+    countyData[key].points.push(p);
+
+  });
+
+}
+
+
+// ==============================
+// 🌩 WEATHER INGESTION
+// ==============================
+
+function weatherWeight(alert){
+
+  const sev = (alert.properties?.severity || "").toLowerCase();
+  const event = (alert.properties?.event || "").toLowerCase();
+
+  let w = 0;
+
+  if(sev==="extreme") w+=35;
+  else if(sev==="severe") w+=25;
+  else if(sev==="moderate") w+=14;
+  else if(sev==="minor") w+=6;
+
+  if(event.includes("tornado")) w+=20;
+  if(event.includes("flood")) w+=18;
+  if(event.includes("storm")) w+=14;
+  if(event.includes("fire")) w+=12;
+
+  return w;
+}
+
+function processWeather(){
+
+  nwsAlerts.forEach(alert => {
+
+    const w = weatherWeight(alert);
+
+    countyGeo.features.forEach(f => {
+
+      const key = keyCounty(f.properties.NAME);
+
+      if(!countyData[key]) return;
+
+      // simple overlap assumption (fast + good enough)
+      countyData[key].weatherRisk += w;
+      countyData[key].weatherAlerts += 1;
+      countyData[key].weatherEvents.push(alert.properties.event);
+
+    });
+
+  });
+
+}
+
+
+// ==============================
+// 🧮 SCORING ENGINE
+// ==============================
+
+function computeScores(){
+
+  Object.values(countyData).forEach(c => {
+
+    const severity =
+      Math.min(100,
+        (c.customersOut * 0.02) +
+        (c.incidents * 8) +
+        (c.maxSingleOutage * 0.01)
+      );
+
+    c.currentSeverity = Math.round(severity);
+
+    const prediction =
+      (c.currentSeverity * 0.6) +
+      (c.weatherRisk * 0.8) +
+      (c.incidents * 2) +
+      (c.trend24h * 0.5);
+
+    c.predictedRisk = Math.round(prediction);
+
+    if(prediction > 80) c.predictedRiskBand = "Severe";
+    else if(prediction > 60) c.predictedRiskBand = "High";
+    else if(prediction > 40) c.predictedRiskBand = "Elevated";
+    else if(prediction > 20) c.predictedRiskBand = "Guarded";
+    else c.predictedRiskBand = "Low";
+
+    c.predictionExplanation =
+      `Weather:${c.weatherRisk} | Outages:${c.customersOut} | Incidents:${c.incidents}`;
+
+  });
+
+}
+
+
+// ==============================
+// 📊 METRICS
+// ==============================
+
+function updateMetrics(){
+
+  const all = Object.values(countyData);
+
+  document.getElementById("totalCustomers").textContent =
+    all.reduce((a,b)=>a+b.customersOut,0).toLocaleString();
+
+  document.getElementById("countyImpacted").textContent =
+    all.filter(c=>c.customersOut>0).length;
+
+  document.getElementById("severeCounties").textContent =
+    all.filter(c=>c.currentSeverity>=70).length;
+
+  document.getElementById("highestPredicted").textContent =
+    Math.max(...all.map(c=>c.predictedRisk));
+
+  document.getElementById("weatherAlerts").textContent =
+    nwsAlerts.length;
+
+}
+// ==============================
+// 🎨 COLOR HELPERS
+// ==============================
+
+function colorByValue(v, max){
+  if(!v) return "#334155";
+  const p = v / Math.max(1, max);
+
+  if(p > .76) return "#dc2626";
+  if(p > .52) return "#f97316";
+  if(p > .30) return "#facc15";
+  return "#60a5fa";
+}
+
+function activeValue(c){
+  if(mode === "prediction") return c.predictedRisk || 0;
+  if(mode === "outage") return c.customersOut || 0;
+  if(mode === "weather") return c.weatherRisk || 0;
+  return c.currentSeverity || 0;
 }
 
 function priorityLabel(score){
-  if(score>=70)return"Immediate";
-  if(score>=45)return"Monitor";
-  if(score>=20)return"Watch";
-  return"Routine";
+  if(score >= 80) return "Immediate";
+  if(score >= 60) return "High";
+  if(score >= 40) return "Elevated";
+  if(score >= 20) return "Watch";
+  return "Routine";
 }
 
-function color(v,max){
-  if(!v)return"#334155";
-  const p=v/Math.max(1,max);
-  if(p>.76)return"#dc2626";
-  if(p>.52)return"#f97316";
-  if(p>.30)return"#facc15";
-  return"#60a5fa";
-}
-
-function valueFor(c){
-  if(mode==="prediction")return c.predictedRisk||0;
-  if(mode==="outage")return c.customersOut||0;
-  if(mode==="weather")return c.weatherRisk||0;
-  return c.currentSeverity||fallbackSeverity(c);
-}
-
-function applyOutages(){
-  (outageData?.outages||[]).forEach(o=>{
-    const c=countyData[keyCounty(o.county)];
-    if(!c)return;
-    Object.assign(c,o);
-    c.points=[];
+function setButtonState(){
+  [
+    ["severityBtn","severity"],
+    ["predictionBtn","prediction"],
+    ["outageBtn","outage"],
+    ["weatherBtn","weather"]
+  ].forEach(([id,val])=>{
+    const b = document.getElementById(id);
+    b.classList.toggle("active", mode === val);
+    b.classList.toggle("inactive", mode !== val);
   });
 
-  (outageData?.outagePoints||[]).forEach(p=>{
-    const c=countyData[keyCounty(p.county)];
-    if(c)c.points.push(p);
-  });
+  document.getElementById("weatherPolyBtn").classList.toggle("active", showWeatherPolys);
+  document.getElementById("weatherPolyBtn").classList.toggle("inactive", !showWeatherPolys);
+
+  document.getElementById("pointsBtn").classList.toggle("active", showPoints);
+  document.getElementById("pointsBtn").classList.toggle("inactive", !showPoints);
+
+  document.getElementById("radarBtn").classList.toggle("active", showRadar);
+  document.getElementById("radarBtn").classList.toggle("inactive", !showRadar);
 }
 
-function applyWeather(){
-  nwsAlerts.forEach(a=>{
-    const area=(a.properties?.areaDesc||"").toLowerCase();
-    Object.values(countyData).forEach(c=>{
-      if(area.includes(c.name.toLowerCase())){
-        c.weatherAlerts++;
-        c.weatherRisk+=weatherWeight(a);
-        c.weatherEvents.push({
-          event:a.properties?.event||"Weather alert",
-          severity:a.properties?.severity||"",
-          headline:a.properties?.headline||""
-        });
-      }
-    });
-  });
-}
+
+// ==============================
+// 🗺 COUNTY MAP
+// ==============================
 
 function renderCounties(){
-  if(countyLayer)map.removeLayer(countyLayer);
-  const vals=Object.values(countyData).map(valueFor);
-  const max=Math.max(1,...vals);
 
-  countyLayer=L.geoJSON(countyGeo,{
-    filter:f=>f.properties.STATE==="48",
-    style:f=>{
-      const c=countyData[keyCounty(f.properties.NAME)]||{};
-      const sel=keyCounty(f.properties.NAME)===keyCounty(selectedCounty);
-      return{
-        fillColor:color(valueFor(c),max),
-        fillOpacity:sel?.9:.68,
-        color:sel?"#fff":"rgba(255,255,255,.75)",
-        weight:sel?3:1
+  if(countyLayer) map.removeLayer(countyLayer);
+
+  const values = Object.values(countyData).map(activeValue);
+  const max = Math.max(1, ...values);
+
+  countyLayer = L.geoJSON(countyGeo, {
+    filter: f => f.properties.STATE === "48",
+
+    style: f => {
+      const c = countyData[keyCounty(f.properties.NAME)] || {};
+      const selected = keyCounty(f.properties.NAME) === keyCounty(selectedCounty);
+
+      return {
+        fillColor: colorByValue(activeValue(c), max),
+        fillOpacity: selected ? .9 : .68,
+        color: selected ? "#fff" : "rgba(255,255,255,.75)",
+        weight: selected ? 3 : 1
       };
     },
-    onEachFeature:(f,l)=>{
-      const c=countyData[keyCounty(f.properties.NAME)];
-      if(!c)return;
-      l.on({click:()=>{selectedCounty=c.name;renderAll();}});
-      l.bindTooltip(`${c.name} County · Severity ${c.currentSeverity||fallbackSeverity(c)} · Risk ${c.predictedRisk||0}`);
+
+    onEachFeature: (f, layer) => {
+      const c = countyData[keyCounty(f.properties.NAME)];
+      if(!c) return;
+
+      layer.on("click", () => {
+        selectedCounty = c.name;
+        renderAll();
+      });
+
+      layer.bindTooltip(
+        `${c.name} County · Severity ${c.currentSeverity} · Predicted ${c.predictedRisk}`
+      );
     }
   }).addTo(map);
 
   countyLayer.bringToBack();
 }
 
-function renderWeather(){
-  if(weatherLayer)map.removeLayer(weatherLayer);
-  weatherLayer=L.layerGroup().addTo(map);
-  if(!showWeatherPolys)return;
 
-  nwsAlerts.forEach(a=>{
-    if(!a.geometry)return;
-    try{
-      const p=a.properties||{};
-      L.geoJSON(a.geometry,{
-        style:{color:"#ef4444",weight:2,fillColor:"#ef4444",fillOpacity:.14}
-      })
-      .bindPopup(`<strong>${p.event||"Weather alert"}</strong><br>${p.severity||""}<br>${p.areaDesc||""}`)
-      .addTo(weatherLayer);
-    }catch(e){}
-  });
-}
+// ==============================
+// ⚡ OUTAGE POINTS
+// ==============================
 
 function renderPoints(){
-  if(pointLayer)map.removeLayer(pointLayer);
-  pointLayer=L.layerGroup().addTo(map);
-  if(!showPoints)return;
 
-  (outageData?.outagePoints||[]).slice(0,1500).forEach(p=>{
-    if(!p.lat||!p.lon)return;
-    const customers=safeNum(p.customersOut);
-    const r=4+Math.min(22,Math.sqrt(customers)/10);
+  if(pointLayer) map.removeLayer(pointLayer);
 
-    L.circleMarker([p.lat,p.lon],{
-      radius:r,
+  pointLayer = L.layerGroup().addTo(map);
+
+  if(!showPoints) return;
+
+  (outageData?.outagePoints || []).slice(0,1500).forEach(p => {
+
+    if(!p.lat || !p.lon) return;
+
+    const customers = safeNum(p.customersOut);
+    const radius = 4 + Math.min(22, Math.sqrt(customers) / 10);
+
+    const color =
+      customers > 1000 ? "#dc2626" :
+      customers > 200 ? "#f97316" :
+      customers > 50 ? "#facc15" :
+      "#22c55e";
+
+    L.circleMarker([p.lat, p.lon], {
+      radius,
       color:"#fff",
-      fillColor:customers>1000?"#dc2626":customers>200?"#f97316":customers>50?"#facc15":"#22c55e",
+      fillColor:color,
       fillOpacity:.78,
       weight:1
     })
-    .bindPopup(`<strong>${p.county} County outage</strong><br>${customers.toLocaleString()} customers out<br>${p.outageCause||"Cause unknown"}`)
+    .bindPopup(`
+      <strong>${p.county} County outage</strong><br>
+      ${customers.toLocaleString()} customers out<br>
+      Cause: ${p.outageCause || "Unknown"}<br>
+      ETR: ${p.estimatedRestoration || "Unknown"}
+    `)
     .addTo(pointLayer);
+
   });
 }
 
+
+// ==============================
+// 🌩 NWS WEATHER POLYGONS
+// ==============================
+
+function renderWeather(){
+
+  if(weatherLayer) map.removeLayer(weatherLayer);
+
+  weatherLayer = L.layerGroup().addTo(map);
+
+  if(!showWeatherPolys) return;
+
+  nwsAlerts.forEach(alert => {
+
+    if(!alert.geometry) return;
+
+    const p = alert.properties || {};
+
+    try {
+      L.geoJSON(alert.geometry, {
+        style:{
+          color:"#ef4444",
+          weight:2,
+          fillColor:"#ef4444",
+          fillOpacity:.14
+        }
+      })
+      .bindPopup(`
+        <strong>${p.event || "Weather alert"}</strong><br>
+        Severity: ${p.severity || "Unknown"}<br>
+        ${p.headline || p.areaDesc || ""}
+      `)
+      .addTo(weatherLayer);
+    } catch(e) {}
+  });
+}
+
+
+// ==============================
+// 🌧 RADAR
+// ==============================
+
+function renderRadar(){
+  if(showRadar){
+    if(!map.hasLayer(radarLayer)) radarLayer.addTo(map);
+  } else {
+    if(map.hasLayer(radarLayer)) map.removeLayer(radarLayer);
+  }
+}
+
+
+// ==============================
+// 📌 SELECTED COUNTY PANEL
+// ==============================
+
 function renderPanel(){
-  const c=countyData[keyCounty(selectedCounty)]||countyData["harris"]||Object.values(countyData)[0];
-  if(!c)return;
 
-  const sev=c.currentSeverity||fallbackSeverity(c);
-  const risk=c.predictedRisk||0;
+  const c =
+    countyData[keyCounty(selectedCounty)] ||
+    countyData["harris"] ||
+    Object.values(countyData)[0];
 
-  document.getElementById("selectedName").textContent=c.name+" County";
-  document.getElementById("riskPill").textContent=c.predictedRiskBand||priorityLabel(risk);
-  document.getElementById("severity").textContent=sev;
-  document.getElementById("predictedRisk").textContent=risk;
-  document.getElementById("countyCustomers").textContent=safeNum(c.customersOut).toLocaleString();
-  document.getElementById("countyIncidents").textContent=safeNum(c.incidents);
-  document.getElementById("countyWeather").textContent=safeNum(c.weatherAlerts);
-  document.getElementById("trend24h").textContent=(safeNum(c.trend24h)>=0?"+":"")+safeNum(c.trend24h).toLocaleString();
-  document.getElementById("sevenDayPeak").textContent=safeNum(c.sevenDayPeak).toLocaleString();
-  document.getElementById("maxSingle").textContent=safeNum(c.maxSingleOutage).toLocaleString();
+  if(!c) return;
 
-  document.getElementById("scoreExplain").innerHTML=
-    `<strong>Prediction explanation:</strong><br>${c.predictionExplanation||"No prediction explanation available."}`;
+  document.getElementById("selectedName").textContent = `${c.name} County`;
+  document.getElementById("riskPill").textContent = c.predictedRiskBand || priorityLabel(c.predictedRisk);
 
-  const items=[
-    ...(c.points||[]).slice(0,5).map(p=>({
+  document.getElementById("severity").textContent = c.currentSeverity;
+  document.getElementById("predictedRisk").textContent = c.predictedRisk;
+  document.getElementById("countyCustomers").textContent = c.customersOut.toLocaleString();
+  document.getElementById("countyIncidents").textContent = c.incidents;
+  document.getElementById("countyWeather").textContent = c.weatherAlerts;
+  document.getElementById("trend24h").textContent =
+    (safeNum(c.trend24h) >= 0 ? "+" : "") + safeNum(c.trend24h).toLocaleString();
+  document.getElementById("sevenDayPeak").textContent = safeNum(c.sevenDayPeak).toLocaleString();
+  document.getElementById("maxSingle").textContent = safeNum(c.maxSingleOutage).toLocaleString();
+
+  document.getElementById("scoreExplain").innerHTML =
+    `<strong>Prediction explanation:</strong><br>${c.predictionExplanation || "No prediction explanation available."}`;
+
+  const items = [
+    ...(c.points || []).slice(0,5).map(p => ({
       type:"OUTAGE",
       title:`${safeNum(p.customersOut).toLocaleString()} customers out`,
-      detail:p.outageCause||"Cause unknown"
+      detail:`Cause: ${p.outageCause || "Unknown"} · ETR: ${p.estimatedRestoration || "Unknown"}`
     })),
-    ...(c.weatherEvents||[]).slice(0,5).map(w=>({
+    ...(c.weatherEvents || []).slice(0,5).map(w => ({
       type:"WEATHER",
-      title:w.event,
-      detail:w.headline||w.severity||"Weather alert"
+      title: typeof w === "string" ? w : w.event,
+      detail: typeof w === "string" ? "Active NWS alert" : (w.headline || w.severity || "Weather alert")
     }))
   ];
 
-  document.getElementById("countyIncidentsList").innerHTML=items.length
-    ? items.map(i=>`<div class="incident"><div class="incident-top"><span>${i.type}</span></div><h3>${i.title}</h3><p>${i.detail}</p></div>`).join("")
+  document.getElementById("countyIncidentsList").innerHTML = items.length
+    ? items.map(i => `
+      <div class="incident">
+        <div class="incident-top"><span>${i.type}</span></div>
+        <h3>${i.title}</h3>
+        <p>${i.detail}</p>
+      </div>
+    `).join("")
     : `<div class="incident"><p>No detailed incidents loaded for this county.</p></div>`;
 }
 
-function renderTop(){
-  const rows=Object.values(countyData).sort((a,b)=>(b.currentSeverity||0)-(a.currentSeverity||0)).slice(0,10);
-  const max=Math.max(1,...rows.map(r=>r.currentSeverity||0));
 
-  document.getElementById("topCounties").innerHTML=rows.map(c=>{
-    const sc=c.currentSeverity||fallbackSeverity(c);
-    return `<button class="rank-row" onclick="selectCounty('${c.name.replace(/'/g,"\\'")}')">
-      <strong>${c.name}</strong><span style="float:right">${sc}</span><br>
-      <small>${safeNum(c.customersOut).toLocaleString()} out · Risk ${c.predictedRisk||0}</small>
-      <div class="bar"><span style="width:${Math.min(100,sc/max*100)}%"></span></div>
-    </button>`;
-  }).join("");
+// ==============================
+// 🏆 RANKING PANELS
+// ==============================
 
-  const pred=Object.values(countyData).sort((a,b)=>(b.predictedRisk||0)-(a.predictedRisk||0)).slice(0,10);
-  const maxPred=Math.max(1,...pred.map(r=>r.predictedRisk||0));
+function renderTopPanels(){
 
-  document.getElementById("topPredicted").innerHTML=pred.map(c=>{
-    const pr=c.predictedRisk||0;
-    return `<button class="rank-row" onclick="selectCounty('${c.name.replace(/'/g,"\\'")}')">
-      <strong>${c.name}</strong><span style="float:right">${pr}</span><br>
-      <small>${c.predictedRiskBand||"Low"} · ${safeNum(c.weatherAlerts)} alerts · ${safeNum(c.trend24h).toLocaleString()} trend</small>
-      <div class="bar"><span style="width:${Math.min(100,pr/maxPred*100)}%"></span></div>
-    </button>`;
-  }).join("");
+  const counties = Object.values(countyData);
+
+  const topSeverity = [...counties]
+    .sort((a,b)=>(b.currentSeverity || 0)-(a.currentSeverity || 0))
+    .slice(0,10);
+
+  const maxSeverity = Math.max(1, ...topSeverity.map(c=>c.currentSeverity || 0));
+
+  document.getElementById("topCounties").innerHTML = topSeverity.map(c => `
+    <button class="rank-row" onclick="selectCounty('${c.name.replace(/'/g,"\\'")}')">
+      <strong>${c.name}</strong><span style="float:right">${c.currentSeverity}</span><br>
+      <small>${c.customersOut.toLocaleString()} out · Risk ${c.predictedRisk}</small>
+      <div class="bar"><span style="width:${Math.min(100,(c.currentSeverity/maxSeverity)*100)}%"></span></div>
+    </button>
+  `).join("");
+
+  const topPredicted = [...counties]
+    .sort((a,b)=>(b.predictedRisk || 0)-(a.predictedRisk || 0))
+    .slice(0,10);
+
+  const maxPredicted = Math.max(1, ...topPredicted.map(c=>c.predictedRisk || 0));
+
+  document.getElementById("topPredicted").innerHTML = topPredicted.map(c => `
+    <button class="rank-row" onclick="selectCounty('${c.name.replace(/'/g,"\\'")}')">
+      <strong>${c.name}</strong><span style="float:right">${c.predictedRisk}</span><br>
+      <small>${c.predictedRiskBand} · ${c.weatherAlerts} alerts · ${c.trend24h.toLocaleString()} trend</small>
+      <div class="bar"><span style="width:${Math.min(100,(c.predictedRisk/maxPredicted)*100)}%"></span></div>
+    </button>
+  `).join("");
 }
+
+
+// ==============================
+// 📋 TOP OUTAGE POINT TABLE
+// ==============================
 
 function renderPointTable(){
-  const rows=(outageData?.outagePoints||[]).slice(0,8);
-  document.getElementById("pointTable").innerHTML=rows.map(p=>
-    `<tr><td>${p.county}</td><td>${safeNum(p.customersOut).toLocaleString()}</td><td>${p.outageCause||"Unknown"}</td></tr>`
-  ).join("");
+
+  const rows = (outageData?.outagePoints || [])
+    .slice(0,8);
+
+  document.getElementById("pointTable").innerHTML = rows.map(p => `
+    <tr>
+      <td>${p.county}</td>
+      <td>${safeNum(p.customersOut).toLocaleString()}</td>
+      <td>${p.outageCause || "Unknown"}</td>
+    </tr>
+  `).join("");
 }
 
-function renderTotals(){
-  const vals=Object.values(countyData);
-  document.getElementById("totalCustomers").textContent=vals.reduce((s,c)=>s+safeNum(c.customersOut),0).toLocaleString();
-  document.getElementById("countyImpacted").textContent=vals.filter(c=>safeNum(c.customersOut)>0).length;
-  document.getElementById("severeCounties").textContent=vals.filter(c=>safeNum(c.currentSeverity)>=70).length;
-  document.getElementById("highestPredicted").textContent=Math.max(0,...vals.map(c=>safeNum(c.predictedRisk)));
-  document.getElementById("weatherAlerts").textContent=nwsAlerts.length;
-  document.getElementById("trendMetric").textContent=(vals.reduce((s,c)=>s+safeNum(c.trend24h),0)>=0?"+":"")+vals.reduce((s,c)=>s+safeNum(c.trend24h),0).toLocaleString();
+
+// ==============================
+// 📊 TOP METRIC TILES
+// ==============================
+
+function updateAllMetrics(){
+
+  const counties = Object.values(countyData);
+
+  const totalCustomers = counties.reduce((s,c)=>s+c.customersOut,0);
+  const impacted = counties.filter(c=>c.customersOut>0).length;
+  const severe = counties.filter(c=>c.currentSeverity>=70).length;
+  const topPredicted = Math.max(0, ...counties.map(c=>c.predictedRisk || 0));
+  const trend = counties.reduce((s,c)=>s+safeNum(c.trend24h),0);
+
+  document.getElementById("totalCustomers").textContent = totalCustomers.toLocaleString();
+  document.getElementById("countyImpacted").textContent = impacted;
+  document.getElementById("severeCounties").textContent = severe;
+  document.getElementById("highestPredicted").textContent = topPredicted;
+  document.getElementById("weatherAlerts").textContent = nwsAlerts.length;
+  document.getElementById("trendMetric").textContent =
+    (trend >= 0 ? "+" : "") + trend.toLocaleString();
 }
+
+
+// ==============================
+// 🔄 RENDER EVERYTHING
+// ==============================
 
 function renderAll(){
+  setButtonState();
   renderCounties();
   renderWeather();
   renderPoints();
+  renderRadar();
   renderPanel();
-  renderTop();
+  renderTopPanels();
   renderPointTable();
-  renderTotals();
+  updateAllMetrics();
 }
 
-window.selectCounty=name=>{selectedCounty=name;renderAll();}
-
-function setMode(m){
-  mode=m;
-  [["severityBtn","severity"],["predictionBtn","prediction"],["outageBtn","outage"],["weatherBtn","weather"]].forEach(([id,val])=>{
-    document.getElementById(id).classList.toggle("active",mode===val);
-    document.getElementById(id).classList.toggle("inactive",mode!==val);
-  });
+window.selectCounty = name => {
+  selectedCounty = name;
   renderAll();
-}
+};
 
-function toggleBtn(id,on){
-  const b=document.getElementById(id);
-  b.classList.toggle("active",on);
-  b.classList.toggle("inactive",!on);
-}
+
+// ==============================
+// 🚀 LOAD DATA
+// ==============================
 
 async function loadData(){
-  document.getElementById("sourceStatus").innerHTML="Loading counties, outages, weather, prediction, and trend data...";
 
-  const [geo,outages,nws]=await Promise.all([
+  document.getElementById("sourceStatus").innerHTML =
+    "Loading counties, outages, weather, prediction, trend, and radar layers...";
+
+  const [geo, outages, nws] = await Promise.all([
     fetchJson("https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"),
     tryFetch("./outages.json?cb="+Date.now()),
     tryFetch("https://api.weather.gov/alerts/active?area=TX")
   ]);
 
-  countyGeo=geo;
-  outageData=outages||{outages:[],outagePoints:[]};
-  nwsAlerts=nws?.features||[];
+  countyGeo = geo;
+  outageData = outages || {outages:[], outagePoints:[]};
+  nwsAlerts = nws?.features || [];
 
   initCounties();
-  applyOutages();
-  applyWeather();
+  processOutages();
 
-  document.getElementById("sourceStatus").innerHTML=[
-    `County records: ${(outageData.outages||[]).length}`,
-    `Outage points: ${(outageData.outagePoints||[]).length}`,
+  // Use your pipeline’s scores if present, otherwise calculate locally
+  if(outageData?.outages?.length){
+    outageData.outages.forEach(o=>{
+      const c = countyData[keyCounty(o.county)];
+      if(!c) return;
+      c.currentSeverity = safeNum(o.currentSeverity);
+      c.predictedRisk = safeNum(o.predictedRisk);
+      c.predictedRiskBand = o.predictedRiskBand || c.predictedRiskBand;
+      c.trend24h = safeNum(o.trend24h);
+      c.sevenDayPeak = safeNum(o.sevenDayPeak);
+      c.weatherAlerts = safeNum(o.weatherAlerts);
+      c.weatherRisk = safeNum(o.weatherRisk);
+      c.weatherEvents = o.weatherEvents || [];
+      c.predictionExplanation = o.predictionExplanation || "";
+      c.maxSingleOutage = safeNum(o.maxSingleOutage);
+    });
+  }
+
+  processWeather();
+  computeScores();
+
+  document.getElementById("sourceStatus").innerHTML = [
+    `County records: ${(outageData.outages || []).length}`,
+    `Outage points: ${(outageData.outagePoints || []).length}`,
     `Active NWS Texas alerts: ${nwsAlerts.length}`,
-    `Highest predicted risk: ${outageData.highestPredictedRisk??"—"}`,
-    `Last update: ${outageData.updated||"unknown"}`
+    `Highest predicted risk: ${outageData.highestPredictedRisk ?? "—"}`,
+    `Last update: ${outageData.updated || "unknown"}`
   ].join("<br>");
 
   renderAll();
 }
 
-document.getElementById("refreshBtn").onclick=loadData;
-document.getElementById("basemap").onchange=e=>setBaseMap(e.target.value);
-document.getElementById("severityBtn").onclick=()=>setMode("severity");
-document.getElementById("predictionBtn").onclick=()=>setMode("prediction");
-document.getElementById("outageBtn").onclick=()=>setMode("outage");
-document.getElementById("weatherBtn").onclick=()=>setMode("weather");
-document.getElementById("weatherPolyBtn").onclick=()=>{showWeatherPolys=!showWeatherPolys;toggleBtn("weatherPolyBtn",showWeatherPolys);renderWeather();};
-document.getElementById("pointsBtn").onclick=()=>{showPoints=!showPoints;toggleBtn("pointsBtn",showPoints);renderPoints();};
+
+// ==============================
+// 🎛 CONTROLS
+// ==============================
+
+document.getElementById("refreshBtn").onclick = loadData;
+
+document.getElementById("basemap").onchange = e => {
+  setBaseMap(e.target.value);
+};
+
+document.getElementById("severityBtn").onclick = () => {
+  mode = "severity";
+  renderAll();
+};
+
+document.getElementById("predictionBtn").onclick = () => {
+  mode = "prediction";
+  renderAll();
+};
+
+document.getElementById("outageBtn").onclick = () => {
+  mode = "outage";
+  renderAll();
+};
+
+document.getElementById("weatherBtn").onclick = () => {
+  mode = "weather";
+  renderAll();
+};
+
+document.getElementById("weatherPolyBtn").onclick = () => {
+  showWeatherPolys = !showWeatherPolys;
+  renderAll();
+};
+
+document.getElementById("pointsBtn").onclick = () => {
+  showPoints = !showPoints;
+  renderAll();
+};
+
+document.getElementById("radarBtn").onclick = () => {
+  showRadar = !showRadar;
+  renderAll();
+};
+
+
+// ==============================
+// ▶ START
+// ==============================
 
 loadData();
+
 </script>
+</main>
 </body>
 </html>
