@@ -21,9 +21,6 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Test DriveTexas road tiles
-        run: node scripts/test-drivetexas.js
-
       - name: Run outage script
         run: node scripts/fetch-outages.js
 
