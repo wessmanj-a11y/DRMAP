@@ -1,90 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Texas Emergency Command Dashboard</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<title>Texas Resilience Command Center</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
 <style>
-:root{--bg:#06111f;--panel:#0f172a;--line:rgba(255,255,255,.12);--text:#f8fafc;--muted:#94a3b8;--red:#ef4444;--orange:#f97316;--yellow:#facc15;--green:#22c55e}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top left,rgba(239,68,68,.18),transparent 34%),linear-gradient(135deg,#020617,var(--bg));color:var(--text)}
-header{padding:20px;border-bottom:1px solid var(--line);background:rgba(2,6,23,.9)}.wrap{max-width:1550px;margin:0 auto}.header-inner{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
-.badge{display:inline-block;margin-bottom:10px;padding:7px 11px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.12);color:#fecaca;border-radius:999px;font-size:13px}
-h1{margin:0;font-size:clamp(28px,4vw,48px);letter-spacing:-1.5px;line-height:1}header p{margin:9px 0 0;color:var(--muted);max-width:950px;line-height:1.45}
-button,select{border:1px solid var(--line);border-radius:14px;padding:10px 13px;background:#020617;color:var(--muted);cursor:pointer;font-weight:800;transition:.18s}button:hover{transform:translateY(-1px);color:white;border-color:rgba(255,255,255,.35)}
-button.active{background:linear-gradient(135deg,var(--red),var(--orange));color:white;border-color:rgba(255,255,255,.35);box-shadow:0 0 0 2px rgba(239,68,68,.18),0 12px 25px rgba(239,68,68,.22)}button.inactive{opacity:.58}
-.ticker{border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:rgba(15,23,42,.92);color:#fecaca;font-size:13px}.ticker-track{display:inline-block;padding:10px 0;animation:ticker 46s linear infinite}.ticker-item{display:inline-block;margin-right:38px}@keyframes ticker{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}
-.layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(360px,.9fr);gap:18px;padding:18px}.metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:14px}
-.card{background:rgba(15,23,42,.88);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.28)}.metric{padding:15px;min-height:94px}.metric .value{font-size:27px;font-weight:900;line-height:1}.metric .label{color:var(--muted);font-size:12px;margin-top:7px;line-height:1.25}
-.notice{padding:14px;margin-bottom:14px;border-radius:16px;border:1px solid rgba(251,191,36,.35);background:rgba(251,191,36,.10);color:#fde68a;display:none}.status-box{padding:12px;margin-bottom:14px;color:#cbd5e1;font-size:13px}
-.map-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px;border-bottom:1px solid var(--line);flex-wrap:wrap}.map-header h2{margin:0;font-size:20px}.map-header p{margin:4px 0 0;color:var(--muted);font-size:13px}.controls{display:flex;gap:8px;flex-wrap:wrap}
-#map{height:650px;background:#dbeafe}.legend{display:flex;flex-wrap:wrap;gap:10px;padding:12px 15px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}.legend span{display:inline-flex;align-items:center;gap:6px}.swatch{width:14px;height:14px;border-radius:4px;display:inline-block}
-aside{display:flex;flex-direction:column;gap:16px}.side-card{padding:17px}.side-card h2{margin:0;font-size:30px}.pill{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:999px;background:rgba(239,68,68,.2);color:#fecaca;font-weight:800;font-size:12px}
-.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}.mini{padding:12px;background:#020617;border:1px solid rgba(255,255,255,.06);border-radius:15px}.mini strong{display:block;font-size:21px}.mini span{color:var(--muted);font-size:12px}
-input[type=text]{width:100%;margin-top:16px;padding:13px;border-radius:14px;border:1px solid var(--line);background:#020617;color:var(--text);outline:none}
-.incident{margin-top:12px;padding:13px;background:#020617;border:1px solid var(--line);border-radius:15px}.incident-top{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.incident h3{margin:8px 0 4px;font-size:15px}.incident p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}
-.rank-row{width:100%;margin-bottom:9px;text-align:left;background:#020617;border:1px solid var(--line)}.bar{height:7px;margin-top:9px;background:#334155;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--red))}
-.utility-link{display:block;padding:11px;margin-bottom:8px;border-radius:14px;background:#020617;border:1px solid var(--line);color:#cbd5e1;text-decoration:none;font-size:13px}.utility-link strong{color:white}.source-note{color:var(--muted);font-size:12px;line-height:1.45}.leaflet-container{font-family:Arial,Helvetica,sans-serif}
-@media(max-width:1150px){.layout{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}#map{height:560px}}@media(max-width:640px){.layout{padding:12px}.metrics{grid-template-columns:1fr 1fr}.metric .value{font-size:23px}.map-header{align-items:flex-start;flex-direction:column}.controls{justify-content:flex-start}#map{height:440px}.side-card h2{font-size:26px}}
+body { margin:0; font-family:Arial; background:#0f172a; color:white; }
+#map { height:100vh; }
+
+.panel {
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#020617;
+  padding:12px;
+  border-radius:10px;
+  width:260px;
+}
+
+h2 { margin:0 0 8px 0; }
+
+.metric { margin:6px 0; }
 </style>
 </head>
+
 <body>
-<header><div class="wrap header-inner"><div><div class="badge">● Texas Emergency Command Dashboard</div><h1>Texas County Risk Map</h1><p>County-level dashboard for Texas weather alerts, earthquakes, FEMA declarations when available, outage data from your GitHub refresh file, and Texas utility source links.</p></div><div><button id="refreshBtn">Refresh</button> <select id="basemap"><option value="streets">Street Map</option><option value="dark">Dark Map</option></select></div></div></header>
-<div class="ticker"><div class="ticker-track" id="tickerTrack">Loading Texas incident ticker...</div></div>
-<main class="wrap layout">
-<section>
-<div class="metrics">
-<div class="card metric"><div class="value" id="totalAlerts">—</div><div class="label">Active TX weather alerts</div></div>
-<div class="card metric"><div class="value" id="totalPolygons">—</div><div class="label">Alert polygons</div></div>
-<div class="card metric"><div class="value" id="totalQuakes">—</div><div class="label">TX region quakes</div></div>
-<div class="card metric"><div class="value" id="totalFema">—</div><div class="label">TX FEMA declarations</div></div>
-<div class="card metric"><div class="value" id="totalOutages">—</div><div class="label">Customers out</div></div>
-<div class="card metric"><div class="value" id="topCountyScore">—</div><div class="label">Top county score</div></div>
+
+<div id="map"></div>
+
+<div class="panel">
+<h2>Texas Grid Status</h2>
+
+<div class="metric">Customers Out: <span id="total">—</span></div>
+<div class="metric">Counties Impacted: <span id="counties">—</span></div>
+
+<hr>
+
+<div id="selected">Click a county</div>
+
 </div>
-<div class="notice" id="notice"></div><div class="card status-box"><strong>Data status:</strong><div id="sourceStatus" style="margin-top:6px;line-height:1.5;">Starting...</div></div>
-<div class="card"><div class="map-header"><div><h2>Texas county map</h2><p>Counties are clickable and shaded by combined alert, outage, quake, and declaration signal.</p></div><div class="controls"><button id="scoreBtn" class="active">Risk Score</button><button id="outageBtn" class="inactive">Outages</button><button id="alertBtn" class="inactive">Alerts</button><button id="polygonBtn" class="active">Alert Polygons</button><button id="quakeBtn" class="active">Quakes</button><button id="outageLayerBtn" class="active">Outage Markers</button></div></div>
-<div id="map"></div><div class="legend"><span><i class="swatch" style="background:#334155"></i> Low/no signal</span><span><i class="swatch" style="background:#60a5fa"></i> Guarded</span><span><i class="swatch" style="background:#facc15"></i> Elevated</span><span><i class="swatch" style="background:#f97316"></i> High</span><span><i class="swatch" style="background:#dc2626"></i> Severe</span><span><i class="swatch" style="background:rgba(239,68,68,.35)"></i> NWS polygon</span><span><i class="swatch" style="background:#facc15"></i> Earthquake</span><span><i class="swatch" style="background:#22c55e"></i> Outage marker</span></div></div>
-</section>
-<aside>
-<div class="card side-card"><div style="color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em;">Selected county</div><h2 id="selectedName">Harris County</h2><span class="pill" id="riskPill">Calculating</span><div class="mini-grid"><div class="mini"><strong id="score">—</strong><span>Risk score</span></div><div class="mini"><strong id="alerts">—</strong><span>Weather alerts</span></div><div class="mini"><strong id="polygons">—</strong><span>Alert polygons</span></div><div class="mini"><strong id="quakes">—</strong><span>Earthquakes</span></div><div class="mini"><strong id="fema">—</strong><span>FEMA declarations</span></div><div class="mini"><strong id="outages">—</strong><span>Customers out</span></div></div><input id="search" type="text" placeholder="Search incidents..." /><div id="incidents"></div></div>
-<div class="card side-card"><h3 style="margin-top:0;">Top impacted counties</h3><div id="topCounties"></div></div>
-<div class="card side-card"><h3 style="margin-top:0;">Texas utility outage sources</h3><a class="utility-link" href="https://stormcenter.oncor.com/" target="_blank"><strong>Oncor</strong><br>North Texas / DFW outage map</a><a class="utility-link" href="https://gis.centerpointenergy.com/outagetracker/" target="_blank"><strong>CenterPoint</strong><br>Houston area outage tracker</a><a class="utility-link" href="https://outagemap.aeptexas.com/" target="_blank"><strong>AEP Texas</strong><br>South / West Texas outage map</a><a class="utility-link" href="https://www.tnmp.com/power-outage-map" target="_blank"><strong>TNMP</strong><br>Texas-New Mexico Power outage map</a><a class="utility-link" href="https://www.entergy.com/viewoutages" target="_blank"><strong>Entergy Texas</strong><br>East Texas outage map</a></div>
-<div class="card side-card source-note">Feeds: NWS active alerts for TX, USGS earthquake GeoJSON for Texas bounding box, FEMA TX declarations when browser-accessible, local <code>outages.json</code>, Texas county GeoJSON, and Texas utility source links.<br><br>Last updated: <span id="updated">Loading...</span></div>
-</aside>
-</main>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 <script>
-const map=L.map("map",{scrollWheelZoom:false}).setView([31.05,-99.35],6);let baseLayer;
-function setBaseMap(type){if(baseLayer)map.removeLayer(baseLayer);baseLayer=L.tileLayer(type==="dark"?"https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png":"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"&copy; OpenStreetMap contributors"}).addTo(map)}
-setBaseMap("streets");map.fitBounds([[25.5,-106.8],[36.7,-93.4]]);
-let countyData={},countiesGeo=null,selectedCounty="Harris",mode="score",showPolygons=true,showQuakes=true,showOutages=true,countyLayer,polygonLayer,quakeLayer,outageLayer,rawNws=[],rawQuakes=[],rawOutages=[],rawFema=[];
-function normCounty(n){return String(n||"").replace(/ County$/i,"").replace(/ Parish$/i,"").trim()}function keyCounty(n){return normCounty(n).toLowerCase()}function safeNum(v){const n=Number(String(v??0).replace(/,/g,""));return Number.isFinite(n)?n:0}
-async function fetchJson(url){const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw new Error(r.status+" "+r.statusText);return r.json()}async function tryFetch(url){try{return await fetchJson(url)}catch(e){console.warn("Fetch failed",url,e);return null}}
-function initCountyData(geo){countyData={};geo.features.filter(f=>f.properties.STATE==="48").forEach(f=>{const name=f.properties.NAME;countyData[keyCounty(name)]={name,alerts:0,polygons:0,quakes:0,fema:0,outageCustomers:0,incidents:[]}})}
-function scoreCounty(c){return Math.round((c.alerts*4)+(c.polygons*2)+(c.quakes*3)+(c.fema*5)+Math.min(50,c.outageCustomers/1000))}
-function color(v,max){if(!v)return"#334155";const p=v/Math.max(1,max);if(p>.76)return"#dc2626";if(p>.52)return"#f97316";if(p>.30)return"#facc15";return"#60a5fa"}function riskLabel(s,max){const p=s/Math.max(1,max);if(p>.76)return"Severe";if(p>.52)return"High";if(p>.30)return"Elevated";if(s>0)return"Guarded";return"Low"}
-function applyNws(alerts){rawNws=alerts||[];rawNws.forEach(a=>{const p=a.properties||{},area=p.areaDesc||"";Object.values(countyData).forEach(c=>{if(area.toLowerCase().includes(c.name.toLowerCase())){c.alerts++;if(a.geometry)c.polygons++;c.incidents.push({type:"NWS",title:p.event||"Weather alert",detail:(p.severity||"")+" · "+area,date:p.effective?new Date(p.effective).toLocaleString():"Active"})}})})}
-function nearestCounty(lat,lon){let best=null,dist=Infinity;Object.values(countyData).forEach(c=>{if(!c.center)return;const d=Math.pow(lat-c.center[0],2)+Math.pow(lon-c.center[1],2);if(d<dist){dist=d;best=c}});return best}
-function applyQuakes(quakes){rawQuakes=quakes||[];rawQuakes.forEach(q=>{const coords=q.geometry&&q.geometry.coordinates;if(!coords)return;const[lon,lat]=coords;if(lat<25||lat>37||lon<-107||lon>-93)return;const c=nearestCounty(lat,lon);if(c){c.quakes++;c.incidents.push({type:"USGS",title:"M"+(q.properties?.mag??"?")+" earthquake",detail:q.properties?.place||"Texas region",date:q.properties?.time?new Date(q.properties.time).toLocaleString():"Recent"})}})}
-function applyFema(rows){rawFema=rows||[];rawFema.forEach(r=>{const c=countyData[keyCounty(r.designatedArea||"")];if(c){c.fema++;c.incidents.push({type:"FEMA",title:r.declarationTitle||r.incidentType||"FEMA declaration",detail:(r.designatedArea||"")+" · "+(r.incidentType||""),date:r.declarationDate?new Date(r.declarationDate).toLocaleDateString():"Recent"})}})}
-function applyOutages(payload){rawOutages=Array.isArray(payload?.outages)?payload.outages:[];rawOutages.forEach(o=>{if(String(o.state||"").toUpperCase()!=="TX")return;const c=countyData[keyCounty(o.county)];if(!c)return;const out=safeNum(o.customersOut);c.outageCustomers+=out;if(out>0)c.incidents.push({type:"POWER",title:normCounty(o.county)+" County outage",detail:out.toLocaleString()+" customers out"+(o.utility?" · "+o.utility:""),date:o.updated||"Latest refresh"})})}
-function dateAgo(days){const d=new Date();d.setDate(d.getDate()-days);return d.toISOString().slice(0,10)}
-async function loadData(){document.getElementById("notice").style.display="none";document.getElementById("sourceStatus").innerHTML="Loading Texas county map and feeds...";const[geo,nws,quakes,outages,fema]=await Promise.all([fetchJson("https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"),tryFetch("https://api.weather.gov/alerts/active?area=TX"),tryFetch("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime="+dateAgo(30)+"&minmagnitude=2.5&minlatitude=25&maxlatitude=37&minlongitude=-107&maxlongitude=-93"),tryFetch("./outages.json?cb="+Date.now()),tryFetch("https://www.fema.gov/openfema-data-hub/arcgis/rest/services/Public/DisasterDeclarationsSummaries/FeatureServer/0/query?where=state%20%3D%20%27TX%27&outFields=state,incidentType,declarationDate,designatedArea,declarationTitle&f=json&resultRecordCount=500")]);countiesGeo=geo;initCountyData(geo);geo.features.filter(f=>f.properties.STATE==="48").forEach(f=>{const k=keyCounty(f.properties.NAME),b=L.geoJSON(f).getBounds();countyData[k].center=[b.getCenter().lat,b.getCenter().lng]});applyNws(nws?.features||[]);applyQuakes(quakes?.features||[]);applyOutages(outages||{});applyFema((fema?.features||[]).map(x=>x.attributes||{}));document.getElementById("sourceStatus").innerHTML=["Texas counties: "+Object.keys(countyData).length,"NWS TX alerts: "+(nws?.features?.length||0),"USGS TX-region quakes: "+(quakes?.features?.length||0),"Local outage records: "+rawOutages.length,"FEMA TX declaration records: "+((fema?.features||[]).length)].join("<br>");if(!outages||!rawOutages.length){const n=document.getElementById("notice");n.style.display="block";n.textContent="No local outage records loaded. The dashboard still works; run your GitHub outage workflow or upload outages.json to add outage detail."}renderAll()}
-function valueFor(c){if(mode==="outage")return c.outageCustomers;if(mode==="alerts")return c.alerts+c.polygons;return scoreCounty(c)}
-function renderCounties(){if(countyLayer)map.removeLayer(countyLayer);const vals=Object.values(countyData).map(valueFor),max=Math.max(1,...vals);countyLayer=L.geoJSON(countiesGeo,{filter:f=>f.properties.STATE==="48",style:f=>{const c=countyData[keyCounty(f.properties.NAME)],v=c?valueFor(c):0,sel=keyCounty(f.properties.NAME)===keyCounty(selectedCounty);return{fillColor:color(v,max),fillOpacity:sel?.86:.68,color:sel?"#fff":"rgba(255,255,255,.8)",weight:sel?3:1}},onEachFeature:(f,l)=>{const c=countyData[keyCounty(f.properties.NAME)];if(!c)return;l.on({click:()=>{selectedCounty=c.name;renderAll()}});l.bindTooltip(`${c.name} County · Score ${scoreCounty(c)} · Out ${c.outageCustomers.toLocaleString()} · Alerts ${c.alerts}`)}}).addTo(map);countyLayer.bringToBack()}
-function renderPolygons(){if(polygonLayer)map.removeLayer(polygonLayer);polygonLayer=L.layerGroup().addTo(map);if(!showPolygons)return;rawNws.forEach(a=>{if(!a.geometry)return;try{const p=a.properties||{};L.geoJSON(a.geometry,{style:{color:"#ef4444",weight:2,fillColor:"#ef4444",fillOpacity:.18}}).bindPopup(`<strong>${p.event||"Weather alert"}</strong><br>${p.severity||""}<br>${p.areaDesc||""}`).addTo(polygonLayer)}catch(e){}})}
-function renderQuakes(){if(quakeLayer)map.removeLayer(quakeLayer);quakeLayer=L.layerGroup().addTo(map);if(!showQuakes)return;rawQuakes.forEach(q=>{const coords=q.geometry&&q.geometry.coordinates;if(!coords)return;const mag=safeNum(q.properties?.mag);L.circleMarker([coords[1],coords[0]],{radius:4+Math.min(14,mag*2),color:"#fff",fillColor:"#facc15",fillOpacity:.9,weight:1}).bindPopup(`<strong>M${mag} earthquake</strong><br>${q.properties?.place||""}`).addTo(quakeLayer)})}
-function renderOutageMarkers(){if(outageLayer)map.removeLayer(outageLayer);outageLayer=L.layerGroup().addTo(map);if(!showOutages)return;rawOutages.forEach(o=>{if(String(o.state||"").toUpperCase()!=="TX")return;const c=countyData[keyCounty(o.county)],out=safeNum(o.customersOut);if(!c||!c.center||out<=0)return;const r=5+Math.min(24,Math.sqrt(out)/18);L.circleMarker(c.center,{radius:r,color:"#fff",fillColor:"#22c55e",fillOpacity:.78,weight:1}).bindPopup(`<strong>${c.name} County outage</strong><br>${out.toLocaleString()} customers out`).addTo(outageLayer)})}
-function renderPanel(){const c=countyData[keyCounty(selectedCounty)]||countyData["harris"]||Object.values(countyData)[0];if(!c)return;const max=Math.max(1,...Object.values(countyData).map(scoreCounty));document.getElementById("selectedName").textContent=c.name+" County";document.getElementById("riskPill").textContent=riskLabel(scoreCounty(c),max);document.getElementById("score").textContent=scoreCounty(c);document.getElementById("alerts").textContent=c.alerts;document.getElementById("polygons").textContent=c.polygons;document.getElementById("quakes").textContent=c.quakes;document.getElementById("fema").textContent=c.fema;document.getElementById("outages").textContent=c.outageCustomers.toLocaleString();const q=document.getElementById("search").value.toLowerCase(),items=c.incidents.filter(i=>(i.type+i.title+i.detail).toLowerCase().includes(q));document.getElementById("incidents").innerHTML=items.length?items.slice(0,16).map(i=>`<div class="incident"><div class="incident-top"><span>${i.type}</span><span>${i.date}</span></div><h3>${i.title}</h3><p>${i.detail}</p></div>`).join(""):`<div class="incident"><p>No incidents match this county/search.</p></div>`}
-function renderTop(){const rows=Object.values(countyData).sort((a,b)=>scoreCounty(b)-scoreCounty(a)).slice(0,12),max=Math.max(1,scoreCounty(rows[0]||{}));document.getElementById("topCounties").innerHTML=rows.map(c=>{const sc=scoreCounty(c);return `<button class="rank-row" onclick="selectCounty('${c.name.replace(/'/g,"\'")}')"><strong>${c.name}</strong><span style="float:right">${sc}</span><br><small>${c.outageCustomers.toLocaleString()} out · ${c.alerts} alerts</small><div class="bar"><span style="width:${Math.min(100,sc/max*100)}%"></span></div></button>`}).join("")}
-function renderTicker(){const all=Object.values(countyData).flatMap(c=>c.incidents.map(i=>({...i,county:c.name})));document.getElementById("tickerTrack").innerHTML=all.length?all.slice(0,40).map(i=>`<span class="ticker-item">⚠ ${i.county} · ${i.type}: ${i.title}</span>`).join(""):`<span class="ticker-item">No Texas incidents loaded yet.</span>`}
-function renderTotals(){const vals=Object.values(countyData);document.getElementById("totalAlerts").textContent=vals.reduce((s,c)=>s+c.alerts,0);document.getElementById("totalPolygons").textContent=vals.reduce((s,c)=>s+c.polygons,0);document.getElementById("totalQuakes").textContent=vals.reduce((s,c)=>s+c.quakes,0);document.getElementById("totalFema").textContent=vals.reduce((s,c)=>s+c.fema,0);document.getElementById("totalOutages").textContent=vals.reduce((s,c)=>s+c.outageCustomers,0).toLocaleString();document.getElementById("topCountyScore").textContent=Math.max(0,...vals.map(scoreCounty));document.getElementById("updated").textContent=new Date().toLocaleString()}
-function renderAll(){renderCounties();renderPolygons();renderQuakes();renderOutageMarkers();renderPanel();renderTop();renderTicker();renderTotals()}
-window.selectCounty=function(name){selectedCounty=name;renderAll()}
-function setMode(next){mode=next;["scoreBtn","outageBtn","alertBtn"].forEach(id=>document.getElementById(id).className="inactive");document.getElementById(next==="score"?"scoreBtn":next==="outage"?"outageBtn":"alertBtn").className="active";renderAll()}
-function toggleBtn(id,on){const b=document.getElementById(id);b.classList.toggle("active",on);b.classList.toggle("inactive",!on)}
-document.getElementById("scoreBtn").onclick=()=>setMode("score");document.getElementById("outageBtn").onclick=()=>setMode("outage");document.getElementById("alertBtn").onclick=()=>setMode("alerts");document.getElementById("polygonBtn").onclick=()=>{showPolygons=!showPolygons;toggleBtn("polygonBtn",showPolygons);renderPolygons()};document.getElementById("quakeBtn").onclick=()=>{showQuakes=!showQuakes;toggleBtn("quakeBtn",showQuakes);renderQuakes()};document.getElementById("outageLayerBtn").onclick=()=>{showOutages=!showOutages;toggleBtn("outageLayerBtn",showOutages);renderOutageMarkers()};document.getElementById("refreshBtn").onclick=loadData;document.getElementById("basemap").onchange=e=>setBaseMap(e.target.value);document.getElementById("search").oninput=renderPanel;
-loadData();
+const map = L.map('map').setView([31,-99],6);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+.addTo(map);
+
+let countyData = {};
+let geojson;
+
+// --- LOAD DATA ---
+async function load() {
+  const [geo, outages, nws] = await Promise.all([
+    fetch("https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json").then(r=>r.json()),
+    fetch("outages.json").then(r=>r.json()),
+    fetch("https://api.weather.gov/alerts/active?area=TX").then(r=>r.json())
+  ]);
+
+  geojson = geo;
+
+  geo.features.forEach(f => {
+    if (f.properties.STATE !== "48") return;
+    countyData[f.properties.NAME] = {
+      customers:0,
+      incidents:0,
+      weather:0
+    };
+  });
+
+  outages.outages.forEach(o => {
+    if (countyData[o.county]) {
+      countyData[o.county].customers += o.customersOut;
+      countyData[o.county].incidents += o.incidents;
+    }
+  });
+
+  nws.features.forEach(a => {
+    const area = a.properties.areaDesc.toLowerCase();
+    Object.keys(countyData).forEach(c => {
+      if (area.includes(c.toLowerCase())) {
+        countyData[c].weather++;
+      }
+    });
+  });
+
+  draw();
+}
+
+// --- SEVERITY ---
+function severity(c) {
+  return Math.min(100,
+    Math.log10(1 + c.customers)*20 +
+    c.incidents*3 +
+    c.weather*10
+  );
+}
+
+// --- DRAW MAP ---
+function draw() {
+
+  const max = Math.max(...Object.values(countyData).map(severity));
+
+  L.geoJSON(geojson, {
+    filter: f => f.properties.STATE === "48",
+
+    style: f => {
+      const c = countyData[f.properties.NAME];
+      if (!c) return {};
+
+      const s = severity(c) / max;
+
+      let color =
+        s > .75 ? "#dc2626" :
+        s > .5 ? "#f97316" :
+        s > .3 ? "#facc15" :
+        "#60a5fa";
+
+      return {
+        fillColor: color,
+        fillOpacity: .7,
+        color: "#fff",
+        weight: 1
+      };
+    },
+
+    onEachFeature: (f, layer) => {
+      const c = countyData[f.properties.NAME];
+
+      layer.on("click", () => {
+        document.getElementById("selected").innerHTML =
+          `<b>${f.properties.NAME} County</b><br>
+           Customers: ${c.customers}<br>
+           Incidents: ${c.incidents}<br>
+           Weather Alerts: ${c.weather}<br>
+           Severity: ${Math.round(severity(c))}`;
+      });
+    }
+
+  }).addTo(map);
+
+  document.getElementById("total").textContent =
+    Object.values(countyData)
+      .reduce((s,c)=>s+c.customers,0)
+      .toLocaleString();
+
+  document.getElementById("counties").textContent =
+    Object.values(countyData)
+      .filter(c=>c.customers>0).length;
+}
+
+load();
 </script>
+
 </body>
 </html>
