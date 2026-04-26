@@ -14,6 +14,12 @@ const NWS_URL = "https://api.weather.gov/alerts/active?area=TX";
 const HHS_URL =
   "https://data.cdc.gov/resource/mpgq-jmmr.json?$limit=12&jurisdiction=TX&$order=weekendingdate DESC";
 
+const ERCOT_SUPPLY_URL =
+  "https://www.ercot.com/api/1/services/read/dashboards/supply-demand.json";
+
+const ERCOT_OUTAGES_URL =
+  "https://www.ercot.com/api/1/services/read/dashboards/generation-outages.json";
+
 // ==============================
 // Basic helpers
 // ==============================
@@ -59,6 +65,48 @@ function buildHospitalCapacity(hhsRows) {
     source: "CDC Weekly Hospital Respiratory Data",
     latest,
     trend
+  };
+}
+
+function buildHospitalCapacity(hhsRows) {
+  ...
+}
+
+function buildGridStress(supply, outages) {
+
+  const latest = supply?.data?.[0];
+  if(!latest) return null;
+
+  const demand = num(latest.demand);
+  const available = num(latest.availableCapacity);
+
+  const reservePct =
+    demand > 0 ? ((available - demand) / demand) * 100 : null;
+
+  const outageMW = num(outages?.data?.[0]?.totalOutagesMW);
+
+  let score = 0;
+
+  if (reservePct < 15) score += 2;
+  if (reservePct < 10) score += 3;
+  if (reservePct < 5)  score += 5;
+
+  if (outageMW > 10000) score += 1;
+  if (outageMW > 20000) score += 2;
+
+  let level = "LOW";
+  if (score >= 3) level = "MODERATE";
+  if (score >= 6) level = "HIGH";
+  if (score >= 9) level = "CRITICAL";
+
+  return {
+    demandMW: demand,
+    availableMW: available,
+    reservePct,
+    outageMW,
+    score,
+    level,
+    timestamp: latest.timestamp
   };
 }
 
@@ -602,14 +650,18 @@ function buildHistorySummary(currentCountyRows, previousSnapshots) {
 
 async function main() {
   try {
-      const [counties, points, nws, hhsRows] = await Promise.all([
+    const [counties, points, nws, hhsRows, ercotSupply, ercotOutages] = await Promise.all([
   fetchJson(COUNTIES_URL),
   fetchAllTDIS(),
   fetchJson(NWS_URL).catch(() => ({ features: [] })),
-  fetchJson(HHS_URL).catch(() => [])
+  fetchJson(HHS_URL).catch(() => []),
+  fetchJson(ERCOT_SUPPLY_URL).catch(() => null),
+  fetchJson(ERCOT_OUTAGES_URL).catch(() => null)
 ]);
 
 const hospitalCapacity = buildHospitalCapacity(hhsRows);
+
+    const gridStress = buildGridStress(ercotSupply, ercotOutages);
 
     const roadResult = await fetchDriveTexasRoadEvents(counties);
     const roadClosures = roadResult.events || [];
@@ -783,6 +835,7 @@ const hospitalCapacity = buildHospitalCapacity(hhsRows);
         source: "DriveTexas UTFGrid tiles"
       },
       hospitalCapacity,
+      gridStress,
       history: newSnapshots.slice(-48)
     };
 
