@@ -494,6 +494,14 @@ aside{
   </div>
 
   <div class="card side-card">
+  <h3 style="margin-top:0;">24-Hour Outage Trend</h3>
+  <p style="margin-top:0;color:var(--muted);font-size:12px;">
+    Shows statewide outages and selected county outages by snapshot.
+  </p>
+  <canvas id="outageTrendChart" height="220"></canvas>
+</div>
+
+  <div class="card side-card">
     <h3 style="margin-top:0;">Top outage points</h3>
     <table class="table">
       <thead>
@@ -508,6 +516,7 @@ aside{
   </div>
 </aside>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
 
@@ -522,6 +531,7 @@ let baseLayer, countyLayer, weatherLayer, pointLayer, radarLayer;
 let countyGeo = null;
 let outageData = null;
 let nwsAlerts = [];
+let outageTrendChart = null;
 
 let countyData = {};
 let selectedCounty = "Harris";
@@ -1097,6 +1107,88 @@ function updateAllMetrics(){
     (trend >= 0 ? "+" : "") + trend.toLocaleString();
 }
 
+  function renderOutageTrendChart(){
+
+  const canvas = document.getElementById("outageTrendChart");
+  if(!canvas) return;
+
+  const history = outageData?.history || [];
+
+  if(!history.length){
+    if(outageTrendChart) outageTrendChart.destroy();
+
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    return;
+  }
+
+  const selectedKey = keyCounty(selectedCounty);
+
+  const labels = history.map(s => {
+    const d = new Date(s.timestamp);
+    return d.toLocaleTimeString([], { hour:"numeric", minute:"2-digit" });
+  });
+
+  const texasData = history.map(s => safeNum(s.totalCustomersOut));
+
+  const countyDataSeries = history.map(s => {
+    const row = (s.counties || []).find(c => keyCounty(c.county) === selectedKey);
+    return row ? safeNum(row.customersOut) : 0;
+  });
+
+  const ctx = canvas.getContext("2d");
+
+  if(outageTrendChart) outageTrendChart.destroy();
+
+  outageTrendChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Texas Total",
+          data: texasData,
+          tension: 0.35,
+          borderWidth: 2,
+          pointRadius: 1
+        },
+        {
+          label: selectedCounty + " County",
+          data: countyDataSeries,
+          tension: 0.35,
+          borderWidth: 2,
+          pointRadius: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: "#cbd5e1" }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${Number(ctx.raw).toLocaleString()}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: "#94a3b8", maxTicksLimit: 8 },
+          grid: { color: "rgba(255,255,255,.08)" }
+        },
+        y: {
+          ticks: {
+            color: "#94a3b8",
+            callback: v => Number(v).toLocaleString()
+          },
+          grid: { color: "rgba(255,255,255,.08)" }
+        }
+      }
+    }
+  });
+}
 
 // ==============================
 // 🔄 RENDER EVERYTHING
@@ -1112,6 +1204,7 @@ function renderAll(){
   renderTopPanels();
   renderPointTable();
   updateAllMetrics();
+  renderOutageTrendChart();
 }
 
 window.selectCounty = name => {
