@@ -66,25 +66,93 @@ function buildHospitalCapacity(hhsRows) {
     latest,
     trend
   };
+}
+
+function pickLatestRecord(payload) {
+  if (!payload) return null;
+
+  if (Array.isArray(payload?.data)) return payload.data[0] || null;
+  if (Array.isArray(payload)) return payload[0] || null;
+  if (Array.isArray(payload?.current)) return payload.current[0] || null;
+
+  return payload.data || payload.current || payload;
+}
+
+function pickFirstNumber(obj, keys) {
+  for (const key of keys) {
+    const value = key.split(".").reduce((acc, part) => acc?.[part], obj);
+    const n = num(value);
+    if (n > 0) return n;
+  }
+  return 0;
+}
 
 function buildGridStress(supply, outages) {
+  const latest = pickLatestRecord(supply);
 
-  const latest = supply?.data?.[0];
-  if(!latest) return null;
+  if (!latest) {
+    return {
+      ok: false,
+      source: "ERCOT dashboards",
+      level: "UNKNOWN",
+      score: 0,
+      note: "ERCOT supply data unavailable or unexpected shape"
+    };
+  }
 
-  const demand = num(latest.demand);
-  const available = num(latest.availableCapacity);
+  const demand = pickFirstNumber(latest, [
+    "demand",
+    "load",
+    "currentDemand",
+    "current_load",
+    "systemLoad",
+    "system_load",
+    "demandMW",
+    "demand_mw"
+  ]);
 
+  const available = pickFirstNumber(latest, [
+    "availableCapacity",
+    "available_capacity",
+    "availableCap",
+    "capacity",
+    "availableMW",
+    "available_mw"
+  ]);
+
+  const generation = pickFirstNumber(latest, [
+    "generation",
+    "currentGeneration",
+    "supply",
+    "supplyMW",
+    "supply_mw"
+  ]);
+
+  const availableForReserve = available || generation;
   const reservePct =
-    demand > 0 ? ((available - demand) / demand) * 100 : null;
+    demand > 0 && availableForReserve > 0
+      ? ((availableForReserve - demand) / demand) * 100
+      : null;
 
-  const outageMW = num(outages?.data?.[0]?.totalOutagesMW);
+  const outageRecord = pickLatestRecord(outages);
+  const outageMW = pickFirstNumber(outageRecord, [
+    "totalOutagesMW",
+    "total_outages_mw",
+    "totalOutageMW",
+    "totalResourceMW",
+    "outageMW",
+    "mw"
+  ]);
 
   let score = 0;
 
-  if (reservePct < 15) score += 2;
-  if (reservePct < 10) score += 3;
-  if (reservePct < 5)  score += 5;
+  if (reservePct === null) {
+    score = 0;
+  } else {
+    if (reservePct < 15) score += 2;
+    if (reservePct < 10) score += 3;
+    if (reservePct < 5) score += 5;
+  }
 
   if (outageMW > 10000) score += 1;
   if (outageMW > 20000) score += 2;
@@ -93,15 +161,18 @@ function buildGridStress(supply, outages) {
   if (score >= 3) level = "MODERATE";
   if (score >= 6) level = "HIGH";
   if (score >= 9) level = "CRITICAL";
+  if (reservePct === null && !outageMW) level = "UNKNOWN";
 
   return {
-    demandMW: demand,
-    availableMW: available,
+    ok: reservePct !== null || outageMW > 0,
+    source: "ERCOT dashboards",
+    demandMW: demand || null,
+    availableMW: availableForReserve || null,
     reservePct,
     outageMW,
     score,
     level,
-    timestamp: latest.timestamp
+    timestamp: latest.timestamp || latest.datetime || latest.interval || latest.time || null
   };
 }
 
@@ -646,16 +717,15 @@ function buildHistorySummary(currentCountyRows, previousSnapshots) {
 async function main() {
   try {
     const [counties, points, nws, hhsRows, ercotSupply, ercotOutages] = await Promise.all([
-  fetchJson(COUNTIES_URL),
-  fetchAllTDIS(),
-  fetchJson(NWS_URL).catch(() => ({ features: [] })),
-  fetchJson(HHS_URL).catch(() => []),
-  fetchJson(ERCOT_SUPPLY_URL).catch(() => null),
-  fetchJson(ERCOT_OUTAGES_URL).catch(() => null)
-]);
+      fetchJson(COUNTIES_URL),
+      fetchAllTDIS(),
+      fetchJson(NWS_URL).catch(() => ({ features: [] })),
+      fetchJson(HHS_URL).catch(() => []),
+      fetchJson(ERCOT_SUPPLY_URL).catch(() => null),
+      fetchJson(ERCOT_OUTAGES_URL).catch(() => null)
+    ]);
 
-const hospitalCapacity = buildHospitalCapacity(hhsRows);
-
+    const hospitalCapacity = buildHospitalCapacity(hhsRows);
     const gridStress = buildGridStress(ercotSupply, ercotOutages);
 
     const roadResult = await fetchDriveTexasRoadEvents(counties);
@@ -795,14 +865,22 @@ const hospitalCapacity = buildHospitalCapacity(hhsRows);
           pointRecordsUsed: outagePoints.length,
           countyRecords: outages.length
         },
-
         {
-  name: "HHS/CDC Hospital Capacity",
-  ok: !!hospitalCapacity.latest,
-  latestWeek: hospitalCapacity.latest?.weekEndingDate || null,
-  inpatientOccupancyPct: hospitalCapacity.latest?.inpatientOccupancyPct ?? null,
-  weeks: hospitalCapacity.trend.length
-},
+          name: "HHS/CDC Hospital Capacity",
+          ok: !!hospitalCapacity?.latest,
+          latestWeek: hospitalCapacity?.latest?.weekEndingDate || null,
+          inpatientOccupancyPct: hospitalCapacity?.latest?.inpatientOccupancyPct ?? null,
+          weeks: hospitalCapacity?.trend?.length || 0
+        },
+        {
+          name: "ERCOT Grid Stress",
+          ok: !!gridStress?.ok,
+          level: gridStress?.level || null,
+          reservePct: gridStress?.reservePct ?? null,
+          demandMW: gridStress?.demandMW ?? null,
+          availableMW: gridStress?.availableMW ?? null,
+          outageMW: gridStress?.outageMW ?? null
+        },
         {
           name: "NWS Active Alerts",
           ok: true,
@@ -837,18 +915,20 @@ const hospitalCapacity = buildHospitalCapacity(hhsRows);
     await fs.writeFile(OUT, JSON.stringify(payload, null, 2));
 
     console.log(
-      `SUCCESS: ${payload.totalCustomersOut} customers out, ${payload.roadSummary.count} road closures, ${payload.highestPredictedRisk} highest predicted risk`
+      `SUCCESS: ${payload.totalCustomersOut} customers out, ${payload.roadSummary.count} road closures, ${payload.highestPredictedRisk} highest predicted risk, grid stress ${gridStress?.level || "UNKNOWN"}`
     );
   } catch (err) {
     const payload = {
       updated: new Date().toISOString(),
-      sourceStatus: [{ name: "v5 pipeline", ok: false, error: err.message }],
+      sourceStatus: [{ name: "v6 pipeline", ok: false, error: err.message }],
       count: 0,
       totalCustomersOut: 0,
       highestPredictedRisk: 0,
       outages: [],
       outagePoints: [],
       roadClosures: [],
+      hospitalCapacity: null,
+      gridStress: null,
       history: []
     };
 
