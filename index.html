@@ -726,31 +726,39 @@ function computeScores(){
 
   Object.values(countyData).forEach(c => {
 
-    const severity =
-      Math.min(100,
-        (c.customersOut * 0.02) +
-        (c.incidents * 8) +
-        (c.maxSingleOutage * 0.01)
-      );
+    // Current severity: what is happening right now
+    const outageMagnitude = Math.min(45, Math.log10(1 + safeNum(c.customersOut)) * 12);
+    const incidentScore = Math.min(25, safeNum(c.incidents) * 2.5);
+    const largeOutageScore = Math.min(15, Math.log10(1 + safeNum(c.maxSingleOutage)) * 5);
+    const weatherNowScore = Math.min(15, safeNum(c.weatherRisk) * 0.15);
 
-    c.currentSeverity = Math.round(severity);
+    c.currentSeverity = Math.round(
+      Math.min(100, outageMagnitude + incidentScore + largeOutageScore + weatherNowScore)
+    );
 
-    const prediction =
-      (c.currentSeverity * 0.6) +
-      (c.weatherRisk * 0.8) +
-      (c.incidents * 2) +
-      (c.trend24h * 0.5);
+    // Predicted risk: what may worsen soon
+    const weatherPredictionScore = Math.min(45, safeNum(c.weatherRisk) * 0.35);
+    const currentFragilityScore = Math.min(25, Math.log10(1 + safeNum(c.customersOut)) * 8);
+    const incidentFragilityScore = Math.min(15, safeNum(c.incidents) * 1.5);
+    const trendScore = safeNum(c.trend24h) > 0
+      ? Math.min(15, Math.log10(1 + safeNum(c.trend24h)) * 5)
+      : 0;
 
-    c.predictedRisk = Math.round(prediction);
+    c.predictedRisk = Math.round(
+      Math.min(100, weatherPredictionScore + currentFragilityScore + incidentFragilityScore + trendScore)
+    );
 
-    if(prediction > 80) c.predictedRiskBand = "Severe";
-    else if(prediction > 60) c.predictedRiskBand = "High";
-    else if(prediction > 40) c.predictedRiskBand = "Elevated";
-    else if(prediction > 20) c.predictedRiskBand = "Guarded";
+    if(c.predictedRisk >= 75) c.predictedRiskBand = "High";
+    else if(c.predictedRisk >= 50) c.predictedRiskBand = "Elevated";
+    else if(c.predictedRisk >= 25) c.predictedRiskBand = "Watch";
     else c.predictedRiskBand = "Low";
 
-    c.predictionExplanation =
-      `Weather:${c.weatherRisk} | Outages:${c.customersOut} | Incidents:${c.incidents}`;
+    c.predictionExplanation = [
+      c.weatherAlerts > 0 ? `${c.weatherAlerts} active weather alert(s)` : "No county-matched weather alerts",
+      c.customersOut > 0 ? `${safeNum(c.customersOut).toLocaleString()} customers currently out` : "No current outage load",
+      c.incidents > 0 ? `${safeNum(c.incidents)} outage incident(s)` : "No active outage incidents",
+      safeNum(c.trend24h) > 0 ? `24h trend worsening by ${safeNum(c.trend24h).toLocaleString()}` : "24h trend stable or improving"
+    ].join(" + ");
 
   });
 
