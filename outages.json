@@ -1,521 +1,1906 @@
 {
-  "updated": "2026-04-26T03:31:43.793Z",
-  "sourceStatus": [
-    {
-      "name": "TDIS Power Outage Data",
-      "ok": true,
-      "rawPointRecords": 1679,
-      "pointRecordsUsed": 223,
-      "countyRecords": 56
-    }
-  ],
+  "updated": "2026-04-26T03:53:05.490Z",
   "count": 56,
-  "countiesWithOutages": 56,
   "totalCustomersOut": 14661,
   "outages": [
     {
-      "state": "TX",
       "county": "Wise",
-      "utility": "TDIS Aggregate",
       "customersOut": 9229,
       "incidents": 34,
-      "updated": "2026-04-26T03:31:43.684Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 2122
     },
     {
-      "state": "TX",
       "county": "Tarrant",
-      "utility": "TDIS Aggregate",
       "customersOut": 1071,
       "incidents": 8,
-      "updated": "2026-04-26T03:31:43.684Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 430
     },
     {
-      "state": "TX",
       "county": "Franklin",
-      "utility": "TDIS Aggregate",
       "customersOut": 786,
       "incidents": 36,
-      "updated": "2026-04-26T03:31:43.739Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 214
     },
     {
-      "state": "TX",
       "county": "Caldwell",
-      "utility": "TDIS Aggregate",
       "customersOut": 770,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.743Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 506
     },
     {
-      "state": "TX",
       "county": "Dallas",
-      "utility": "TDIS Aggregate",
       "customersOut": 351,
       "incidents": 7,
-      "updated": "2026-04-26T03:31:43.684Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 249
     },
     {
-      "state": "TX",
       "county": "Cooke",
-      "utility": "TDIS Aggregate",
       "customersOut": 341,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 340
     },
     {
-      "state": "TX",
       "county": "Jefferson",
-      "utility": "TDIS Aggregate",
       "customersOut": 339,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.704Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 327
     },
     {
-      "state": "TX",
       "county": "Montgomery",
-      "utility": "TDIS Aggregate",
       "customersOut": 271,
       "incidents": 6,
-      "updated": "2026-04-26T03:31:43.671Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 253
     },
     {
-      "state": "TX",
       "county": "Parker",
-      "utility": "TDIS Aggregate",
       "customersOut": 214,
       "incidents": 4,
-      "updated": "2026-04-26T03:31:43.685Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 112
     },
     {
-      "state": "TX",
       "county": "Harris",
-      "utility": "TDIS Aggregate",
       "customersOut": 182,
       "incidents": 29,
-      "updated": "2026-04-26T03:31:43.670Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 36
     },
     {
-      "state": "TX",
       "county": "Fort Bend",
-      "utility": "TDIS Aggregate",
       "customersOut": 146,
       "incidents": 5,
-      "updated": "2026-04-26T03:31:43.669Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 74
     },
     {
-      "state": "TX",
       "county": "Donley",
-      "utility": "TDIS Aggregate",
       "customersOut": 142,
       "incidents": 3,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 140
     },
     {
-      "state": "TX",
       "county": "Jack",
-      "utility": "TDIS Aggregate",
       "customersOut": 114,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.743Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 114
     },
     {
-      "state": "TX",
       "county": "Lamar",
-      "utility": "TDIS Aggregate",
       "customersOut": 97,
       "incidents": 4,
-      "updated": "2026-04-26T03:31:43.685Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 51
     },
     {
-      "state": "TX",
       "county": "Archer",
-      "utility": "TDIS Aggregate",
       "customersOut": 83,
       "incidents": 8,
-      "updated": "2026-04-26T03:31:43.683Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 44
     },
     {
-      "state": "TX",
       "county": "Wichita",
-      "utility": "TDIS Aggregate",
       "customersOut": 81,
       "incidents": 7,
-      "updated": "2026-04-26T03:31:43.683Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 26
     },
     {
-      "state": "TX",
       "county": "Nueces",
-      "utility": "TDIS Aggregate",
       "customersOut": 51,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.743Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 50
     },
     {
-      "state": "TX",
       "county": "Midland",
-      "utility": "TDIS Aggregate",
       "customersOut": 48,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.688Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 48
     },
     {
-      "state": "TX",
       "county": "Collin",
-      "utility": "TDIS Aggregate",
       "customersOut": 40,
       "incidents": 3,
-      "updated": "2026-04-26T03:31:43.686Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 22
     },
     {
-      "state": "TX",
       "county": "Shelby",
-      "utility": "TDIS Aggregate",
       "customersOut": 25,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 25
     },
     {
-      "state": "TX",
       "county": "Hidalgo",
-      "utility": "TDIS Aggregate",
       "customersOut": 24,
       "incidents": 3,
-      "updated": "2026-04-26T03:31:43.743Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 17
     },
     {
-      "state": "TX",
       "county": "Freestone",
-      "utility": "TDIS Aggregate",
       "customersOut": 23,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.687Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 23
     },
     {
-      "state": "TX",
       "county": "Johnson",
-      "utility": "TDIS Aggregate",
       "customersOut": 20,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.684Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 19
     },
     {
-      "state": "TX",
       "county": "Montague",
-      "utility": "TDIS Aggregate",
       "customersOut": 20,
       "incidents": 4,
-      "updated": "2026-04-26T03:31:43.743Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 7
     },
     {
-      "state": "TX",
       "county": "Clay",
-      "utility": "TDIS Aggregate",
       "customersOut": 19,
       "incidents": 6,
-      "updated": "2026-04-26T03:31:43.684Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 6
     },
     {
-      "state": "TX",
       "county": "Panola",
-      "utility": "TDIS Aggregate",
       "customersOut": 18,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.739Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 18
     },
     {
-      "state": "TX",
       "county": "Grayson",
-      "utility": "TDIS Aggregate",
       "customersOut": 16,
       "incidents": 3,
-      "updated": "2026-04-26T03:31:43.686Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 8
     },
     {
-      "state": "TX",
       "county": "Webb",
-      "utility": "TDIS Aggregate",
       "customersOut": 16,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 8
     },
     {
-      "state": "TX",
       "county": "Reagan",
-      "utility": "TDIS Aggregate",
       "customersOut": 13,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.687Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 13
     },
     {
-      "state": "TX",
       "county": "Titus",
-      "utility": "TDIS Aggregate",
       "customersOut": 13,
       "incidents": 3,
-      "updated": "2026-04-26T03:31:43.739Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 6
     },
     {
-      "state": "TX",
       "county": "Brazoria",
-      "utility": "TDIS Aggregate",
       "customersOut": 12,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.682Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 12
     },
     {
-      "state": "TX",
       "county": "Hopkins",
-      "utility": "TDIS Aggregate",
       "customersOut": 9,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.740Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 7
     },
     {
-      "state": "TX",
       "county": "Galveston",
-      "utility": "TDIS Aggregate",
       "customersOut": 8,
       "incidents": 3,
-      "updated": "2026-04-26T03:31:43.675Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 6
     },
     {
-      "state": "TX",
       "county": "Limestone",
-      "utility": "TDIS Aggregate",
       "customersOut": 8,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.687Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 7
     },
     {
-      "state": "TX",
       "county": "Bell",
-      "utility": "TDIS Aggregate",
       "customersOut": 8,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.687Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 8
     },
     {
-      "state": "TX",
       "county": "Ector",
-      "utility": "TDIS Aggregate",
       "customersOut": 8,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.688Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 8
     },
     {
-      "state": "TX",
       "county": "Hays",
-      "utility": "TDIS Aggregate",
       "customersOut": 6,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 5
     },
     {
-      "state": "TX",
       "county": "Fannin",
-      "utility": "TDIS Aggregate",
       "customersOut": 4,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.686Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 4
     },
     {
-      "state": "TX",
       "county": "Nacogdoches",
-      "utility": "TDIS Aggregate",
       "customersOut": 4,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.687Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 4
     },
     {
-      "state": "TX",
       "county": "Cass",
-      "utility": "TDIS Aggregate",
       "customersOut": 3,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.740Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 3
     },
     {
-      "state": "TX",
       "county": "Burleson",
-      "utility": "TDIS Aggregate",
       "customersOut": 3,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.741Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 3
     },
     {
-      "state": "TX",
       "county": "Brazos",
-      "utility": "TDIS Aggregate",
       "customersOut": 3,
       "incidents": 2,
-      "updated": "2026-04-26T03:31:43.741Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 2
     },
     {
-      "state": "TX",
       "county": "La Salle",
-      "utility": "TDIS Aggregate",
       "customersOut": 3,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 3
     },
     {
-      "state": "TX",
       "county": "Martin",
-      "utility": "TDIS Aggregate",
       "customersOut": 2,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.687Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 2
     },
     {
-      "state": "TX",
       "county": "Camp",
-      "utility": "TDIS Aggregate",
       "customersOut": 2,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.740Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 2
     },
     {
-      "state": "TX",
       "county": "Gregg",
-      "utility": "TDIS Aggregate",
       "customersOut": 2,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.740Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 2
     },
     {
-      "state": "TX",
       "county": "Hunt",
-      "utility": "TDIS Aggregate",
       "customersOut": 2,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 2
     },
     {
-      "state": "TX",
       "county": "Jasper",
-      "utility": "TDIS Aggregate",
       "customersOut": 2,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 2
     },
     {
-      "state": "TX",
       "county": "Wood",
-      "utility": "TDIS Aggregate",
       "customersOut": 2,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.744Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 2
     },
     {
-      "state": "TX",
       "county": "Waller",
-      "utility": "TDIS Aggregate",
       "customersOut": 1,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.677Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 1
     },
     {
-      "state": "TX",
       "county": "Williamson",
-      "utility": "TDIS Aggregate",
       "customersOut": 1,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.684Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 1
     },
     {
-      "state": "TX",
       "county": "Coryell",
-      "utility": "TDIS Aggregate",
       "customersOut": 1,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.684Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 1
     },
     {
-      "state": "TX",
       "county": "Travis",
-      "utility": "TDIS Aggregate",
       "customersOut": 1,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.741Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 1
     },
     {
-      "state": "TX",
       "county": "Jones",
-      "utility": "TDIS Aggregate",
       "customersOut": 1,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.742Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 1
     },
     {
-      "state": "TX",
       "county": "Van Zandt",
-      "utility": "TDIS Aggregate",
       "customersOut": 1,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.743Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 1
     },
     {
-      "state": "TX",
       "county": "Bexar",
-      "utility": "TDIS Aggregate",
       "customersOut": 1,
       "incidents": 1,
-      "updated": "2026-04-26T03:31:43.744Z",
-      "source": "TDIS Power_Outage_Data FeatureServer"
+      "maxSingleOutage": 1
+    }
+  ],
+  "outagePoints": [
+    {
+      "county": "Fort Bend",
+      "customersOut": 31,
+      "outageCause": "Planned Outage",
+      "lat": 29.55924,
+      "lon": -95.65507
+    },
+    {
+      "county": "Harris",
+      "customersOut": 26,
+      "outageCause": "null",
+      "lat": 29.59666,
+      "lon": -95.14073
+    },
+    {
+      "county": "Harris",
+      "customersOut": 25,
+      "outageCause": "null",
+      "lat": 29.54325,
+      "lon": -95.15443
+    },
+    {
+      "county": "Harris",
+      "customersOut": 7,
+      "outageCause": "null",
+      "lat": 29.94748,
+      "lon": -95.59526
+    },
+    {
+      "county": "Harris",
+      "customersOut": 6,
+      "outageCause": "null",
+      "lat": 30.0414,
+      "lon": -95.34484
+    },
+    {
+      "county": "Harris",
+      "customersOut": 6,
+      "outageCause": "null",
+      "lat": 30.10584,
+      "lon": -95.60918
+    },
+    {
+      "county": "Montgomery",
+      "customersOut": 6,
+      "outageCause": "null",
+      "lat": 30.14374,
+      "lon": -95.41156
+    },
+    {
+      "county": "Harris",
+      "customersOut": 6,
+      "outageCause": "null",
+      "lat": 29.78195,
+      "lon": -95.33434
+    },
+    {
+      "county": "Montgomery",
+      "customersOut": 5,
+      "outageCause": "null",
+      "lat": 30.13125,
+      "lon": -95.41768
+    },
+    {
+      "county": "Harris",
+      "customersOut": 5,
+      "outageCause": "null",
+      "lat": 29.85263,
+      "lon": -95.35304
+    },
+    {
+      "county": "Harris",
+      "customersOut": 5,
+      "outageCause": "null",
+      "lat": 29.5776,
+      "lon": -95.24246
+    },
+    {
+      "county": "Harris",
+      "customersOut": 5,
+      "outageCause": "null",
+      "lat": 29.7911,
+      "lon": -95.35684
+    },
+    {
+      "county": "Fort Bend",
+      "customersOut": 5,
+      "outageCause": "null",
+      "lat": 29.55962,
+      "lon": -95.6561
+    },
+    {
+      "county": "Harris",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 29.7364,
+      "lon": -95.54973
+    },
+    {
+      "county": "Fort Bend",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 29.66282,
+      "lon": -95.63378
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.68521,
+      "lon": -95.5516
+    },
+    {
+      "county": "Galveston",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.33993,
+      "lon": -95.13762
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 30.09815,
+      "lon": -95.43142
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.96295,
+      "lon": -95.05249
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.68338,
+      "lon": -95.18022
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.90118,
+      "lon": -95.30618
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 30.0519,
+      "lon": -95.34527
+    },
+    {
+      "county": "Waller",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.76716,
+      "lon": -95.95428
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.84093,
+      "lon": -95.31378
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.65858,
+      "lon": -95.47547
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.96118,
+      "lon": -95.64122
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 30.04907,
+      "lon": -95.71854
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.96324,
+      "lon": -95.27639
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 30.00521,
+      "lon": -95.53997
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.98524,
+      "lon": -95.17737
+    },
+    {
+      "county": "Harris",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 30.00586,
+      "lon": -95.41967
+    },
+    {
+      "county": "Fort Bend",
+      "customersOut": 74,
+      "outageCause": "null",
+      "lat": 29.59129,
+      "lon": -95.57175
+    },
+    {
+      "county": "Harris",
+      "customersOut": 36,
+      "outageCause": "null",
+      "lat": 29.6897,
+      "lon": -95.61354
+    },
+    {
+      "county": "Fort Bend",
+      "customersOut": 32,
+      "outageCause": "null",
+      "lat": 29.6442,
+      "lon": -95.66005
+    },
+    {
+      "county": "Brazoria",
+      "customersOut": 12,
+      "outageCause": "null",
+      "lat": 29.53795,
+      "lon": -95.24878
+    },
+    {
+      "county": "Harris",
+      "customersOut": 11,
+      "outageCause": "null",
+      "lat": 29.76646,
+      "lon": -95.23212
+    },
+    {
+      "county": "Harris",
+      "customersOut": 10,
+      "outageCause": "null",
+      "lat": 29.69562,
+      "lon": -95.24486
+    },
+    {
+      "county": "Harris",
+      "customersOut": 8,
+      "outageCause": "null",
+      "lat": 29.6941,
+      "lon": -95.32834
+    },
+    {
+      "county": "Harris",
+      "customersOut": 8,
+      "outageCause": "null",
+      "lat": 29.9182,
+      "lon": -95.4553
+    },
+    {
+      "county": "Archer",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.70473,
+      "lon": -98.6007
+    },
+    {
+      "county": "Wichita",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.89815,
+      "lon": -98.50702
+    },
+    {
+      "county": "Archer",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.81637,
+      "lon": -98.60025
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "Equipment ",
+      "lat": 32.73007,
+      "lon": -96.6476
+    },
+    {
+      "county": "Williamson",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 30.51868,
+      "lon": -97.73303
+    },
+    {
+      "county": "Clay",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.60833,
+      "lon": -98.09052
+    },
+    {
+      "county": "Coryell",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 31.13364,
+      "lon": -97.89256
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "Equipment ",
+      "lat": 32.63648,
+      "lon": -97.12463
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 32.89134,
+      "lon": -97.16561
+    },
+    {
+      "county": "Johnson",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 32.46732,
+      "lon": -97.38261
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 32.62122,
+      "lon": -97.39316
+    },
+    {
+      "county": "Clay",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.52174,
+      "lon": -98.0435
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 32.87437,
+      "lon": -97.10787
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.17928,
+      "lon": -97.84633
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 1,
+      "outageCause": "Equipment ",
+      "lat": 32.94319,
+      "lon": -96.83738
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.06997,
+      "lon": -97.56704
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.18057,
+      "lon": -97.77187
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.10882,
+      "lon": -97.84241
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.17028,
+      "lon": -97.80591
+    },
+    {
+      "county": "Wise",
+      "customersOut": 474,
+      "outageCause": "Equipment Issue",
+      "lat": 33.07612,
+      "lon": -97.4666
+    },
+    {
+      "county": "Clay",
+      "customersOut": 4,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.54364,
+      "lon": -98.04232
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 44,
+      "outageCause": "null",
+      "lat": 32.87725,
+      "lon": -97.08456
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 11,
+      "outageCause": "Aggregated outage point",
+      "lat": 32.88771,
+      "lon": -96.87922
+    },
+    {
+      "county": "Wise",
+      "customersOut": 17,
+      "outageCause": "null",
+      "lat": 33.0293,
+      "lon": -97.8706
+    },
+    {
+      "county": "Wise",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.10773,
+      "lon": -97.82967
+    },
+    {
+      "county": "Wise",
+      "customersOut": 3,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.18366,
+      "lon": -97.80492
+    },
+    {
+      "county": "Wise",
+      "customersOut": 32,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.1488,
+      "lon": -97.77242
+    },
+    {
+      "county": "Wise",
+      "customersOut": 2122,
+      "outageCause": "Equipment Issue",
+      "lat": 33.02507,
+      "lon": -97.46681
+    },
+    {
+      "county": "Wise",
+      "customersOut": 13,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.13015,
+      "lon": -97.80157
+    },
+    {
+      "county": "Parker",
+      "customersOut": 112,
+      "outageCause": "Equipment Issue",
+      "lat": 32.99513,
+      "lon": -97.6753
+    },
+    {
+      "county": "Clay",
+      "customersOut": 6,
+      "outageCause": "Lightning",
+      "lat": 33.81627,
+      "lon": -98.19079
+    },
+    {
+      "county": "Parker",
+      "customersOut": 3,
+      "outageCause": "Equipment Issue",
+      "lat": 32.98079,
+      "lon": -97.69341
+    },
+    {
+      "county": "Parker",
+      "customersOut": 24,
+      "outageCause": "Aggregated outage point",
+      "lat": 32.97079,
+      "lon": -97.68802
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 69,
+      "outageCause": "Aggregated outage point",
+      "lat": 32.94715,
+      "lon": -96.86413
+    },
+    {
+      "county": "Wise",
+      "customersOut": 6,
+      "outageCause": "null",
+      "lat": 33.05194,
+      "lon": -97.52097
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 403,
+      "outageCause": "null",
+      "lat": 32.93451,
+      "lon": -97.41345
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 13,
+      "outageCause": "Equipment Issue",
+      "lat": 32.85859,
+      "lon": -96.88768
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1638,
+      "outageCause": "Equipment Issue",
+      "lat": 33.17184,
+      "lon": -97.88591
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 249,
+      "outageCause": "Equipment ",
+      "lat": 32.90814,
+      "lon": -96.88141
+    },
+    {
+      "county": "Lamar",
+      "customersOut": 16,
+      "outageCause": "null",
+      "lat": 33.64962,
+      "lon": -95.53273
+    },
+    {
+      "county": "Wise",
+      "customersOut": 57,
+      "outageCause": "Equipment Issue",
+      "lat": 33.23502,
+      "lon": -97.87899
+    },
+    {
+      "county": "Clay",
+      "customersOut": 4,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.55272,
+      "lon": -98.04141
+    },
+    {
+      "county": "Clay",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.83068,
+      "lon": -98.18118
+    },
+    {
+      "county": "Parker",
+      "customersOut": 75,
+      "outageCause": "null",
+      "lat": 32.98254,
+      "lon": -97.91041
+    },
+    {
+      "county": "Lamar",
+      "customersOut": 51,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.65669,
+      "lon": -95.60368
+    },
+    {
+      "county": "Lamar",
+      "customersOut": 13,
+      "outageCause": "Vegetation ",
+      "lat": 33.65346,
+      "lon": -95.54695
+    },
+    {
+      "county": "Lamar",
+      "customersOut": 17,
+      "outageCause": "Equipment ",
+      "lat": 33.65835,
+      "lon": -95.52375
+    },
+    {
+      "county": "Wise",
+      "customersOut": 84,
+      "outageCause": "null",
+      "lat": 33.06939,
+      "lon": -97.70673
+    },
+    {
+      "county": "Collin",
+      "customersOut": 8,
+      "outageCause": "null",
+      "lat": 33.17697,
+      "lon": -96.66386
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 8,
+      "outageCause": "Vegetation ",
+      "lat": 33.63228,
+      "lon": -96.58273
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 430,
+      "outageCause": "Lightning",
+      "lat": 32.82429,
+      "lon": -97.41337
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 7,
+      "outageCause": "Equipment ",
+      "lat": 33.65735,
+      "lon": -96.64859
+    },
+    {
+      "county": "Tarrant",
+      "customersOut": 190,
+      "outageCause": "null",
+      "lat": 32.93662,
+      "lon": -97.3136
+    },
+    {
+      "county": "Fannin",
+      "customersOut": 4,
+      "outageCause": "Equipment ",
+      "lat": 33.59913,
+      "lon": -96.17014
+    },
+    {
+      "county": "Collin",
+      "customersOut": 22,
+      "outageCause": "Equipment ",
+      "lat": 33.00656,
+      "lon": -96.7983
+    },
+    {
+      "county": "Collin",
+      "customersOut": 10,
+      "outageCause": "null",
+      "lat": 33.03952,
+      "lon": -96.70814
+    },
+    {
+      "county": "Johnson",
+      "customersOut": 19,
+      "outageCause": "Vegetation ",
+      "lat": 32.33551,
+      "lon": -97.4064
+    },
+    {
+      "county": "Wichita",
+      "customersOut": 7,
+      "outageCause": "Equipment ",
+      "lat": 33.86767,
+      "lon": -98.54191
+    },
+    {
+      "county": "Martin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 32.30892,
+      "lon": -101.86163
+    },
+    {
+      "county": "Nacogdoches",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 31.54316,
+      "lon": -94.57533
+    },
+    {
+      "county": "Dallas",
+      "customersOut": 7,
+      "outageCause": "null",
+      "lat": 32.71369,
+      "lon": -96.91771
+    },
+    {
+      "county": "Freestone",
+      "customersOut": 23,
+      "outageCause": "null",
+      "lat": 31.73151,
+      "lon": -96.14585
+    },
+    {
+      "county": "Limestone",
+      "customersOut": 7,
+      "outageCause": "Aggregated outage point",
+      "lat": 31.67998,
+      "lon": -96.48428
+    },
+    {
+      "county": "Bell",
+      "customersOut": 8,
+      "outageCause": "Equipment ",
+      "lat": 31.08661,
+      "lon": -97.37048
+    },
+    {
+      "county": "Reagan",
+      "customersOut": 13,
+      "outageCause": "null",
+      "lat": 31.52778,
+      "lon": -101.46538
+    },
+    {
+      "county": "Archer",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.78397,
+      "lon": -98.63103
+    },
+    {
+      "county": "Wichita",
+      "customersOut": 8,
+      "outageCause": "null",
+      "lat": 33.88942,
+      "lon": -98.53049
+    },
+    {
+      "county": "Wichita",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 33.88427,
+      "lon": -98.54043
+    },
+    {
+      "county": "Wichita",
+      "customersOut": 21,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.88931,
+      "lon": -98.51372
+    },
+    {
+      "county": "Wichita",
+      "customersOut": 14,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.87911,
+      "lon": -98.53093
+    },
+    {
+      "county": "Archer",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.68425,
+      "lon": -98.61312
+    },
+    {
+      "county": "Archer",
+      "customersOut": 19,
+      "outageCause": "Equipment Issue",
+      "lat": 33.75474,
+      "lon": -98.60687
+    },
+    {
+      "county": "Archer",
+      "customersOut": 44,
+      "outageCause": "Aggregated outage point",
+      "lat": 33.77769,
+      "lon": -98.58796
+    },
+    {
+      "county": "Wichita",
+      "customersOut": 26,
+      "outageCause": "Vegetation ",
+      "lat": 33.86233,
+      "lon": -98.57639
+    },
+    {
+      "county": "Archer",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.78,
+      "lon": -98.62333
+    },
+    {
+      "county": "Archer",
+      "customersOut": 10,
+      "outageCause": "null",
+      "lat": 33.67724,
+      "lon": -98.67274
+    },
+    {
+      "county": "Midland",
+      "customersOut": 48,
+      "outageCause": "Equipment Issue",
+      "lat": 32.02332,
+      "lon": -101.92546
+    },
+    {
+      "county": "Ector",
+      "customersOut": 8,
+      "outageCause": "Adverse weather ",
+      "lat": 31.88196,
+      "lon": -102.41358
+    },
+    {
+      "county": "Galveston",
+      "customersOut": 1,
+      "outageCause": "Equipment Failure",
+      "lat": 29.50841,
+      "lon": -95.20074
+    },
+    {
+      "county": "Galveston",
+      "customersOut": 6,
+      "outageCause": "null",
+      "lat": 29.4591767942922,
+      "lon": -94.6209020295378
+    },
+    {
+      "county": "Montgomery",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 30.4507472178448,
+      "lon": -95.4877089306595
+    },
+    {
+      "county": "Jefferson",
+      "customersOut": 12,
+      "outageCause": "null",
+      "lat": 30.0386267164243,
+      "lon": -94.3349093909038
+    },
+    {
+      "county": "Montgomery",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 30.2938991906482,
+      "lon": -95.444857315149
+    },
+    {
+      "county": "Jefferson",
+      "customersOut": 327,
+      "outageCause": "null",
+      "lat": 30.0821766882849,
+      "lon": -94.13808316371
+    },
+    {
+      "county": "Montgomery",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 30.204977603106,
+      "lon": -95.5378046476514
+    },
+    {
+      "county": "Montgomery",
+      "customersOut": 253,
+      "outageCause": "null",
+      "lat": 30.3360860123985,
+      "lon": -95.4865342670522
+    },
+    {
+      "county": "Panola",
+      "customersOut": 18,
+      "outageCause": "null",
+      "lat": 32.1702467141188,
+      "lon": -94.3516306964869
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 145,
+      "outageCause": "null",
+      "lat": 33.0461068985426,
+      "lon": -95.1633229665706
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 13,
+      "outageCause": "null",
+      "lat": 33.0897574740077,
+      "lon": -95.2116612461476
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.06792,
+      "lon": -95.15544
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 33.0612466666667,
+      "lon": -95.2151133333333
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.08264,
+      "lon": -95.23108
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 25,
+      "outageCause": "PLANNED MAINTENANCE",
+      "lat": 33.0609072622213,
+      "lon": -95.2084208381473
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.17583,
+      "lon": -95.13903
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.07865,
+      "lon": -95.18045
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 214,
+      "outageCause": "null",
+      "lat": 33.0710463783093,
+      "lon": -95.1590500627104
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.04842,
+      "lon": -95.20397
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 64,
+      "outageCause": "null",
+      "lat": 33.0524963469428,
+      "lon": -95.1797506654615
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.04684,
+      "lon": -95.2160066666667
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "TREE CONTACT",
+      "lat": 33.19809,
+      "lon": -95.22218
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.06295,
+      "lon": -95.20645
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 37,
+      "outageCause": "null",
+      "lat": 33.0473066866796,
+      "lon": -95.2050517426998
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.18514,
+      "lon": -95.19973
+    },
+    {
+      "county": "Titus",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.15707,
+      "lon": -95.1152833333333
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 33.1866508948761,
+      "lon": -95.2251489912597
+    },
+    {
+      "county": "Titus",
+      "customersOut": 6,
+      "outageCause": "null",
+      "lat": 33.1584838556127,
+      "lon": -95.1077783376178
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.061,
+      "lon": -95.21308
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 20,
+      "outageCause": "null",
+      "lat": 33.0690801598706,
+      "lon": -95.1685921191211
+    },
+    {
+      "county": "Camp",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.00586,
+      "lon": -94.98638
+    },
+    {
+      "county": "Gregg",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 32.4458,
+      "lon": -94.71555
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.08701,
+      "lon": -95.20467
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 3,
+      "outageCause": "EQUIPMENT RELATED",
+      "lat": 33.05579,
+      "lon": -95.19139
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 35,
+      "outageCause": "null",
+      "lat": 33.0633589717509,
+      "lon": -95.2018345285552
+    },
+    {
+      "county": "Hopkins",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.16991,
+      "lon": -95.33255
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.18576,
+      "lon": -95.27308
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 59,
+      "outageCause": "null",
+      "lat": 33.0675353499085,
+      "lon": -95.1779020082665
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.0814,
+      "lon": -95.1901933333333
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.0662066666667,
+      "lon": -95.1729866666667
+    },
+    {
+      "county": "Hopkins",
+      "customersOut": 7,
+      "outageCause": "TREE CONTACT",
+      "lat": 33.1808741721873,
+      "lon": -95.3298451158631
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.05576,
+      "lon": -95.18795
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.0814266666667,
+      "lon": -95.1764533333333
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 32,
+      "outageCause": "null",
+      "lat": 33.0520641670683,
+      "lon": -95.1937223539976
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.06857,
+      "lon": -95.21054
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 33.0901315179867,
+      "lon": -95.1733673679001
+    },
+    {
+      "county": "Cass",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.1146933333333,
+      "lon": -94.1747633333333
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 47,
+      "outageCause": "null",
+      "lat": 33.073863066548,
+      "lon": -95.2097160955363
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.06705,
+      "lon": -95.17139
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.06383,
+      "lon": -95.21147
+    },
+    {
+      "county": "Titus",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 33.1700825369576,
+      "lon": -95.1121943896042
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.08951,
+      "lon": -95.17918
+    },
+    {
+      "county": "Burleson",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 30.70272,
+      "lon": -96.63327
+    },
+    {
+      "county": "Travis",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 30.06548,
+      "lon": -97.66482
+    },
+    {
+      "county": "Brazos",
+      "customersOut": 2,
+      "outageCause": "300 Material or equipment fault/failure",
+      "lat": 30.52974,
+      "lon": -96.1934
+    },
+    {
+      "county": "Brazos",
+      "customersOut": 1,
+      "outageCause": "300 Material or equipment fault/failure",
+      "lat": 30.54131,
+      "lon": -96.25058
+    },
+    {
+      "county": "Cooke",
+      "customersOut": 340,
+      "outageCause": "Unknown",
+      "lat": 33.4660000442473,
+      "lon": -97.3985514871508
+    },
+    {
+      "county": "Cooke",
+      "customersOut": 1,
+      "outageCause": "Unknown",
+      "lat": 33.8815767419169,
+      "lon": -97.1921999529364
+    },
+    {
+      "county": "Grayson",
+      "customersOut": 1,
+      "outageCause": "Unknown",
+      "lat": 33.5838514605652,
+      "lon": -96.9242998994641
+    },
+    {
+      "county": "Shelby",
+      "customersOut": 25,
+      "outageCause": "null",
+      "lat": 31.8953386803782,
+      "lon": -94.3232940710726
+    },
+    {
+      "county": "Hunt",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 32.91126,
+      "lon": -96.10309
+    },
+    {
+      "county": "Donley",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 34.87739,
+      "lon": -100.64328
+    },
+    {
+      "county": "Donley",
+      "customersOut": 140,
+      "outageCause": "null",
+      "lat": 34.9409583695988,
+      "lon": -100.661221693123
+    },
+    {
+      "county": "Donley",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 34.88111,
+      "lon": -100.63132
+    },
+    {
+      "county": "Jasper",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 30.36876,
+      "lon": -93.90792
+    },
+    {
+      "county": "La Salle",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 28.34235,
+      "lon": -98.99968
+    },
+    {
+      "county": "Limestone",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 31.70517,
+      "lon": -96.84188
+    },
+    {
+      "county": "Hays",
+      "customersOut": 5,
+      "outageCause": "Unknown",
+      "lat": 29.9350466666667,
+      "lon": -97.8755
+    },
+    {
+      "county": "Jones",
+      "customersOut": 1,
+      "outageCause": "PLANNED MAINTENANCE",
+      "lat": 32.62331,
+      "lon": -99.82663
+    },
+    {
+      "county": "Webb",
+      "customersOut": 8,
+      "outageCause": "null",
+      "lat": 27.572066212293,
+      "lon": -99.4532724045513
+    },
+    {
+      "county": "Webb",
+      "customersOut": 8,
+      "outageCause": "null",
+      "lat": 27.5485544567654,
+      "lon": -99.4927137932497
+    },
+    {
+      "county": "Hidalgo",
+      "customersOut": 6,
+      "outageCause": "EQUIPMENT RELATED",
+      "lat": 26.2667442130134,
+      "lon": -98.2452464140313
+    },
+    {
+      "county": "Hidalgo",
+      "customersOut": 17,
+      "outageCause": "null",
+      "lat": 26.3071076571429,
+      "lon": -98.1869887047619
+    },
+    {
+      "county": "Hidalgo",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 26.13876,
+      "lon": -97.9817
+    },
+    {
+      "county": "Nueces",
+      "customersOut": 50,
+      "outageCause": "PLANNED MAINTENANCE",
+      "lat": 27.6126367133878,
+      "lon": -97.2994108512128
+    },
+    {
+      "county": "Nueces",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 27.7495,
+      "lon": -97.43787
+    },
+    {
+      "county": "Caldwell",
+      "customersOut": 264,
+      "outageCause": "null",
+      "lat": 29.7043982980141,
+      "lon": -97.6204366054063
+    },
+    {
+      "county": "Caldwell",
+      "customersOut": 506,
+      "outageCause": "null",
+      "lat": 29.7575177052443,
+      "lon": -97.6467896662556
+    },
+    {
+      "county": "Van Zandt",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 32.76627,
+      "lon": -96.05037
+    },
+    {
+      "county": "Montague",
+      "customersOut": 7,
+      "outageCause": "null",
+      "lat": 33.5467689044439,
+      "lon": -97.8798455372624
+    },
+    {
+      "county": "Montague",
+      "customersOut": 4,
+      "outageCause": "null",
+      "lat": 33.5991673809583,
+      "lon": -97.7793421845024
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.07287,
+      "lon": -97.53166
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.16701,
+      "lon": -97.39842
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.02048,
+      "lon": -97.79905
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.21778,
+      "lon": -97.69673
+    },
+    {
+      "county": "Montague",
+      "customersOut": 6,
+      "outageCause": "null",
+      "lat": 33.4634276863487,
+      "lon": -97.7709325436063
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 33.15986,
+      "lon": -97.40763
+    },
+    {
+      "county": "Jack",
+      "customersOut": 114,
+      "outageCause": "null",
+      "lat": 33.3428476226897,
+      "lon": -98.0638006728349
+    },
+    {
+      "county": "Wise",
+      "customersOut": 23,
+      "outageCause": "null",
+      "lat": 33.3362367618701,
+      "lon": -97.8462576019934
+    },
+    {
+      "county": "Montague",
+      "customersOut": 3,
+      "outageCause": "null",
+      "lat": 33.5043633127084,
+      "lon": -97.7470513336546
+    },
+    {
+      "county": "Wise",
+      "customersOut": 13,
+      "outageCause": "null",
+      "lat": 33.2197661417108,
+      "lon": -97.614172505923
+    },
+    {
+      "county": "Wise",
+      "customersOut": 43,
+      "outageCause": "null",
+      "lat": 33.2204841029195,
+      "lon": -97.7024132844287
+    },
+    {
+      "county": "Wise",
+      "customersOut": 37,
+      "outageCause": "null",
+      "lat": 33.1404426477307,
+      "lon": -97.6594427847831
+    },
+    {
+      "county": "Wise",
+      "customersOut": 89,
+      "outageCause": "null",
+      "lat": 33.0393075522232,
+      "lon": -97.7091371002798
+    },
+    {
+      "county": "Wise",
+      "customersOut": 1081,
+      "outageCause": "null",
+      "lat": 33.1063017931868,
+      "lon": -97.7403143042566
+    },
+    {
+      "county": "Wise",
+      "customersOut": 609,
+      "outageCause": "null",
+      "lat": 33.1648235250418,
+      "lon": -97.7228072808899
+    },
+    {
+      "county": "Wise",
+      "customersOut": 794,
+      "outageCause": "null",
+      "lat": 33.0644182436192,
+      "lon": -97.6423568823449
+    },
+    {
+      "county": "Wise",
+      "customersOut": 635,
+      "outageCause": "null",
+      "lat": 33.0609327112551,
+      "lon": -97.7744233202498
+    },
+    {
+      "county": "Wise",
+      "customersOut": 16,
+      "outageCause": "null",
+      "lat": 33.3330167480303,
+      "lon": -97.7964747319548
+    },
+    {
+      "county": "Wise",
+      "customersOut": 771,
+      "outageCause": "null",
+      "lat": 33.0894286190572,
+      "lon": -97.676937707142
+    },
+    {
+      "county": "Wise",
+      "customersOut": 658,
+      "outageCause": "null",
+      "lat": 33.0102165021673,
+      "lon": -97.6767910849935
+    },
+    {
+      "county": "Wise",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 33.0392067690501,
+      "lon": -97.7845604880738
+    },
+    {
+      "county": "Wood",
+      "customersOut": 2,
+      "outageCause": "null",
+      "lat": 32.95735,
+      "lon": -95.31796
+    },
+    {
+      "county": "Franklin",
+      "customersOut": 42,
+      "outageCause": "null",
+      "lat": 33.075788590139,
+      "lon": -95.1518916195082
+    },
+    {
+      "county": "Bexar",
+      "customersOut": 1,
+      "outageCause": "CPS Equipment Failure",
+      "lat": 29.63933,
+      "lon": -98.48629
+    },
+    {
+      "county": "Hays",
+      "customersOut": 1,
+      "outageCause": "null",
+      "lat": 29.87172,
+      "lon": -97.94506
     }
   ]
 }
