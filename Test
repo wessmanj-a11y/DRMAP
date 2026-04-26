@@ -272,9 +272,6 @@ function initCounties(){countyData={};countyGeo.features.filter(f=>f.properties.
 
 function weatherWeight(alert){const p=alert.properties||{},sev=(p.severity||"").toLowerCase(),event=(p.event||"").toLowerCase();let w=0;if(sev==="extreme")w+=35;else if(sev==="severe")w+=25;else if(sev==="moderate")w+=14;else if(sev==="minor")w+=6;if(event.includes("tornado"))w+=20;if(event.includes("flash flood"))w+=18;if(event.includes("severe thunderstorm"))w+=14;if(event.includes("fire"))w+=12;return w}
 
-function fallbackSeverity(c){return Math.round(Math.min(
-
-// 
 
 function fallbackSeverity(c){
   return Math.round(Math.min(100,
