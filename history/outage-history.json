@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-26T21:28:41.216Z",
+  "updated": "2026-04-26T22:24:14.663Z",
   "snapshots": [
     {
       "timestamp": "2026-04-26T04:30:43.014Z",
@@ -8095,6 +8095,571 @@
         },
         {
           "county": "Hays",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-26T22:24:14.662Z",
+      "totalCustomersOut": 10671,
+      "countiesImpacted": 62,
+      "counties": [
+        {
+          "county": "Tarrant",
+          "customersOut": 3073,
+          "incidents": 133,
+          "currentSeverity": 65,
+          "predictedRisk": 37,
+          "restorationDifficulty": 43,
+          "roadClosures": 0
+        },
+        {
+          "county": "Dallas",
+          "customersOut": 2037,
+          "incidents": 51,
+          "currentSeverity": 64,
+          "predictedRisk": 41,
+          "restorationDifficulty": 50,
+          "roadClosures": 1
+        },
+        {
+          "county": "Wise",
+          "customersOut": 1332,
+          "incidents": 30,
+          "currentSeverity": 62,
+          "predictedRisk": 35,
+          "restorationDifficulty": 40,
+          "roadClosures": 0
+        },
+        {
+          "county": "Parker",
+          "customersOut": 570,
+          "incidents": 16,
+          "currentSeverity": 60,
+          "predictedRisk": 40,
+          "restorationDifficulty": 48,
+          "roadClosures": 1
+        },
+        {
+          "county": "Harris",
+          "customersOut": 254,
+          "incidents": 30,
+          "currentSeverity": 51,
+          "predictedRisk": 29,
+          "restorationDifficulty": 34,
+          "roadClosures": 0
+        },
+        {
+          "county": "Midland",
+          "customersOut": 944,
+          "incidents": 6,
+          "currentSeverity": 51,
+          "predictedRisk": 28,
+          "restorationDifficulty": 28,
+          "roadClosures": 0
+        },
+        {
+          "county": "Carson",
+          "customersOut": 943,
+          "incidents": 1,
+          "currentSeverity": 50,
+          "predictedRisk": 41,
+          "restorationDifficulty": 32,
+          "roadClosures": 0
+        },
+        {
+          "county": "Armstrong",
+          "customersOut": 144,
+          "incidents": 7,
+          "currentSeverity": 46,
+          "predictedRisk": 39,
+          "restorationDifficulty": 30,
+          "roadClosures": 0
+        },
+        {
+          "county": "El Paso",
+          "customersOut": 154,
+          "incidents": 3,
+          "currentSeverity": 46,
+          "predictedRisk": 56,
+          "restorationDifficulty": 43,
+          "roadClosures": 1
+        },
+        {
+          "county": "Donley",
+          "customersOut": 142,
+          "incidents": 3,
+          "currentSeverity": 41,
+          "predictedRisk": 37,
+          "restorationDifficulty": 34,
+          "roadClosures": 1
+        },
+        {
+          "county": "Hemphill",
+          "customersOut": 166,
+          "incidents": 1,
+          "currentSeverity": 38,
+          "predictedRisk": 32,
+          "restorationDifficulty": 25,
+          "roadClosures": 0
+        },
+        {
+          "county": "Grayson",
+          "customersOut": 100,
+          "incidents": 5,
+          "currentSeverity": 37,
+          "predictedRisk": 28,
+          "restorationDifficulty": 34,
+          "roadClosures": 1
+        },
+        {
+          "county": "Lipscomb",
+          "customersOut": 189,
+          "incidents": 1,
+          "currentSeverity": 36,
+          "predictedRisk": 25,
+          "restorationDifficulty": 22,
+          "roadClosures": 0
+        },
+        {
+          "county": "Denton",
+          "customersOut": 97,
+          "incidents": 4,
+          "currentSeverity": 33,
+          "predictedRisk": 19,
+          "restorationDifficulty": 19,
+          "roadClosures": 0
+        },
+        {
+          "county": "Lubbock",
+          "customersOut": 32,
+          "incidents": 4,
+          "currentSeverity": 33,
+          "predictedRisk": 31,
+          "restorationDifficulty": 23,
+          "roadClosures": 0
+        },
+        {
+          "county": "Smith",
+          "customersOut": 23,
+          "incidents": 1,
+          "currentSeverity": 30,
+          "predictedRisk": 35,
+          "restorationDifficulty": 23,
+          "roadClosures": 0
+        },
+        {
+          "county": "Franklin",
+          "customersOut": 63,
+          "incidents": 3,
+          "currentSeverity": 30,
+          "predictedRisk": 17,
+          "restorationDifficulty": 17,
+          "roadClosures": 0
+        },
+        {
+          "county": "Archer",
+          "customersOut": 39,
+          "incidents": 1,
+          "currentSeverity": 29,
+          "predictedRisk": 28,
+          "restorationDifficulty": 31,
+          "roadClosures": 1
+        },
+        {
+          "county": "Angelina",
+          "customersOut": 72,
+          "incidents": 1,
+          "currentSeverity": 28,
+          "predictedRisk": 16,
+          "restorationDifficulty": 16,
+          "roadClosures": 0
+        },
+        {
+          "county": "Castro",
+          "customersOut": 15,
+          "incidents": 1,
+          "currentSeverity": 25,
+          "predictedRisk": 26,
+          "restorationDifficulty": 18,
+          "roadClosures": 0
+        },
+        {
+          "county": "Liberty",
+          "customersOut": 40,
+          "incidents": 1,
+          "currentSeverity": 24,
+          "predictedRisk": 14,
+          "restorationDifficulty": 14,
+          "roadClosures": 0
+        },
+        {
+          "county": "Bell",
+          "customersOut": 21,
+          "incidents": 1,
+          "currentSeverity": 23,
+          "predictedRisk": 19,
+          "restorationDifficulty": 25,
+          "roadClosures": 1
+        },
+        {
+          "county": "Shelby",
+          "customersOut": 26,
+          "incidents": 2,
+          "currentSeverity": 23,
+          "predictedRisk": 13,
+          "restorationDifficulty": 13,
+          "roadClosures": 0
+        },
+        {
+          "county": "Travis",
+          "customersOut": 17,
+          "incidents": 2,
+          "currentSeverity": 23,
+          "predictedRisk": 20,
+          "restorationDifficulty": 26,
+          "roadClosures": 2
+        },
+        {
+          "county": "Lamar",
+          "customersOut": 17,
+          "incidents": 4,
+          "currentSeverity": 22,
+          "predictedRisk": 13,
+          "restorationDifficulty": 13,
+          "roadClosures": 0
+        },
+        {
+          "county": "Brewster",
+          "customersOut": 22,
+          "incidents": 1,
+          "currentSeverity": 21,
+          "predictedRisk": 12,
+          "restorationDifficulty": 12,
+          "roadClosures": 0
+        },
+        {
+          "county": "Kaufman",
+          "customersOut": 10,
+          "incidents": 3,
+          "currentSeverity": 19,
+          "predictedRisk": 11,
+          "restorationDifficulty": 11,
+          "roadClosures": 0
+        },
+        {
+          "county": "Cooke",
+          "customersOut": 7,
+          "incidents": 3,
+          "currentSeverity": 19,
+          "predictedRisk": 16,
+          "restorationDifficulty": 13,
+          "roadClosures": 0
+        },
+        {
+          "county": "Panola",
+          "customersOut": 18,
+          "incidents": 1,
+          "currentSeverity": 19,
+          "predictedRisk": 11,
+          "restorationDifficulty": 11,
+          "roadClosures": 0
+        },
+        {
+          "county": "Scurry",
+          "customersOut": 13,
+          "incidents": 1,
+          "currentSeverity": 18,
+          "predictedRisk": 10,
+          "restorationDifficulty": 10,
+          "roadClosures": 0
+        },
+        {
+          "county": "Anderson",
+          "customersOut": 11,
+          "incidents": 1,
+          "currentSeverity": 17,
+          "predictedRisk": 9,
+          "restorationDifficulty": 9,
+          "roadClosures": 0
+        },
+        {
+          "county": "Andrews",
+          "customersOut": 6,
+          "incidents": 1,
+          "currentSeverity": 16,
+          "predictedRisk": 14,
+          "restorationDifficulty": 11,
+          "roadClosures": 0
+        },
+        {
+          "county": "Taylor",
+          "customersOut": 6,
+          "incidents": 2,
+          "currentSeverity": 16,
+          "predictedRisk": 13,
+          "restorationDifficulty": 17,
+          "roadClosures": 1
+        },
+        {
+          "county": "Brazoria",
+          "customersOut": 8,
+          "incidents": 1,
+          "currentSeverity": 15,
+          "predictedRisk": 8,
+          "restorationDifficulty": 8,
+          "roadClosures": 0
+        },
+        {
+          "county": "Collin",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 14,
+          "predictedRisk": 18,
+          "restorationDifficulty": 12,
+          "roadClosures": 0
+        },
+        {
+          "county": "Starr",
+          "customersOut": 5,
+          "incidents": 2,
+          "currentSeverity": 14,
+          "predictedRisk": 8,
+          "restorationDifficulty": 8,
+          "roadClosures": 0
+        },
+        {
+          "county": "Montgomery",
+          "customersOut": 6,
+          "incidents": 1,
+          "currentSeverity": 13,
+          "predictedRisk": 8,
+          "restorationDifficulty": 8,
+          "roadClosures": 0
+        },
+        {
+          "county": "Gregg",
+          "customersOut": 3,
+          "incidents": 1,
+          "currentSeverity": 12,
+          "predictedRisk": 14,
+          "restorationDifficulty": 20,
+          "roadClosures": 1
+        },
+        {
+          "county": "Hays",
+          "customersOut": 4,
+          "incidents": 2,
+          "currentSeverity": 12,
+          "predictedRisk": 7,
+          "restorationDifficulty": 7,
+          "roadClosures": 0
+        },
+        {
+          "county": "Bexar",
+          "customersOut": 3,
+          "incidents": 3,
+          "currentSeverity": 12,
+          "predictedRisk": 7,
+          "restorationDifficulty": 7,
+          "roadClosures": 0
+        },
+        {
+          "county": "Nueces",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 13,
+          "restorationDifficulty": 18,
+          "roadClosures": 1
+        },
+        {
+          "county": "Williamson",
+          "customersOut": 4,
+          "incidents": 1,
+          "currentSeverity": 11,
+          "predictedRisk": 6,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "San Patricio",
+          "customersOut": 4,
+          "incidents": 1,
+          "currentSeverity": 11,
+          "predictedRisk": 6,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "Jones",
+          "customersOut": 4,
+          "incidents": 1,
+          "currentSeverity": 11,
+          "predictedRisk": 6,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "Jackson",
+          "customersOut": 3,
+          "incidents": 1,
+          "currentSeverity": 10,
+          "predictedRisk": 6,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "Leon",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 9,
+          "restorationDifficulty": 14,
+          "roadClosures": 1
+        },
+        {
+          "county": "McLennan",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 11,
+          "restorationDifficulty": 17,
+          "roadClosures": 1
+        },
+        {
+          "county": "Rockwall",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 5,
+          "restorationDifficulty": 5,
+          "roadClosures": 0
+        },
+        {
+          "county": "Henderson",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 5,
+          "restorationDifficulty": 5,
+          "roadClosures": 0
+        },
+        {
+          "county": "Webb",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 5,
+          "restorationDifficulty": 5,
+          "roadClosures": 0
+        },
+        {
+          "county": "Jack",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 10,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "Atascosa",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 11,
+          "restorationDifficulty": 17,
+          "roadClosures": 1
+        },
+        {
+          "county": "Hidalgo",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 7,
+          "predictedRisk": 8,
+          "restorationDifficulty": 12,
+          "roadClosures": 1
+        },
+        {
+          "county": "Austin",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Wharton",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Reagan",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Ector",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Zapata",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Dimmit",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Colorado",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Somervell",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Wilson",
           "customersOut": 1,
           "incidents": 1,
           "currentSeverity": 6,
