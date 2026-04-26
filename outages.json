@@ -1,11 +1,11 @@
 {
-  "updated": "2026-04-26T02:46:19.900Z",
+  "updated": "2026-04-26T02:50:23.138Z",
   "sourceStatus": [
     {
       "name": "Oncor KUBRA",
-      "ok": false,
-      "error": "FETCH FAILED URL: https://kubra.ioregions/69f973ee-5a90-4917-9c29-a0df72ea095f/a05c6257-beb4-4b4c-bc23-e973aa40798e/serviceareas.json | ERROR: fetch failed",
-      "requests": 4
+      "ok": true,
+      "requests": 4,
+      "note": "Reached service areas successfully"
     }
   ],
   "count": 0,
