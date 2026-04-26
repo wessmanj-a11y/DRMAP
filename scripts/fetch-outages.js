@@ -11,6 +11,9 @@ const COUNTIES_URL =
 
 const NWS_URL = "https://api.weather.gov/alerts/active?area=TX";
 
+const HHS_URL =
+  "https://data.cdc.gov/resource/mpgq-jmmr.json?$limit=12&jurisdiction=TX&$order=weekendingdate DESC";
+
 // ==============================
 // Basic helpers
 // ==============================
@@ -32,6 +35,31 @@ async function tryFetchJson(url) {
   } catch {
     return null;
   }
+}
+
+function buildHospitalCapacity(hhsRows) {
+  const rows = Array.isArray(hhsRows) ? hhsRows : [];
+
+  const trend = rows
+    .map(r => ({
+      weekEndingDate: r.weekendingdate,
+      inpatientOccupancyPct: num(r.pctinptbedsocc),
+      icuOccupancyPct: num(r.pcticubedsocc),
+      inpatientBeds: num(r.numinptbeds),
+      inpatientBedsOccupied: num(r.numinptbedsocc),
+      icuBeds: num(r.numicubeds),
+      icuBedsOccupied: num(r.numicubedsocc)
+    }))
+    .filter(r => r.weekEndingDate)
+    .sort((a, b) => new Date(a.weekEndingDate) - new Date(b.weekEndingDate));
+
+  const latest = trend[trend.length - 1] || null;
+
+  return {
+    source: "CDC Weekly Hospital Respiratory Data",
+    latest,
+    trend
+  };
 }
 
 // ==============================
@@ -574,11 +602,14 @@ function buildHistorySummary(currentCountyRows, previousSnapshots) {
 
 async function main() {
   try {
-    const [counties, points, nws] = await Promise.all([
-      fetchJson(COUNTIES_URL),
-      fetchAllTDIS(),
-      fetchJson(NWS_URL).catch(() => ({ features: [] }))
-    ]);
+      const [counties, points, nws, hhsRows] = await Promise.all([
+  fetchJson(COUNTIES_URL),
+  fetchAllTDIS(),
+  fetchJson(NWS_URL).catch(() => ({ features: [] })),
+  fetchJson(HHS_URL).catch(() => [])
+]);
+
+const hospitalCapacity = buildHospitalCapacity(hhsRows);
 
     const roadResult = await fetchDriveTexasRoadEvents(counties);
     const roadClosures = roadResult.events || [];
@@ -717,6 +748,14 @@ async function main() {
           pointRecordsUsed: outagePoints.length,
           countyRecords: outages.length
         },
+
+        {
+  name: "HHS/CDC Hospital Capacity",
+  ok: !!hospitalCapacity.latest,
+  latestWeek: hospitalCapacity.latest?.weekEndingDate || null,
+  inpatientOccupancyPct: hospitalCapacity.latest?.inpatientOccupancyPct ?? null,
+  weeks: hospitalCapacity.trend.length
+},
         {
           name: "NWS Active Alerts",
           ok: true,
@@ -743,6 +782,7 @@ async function main() {
         highRisk: roadClosures.filter(r => r.risk >= 15).length,
         source: "DriveTexas UTFGrid tiles"
       },
+      hospitalCapacity,
       history: newSnapshots.slice(-48)
     };
 
