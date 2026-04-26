@@ -8,6 +8,10 @@ const BASE = "https://kubra.io";
 
 let requestCount = 0;
 
+function joinUrl(base, path) {
+  return `${base}${path.startsWith("/") ? "" : "/"}${path}`;
+}
+
 async function fetchJson(url) {
   requestCount++;
 
@@ -78,13 +82,17 @@ function lat2tile(lat, z) {
 
 function tileToQuadkey(x, y, z) {
   let quadkey = "";
+
   for (let i = z; i > 0; i--) {
     let digit = 0;
     const mask = 1 << (i - 1);
+
     if ((x & mask) !== 0) digit += 1;
     if ((y & mask) !== 0) digit += 2;
+
     quadkey += digit;
   }
+
   return quadkey;
 }
 
@@ -139,8 +147,11 @@ async function main() {
 
     const regionKey = Object.keys(state.datastatic)[0];
     const regionsPath = state.datastatic[regionKey];
-    const serviceAreasUrl =
-      `${BASE}${regionsPath.startsWith("/") ? "" : "/"}${regionsPath}/${regionKey}/serviceareas.json`;
+
+    const serviceAreasUrl = joinUrl(
+      BASE,
+      `${regionsPath}/${regionKey}/serviceareas.json`
+    );
 
     const serviceAreas = await fetchJson(serviceAreasUrl);
     const encodedAreas = serviceAreas.file_data?.[0]?.geom?.a || [];
@@ -158,65 +169,65 @@ async function main() {
 
     const layerSummary = intervalLayers.map(l => ({
       id: l.id,
-      type: l.type,
-      name: l.name,
-      enabled: l.enabled,
-      visible: l.visible
+      type: l.type
     }));
 
-    const tileSamples = [];
+    const successfulTileSamples = [];
+    const failedSamples = [];
 
-    for (let zoom = 7; zoom <= 12; zoom++) {
-      const quadkeys = bboxQuadkeys(bounds, zoom).slice(0, 30);
+    for (let zoom = 7; zoom <= 13; zoom++) {
+      const quadkeys = bboxQuadkeys(bounds, zoom).slice(0, 80);
 
       for (const layer of intervalLayers) {
-        for (const q of quadkeys.slice(0, 8)) {
+        for (const q of quadkeys) {
           const qkh = q.slice(-3).split("").reverse().join("");
 
           const urls = [
-            `${BASE}${clusterPath.replace("{qkh}", qkh)}/public/${layer.id}/${q}.json`,
-            `${BASE}${normalPath.replace("{qkh}", qkh)}/public/${layer.id}/${q}.json`
+            joinUrl(BASE, `${clusterPath.replace("{qkh}", qkh)}/public/${layer.id}/${q}.json`),
+            joinUrl(BASE, `${normalPath.replace("{qkh}", qkh)}/public/${layer.id}/${q}.json`)
           ];
 
           for (const url of urls) {
             try {
               const json = await fetchJson(url);
               const rows = json.file_data || [];
-              tileSamples.push({
-                zoom,
-                layerId: layer.id,
-                layerType: layer.type,
-                url,
-                ok: true,
-                rowCount: rows.length,
-                firstRow: rows[0] || null
-              });
 
-              if (tileSamples.filter(s => s.rowCount > 0).length >= 10) break;
+              if (rows.length > 0) {
+                successfulTileSamples.push({
+                  zoom,
+                  layerId: layer.id,
+                  layerType: layer.type,
+                  url,
+                  rowCount: rows.length,
+                  firstRow: rows[0]
+                });
+              }
             } catch (err) {
-              tileSamples.push({
-                zoom,
-                layerId: layer.id,
-                layerType: layer.type,
-                url,
-                ok: false,
-                error: String(err.message).slice(0, 160)
-              });
+              if (failedSamples.length < 10) {
+                failedSamples.push({
+                  zoom,
+                  layerId: layer.id,
+                  url,
+                  error: String(err.message).slice(0, 250)
+                });
+              }
             }
+
+            if (successfulTileSamples.length >= 10) break;
           }
 
-          if (tileSamples.filter(s => s.rowCount > 0).length >= 10) break;
+          if (successfulTileSamples.length >= 10) break;
         }
 
-        if (tileSamples.filter(s => s.rowCount > 0).length >= 10) break;
+        if (successfulTileSamples.length >= 10) break;
       }
 
-      if (tileSamples.filter(s => s.rowCount > 0).length >= 10) break;
+      if (successfulTileSamples.length >= 10) break;
     }
 
     payload = {
       updated: new Date().toISOString(),
-      note: "KUBRA layer/tile diagnostic. Send layerSummary and tileSamples with rowCount > 0.",
+      note: "KUBRA tile diagnostic with fixed URL joining.",
       sourceStatus: [{
         name: "Oncor KUBRA diagnostic",
         ok: true,
@@ -228,12 +239,14 @@ async function main() {
         normalPath
       }],
       layerSummary,
-      successfulTileSamples: tileSamples.filter(s => s.ok && s.rowCount > 0),
-      failedSampleCount: tileSamples.filter(s => !s.ok).length,
+      successfulTileSamples,
+      failedSampleCount: failedSamples.length,
+      failedSamples,
       count: 0,
       totalCustomersOut: 0,
       outages: []
     };
+
   } catch (err) {
     payload = {
       updated: new Date().toISOString(),
