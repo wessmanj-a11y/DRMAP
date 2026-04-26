@@ -1067,11 +1067,16 @@ function renderPanel(){
     (safeNum(c.trend24h) >= 0 ? "+" : "") + safeNum(c.trend24h).toLocaleString();
   document.getElementById("sevenDayPeak").textContent = safeNum(c.sevenDayPeak).toLocaleString();
   document.getElementById("maxSingle").textContent = safeNum(c.maxSingleOutage).toLocaleString();
-  document.getElementById("roadClosures").textContent =
-  safeNum(c.roadClosures).toLocaleString();
+  
+const roadClosuresEl = document.getElementById("roadClosures");
+if (roadClosuresEl) {
+  roadClosuresEl.textContent = safeNum(c.roadClosures).toLocaleString();
+}
 
-document.getElementById("restorationDifficulty").textContent =
-  safeNum(c.restorationDifficulty).toLocaleString();
+const restorationDifficultyEl = document.getElementById("restorationDifficulty");
+if (restorationDifficultyEl) {
+  restorationDifficultyEl.textContent = safeNum(c.restorationDifficulty).toLocaleString();
+}
 
   document.getElementById("scoreExplain").innerHTML =
     `<strong>Prediction explanation:</strong><br>${c.predictionExplanation || "No prediction explanation available."}`;
