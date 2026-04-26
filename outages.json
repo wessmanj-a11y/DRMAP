@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-26T21:03:35.125Z",
+  "updated": "2026-04-26T21:28:41.217Z",
   "sourceStatus": [
     {
       "name": "TDIS Power Outage Data",
@@ -9,6 +9,13 @@
       "countyRecords": 61
     },
     {
+      "name": "HHS/CDC Hospital Capacity",
+      "ok": true,
+      "latestWeek": "2026-04-18T00:00:00.000",
+      "inpatientOccupancyPct": 69.84,
+      "weeks": 12
+    },
+    {
       "name": "NWS Active Alerts",
       "ok": true,
       "activeTexasAlerts": 24
@@ -16,7 +23,7 @@
     {
       "name": "DriveTexas UTFGrid closures",
       "ok": true,
-      "path": "tileset/26/04/26/21/00/02",
+      "path": "tileset/26/04/26/21/25/02",
       "requests": 113,
       "successes": 17,
       "failures": 96,
@@ -36,7 +43,7 @@
     {
       "name": "History",
       "ok": true,
-      "snapshots": 18
+      "snapshots": 19
     }
   ],
   "count": 61,
@@ -60,7 +67,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 43,
-      "updated": "2026-04-26T21:03:34.943Z",
+      "updated": "2026-04-26T21:28:40.977Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 66,
       "predictedRisk": 38,
@@ -98,7 +105,7 @@
         }
       ],
       "restorationDifficulty": 51,
-      "updated": "2026-04-26T21:03:34.945Z",
+      "updated": "2026-04-26T21:28:40.980Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 66,
       "predictedRisk": 42,
@@ -121,7 +128,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 40,
-      "updated": "2026-04-26T21:03:34.950Z",
+      "updated": "2026-04-26T21:28:40.985Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 62,
       "predictedRisk": 35,
@@ -159,7 +166,7 @@
         }
       ],
       "restorationDifficulty": 51,
-      "updated": "2026-04-26T21:03:34.951Z",
+      "updated": "2026-04-26T21:28:40.985Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 61,
       "predictedRisk": 41,
@@ -182,7 +189,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 34,
-      "updated": "2026-04-26T21:03:34.941Z",
+      "updated": "2026-04-26T21:28:40.976Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 52,
       "predictedRisk": 29,
@@ -269,7 +276,7 @@
         }
       ],
       "restorationDifficulty": 44,
-      "updated": "2026-04-26T21:03:35.086Z",
+      "updated": "2026-04-26T21:28:41.123Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 48,
       "predictedRisk": 57,
@@ -292,7 +299,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 25,
-      "updated": "2026-04-26T21:03:35.024Z",
+      "updated": "2026-04-26T21:28:41.061Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 44,
       "predictedRisk": 25,
@@ -347,7 +354,7 @@
         }
       ],
       "restorationDifficulty": 34,
-      "updated": "2026-04-26T21:03:35.027Z",
+      "updated": "2026-04-26T21:28:41.063Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 41,
       "predictedRisk": 37,
@@ -385,7 +392,7 @@
         }
       ],
       "restorationDifficulty": 35,
-      "updated": "2026-04-26T21:03:34.950Z",
+      "updated": "2026-04-26T21:28:40.985Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 39,
       "predictedRisk": 29,
@@ -417,7 +424,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 22,
-      "updated": "2026-04-26T21:03:35.027Z",
+      "updated": "2026-04-26T21:28:41.064Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 35,
       "predictedRisk": 25,
@@ -473,7 +480,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 25,
-      "updated": "2026-04-26T21:03:34.950Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 33,
       "predictedRisk": 37,
@@ -496,7 +503,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 19,
-      "updated": "2026-04-26T21:03:34.950Z",
+      "updated": "2026-04-26T21:28:40.985Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 33,
       "predictedRisk": 19,
@@ -519,7 +526,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 18,
-      "updated": "2026-04-26T21:03:34.979Z",
+      "updated": "2026-04-26T21:28:41.015Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 31,
       "predictedRisk": 18,
@@ -557,7 +564,7 @@
         }
       ],
       "restorationDifficulty": 25,
-      "updated": "2026-04-26T21:03:35.029Z",
+      "updated": "2026-04-26T21:28:41.066Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 31,
       "predictedRisk": 21,
@@ -580,7 +587,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 18,
-      "updated": "2026-04-26T21:03:35.030Z",
+      "updated": "2026-04-26T21:28:41.067Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 31,
       "predictedRisk": 18,
@@ -627,7 +634,7 @@
         }
       ],
       "restorationDifficulty": 31,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 29,
       "predictedRisk": 28,
@@ -650,7 +657,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 16,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 28,
       "predictedRisk": 16,
@@ -698,7 +705,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 20,
-      "updated": "2026-04-26T21:03:35.029Z",
+      "updated": "2026-04-26T21:28:41.066Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 28,
       "predictedRisk": 28,
@@ -721,7 +728,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 14,
-      "updated": "2026-04-26T21:03:34.972Z",
+      "updated": "2026-04-26T21:28:41.008Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 24,
       "predictedRisk": 14,
@@ -759,7 +766,7 @@
         }
       ],
       "restorationDifficulty": 25,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 23,
       "predictedRisk": 19,
@@ -782,7 +789,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 12,
-      "updated": "2026-04-26T21:03:35.024Z",
+      "updated": "2026-04-26T21:28:41.061Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 21,
       "predictedRisk": 12,
@@ -805,7 +812,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 12,
-      "updated": "2026-04-26T21:03:35.027Z",
+      "updated": "2026-04-26T21:28:41.063Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 21,
       "predictedRisk": 12,
@@ -828,7 +835,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 12,
-      "updated": "2026-04-26T21:03:35.029Z",
+      "updated": "2026-04-26T21:28:41.065Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 21,
       "predictedRisk": 12,
@@ -851,7 +858,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 11,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 20,
       "predictedRisk": 11,
@@ -891,7 +898,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 15,
-      "updated": "2026-04-26T21:03:35.027Z",
+      "updated": "2026-04-26T21:28:41.064Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 20,
       "predictedRisk": 21,
@@ -929,7 +936,7 @@
         }
       ],
       "restorationDifficulty": 19,
-      "updated": "2026-04-26T21:03:35.028Z",
+      "updated": "2026-04-26T21:28:41.065Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 20,
       "predictedRisk": 15,
@@ -961,7 +968,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 13,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 19,
       "predictedRisk": 16,
@@ -984,7 +991,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 11,
-      "updated": "2026-04-26T21:03:34.950Z",
+      "updated": "2026-04-26T21:28:40.985Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 19,
       "predictedRisk": 11,
@@ -1007,7 +1014,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 10,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 18,
       "predictedRisk": 10,
@@ -1030,7 +1037,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 10,
-      "updated": "2026-04-26T21:03:35.025Z",
+      "updated": "2026-04-26T21:28:41.062Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 18,
       "predictedRisk": 10,
@@ -1068,7 +1075,7 @@
         }
       ],
       "restorationDifficulty": 22,
-      "updated": "2026-04-26T21:03:35.026Z",
+      "updated": "2026-04-26T21:28:41.063Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 17,
       "predictedRisk": 16,
@@ -1120,7 +1127,7 @@
         }
       ],
       "restorationDifficulty": 23,
-      "updated": "2026-04-26T21:03:35.030Z",
+      "updated": "2026-04-26T21:28:41.067Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 17,
       "predictedRisk": 17,
@@ -1158,7 +1165,7 @@
         }
       ],
       "restorationDifficulty": 22,
-      "updated": "2026-04-26T21:03:35.025Z",
+      "updated": "2026-04-26T21:28:41.061Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 16,
       "predictedRisk": 16,
@@ -1181,7 +1188,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 9,
-      "updated": "2026-04-26T21:03:35.025Z",
+      "updated": "2026-04-26T21:28:41.062Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 16,
       "predictedRisk": 9,
@@ -1204,7 +1211,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 8,
-      "updated": "2026-04-26T21:03:34.942Z",
+      "updated": "2026-04-26T21:28:40.976Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 15,
       "predictedRisk": 8,
@@ -1227,7 +1234,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 8,
-      "updated": "2026-04-26T21:03:34.946Z",
+      "updated": "2026-04-26T21:28:40.981Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 15,
       "predictedRisk": 8,
@@ -1250,7 +1257,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 8,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 15,
       "predictedRisk": 8,
@@ -1298,7 +1305,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 12,
-      "updated": "2026-04-26T21:03:34.956Z",
+      "updated": "2026-04-26T21:28:40.992Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 15,
       "predictedRisk": 21,
@@ -1321,7 +1328,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 9,
-      "updated": "2026-04-26T21:03:35.027Z",
+      "updated": "2026-04-26T21:28:41.064Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 15,
       "predictedRisk": 9,
@@ -1361,7 +1368,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 12,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.983Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 14,
       "predictedRisk": 18,
@@ -1384,7 +1391,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 6,
-      "updated": "2026-04-26T21:03:34.946Z",
+      "updated": "2026-04-26T21:28:40.981Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 11,
       "predictedRisk": 6,
@@ -1407,7 +1414,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 6,
-      "updated": "2026-04-26T21:03:35.029Z",
+      "updated": "2026-04-26T21:28:41.065Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 11,
       "predictedRisk": 6,
@@ -1430,7 +1437,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 6,
-      "updated": "2026-04-26T21:03:35.028Z",
+      "updated": "2026-04-26T21:28:41.065Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 10,
       "predictedRisk": 6,
@@ -1468,7 +1475,7 @@
         }
       ],
       "restorationDifficulty": 14,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 8,
       "predictedRisk": 9,
@@ -1491,7 +1498,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 5,
-      "updated": "2026-04-26T21:03:35.027Z",
+      "updated": "2026-04-26T21:28:41.064Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 8,
       "predictedRisk": 5,
@@ -1529,7 +1536,7 @@
         }
       ],
       "restorationDifficulty": 16,
-      "updated": "2026-04-26T21:03:35.029Z",
+      "updated": "2026-04-26T21:28:41.066Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 8,
       "predictedRisk": 10,
@@ -1561,7 +1568,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 6,
-      "updated": "2026-04-26T21:03:35.029Z",
+      "updated": "2026-04-26T21:28:41.066Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 8,
       "predictedRisk": 10,
@@ -1599,7 +1606,7 @@
         }
       ],
       "restorationDifficulty": 17,
-      "updated": "2026-04-26T21:03:35.030Z",
+      "updated": "2026-04-26T21:28:41.067Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 8,
       "predictedRisk": 11,
@@ -1622,7 +1629,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.942Z",
+      "updated": "2026-04-26T21:28:40.977Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1645,7 +1652,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.942Z",
+      "updated": "2026-04-26T21:28:40.977Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1668,7 +1675,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1691,7 +1698,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.949Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1714,7 +1721,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.950Z",
+      "updated": "2026-04-26T21:28:40.984Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1737,7 +1744,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.950Z",
+      "updated": "2026-04-26T21:28:40.985Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1760,7 +1767,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.956Z",
+      "updated": "2026-04-26T21:28:40.991Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1783,7 +1790,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.956Z",
+      "updated": "2026-04-26T21:28:40.991Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1806,7 +1813,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:34.961Z",
+      "updated": "2026-04-26T21:28:40.996Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1829,7 +1836,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:35.028Z",
+      "updated": "2026-04-26T21:28:41.065Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1852,7 +1859,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:35.029Z",
+      "updated": "2026-04-26T21:28:41.066Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1875,7 +1882,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:35.030Z",
+      "updated": "2026-04-26T21:28:41.067Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -1898,7 +1905,7 @@
       "roadClosureRisk": 0,
       "roadEvents": [],
       "restorationDifficulty": 3,
-      "updated": "2026-04-26T21:03:35.100Z",
+      "updated": "2026-04-26T21:28:41.137Z",
       "source": "TDIS Power_Outage_Data + NWS + DriveTexas",
       "currentSeverity": 6,
       "predictedRisk": 3,
@@ -5562,6 +5569,128 @@
     "count": 41,
     "highRisk": 27,
     "source": "DriveTexas UTFGrid tiles"
+  },
+  "hospitalCapacity": {
+    "source": "CDC Weekly Hospital Respiratory Data",
+    "latest": {
+      "weekEndingDate": "2026-04-18T00:00:00.000",
+      "inpatientOccupancyPct": 69.84,
+      "icuOccupancyPct": 69.81,
+      "inpatientBeds": 57774,
+      "inpatientBedsOccupied": 40351,
+      "icuBeds": 10003,
+      "icuBedsOccupied": 6983
+    },
+    "trend": [
+      {
+        "weekEndingDate": "2026-01-31T00:00:00.000",
+        "inpatientOccupancyPct": 72.48,
+        "icuOccupancyPct": 71.76,
+        "inpatientBeds": 62610,
+        "inpatientBedsOccupied": 45379,
+        "icuBeds": 11415,
+        "icuBedsOccupied": 8191
+      },
+      {
+        "weekEndingDate": "2026-02-07T00:00:00.000",
+        "inpatientOccupancyPct": 75.49,
+        "icuOccupancyPct": 73.09,
+        "inpatientBeds": 63845,
+        "inpatientBedsOccupied": 48199,
+        "icuBeds": 11463,
+        "icuBedsOccupied": 8378
+      },
+      {
+        "weekEndingDate": "2026-02-14T00:00:00.000",
+        "inpatientOccupancyPct": 75.84,
+        "icuOccupancyPct": 73.96,
+        "inpatientBeds": 64108,
+        "inpatientBedsOccupied": 48621,
+        "icuBeds": 11515,
+        "icuBedsOccupied": 8517
+      },
+      {
+        "weekEndingDate": "2026-02-21T00:00:00.000",
+        "inpatientOccupancyPct": 75.9,
+        "icuOccupancyPct": 74.54,
+        "inpatientBeds": 63906,
+        "inpatientBedsOccupied": 48505,
+        "icuBeds": 11400,
+        "icuBedsOccupied": 8497
+      },
+      {
+        "weekEndingDate": "2026-02-28T00:00:00.000",
+        "inpatientOccupancyPct": 74.31,
+        "icuOccupancyPct": 72.29,
+        "inpatientBeds": 63667,
+        "inpatientBedsOccupied": 47314,
+        "icuBeds": 11590,
+        "icuBedsOccupied": 8378
+      },
+      {
+        "weekEndingDate": "2026-03-07T00:00:00.000",
+        "inpatientOccupancyPct": 74.32,
+        "icuOccupancyPct": 72.54,
+        "inpatientBeds": 62676,
+        "inpatientBedsOccupied": 46580,
+        "icuBeds": 11401,
+        "icuBedsOccupied": 8270
+      },
+      {
+        "weekEndingDate": "2026-03-14T00:00:00.000",
+        "inpatientOccupancyPct": 72.78,
+        "icuOccupancyPct": 70.31,
+        "inpatientBeds": 61913,
+        "inpatientBedsOccupied": 45063,
+        "icuBeds": 11192,
+        "icuBedsOccupied": 7869
+      },
+      {
+        "weekEndingDate": "2026-03-21T00:00:00.000",
+        "inpatientOccupancyPct": 72.3,
+        "icuOccupancyPct": 69.74,
+        "inpatientBeds": 63009,
+        "inpatientBedsOccupied": 45557,
+        "icuBeds": 11483,
+        "icuBedsOccupied": 8008
+      },
+      {
+        "weekEndingDate": "2026-03-28T00:00:00.000",
+        "inpatientOccupancyPct": 71.67,
+        "icuOccupancyPct": 69.47,
+        "inpatientBeds": 64853,
+        "inpatientBedsOccupied": 46478,
+        "icuBeds": 11453,
+        "icuBedsOccupied": 7956
+      },
+      {
+        "weekEndingDate": "2026-04-04T00:00:00.000",
+        "inpatientOccupancyPct": 70.67,
+        "icuOccupancyPct": 70.42,
+        "inpatientBeds": 63420,
+        "inpatientBedsOccupied": 44819,
+        "icuBeds": 11173,
+        "icuBedsOccupied": 7868
+      },
+      {
+        "weekEndingDate": "2026-04-11T00:00:00.000",
+        "inpatientOccupancyPct": 71.1,
+        "icuOccupancyPct": 69.19,
+        "inpatientBeds": 61284,
+        "inpatientBedsOccupied": 43575,
+        "icuBeds": 10767,
+        "icuBedsOccupied": 7450
+      },
+      {
+        "weekEndingDate": "2026-04-18T00:00:00.000",
+        "inpatientOccupancyPct": 69.84,
+        "icuOccupancyPct": 69.81,
+        "inpatientBeds": 57774,
+        "inpatientBedsOccupied": 40351,
+        "icuBeds": 10003,
+        "icuBedsOccupied": 6983
+      }
+    ]
   },
   "history": [
     {
@@ -12557,6 +12686,562 @@
     },
     {
       "timestamp": "2026-04-26T21:03:35.123Z",
+      "totalCustomersOut": 9659,
+      "countiesImpacted": 61,
+      "counties": [
+        {
+          "county": "Tarrant",
+          "customersOut": 3321,
+          "incidents": 153,
+          "currentSeverity": 66,
+          "predictedRisk": 38,
+          "restorationDifficulty": 43,
+          "roadClosures": 0
+        },
+        {
+          "county": "Dallas",
+          "customersOut": 2530,
+          "incidents": 50,
+          "currentSeverity": 66,
+          "predictedRisk": 42,
+          "restorationDifficulty": 51,
+          "roadClosures": 1
+        },
+        {
+          "county": "Wise",
+          "customersOut": 1308,
+          "incidents": 33,
+          "currentSeverity": 62,
+          "predictedRisk": 35,
+          "restorationDifficulty": 40,
+          "roadClosures": 0
+        },
+        {
+          "county": "Parker",
+          "customersOut": 711,
+          "incidents": 19,
+          "currentSeverity": 61,
+          "predictedRisk": 41,
+          "restorationDifficulty": 51,
+          "roadClosures": 1
+        },
+        {
+          "county": "Harris",
+          "customersOut": 271,
+          "incidents": 20,
+          "currentSeverity": 52,
+          "predictedRisk": 29,
+          "restorationDifficulty": 34,
+          "roadClosures": 0
+        },
+        {
+          "county": "El Paso",
+          "customersOut": 149,
+          "incidents": 4,
+          "currentSeverity": 48,
+          "predictedRisk": 57,
+          "restorationDifficulty": 44,
+          "roadClosures": 1
+        },
+        {
+          "county": "Franklin",
+          "customersOut": 256,
+          "incidents": 8,
+          "currentSeverity": 44,
+          "predictedRisk": 25,
+          "restorationDifficulty": 25,
+          "roadClosures": 0
+        },
+        {
+          "county": "Donley",
+          "customersOut": 142,
+          "incidents": 3,
+          "currentSeverity": 41,
+          "predictedRisk": 37,
+          "restorationDifficulty": 34,
+          "roadClosures": 1
+        },
+        {
+          "county": "Grayson",
+          "customersOut": 108,
+          "incidents": 6,
+          "currentSeverity": 39,
+          "predictedRisk": 29,
+          "restorationDifficulty": 35,
+          "roadClosures": 1
+        },
+        {
+          "county": "Lipscomb",
+          "customersOut": 73,
+          "incidents": 5,
+          "currentSeverity": 35,
+          "predictedRisk": 25,
+          "restorationDifficulty": 22,
+          "roadClosures": 0
+        },
+        {
+          "county": "Smith",
+          "customersOut": 25,
+          "incidents": 3,
+          "currentSeverity": 33,
+          "predictedRisk": 37,
+          "restorationDifficulty": 25,
+          "roadClosures": 0
+        },
+        {
+          "county": "Denton",
+          "customersOut": 97,
+          "incidents": 4,
+          "currentSeverity": 33,
+          "predictedRisk": 19,
+          "restorationDifficulty": 19,
+          "roadClosures": 0
+        },
+        {
+          "county": "Walker",
+          "customersOut": 94,
+          "incidents": 3,
+          "currentSeverity": 31,
+          "predictedRisk": 18,
+          "restorationDifficulty": 18,
+          "roadClosures": 0
+        },
+        {
+          "county": "Hidalgo",
+          "customersOut": 61,
+          "incidents": 3,
+          "currentSeverity": 31,
+          "predictedRisk": 21,
+          "restorationDifficulty": 25,
+          "roadClosures": 1
+        },
+        {
+          "county": "Bexar",
+          "customersOut": 101,
+          "incidents": 2,
+          "currentSeverity": 31,
+          "predictedRisk": 18,
+          "restorationDifficulty": 18,
+          "roadClosures": 0
+        },
+        {
+          "county": "Archer",
+          "customersOut": 39,
+          "incidents": 1,
+          "currentSeverity": 29,
+          "predictedRisk": 28,
+          "restorationDifficulty": 31,
+          "roadClosures": 1
+        },
+        {
+          "county": "Angelina",
+          "customersOut": 72,
+          "incidents": 1,
+          "currentSeverity": 28,
+          "predictedRisk": 16,
+          "restorationDifficulty": 16,
+          "roadClosures": 0
+        },
+        {
+          "county": "Lubbock",
+          "customersOut": 15,
+          "incidents": 3,
+          "currentSeverity": 28,
+          "predictedRisk": 28,
+          "restorationDifficulty": 20,
+          "roadClosures": 0
+        },
+        {
+          "county": "Liberty",
+          "customersOut": 40,
+          "incidents": 1,
+          "currentSeverity": 24,
+          "predictedRisk": 14,
+          "restorationDifficulty": 14,
+          "roadClosures": 0
+        },
+        {
+          "county": "Bell",
+          "customersOut": 21,
+          "incidents": 1,
+          "currentSeverity": 23,
+          "predictedRisk": 19,
+          "restorationDifficulty": 25,
+          "roadClosures": 1
+        },
+        {
+          "county": "Panola",
+          "customersOut": 19,
+          "incidents": 2,
+          "currentSeverity": 21,
+          "predictedRisk": 12,
+          "restorationDifficulty": 12,
+          "roadClosures": 0
+        },
+        {
+          "county": "Shelby",
+          "customersOut": 25,
+          "incidents": 1,
+          "currentSeverity": 21,
+          "predictedRisk": 12,
+          "restorationDifficulty": 12,
+          "roadClosures": 0
+        },
+        {
+          "county": "Brewster",
+          "customersOut": 22,
+          "incidents": 1,
+          "currentSeverity": 21,
+          "predictedRisk": 12,
+          "restorationDifficulty": 12,
+          "roadClosures": 0
+        },
+        {
+          "county": "Lamar",
+          "customersOut": 10,
+          "incidents": 4,
+          "currentSeverity": 20,
+          "predictedRisk": 11,
+          "restorationDifficulty": 11,
+          "roadClosures": 0
+        },
+        {
+          "county": "Hemphill",
+          "customersOut": 5,
+          "incidents": 3,
+          "currentSeverity": 20,
+          "predictedRisk": 21,
+          "restorationDifficulty": 15,
+          "roadClosures": 0
+        },
+        {
+          "county": "Taylor",
+          "customersOut": 8,
+          "incidents": 4,
+          "currentSeverity": 20,
+          "predictedRisk": 15,
+          "restorationDifficulty": 19,
+          "roadClosures": 1
+        },
+        {
+          "county": "Cooke",
+          "customersOut": 7,
+          "incidents": 3,
+          "currentSeverity": 19,
+          "predictedRisk": 16,
+          "restorationDifficulty": 13,
+          "roadClosures": 0
+        },
+        {
+          "county": "Henderson",
+          "customersOut": 14,
+          "incidents": 2,
+          "currentSeverity": 19,
+          "predictedRisk": 11,
+          "restorationDifficulty": 11,
+          "roadClosures": 0
+        },
+        {
+          "county": "Scurry",
+          "customersOut": 13,
+          "incidents": 1,
+          "currentSeverity": 18,
+          "predictedRisk": 10,
+          "restorationDifficulty": 10,
+          "roadClosures": 0
+        },
+        {
+          "county": "Marion",
+          "customersOut": 15,
+          "incidents": 1,
+          "currentSeverity": 18,
+          "predictedRisk": 10,
+          "restorationDifficulty": 10,
+          "roadClosures": 0
+        },
+        {
+          "county": "Gregg",
+          "customersOut": 6,
+          "incidents": 2,
+          "currentSeverity": 17,
+          "predictedRisk": 16,
+          "restorationDifficulty": 22,
+          "roadClosures": 1
+        },
+        {
+          "county": "Travis",
+          "customersOut": 6,
+          "incidents": 2,
+          "currentSeverity": 17,
+          "predictedRisk": 17,
+          "restorationDifficulty": 23,
+          "roadClosures": 2
+        },
+        {
+          "county": "Rusk",
+          "customersOut": 6,
+          "incidents": 1,
+          "currentSeverity": 16,
+          "predictedRisk": 16,
+          "restorationDifficulty": 22,
+          "roadClosures": 1
+        },
+        {
+          "county": "Camp",
+          "customersOut": 9,
+          "incidents": 1,
+          "currentSeverity": 16,
+          "predictedRisk": 9,
+          "restorationDifficulty": 9,
+          "roadClosures": 0
+        },
+        {
+          "county": "Brazoria",
+          "customersOut": 8,
+          "incidents": 1,
+          "currentSeverity": 15,
+          "predictedRisk": 8,
+          "restorationDifficulty": 8,
+          "roadClosures": 0
+        },
+        {
+          "county": "Kaufman",
+          "customersOut": 8,
+          "incidents": 1,
+          "currentSeverity": 15,
+          "predictedRisk": 8,
+          "restorationDifficulty": 8,
+          "roadClosures": 0
+        },
+        {
+          "county": "Midland",
+          "customersOut": 5,
+          "incidents": 3,
+          "currentSeverity": 15,
+          "predictedRisk": 8,
+          "restorationDifficulty": 8,
+          "roadClosures": 0
+        },
+        {
+          "county": "Randall",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 15,
+          "predictedRisk": 21,
+          "restorationDifficulty": 12,
+          "roadClosures": 0
+        },
+        {
+          "county": "Starr",
+          "customersOut": 7,
+          "incidents": 2,
+          "currentSeverity": 15,
+          "predictedRisk": 9,
+          "restorationDifficulty": 9,
+          "roadClosures": 0
+        },
+        {
+          "county": "Collin",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 14,
+          "predictedRisk": 18,
+          "restorationDifficulty": 12,
+          "roadClosures": 0
+        },
+        {
+          "county": "Rockwall",
+          "customersOut": 3,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 6,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "Webb",
+          "customersOut": 3,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 6,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "Jackson",
+          "customersOut": 3,
+          "incidents": 1,
+          "currentSeverity": 10,
+          "predictedRisk": 6,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "Leon",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 9,
+          "restorationDifficulty": 14,
+          "roadClosures": 1
+        },
+        {
+          "county": "Jasper",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 5,
+          "restorationDifficulty": 5,
+          "roadClosures": 0
+        },
+        {
+          "county": "Nueces",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 10,
+          "restorationDifficulty": 16,
+          "roadClosures": 1
+        },
+        {
+          "county": "Jack",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 10,
+          "restorationDifficulty": 6,
+          "roadClosures": 0
+        },
+        {
+          "county": "Atascosa",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 8,
+          "predictedRisk": 11,
+          "restorationDifficulty": 17,
+          "roadClosures": 1
+        },
+        {
+          "county": "Galveston",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Wharton",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Reagan",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Ector",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Van Zandt",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Ellis",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Hamilton",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Hunt",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Montgomery",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Edwards",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Colorado",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Comal",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        },
+        {
+          "county": "Hays",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 3,
+          "restorationDifficulty": 3,
+          "roadClosures": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-26T21:28:41.215Z",
       "totalCustomersOut": 9659,
       "countiesImpacted": 61,
       "counties": [
