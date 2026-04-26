@@ -1278,8 +1278,17 @@ async function loadData(){
     });
   }
 
-  processWeather();
+ processWeather();
+
+const hasBackendScores =
+  (outageData?.outages || []).some(o =>
+    o.currentSeverity !== undefined &&
+    o.predictedRisk !== undefined
+  );
+
+if(!hasBackendScores){
   computeScores();
+}
 
   document.getElementById("sourceStatus").innerHTML = [
     `County records: ${(outageData.outages || []).length}`,
