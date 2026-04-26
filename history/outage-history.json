@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-26T07:09:26.104Z",
+  "updated": "2026-04-26T08:42:14.843Z",
   "snapshots": [
     {
       "timestamp": "2026-04-26T04:30:43.014Z",
@@ -1065,6 +1065,223 @@
         },
         {
           "county": "Bexar",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-26T08:42:14.842Z",
+      "totalCustomersOut": 6728,
+      "countiesImpacted": 30,
+      "counties": [
+        {
+          "county": "Cooke",
+          "customersOut": 1093,
+          "incidents": 12,
+          "currentSeverity": 81,
+          "predictedRisk": 88
+        },
+        {
+          "county": "Franklin",
+          "customersOut": 725,
+          "incidents": 41,
+          "currentSeverity": 73,
+          "predictedRisk": 78
+        },
+        {
+          "county": "Hunt",
+          "customersOut": 845,
+          "incidents": 3,
+          "currentSeverity": 67,
+          "predictedRisk": 78
+        },
+        {
+          "county": "Harris",
+          "customersOut": 78,
+          "incidents": 10,
+          "currentSeverity": 62,
+          "predictedRisk": 67
+        },
+        {
+          "county": "Wise",
+          "customersOut": 2983,
+          "incidents": 21,
+          "currentSeverity": 62,
+          "predictedRisk": 50
+        },
+        {
+          "county": "Rockwall",
+          "customersOut": 46,
+          "incidents": 6,
+          "currentSeverity": 60,
+          "predictedRisk": 71
+        },
+        {
+          "county": "Donley",
+          "customersOut": 142,
+          "incidents": 3,
+          "currentSeverity": 49,
+          "predictedRisk": 56
+        },
+        {
+          "county": "Jack",
+          "customersOut": 114,
+          "incidents": 1,
+          "currentSeverity": 46,
+          "predictedRisk": 56
+        },
+        {
+          "county": "Titus",
+          "customersOut": 23,
+          "incidents": 4,
+          "currentSeverity": 45,
+          "predictedRisk": 54
+        },
+        {
+          "county": "Kaufman",
+          "customersOut": 10,
+          "incidents": 3,
+          "currentSeverity": 44,
+          "predictedRisk": 57
+        },
+        {
+          "county": "Brazoria",
+          "customersOut": 82,
+          "incidents": 8,
+          "currentSeverity": 43,
+          "predictedRisk": 38
+        },
+        {
+          "county": "Hopkins",
+          "customersOut": 9,
+          "incidents": 2,
+          "currentSeverity": 42,
+          "predictedRisk": 55
+        },
+        {
+          "county": "Montgomery",
+          "customersOut": 259,
+          "incidents": 4,
+          "currentSeverity": 39,
+          "predictedRisk": 37
+        },
+        {
+          "county": "Camp",
+          "customersOut": 6,
+          "incidents": 3,
+          "currentSeverity": 37,
+          "predictedRisk": 46
+        },
+        {
+          "county": "Wood",
+          "customersOut": 2,
+          "incidents": 1,
+          "currentSeverity": 33,
+          "predictedRisk": 58
+        },
+        {
+          "county": "Grayson",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 31,
+          "predictedRisk": 44
+        },
+        {
+          "county": "Fort Bend",
+          "customersOut": 46,
+          "incidents": 4,
+          "currentSeverity": 30,
+          "predictedRisk": 28
+        },
+        {
+          "county": "Walker",
+          "customersOut": 173,
+          "incidents": 1,
+          "currentSeverity": 29,
+          "predictedRisk": 29
+        },
+        {
+          "county": "Bexar",
+          "customersOut": 45,
+          "incidents": 3,
+          "currentSeverity": 27,
+          "predictedRisk": 26
+        },
+        {
+          "county": "Denton",
+          "customersOut": 6,
+          "incidents": 5,
+          "currentSeverity": 23,
+          "predictedRisk": 20
+        },
+        {
+          "county": "Panola",
+          "customersOut": 18,
+          "incidents": 1,
+          "currentSeverity": 18,
+          "predictedRisk": 17
+        },
+        {
+          "county": "Newton",
+          "customersOut": 10,
+          "incidents": 1,
+          "currentSeverity": 15,
+          "predictedRisk": 14
+        },
+        {
+          "county": "Nueces",
+          "customersOut": 4,
+          "incidents": 2,
+          "currentSeverity": 13,
+          "predictedRisk": 12
+        },
+        {
+          "county": "Hays",
+          "customersOut": 2,
+          "incidents": 2,
+          "currentSeverity": 11,
+          "predictedRisk": 10
+        },
+        {
+          "county": "Galveston",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Montague",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Limestone",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Jones",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Callahan",
+          "customersOut": 1,
+          "incidents": 1,
+          "currentSeverity": 6,
+          "predictedRisk": 6
+        },
+        {
+          "county": "Hidalgo",
           "customersOut": 1,
           "incidents": 1,
           "currentSeverity": 6,
