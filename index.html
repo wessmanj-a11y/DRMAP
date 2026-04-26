@@ -685,32 +685,36 @@ function weatherWeight(alert){
 
   let w = 0;
 
-  // NWS severity baseline
-  if(sev === "extreme") w += 30;
-  else if(sev === "severe") w += 22;
-  else if(sev === "moderate") w += 12;
-  else if(sev === "minor") w += 5;
+  // CAP severity baseline — keep this modest
+  if(sev === "extreme") w += 18;
+  else if(sev === "severe") w += 12;
+  else if(sev === "moderate") w += 6;
+  else if(sev === "minor") w += 2;
 
-  // Event-specific outage risk
-  if(event.includes("ice") || event.includes("winter storm")) w += 35;
-  else if(event.includes("high wind") || event.includes("wind advisory")) w += 28;
-  else if(event.includes("severe thunderstorm")) w += 25;
-  else if(event.includes("tornado")) w += 22;
-  else if(event.includes("flash flood")) w += 14;
-  else if(event.includes("flood")) w += 10;
-  else if(event.includes("red flag") || event.includes("fire")) w += 12;
-  else if(event.includes("heat")) w += 8;
-  else if(event.includes("cold")) w += 8;
-  else if(event.includes("storm")) w += 14;
+  // Power-outage-specific hazard weighting
+  if(event.includes("ice storm") || event.includes("winter storm")) w += 26;
+  else if(event.includes("extreme wind")) w += 28;
+  else if(event.includes("high wind")) w += 22;
+  else if(event.includes("severe thunderstorm warning")) w += 20;
+  else if(event.includes("severe thunderstorm watch")) w += 10;
+  else if(event.includes("tornado warning")) w += 18;
+  else if(event.includes("tornado watch")) w += 8;
+  else if(event.includes("flash flood warning")) w += 8;
+  else if(event.includes("flood warning")) w += 6;
+  else if(event.includes("flood watch")) w += 3;
+  else if(event.includes("red flag") || event.includes("fire weather")) w += 8;
+  else if(event.includes("heat")) w += 4;
+  else if(event.includes("cold")) w += 5;
+  else if(event.includes("storm")) w += 8;
 
-  // Urgency / certainty modifiers
-  if(urgency === "immediate") w += 8;
-  else if(urgency === "expected") w += 5;
+  // Urgency/certainty should modify, not dominate
+  if(urgency === "immediate") w += 5;
+  else if(urgency === "expected") w += 3;
 
-  if(certainty === "observed") w += 8;
-  else if(certainty === "likely") w += 5;
+  if(certainty === "observed") w += 5;
+  else if(certainty === "likely") w += 3;
 
-  return Math.min(75, w);
+  return Math.min(45, w);
 }
 
 function processWeather(){
@@ -743,26 +747,46 @@ function computeScores(){
 
   Object.values(countyData).forEach(c => {
 
-    // Current severity: what is happening right now
-    const outageMagnitude = Math.min(45, Math.log10(1 + safeNum(c.customersOut)) * 12);
-    const incidentScore = Math.min(25, safeNum(c.incidents) * 2.5);
-    const largeOutageScore = Math.min(15, Math.log10(1 + safeNum(c.maxSingleOutage)) * 5);
-    const weatherNowScore = Math.min(15, safeNum(c.weatherRisk) * 0.15);
+    const customers = safeNum(c.customersOut);
+    const incidents = safeNum(c.incidents);
+    const maxSingle = safeNum(c.maxSingleOutage);
+    const weather = safeNum(c.weatherRisk);
+    const trend = safeNum(c.trend24h);
+
+    // Current Severity = mostly current outage impact
+    const outageMagnitude = Math.min(40, Math.log10(1 + customers) * 10);
+    const incidentScore = Math.min(20, incidents * 1.5);
+    const largeClusterScore = Math.min(15, Math.log10(1 + maxSingle) * 4);
+    const weatherNowModifier = Math.min(10, weather * 0.10);
 
     c.currentSeverity = Math.round(
-      Math.min(100, outageMagnitude + incidentScore + largeOutageScore + weatherNowScore)
+      Math.min(100,
+        outageMagnitude +
+        incidentScore +
+        largeClusterScore +
+        weatherNowModifier
+      )
     );
 
-    // Predicted risk: what may worsen soon
-    const weatherPredictionScore = Math.min(45, safeNum(c.weatherRisk) * 0.35);
-    const currentFragilityScore = Math.min(25, Math.log10(1 + safeNum(c.customersOut)) * 8);
-    const incidentFragilityScore = Math.min(15, safeNum(c.incidents) * 1.5);
-    const trendScore = safeNum(c.trend24h) > 0
-      ? Math.min(15, Math.log10(1 + safeNum(c.trend24h)) * 5)
+    // Predicted Risk = likelihood/pressure for worsening
+    const weatherPressure = Math.min(35, weather * 0.25);
+    const currentFragility = customers > 0
+      ? Math.min(20, Math.log10(1 + customers) * 5)
+      : 0;
+    const incidentFragility = incidents > 0
+      ? Math.min(10, incidents * 0.75)
+      : 0;
+    const trendPressure = trend > 0
+      ? Math.min(10, Math.log10(1 + trend) * 3)
       : 0;
 
     c.predictedRisk = Math.round(
-      Math.min(100, weatherPredictionScore + currentFragilityScore + incidentFragilityScore + trendScore)
+      Math.min(100,
+        weatherPressure +
+        currentFragility +
+        incidentFragility +
+        trendPressure
+      )
     );
 
     if(c.predictedRisk >= 75) c.predictedRiskBand = "High";
@@ -771,10 +795,10 @@ function computeScores(){
     else c.predictedRiskBand = "Low";
 
     c.predictionExplanation = [
-      c.weatherAlerts > 0 ? `${c.weatherAlerts} active weather alert(s)` : "No county-matched weather alerts",
-      c.customersOut > 0 ? `${safeNum(c.customersOut).toLocaleString()} customers currently out` : "No current outage load",
-      c.incidents > 0 ? `${safeNum(c.incidents)} outage incident(s)` : "No active outage incidents",
-      safeNum(c.trend24h) > 0 ? `24h trend worsening by ${safeNum(c.trend24h).toLocaleString()}` : "24h trend stable or improving"
+      c.weatherAlerts > 0 ? `${c.weatherAlerts} county-matched weather alert(s)` : "No county-matched weather alerts",
+      customers > 0 ? `${customers.toLocaleString()} customers currently out` : "No current outage load",
+      incidents > 0 ? `${incidents} outage incident(s)` : "No active outage incidents",
+      trend > 0 ? `24h trend worsening by ${trend.toLocaleString()}` : "24h trend stable or improving"
     ].join(" + ");
 
   });
