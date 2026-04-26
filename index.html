@@ -444,6 +444,7 @@ aside{
         <button id="weatherPolyBtn" class="active">NWS Polygons</button>
         <button id="pointsBtn" class="active">Outage Points</button>
         <button id="radarBtn" class="inactive">Radar</button>
+        <button id="roadsBtn" class="active">Road Closures</button>
       </div>
     </div>
 
@@ -485,6 +486,8 @@ aside{
       <div class="mini"><strong id="trend24h">—</strong><span>24h trend</span></div>
       <div class="mini"><strong id="sevenDayPeak">—</strong><span>7-day peak</span></div>
       <div class="mini"><strong id="maxSingle">—</strong><span>Largest outage</span></div>
+      <div class="mini"><strong id="roadClosures">—</strong><span>Road closures</span></div>
+      <div class="mini"><strong id="restorationDifficulty">—</strong><span>Restoration difficulty</span></div>
     </div>
 
     <div class="explain" id="scoreExplain">Loading score explanation...</div>
@@ -500,6 +503,19 @@ aside{
     <h3 style="margin-top:0;">Top predicted-risk counties</h3>
     <div id="topPredicted"></div>
   </div>
+
+  <div class="card side-card">
+  <h3 style="margin-top:0;">Impactful Road Closures</h3>
+  <p style="margin-top:0;color:var(--muted);font-size:12px;">
+    DriveTexas closures and detours that may affect restoration access.
+  </p>
+  <table class="table">
+    <thead>
+      <tr><th>County</th><th>Road</th><th>Risk</th></tr>
+    </thead>
+    <tbody id="roadTable"></tbody>
+  </table>
+</div>
 
   <div class="card side-card">
     <h3 style="margin-top:0;">Top outage points</h3>
@@ -526,7 +542,7 @@ aside{
 
 const map = L.map("map",{scrollWheelZoom:false}).setView([31.05,-99.35],6);
 
-let baseLayer, countyLayer, weatherLayer, pointLayer, radarLayer;
+let baseLayer, countyLayer, weatherLayer, pointLayer, radarLayer, roadLayer;
 
 let countyGeo = null;
 let outageData = null;
@@ -540,6 +556,7 @@ let mode = "severity";
 let showWeatherPolys = true;
 let showPoints = true;
 let showRadar = false;
+let showRoads = true;
 
 
 // ==============================
@@ -879,6 +896,9 @@ function setButtonState(){
 
   document.getElementById("radarBtn").classList.toggle("active", showRadar);
   document.getElementById("radarBtn").classList.toggle("inactive", !showRadar);
+
+  document.getElementById("roadsBtn").classList.toggle("active", showRoads);
+  document.getElementById("roadsBtn").classList.toggle("inactive", !showRoads);
 }
 
 
@@ -1239,9 +1259,66 @@ function updateAllMetrics(){
   });
 }
 
+  function renderRoads(){
+
+  if(roadLayer) map.removeLayer(roadLayer);
+
+  roadLayer = L.layerGroup().addTo(map);
+
+  if(!showRoads) return;
+
+  (outageData?.roadClosures || []).slice(0,1000).forEach(r => {
+
+    if(!r.lat || !r.lon) return;
+
+    const risk = safeNum(r.risk);
+
+    const color =
+      risk >= 15 ? "#dc2626" :
+      risk >= 10 ? "#f97316" :
+      risk >= 5 ? "#facc15" :
+      "#94a3b8";
+
+    L.circleMarker([r.lat, r.lon], {
+      radius: 6,
+      color: "#fff",
+      fillColor: color,
+      fillOpacity: .85,
+      weight: 1
+    })
+    .bindPopup(`
+      <strong>${r.road || r.route || "Road closure"}</strong><br>
+      ${r.county || "Unknown"} County<br>
+      Risk: ${risk}<br>
+      Type: ${r.type || "Unknown"}<br>
+      ${r.description || ""}
+    `)
+    .addTo(roadLayer);
+
+  });
+}
+
+  function renderRoadTable(){
+
+  const rows = (outageData?.roadClosures || [])
+    .slice()
+    .sort((a,b)=>safeNum(b.risk)-safeNum(a.risk))
+    .slice(0,8);
+
+  document.getElementById("roadTable").innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.county || "Unknown"}</td>
+      <td>${r.road || r.route || "Unknown"}</td>
+      <td>${safeNum(r.risk)}</td>
+    </tr>
+  `).join("");
+}
+
+  
 // ==============================
 // 🔄 RENDER EVERYTHING
 // ==============================
+
 
 function renderAll(){
   setButtonState();
@@ -1249,9 +1326,11 @@ function renderAll(){
   renderWeather();
   renderPoints();
   renderRadar();
+  renderRoads();
   renderPanel();
   renderTopPanels();
   renderPointTable();
+  renderRoadTable();
   updateAllMetrics();
   renderOutageTrendChart();
 }
@@ -1371,6 +1450,10 @@ document.getElementById("radarBtn").onclick = () => {
   renderAll();
 };
 
+document.getElementById("roadsBtn").onclick = () => {
+  showRoads = !showRoads;
+  renderAll();
+};
 
 // ==============================
 // ▶ START
