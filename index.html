@@ -468,6 +468,14 @@ aside{
     <h2 id="selectedName">Harris County</h2>
     <span class="pill" id="riskPill">Calculating</span>
 
+    <div class="card side-card">
+  <h3 style="margin-top:0;">24-Hour Outage Trend</h3>
+  <p style="margin-top:0;color:var(--muted);font-size:12px;">
+    Shows statewide outages and selected county outages by snapshot.
+  </p>
+  <canvas id="outageTrendChart" height="260"></canvas>
+</div>
+
     <div class="mini-grid">
       <div class="mini"><strong id="severity">—</strong><span>Current severity</span></div>
       <div class="mini"><strong id="predictedRisk">—</strong><span>Predicted risk</span></div>
@@ -492,14 +500,6 @@ aside{
     <h3 style="margin-top:0;">Top predicted-risk counties</h3>
     <div id="topPredicted"></div>
   </div>
-
-  <div class="card side-card">
-  <h3 style="margin-top:0;">24-Hour Outage Trend</h3>
-  <p style="margin-top:0;color:var(--muted);font-size:12px;">
-    Shows statewide outages and selected county outages by snapshot.
-  </p>
-  <canvas id="outageTrendChart" height="220"></canvas>
-</div>
 
   <div class="card side-card">
     <h3 style="margin-top:0;">Top outage points</h3>
