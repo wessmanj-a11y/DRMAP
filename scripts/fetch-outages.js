@@ -14,19 +14,14 @@ function num(v) {
 }
 
 async function fetchJson(url) {
-  const res = await fetch(url, {
-    headers: { accept: "application/json,*/*" }
-  });
-
+  const res = await fetch(url);
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-
   return res.json();
 }
 
 async function fetchAllTDIS() {
   let all = [];
   let offset = 0;
-  const pageSize = 2000;
 
   while (true) {
     const url =
@@ -35,7 +30,7 @@ async function fetchAllTDIS() {
       `&returnGeometry=true` +
       `&outSR=4326` +
       `&f=geojson` +
-      `&resultRecordCount=${pageSize}` +
+      `&resultRecordCount=2000` +
       `&resultOffset=${offset}`;
 
     const json = await fetchJson(url);
@@ -43,17 +38,15 @@ async function fetchAllTDIS() {
 
     all.push(...features);
 
-    if (features.length < pageSize) break;
-
-    offset += pageSize;
-
-    // safety stop
-    if (offset > 50000) break;
+    if (features.length < 2000) break;
+    offset += 2000;
+    if (offset > 80000) break;
   }
 
   return all;
 }
 
+// --- POINT IN POLYGON ---
 function pointInRing(point, ring) {
   const [lat, lon] = point;
   let inside = false;
@@ -73,41 +66,36 @@ function pointInRing(point, ring) {
 }
 
 function countyForPoint(lat, lon, counties) {
-  for (const feature of counties.features) {
-    if (feature.properties.STATE !== "48") continue;
+  for (const f of counties.features) {
+    if (f.properties.STATE !== "48") continue;
 
-    const geom = feature.geometry;
-    const polys =
-      geom.type === "Polygon"
-        ? [geom.coordinates]
-        : geom.coordinates;
+    const geom = f.geometry;
+    const polys = geom.type === "Polygon"
+      ? [geom.coordinates]
+      : geom.coordinates;
 
     for (const poly of polys) {
-      const outerRing = poly[0].map(([lng, lat]) => [lat, lng]);
-
-      if (pointInRing([lat, lon], outerRing)) {
-        return feature.properties.NAME;
+      const ring = poly[0].map(([lng, lat]) => [lat, lng]);
+      if (pointInRing([lat, lon], ring)) {
+        return f.properties.NAME;
       }
     }
   }
-
   return null;
 }
 
-function getCustomersOut(props) {
+function getCustomersOut(p) {
   return num(
-    props.CustomersOut ??
-    props.customersOut ??
-    props.CUSTOMERSOUT ??
-    props.Customers_Out ??
-    props.customers_out ??
-    props.CustomersAffected ??
-    props.customersAffected ??
-    props.CustomerCount ??
+    p.CustomersOut ??
+    p.customersOut ??
+    p.CUSTOMERSOUT ??
+    p.CustomerCount ??
+    p.customersAffected ??
     0
   );
 }
 
+// --- MAIN ---
 async function main() {
   try {
     const [counties, points] = await Promise.all([
@@ -116,46 +104,45 @@ async function main() {
     ]);
 
     const byCounty = new Map();
-    let pointRecordsUsed = 0;
-    let totalPointCustomers = 0;
+    const outagePoints = [];
 
-    for (const feature of points) {
-      const props = feature.properties || {};
-      const coords = feature.geometry?.coordinates;
+    for (const f of points) {
+      const p = f.properties || {};
+      const coords = f.geometry?.coordinates;
 
-      if (!coords || coords.length < 2) continue;
+      if (!coords) continue;
 
-      const lon = Number(coords[0]);
-      const lat = Number(coords[1]);
+      const lon = coords[0];
+      const lat = coords[1];
 
-      if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
-
-      const customersOut = getCustomersOut(props);
-
-      if (customersOut <= 0) continue;
+      const customers = getCustomersOut(p);
+      if (customers <= 0) continue;
 
       const county = countyForPoint(lat, lon, counties);
-
       if (!county) continue;
 
-      pointRecordsUsed++;
-      totalPointCustomers += customersOut;
+      outagePoints.push({
+        county,
+        customersOut: customers,
+        outageCause: p.OutageCause || "Unknown",
+        lat,
+        lon
+      });
 
       if (!byCounty.has(county)) {
         byCounty.set(county, {
-          state: "TX",
           county,
-          utility: "TDIS Aggregate",
           customersOut: 0,
           incidents: 0,
-          updated: new Date().toISOString(),
-          source: "TDIS Power_Outage_Data FeatureServer"
+          maxSingleOutage: 0
         });
       }
 
       const row = byCounty.get(county);
-      row.customersOut += customersOut;
+
+      row.customersOut += customers;
       row.incidents += 1;
+      row.maxSingleOutage = Math.max(row.maxSingleOutage, customers);
     }
 
     const outages = [...byCounty.values()].sort(
@@ -164,45 +151,17 @@ async function main() {
 
     const payload = {
       updated: new Date().toISOString(),
-      sourceStatus: [
-        {
-          name: "TDIS Power Outage Data",
-          ok: true,
-          rawPointRecords: points.length,
-          pointRecordsUsed,
-          countyRecords: outages.length
-        }
-      ],
       count: outages.length,
-      countiesWithOutages: outages.length,
       totalCustomersOut: outages.reduce((s, o) => s + o.customersOut, 0),
-      outages
+      outages,
+      outagePoints
     };
 
     await fs.writeFile(OUT, JSON.stringify(payload, null, 2));
 
-    console.log(
-      `Wrote ${payload.count} county records / ${payload.totalCustomersOut} customers out`
-    );
+    console.log("SUCCESS:", payload.totalCustomersOut, "customers out");
   } catch (err) {
-    const payload = {
-      updated: new Date().toISOString(),
-      sourceStatus: [
-        {
-          name: "TDIS Power Outage Data",
-          ok: false,
-          error: err.message
-        }
-      ],
-      count: 0,
-      countiesWithOutages: 0,
-      totalCustomersOut: 0,
-      outages: []
-    };
-
-    await fs.writeFile(OUT, JSON.stringify(payload, null, 2));
     console.error(err);
-    process.exitCode = 1;
   }
 }
 
