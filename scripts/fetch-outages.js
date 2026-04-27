@@ -838,14 +838,30 @@ async function main() {
       totalCustomersOut: outages.reduce((s, o) => s + o.customersOut, 0),
       countiesImpacted: outages.length,
       counties: outages.map(o => ({
-        county: o.county,
-        customersOut: o.customersOut,
-        incidents: o.incidents,
-        currentSeverity: o.currentSeverity,
-        predictedRisk: o.predictedRisk,
-        restorationDifficulty: o.restorationDifficulty,
-        roadClosures: o.roadClosures || 0
-      }))
+      county: o.county,
+
+  // Core outage state
+  customersOut: o.customersOut,
+  incidents: o.incidents,
+  maxSingleOutage: o.maxSingleOutage || 0,
+
+  // Current scoring
+  currentSeverity: o.currentSeverity,
+  predictedRisk: o.predictedRisk,
+  restorationDifficulty: o.restorationDifficulty || 0,
+
+  // Weather (critical for ML)
+  weatherAlerts: o.weatherAlerts || 0,
+  weatherRisk: o.weatherRisk || 0,
+
+  // Road impact
+  roadClosures: o.roadClosures || 0,
+  roadClosureRisk: o.roadClosureRisk || 0,
+
+  // Trend signals
+  trend24h: o.trend24h || 0,
+  sevenDayPeak: o.sevenDayPeak || 0
+}))
     };
 
     const newSnapshots = [...previousSnapshots, snapshot].filter(s => {
