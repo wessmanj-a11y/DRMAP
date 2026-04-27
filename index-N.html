@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Texas Resilience Command Center</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+:root{
+  --bg:#07111f;
+  --panel:#0f172a;
+  --panel2:#111c33;
+  --panel3:#020617;
+  --line:rgba(148,163,184,.18);
+  --text:#f8fafc;
+  --muted:#94a3b8;
+  --red:#ef4444;
+  --red2:#dc2626;
+  --orange:#f97316;
+  --yellow:#facc15;
+  --blue:#38bdf8;
+  --green:#22c55e;
+  --purple:#a855f7;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(56,189,248,.14), transparent 32%),
+    radial-gradient(circle at 85% 10%, rgba(239,68,68,.12), transparent 28%),
+    linear-gradient(135deg,#020617,#07111f);
+  color:var(--text);
+}
+
+header{
+  padding:14px 18px;
+  border-bottom:1px solid var(--line);
+  background:rgba(2,6,23,.96);
+  position:sticky;
+  top:0;
+  z-index:900;
+  backdrop-filter:blur(14px);
+}
+
+.wrap{
+  max-width:1900px;
+  margin:0 auto;
+}
+
+.header-inner{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:18px;
+}
+
+.header-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:6px;
+  padding:6px 10px;
+  border:1px solid rgba(56,189,248,.35);
+  background:rgba(56,189,248,.1);
+  color:#bae6fd;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.badge:before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--red);
+  box-shadow:0 0 14px rgba(239,68,68,.8);
+}
+
+h1{
+  margin:0;
+  font-size:clamp(24px,3vw,38px);
+  letter-spacing:-1px;
+  line-height:1;
+}
+
+header p{
+  margin:7px 0 0;
+  color:var(--muted);
+  max-width:980px;
+  font-size:13px;
+  line-height:1.35;
+}
+
+button,select{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:9px 12px;
+  background:rgba(2,6,23,.88);
+  color:#cbd5e1;
+  cursor:pointer;
+  font-weight:800;
+  transition:.18s;
+}
+
+select{min-width:135px}
+
+button:hover{
+  transform:translateY(-1px);
+  color:white;
+  border-color:rgba(255,255,255,.35);
+}
+
+button.active{
+  background:linear-gradient(135deg,rgba(220,38,38,.92),rgba(127,29,29,.86));
+  color:white;
+  border-color:rgba(248,113,113,.7);
+  box-shadow:0 0 0 2px rgba(239,68,68,.18),0 12px 25px rgba(239,68,68,.18);
+}
+
+button.inactive{opacity:.68}
+
+.layout{
+  display:grid;
+  grid-template-columns:320px minmax(0,1fr) 420px;
+  grid-template-areas:
+    "metrics metrics metrics"
+    "left map right";
+  gap:14px;
+  padding:14px;
+}
+
+.metrics{
+  grid-area:metrics;
+  display:grid;
+  grid-template-columns:repeat(8,minmax(120px,1fr));
+  gap:10px;
+  margin:0;
+}
+
+.card{
+  background:linear-gradient(180deg,rgba(15,23,42,.94),rgba(2,6,23,.92));
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 18px 45px rgba(0,0,0,.28);
+}
+
+.metric{
+  padding:13px 13px 12px 15px;
+  min-height:88px;
+  position:relative;
+}
+
+.metric:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(var(--blue),var(--red));
+  opacity:.65;
+}
+
+.metric .value{
+  font-size:25px;
+  font-weight:950;
+  line-height:1;
+}
+
+.metric .label{
+  color:#e2e8f0;
+  font-size:11px;
+  margin-top:7px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  line-height:1.2;
+}
+
+.metric .sub{
+  font-size:11px;
+  color:#64748b;
+  margin-top:5px;
+}
+
+.metric.red:before{background:linear-gradient(var(--red),#7f1d1d)}
+.metric.orange:before{background:linear-gradient(var(--orange),#7c2d12)}
+.metric.yellow:before{background:linear-gradient(var(--yellow),#713f12)}
+.metric.blue:before{background:linear-gradient(var(--blue),#075985)}
+.metric.green:before{background:linear-gradient(var(--green),#14532d)}
+.metric.purple:before{background:linear-gradient(var(--purple),#581c87)}
+
+.left-rail{
+  grid-area:left;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  min-width:0;
+}
+
+.map-area{
+  grid-area:map;
+  min-width:0;
+}
+
+aside{
+  grid-area:right;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  min-width:0;
+}
+
+.status-box{
+  padding:14px;
+  color:#cbd5e1;
+  font-size:13px;
+}
+
+.status-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+  color:#bae6fd;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:12px;
+}
+
+.status-dot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--green);
+  box-shadow:0 0 14px rgba(34,197,94,.8);
+}
+
+.map-card{
+  position:relative;
+}
+
+.map-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+  flex-wrap:wrap;
+}
+
+.map-header h2{
+  margin:0;
+  font-size:20px;
+}
+
+.map-header p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.controls button{
+  padding:8px 10px;
+  font-size:12px;
+}
+
+#map{
+  height:720px;
+  background:#dbeafe;
+}
+
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  padding:11px 15px;
+  color:var(--muted);
+  font-size:12px;
+  border-top:1px solid var(--line);
+  background:rgba(2,6,23,.82);
+}
+
+.legend span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.swatch{
+  width:13px;
+  height:13px;
+  border-radius:3px;
+  display:inline-block;
+}
+
+.side-card{padding:14px}
+
+.panel-title{
+  margin:0 0 10px;
+  color:#bae6fd;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.side-card h2{
+  margin:0;
+  font-size:28px;
+}
+
+.side-card h3{
+  margin:0 0 10px;
+  font-size:15px;
+}
+
+.pill{
+  display:inline-block;
+  margin-top:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(239,68,68,.22);
+  color:#fecaca;
+  border:1px solid rgba(239,68,68,.35);
+  font-weight:900;
+  font-size:12px;
+}
+
+.mini-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+  margin-top:15px;
+}
+
+.mini{
+  padding:12px;
+  background:rgba(2,6,23,.82);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;
+}
+
+.mini strong{
+  display:block;
+  font-size:21px;
+  line-height:1;
+}
+
+.mini span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:6px;
+  line-height:1.2;
+}
+
+.explain{
+  margin-top:14px;
+  padding:12px;
+  border-radius:12px;
+  background:rgba(56,189,248,.08);
+  border:1px solid rgba(56,189,248,.22);
+  color:#dbeafe;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.rank-row{
+  width:100%;
+  margin-bottom:8px;
+  text-align:left;
+  background:rgba(2,6,23,.82);
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:10px;
+}
+
+.rank-row small{
+  color:var(--muted);
+}
+
+.bar{
+  height:7px;
+  margin-top:9px;
+  background:#1e293b;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.bar span{
+  display:block;
+  height:100%;
+  background:linear-gradient(90deg,var(--orange),var(--red));
+}
+
+.incident{
+  margin-top:10px;
+  padding:12px;
+  background:rgba(2,6,23,.82);
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:12px;
+}
+
+.incident-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:var(--muted);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+.incident h3{
+  margin:8px 0 4px;
+  font-size:14px;
+}
+
+.incident p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.4;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+
+.table th,.table td{
+  padding:8px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  text-align:left;
+}
+
+.table th{
+  color:#cbd5e1;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+.source-note{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.leaflet-container{
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+.leaflet-top,
+.leaflet-bottom{
+  z-index:450;
+}
+
+@media(max-width:1400px){
+  .layout{
+    grid-template-columns:1fr 390px;
+    grid-template-areas:
+      "metrics metrics"
+      "map right"
+      "left left";
+  }
+
+  .left-rail{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .metrics{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+@media(max-width:980px){
+  .layout{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "metrics"
+      "map"
+      "right"
+      "left";
+  }
+
+  .left-rail{
+    display:flex;
+  }
+
+  .metrics{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  #map{
+    height:560px;
+  }
+
+  .header-inner{
+    grid-template-columns:1fr;
+  }
+
+  .header-actions{
+    justify-content:flex-start;
+  }
+}
+
+@media(max-width:640px){
+  .layout{
+    padding:10px;
+  }
+
+  .metrics{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .metric .value{
+    font-size:22px;
+  }
+
+  .map-header{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .controls{
+    justify-content:flex-start;
+  }
+
+  .side-card h2{
+    font-size:26px;
+  }
+
+  #map{
+    height:460px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <div>
+      <div class="badge">Texas Resilience Command Center</div>
+      <h1>County-level disruption dashboard</h1>
+      <p>Current outage severity, predicted outage risk, active NWS alerts, trend context, radar, road closures, hospital capacity, ERCOT grid status, and outage point intelligence.</p>
+    </div>
+
+    <div class="header-actions">
+      <button id="refreshBtn">↻ Refresh</button>
+      <select id="basemap">
+        <option value="streets">Street Map</option>
+        <option value="dark">Dark Map</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main class="wrap layout">
+
+  <div class="metrics">
+    <div class="card metric red">
+      <div class="value" id="totalCustomers">—</div>
+      <div class="label">Customers Out</div>
+      <div class="sub">current outage load</div>
+    </div>
+
+    <div class="card metric orange">
+      <div class="value" id="countyImpacted">—</div>
+      <div class="label">Counties Impacted</div>
+      <div class="sub">active outage records</div>
+    </div>
+
+    <div class="card metric red">
+      <div class="value" id="severeCounties">—</div>
+      <div class="label">Severe Counties</div>
+      <div class="sub">severity score ≥ 70</div>
+    </div>
+
+    <div class="card metric blue">
+      <div class="value" id="highestPredicted">—</div>
+      <div class="label">Top Predicted Risk</div>
+      <div class="sub">weather + fragility</div>
+    </div>
+
+    <div class="card metric purple">
+      <div class="value" id="weatherAlerts">—</div>
+      <div class="label">NWS TX Alerts</div>
+      <div class="sub">active weather feed</div>
+    </div>
+
+    <div class="card metric orange">
+      <div class="value" id="trendMetric">—</div>
+      <div class="label">24h Trend</div>
+      <div class="sub">net outage change</div>
+    </div>
+
+    <div class="card metric green">
+      <div class="value" id="hospitalOccupancy">—</div>
+      <div class="label">Hospital Occupancy</div>
+      <div class="sub">Texas inpatient beds</div>
+    </div>
+
+    <div class="card metric green">
+      <div class="value" id="gridStress">—</div>
+      <div class="label">Texas Grid Stress</div>
+      <div class="sub" id="gridStressSub">ERCOT reserve status</div>
+    </div>
+  </div>
+
+  <div class="left-rail">
+    <div class="card status-box">
+      <div class="status-title"><span class="status-dot"></span>Data Status</div>
+      <div id="sourceStatus" style="line-height:1.55;">Starting...</div>
+    </div>
+
+    <div class="card side-card">
+      <h3 class="panel-title">24-Hour Outage Trend</h3>
+      <p style="margin-top:0;color:var(--muted);font-size:12px;">Shows statewide outages and selected county outages by snapshot.</p>
+      <canvas id="outageTrendChart" height="250"></canvas>
+    </div>
+
+    <div class="card side-card">
+      <h3 class="panel-title">Top Operational Priorities</h3>
+      <div id="topCounties"></div>
+    </div>
+  </div>
+
+  <section class="map-area">
+    <div class="card map-card">
+      <div class="map-header">
+        <div>
+          <h2>Texas county intelligence map</h2>
+          <p>Click a county for severity, prediction, weather, trend, and outage details.</p>
+        </div>
+
+        <div class="controls">
+          <button id="severityBtn" class="active">Severity</button>
+          <button id="predictionBtn" class="inactive">Predicted Risk</button>
+          <button id="outageBtn" class="inactive">Outages</button>
+          <button id="weatherBtn" class="inactive">Weather</button>
+          <button id="weatherPolyBtn" class="active">NWS Polygons</button>
+          <button id="pointsBtn" class="active">Outage Points</button>
+          <button id="radarBtn" class="inactive">Radar</button>
+          <button id="roadsBtn" class="active">Road Closures</button>
+        </div>
+      </div>
+
+      <div id="map"></div>
+
+      <div class="legend">
+        <span><i class="swatch" style="background:#334155"></i> Low</span>
+        <span><i class="swatch" style="background:#60a5fa"></i> Guarded</span>
+        <span><i class="swatch" style="background:#facc15"></i> Elevated</span>
+        <span><i class="swatch" style="background:#f97316"></i> High</span>
+        <span><i class="swatch" style="background:#dc2626"></i> Severe</span>
+        <span><i class="swatch" style="background:rgba(239,68,68,.35)"></i> NWS polygon</span>
+        <span><i class="swatch" style="background:#22c55e"></i> outage point</span>
+        <span><i class="swatch" style="background:#38bdf8"></i> radar layer</span>
+      </div>
+    </div>
+  </section>
+
+  <aside>
+    <div class="card side-card">
+      <div class="panel-title">Selected County</div>
+      <h2 id="selectedName">Harris County</h2>
+      <span class="pill" id="riskPill">Calculating</span>
+
+      <div class="mini-grid">
+        <div class="mini"><strong id="severity">—</strong><span>Current severity</span></div>
+        <div class="mini"><strong id="predictedRisk">—</strong><span>Predicted risk</span></div>
+        <div class="mini"><strong id="countyCustomers">—</strong><span>Customers out</span></div>
+        <div class="mini"><strong id="countyIncidents">—</strong><span>Outage incidents</span></div>
+        <div class="mini"><strong id="countyWeather">—</strong><span>Weather alerts</span></div>
+        <div class="mini"><strong id="trend24h">—</strong><span>24h trend</span></div>
+        <div class="mini"><strong id="sevenDayPeak">—</strong><span>7-day peak</span></div>
+        <div class="mini"><strong id="maxSingle">—</strong><span>Largest outage</span></div>
+        <div class="mini"><strong id="roadClosures">—</strong><span>Road closures</span></div>
+        <div class="mini"><strong id="restorationDifficulty">—</strong><span>Restoration difficulty</span></div>
+      </div>
+
+      <div class="explain" id="scoreExplain">Loading score explanation...</div>
+      <div id="countyIncidentsList"></div>
+    </div>
+
+    <div class="card side-card">
+      <h3 class="panel-title">Top Predicted-Risk Counties</h3>
+      <div id="topPredicted"></div>
+    </div>
+
+    <div class="card side-card">
+      <h3 class="panel-title">Top Outage Points</h3>
+      <table class="table">
+        <thead>
+          <tr><th>County</th><th>Customers</th><th>Cause</th></tr>
+        </thead>
+        <tbody id="pointTable"></tbody>
+      </table>
+    </div>
+
+    <div class="card side-card">
+      <h3 class="panel-title">Hospital Occupancy Trend</h3>
+      <p style="margin-top:0;color:var(--muted);font-size:12px;">Weekly statewide Texas hospital occupancy from CDC/HHS.</p>
+      <canvas id="hospitalTrendChart" height="220"></canvas>
+    </div>
+
+    <div class="card side-card">
+      <h3 class="panel-title">Impactful Road Closures</h3>
+      <p style="margin-top:0;color:var(--muted);font-size:12px;">DriveTexas closures and detours that may affect restoration access.</p>
+      <table class="table">
+        <thead>
+          <tr><th>County</th><th>Road</th><th>Risk</th></tr>
+        </thead>
+        <tbody id="roadTable"></tbody>
+      </table>
+    </div>
+
+    <div class="card side-card source-note">
+      Predicted risk is explainable: active weather alert severity + current outage fragility + incident count + 24h worsening trend. It is a v1 operational signal, not a black-box forecast.
+    </div>
+  </aside>
+
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+// ==============================
+// 🧠 GLOBAL STATE
+// ==============================
+
+const map = L.map("map",{scrollWheelZoom:false}).setView([31.05,-99.35],6);
+
+let baseLayer, countyLayer, weatherLayer, pointLayer, radarLayer, roadLayer;
+
+let countyGeo = null;
+let outageData = null;
+let nwsAlerts = [];
+let outageTrendChart = null;
+let hospitalTrendChart = null;
+
+let countyData = {};
+let selectedCounty = "Harris";
+
+let mode = "severity";
+let showWeatherPolys = true;
+let showPoints = true;
+let showRadar = false;
+let showRoads = true;
+
+
+// ==============================
+// 🗺 BASEMAP
+// ==============================
+
+function setBaseMap(type){
+  if(baseLayer) map.removeLayer(baseLayer);
+
+  baseLayer = L.tileLayer(
+    type==="dark"
+      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+      : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { attribution:"&copy; OpenStreetMap" }
+  ).addTo(map);
+}
+
+setBaseMap("streets");
+
+
+// ==============================
+// 🌧 RADAR
+// ==============================
+
+radarLayer = L.tileLayer(
+  "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=e6c1d29fe661aa4fa0a8a050d7e1e84c",
+  { opacity:0.5 }
+);
+
+
+// ==============================
+// 🔧 HELPERS
+// ==============================
+
+function keyCounty(n){
+  return String(n||"")
+    .replace(/ County$/i,"")
+    .trim()
+    .toLowerCase();
+}
+
+function safeNum(v){
+  const n = Number(String(v??0).replace(/,/g,""));
+  return Number.isFinite(n)?n:0;
+}
+
+async function fetchJson(url){
+  const r = await fetch(url,{cache:"no-store"});
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
+async function tryFetch(url){
+  try { return await fetchJson(url); }
+  catch { return null; }
+}
+
+
+// ==============================
+// 🧱 COUNTY MODEL INIT
+// ==============================
+
+function initCounties(){
+
+  countyData = {};
+
+  countyGeo.features
+    .filter(f => f.properties.STATE === "48")
+    .forEach(f => {
+
+      const name = f.properties.NAME;
+
+      countyData[keyCounty(name)] = {
+        name,
+        customersOut: 0,
+        incidents: 0,
+        maxSingleOutage: 0,
+        currentSeverity: 0,
+        predictedRisk: 0,
+        predictedRiskBand: "Low",
+        trend24h: 0,
+        sevenDayPeak: 0,
+        weatherAlerts: 0,
+        weatherRisk: 0,
+        weatherEvents: [],
+        roadClosures: 0,
+        roadClosureRisk: 0,
+        roadEvents: [],
+        restorationDifficulty: 0,
+        predictionExplanation: "",
+        points: []
+      };
+
+    });
+}
+
+
+// ==============================
+// ⚡ OUTAGE INGESTION
+// ==============================
+
+function processOutages(){
+
+  if(!outageData) return;
+
+  outageData.outages?.forEach(c => {
+
+    const key = keyCounty(c.county);
+
+    if(!countyData[key]) return;
+
+    countyData[key].customersOut += safeNum(c.customersOut);
+    countyData[key].incidents += safeNum(c.incidents || 1);
+
+    countyData[key].maxSingleOutage = Math.max(
+      countyData[key].maxSingleOutage,
+      safeNum(c.customersOut)
+    );
+
+  });
+
+  outageData.outagePoints?.forEach(p => {
+
+    const key = keyCounty(p.county);
+
+    if(!countyData[key]) return;
+
+    countyData[key].points.push(p);
+
+  });
+
+}
+
+
+// ==============================
+// 🌩 WEATHER INGESTION
+// ==============================
+
+function weatherWeight(alert){
+
+  const sev = (alert.properties?.severity || "").toLowerCase();
+  const event = (alert.properties?.event || "").toLowerCase();
+  const urgency = (alert.properties?.urgency || "").toLowerCase();
+  const certainty = (alert.properties?.certainty || "").toLowerCase();
+
+  let w = 0;
+
+  if(sev === "extreme") w += 18;
+  else if(sev === "severe") w += 12;
+  else if(sev === "moderate") w += 6;
+  else if(sev === "minor") w += 2;
+
+  if(event.includes("ice storm") || event.includes("winter storm")) w += 26;
+  else if(event.includes("extreme wind")) w += 28;
+  else if(event.includes("high wind")) w += 22;
+  else if(event.includes("severe thunderstorm warning")) w += 20;
+  else if(event.includes("severe thunderstorm watch")) w += 10;
+  else if(event.includes("tornado warning")) w += 18;
+  else if(event.includes("tornado watch")) w += 8;
+  else if(event.includes("flash flood warning")) w += 8;
+  else if(event.includes("flood warning")) w += 6;
+  else if(event.includes("flood watch")) w += 3;
+  else if(event.includes("red flag") || event.includes("fire weather")) w += 8;
+  else if(event.includes("heat")) w += 4;
+  else if(event.includes("cold")) w += 5;
+  else if(event.includes("storm")) w += 8;
+
+  if(urgency === "immediate") w += 5;
+  else if(urgency === "expected") w += 3;
+
+  if(certainty === "observed") w += 5;
+  else if(certainty === "likely") w += 3;
+
+  return Math.min(45, w);
+}
+
+function processWeather(){
+
+  nwsAlerts.forEach(alert => {
+
+    const area = String(alert.properties?.areaDesc || "").toLowerCase();
+    const w = weatherWeight(alert);
+
+    Object.values(countyData).forEach(c => {
+
+      if(area.includes(c.name.toLowerCase())){
+        c.weatherRisk += w;
+        c.weatherAlerts += 1;
+        c.weatherEvents.push(alert.properties?.event || "Weather alert");
+      }
+
+    });
+
+  });
+
+}
+
+
+// ==============================
+// 🧮 SCORING ENGINE
+// ==============================
+
+function computeScores(){
+
+  Object.values(countyData).forEach(c => {
+
+    const customers = safeNum(c.customersOut);
+    const incidents = safeNum(c.incidents);
+    const maxSingle = safeNum(c.maxSingleOutage);
+    const weather = safeNum(c.weatherRisk);
+    const trend = safeNum(c.trend24h);
+    const roadRisk = safeNum(c.roadClosureRisk);
+
+    const outageMagnitude = Math.min(40, Math.log10(1 + customers) * 10);
+    const incidentScore = Math.min(20, incidents * 1.5);
+    const largeClusterScore = Math.min(15, Math.log10(1 + maxSingle) * 4);
+    const weatherNowModifier = Math.min(10, weather * 0.10);
+    const roadNowModifier = Math.min(8, roadRisk * 0.12);
+
+    c.currentSeverity = Math.round(
+      Math.min(100,
+        outageMagnitude +
+        incidentScore +
+        largeClusterScore +
+        weatherNowModifier +
+        roadNowModifier
+      )
+    );
+
+    const weatherPressure = Math.min(35, weather * 0.25);
+    const currentFragility = customers > 0
+      ? Math.min(20, Math.log10(1 + customers) * 5)
+      : 0;
+    const incidentFragility = incidents > 0
+      ? Math.min(10, incidents * 0.75)
+      : 0;
+    const trendPressure = trend > 0
+      ? Math.min(10, Math.log10(1 + trend) * 3)
+      : 0;
+    const roadAccessPressure = Math.min(15, roadRisk * 0.4);
+
+    c.predictedRisk = Math.round(
+      Math.min(100,
+        weatherPressure +
+        currentFragility +
+        incidentFragility +
+        trendPressure +
+        roadAccessPressure
+      )
+    );
+
+    if(c.predictedRisk >= 75) c.predictedRiskBand = "High";
+    else if(c.predictedRisk >= 50) c.predictedRiskBand = "Elevated";
+    else if(c.predictedRisk >= 25) c.predictedRiskBand = "Watch";
+    else c.predictedRiskBand = "Low";
+
+    c.predictionExplanation = [
+      c.weatherAlerts > 0 ? `${c.weatherAlerts} county-matched weather alert(s)` : "No county-matched weather alerts",
+      customers > 0 ? `${customers.toLocaleString()} customers currently out` : "No current outage load",
+      incidents > 0 ? `${incidents} outage incident(s)` : "No active outage incidents",
+      c.roadClosures > 0 ? `${c.roadClosures} impactful road closure(s)` : "No impactful road closures near active outage counties",
+      trend > 0 ? `24h trend worsening by ${trend.toLocaleString()}` : "24h trend stable or improving"
+    ].join(" + ");
+
+  });
+
+}
+
+
+// ==============================
+// 🎨 COLOR HELPERS
+// ==============================
+
+function colorByValue(v, max){
+  if(!v) return "#334155";
+  const p = v / Math.max(1, max);
+
+  if(p > .76) return "#dc2626";
+  if(p > .52) return "#f97316";
+  if(p > .30) return "#facc15";
+  return "#60a5fa";
+}
+
+function activeValue(c){
+  if(mode === "prediction") return c.predictedRisk || 0;
+  if(mode === "outage") return c.customersOut || 0;
+  if(mode === "weather") return c.weatherRisk || 0;
+  return c.currentSeverity || 0;
+}
+
+function priorityLabel(score){
+  if(score >= 80) return "Immediate";
+  if(score >= 60) return "High";
+  if(score >= 40) return "Elevated";
+  if(score >= 20) return "Watch";
+  return "Routine";
+}
+
+function setButtonState(){
+  [
+    ["severityBtn","severity"],
+    ["predictionBtn","prediction"],
+    ["outageBtn","outage"],
+    ["weatherBtn","weather"]
+  ].forEach(([id,val])=>{
+    const b = document.getElementById(id);
+    b.classList.toggle("active", mode === val);
+    b.classList.toggle("inactive", mode !== val);
+  });
+
+  document.getElementById("weatherPolyBtn").classList.toggle("active", showWeatherPolys);
+  document.getElementById("weatherPolyBtn").classList.toggle("inactive", !showWeatherPolys);
+
+  document.getElementById("pointsBtn").classList.toggle("active", showPoints);
+  document.getElementById("pointsBtn").classList.toggle("inactive", !showPoints);
+
+  document.getElementById("radarBtn").classList.toggle("active", showRadar);
+  document.getElementById("radarBtn").classList.toggle("inactive", !showRadar);
+
+  document.getElementById("roadsBtn").classList.toggle("active", showRoads);
+  document.getElementById("roadsBtn").classList.toggle("inactive", !showRoads);
+}
+
+
+// ==============================
+// 🗺 COUNTY MAP
+// ==============================
+
+function renderCounties(){
+
+  if(countyLayer) map.removeLayer(countyLayer);
+
+  const values = Object.values(countyData).map(activeValue);
+  const max = Math.max(1, ...values);
+
+  countyLayer = L.geoJSON(countyGeo, {
+    filter: f => f.properties.STATE === "48",
+
+    style: f => {
+      const c = countyData[keyCounty(f.properties.NAME)] || {};
+      const selected = keyCounty(f.properties.NAME) === keyCounty(selectedCounty);
+
+      return {
+        fillColor: colorByValue(activeValue(c), max),
+        fillOpacity: selected ? .9 : .68,
+        color: selected ? "#fff" : "rgba(255,255,255,.75)",
+        weight: selected ? 3 : 1
+      };
+    },
+
+    onEachFeature: (f, layer) => {
+      const c = countyData[keyCounty(f.properties.NAME)];
+      if(!c) return;
+
+      layer.on("click", () => {
+        selectedCounty = c.name;
+        renderAll();
+      });
+
+      layer.bindTooltip(
+        `${c.name} County · Severity ${c.currentSeverity} · Predicted ${c.predictedRisk}`
+      );
+    }
+  }).addTo(map);
+
+  countyLayer.bringToBack();
+}
+
+
+// ==============================
+// ⚡ OUTAGE POINTS
+// ==============================
+
+function renderPoints(){
+
+  if(pointLayer) map.removeLayer(pointLayer);
+
+  pointLayer = L.layerGroup().addTo(map);
+
+  if(!showPoints) return;
+
+  (outageData?.outagePoints || []).slice(0,1500).forEach(p => {
+
+    if(!p.lat || !p.lon) return;
+
+    const customers = safeNum(p.customersOut);
+    const radius = 4 + Math.min(22, Math.sqrt(customers) / 10);
+
+    const color =
+      customers > 1000 ? "#dc2626" :
+      customers > 200 ? "#f97316" :
+      customers > 50 ? "#facc15" :
+      "#22c55e";
+
+    L.circleMarker([p.lat, p.lon], {
+      radius,
+      color:"#fff",
+      fillColor:color,
+      fillOpacity:.78,
+      weight:1
+    })
+    .bindPopup(`
+      <strong>${p.county} County outage</strong><br>
+      ${customers.toLocaleString()} customers out<br>
+      Cause: ${p.outageCause || "Unknown"}<br>
+      ETR: ${p.estimatedRestoration || "Unknown"}
+    `)
+    .addTo(pointLayer);
+
+  });
+}
+
+
+// ==============================
+// 🌩 NWS WEATHER POLYGONS
+// ==============================
+
+function renderWeather(){
+
+  if(weatherLayer) map.removeLayer(weatherLayer);
+
+  weatherLayer = L.layerGroup().addTo(map);
+
+  if(!showWeatherPolys) return;
+
+  nwsAlerts.forEach(alert => {
+
+    if(!alert.geometry) return;
+
+    const p = alert.properties || {};
+
+    try {
+      L.geoJSON(alert.geometry, {
+        style:{
+          color:"#ef4444",
+          weight:2,
+          fillColor:"#ef4444",
+          fillOpacity:.14
+        }
+      })
+      .bindPopup(`
+        <strong>${p.event || "Weather alert"}</strong><br>
+        Severity: ${p.severity || "Unknown"}<br>
+        ${p.headline || p.areaDesc || ""}
+      `)
+      .addTo(weatherLayer);
+    } catch(e) {}
+  });
+}
+
+
+// ==============================
+// 🌧 RADAR
+// ==============================
+
+function renderRadar(){
+  if(showRadar){
+    if(!map.hasLayer(radarLayer)) radarLayer.addTo(map);
+  } else {
+    if(map.hasLayer(radarLayer)) map.removeLayer(radarLayer);
+  }
+}
+
+
+// ==============================
+// 🚧 ROAD CLOSURES
+// ==============================
+
+function applyRoadClosuresToCounties(){
+
+  Object.values(countyData).forEach(c=>{
+    c.roadClosures = 0;
+    c.roadClosureRisk = 0;
+    c.roadEvents = [];
+    c.restorationDifficulty = 0;
+  });
+
+  if(!outageData?.roadClosures) return;
+
+  outageData.roadClosures.forEach(r => {
+
+    const key = keyCounty(r.county);
+    const c = countyData[key];
+
+    if(!c) return;
+
+    c.roadClosures += 1;
+    c.roadClosureRisk += safeNum(r.risk);
+    c.restorationDifficulty += safeNum(r.risk);
+    c.roadEvents.push(r);
+
+  });
+
+}
+
+function renderRoads(){
+
+  if(roadLayer) map.removeLayer(roadLayer);
+
+  roadLayer = L.layerGroup().addTo(map);
+
+  if(!showRoads) return;
+
+  (outageData?.roadClosures || []).slice(0,1000).forEach(r => {
+
+    if(!r.lat || !r.lon) return;
+
+    const risk = safeNum(r.risk);
+
+    const color =
+      risk >= 15 ? "#dc2626" :
+      risk >= 10 ? "#f97316" :
+      risk >= 5 ? "#facc15" :
+      "#94a3b8";
+
+    L.circleMarker([r.lat, r.lon], {
+      radius: 6,
+      color: "#fff",
+      fillColor: color,
+      fillOpacity: .85,
+      weight: 1
+    })
+    .bindPopup(`
+      <strong>${r.road || r.route || "Road closure"}</strong><br>
+      ${r.county || "Unknown"} County<br>
+      Risk: ${risk}<br>
+      Type: ${r.type || "Unknown"}<br>
+      ${r.description || ""}
+    `)
+    .addTo(roadLayer);
+
+  });
+}
+
+function renderRoadTable(){
+
+  const rows = (outageData?.roadClosures || [])
+    .slice()
+    .sort((a,b)=>safeNum(b.risk)-safeNum(a.risk))
+    .slice(0,8);
+
+  document.getElementById("roadTable").innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.county || "Unknown"}</td>
+      <td>${r.road || r.route || "Unknown"}</td>
+      <td>${safeNum(r.risk)}</td>
+    </tr>
+  `).join("");
+}
+
+
+// ==============================
+// 📌 SELECTED COUNTY PANEL
+// ==============================
+
+function renderPanel(){
+
+  const c =
+    countyData[keyCounty(selectedCounty)] ||
+    countyData["harris"] ||
+    Object.values(countyData)[0];
+
+  if(!c) return;
+
+  document.getElementById("selectedName").textContent = `${c.name} County`;
+  document.getElementById("riskPill").textContent = c.predictedRiskBand || priorityLabel(c.predictedRisk);
+
+  document.getElementById("severity").textContent = c.currentSeverity;
+  document.getElementById("predictedRisk").textContent = c.predictedRisk;
+  document.getElementById("countyCustomers").textContent = c.customersOut.toLocaleString();
+  document.getElementById("countyIncidents").textContent = c.incidents;
+  document.getElementById("countyWeather").textContent = c.weatherAlerts;
+  document.getElementById("trend24h").textContent =
+    (safeNum(c.trend24h) >= 0 ? "+" : "") + safeNum(c.trend24h).toLocaleString();
+  document.getElementById("sevenDayPeak").textContent = safeNum(c.sevenDayPeak).toLocaleString();
+  document.getElementById("maxSingle").textContent = safeNum(c.maxSingleOutage).toLocaleString();
+  document.getElementById("roadClosures").textContent = safeNum(c.roadClosures).toLocaleString();
+  document.getElementById("restorationDifficulty").textContent = safeNum(c.restorationDifficulty).toLocaleString();
+
+  document.getElementById("scoreExplain").innerHTML =
+    `<strong>Prediction explanation:</strong><br>${c.predictionExplanation || "No prediction explanation available."}`;
+
+  const items = [
+    ...(c.points || []).slice(0,5).map(p => ({
+      type:"OUTAGE",
+      title:`${safeNum(p.customersOut).toLocaleString()} customers out`,
+      detail:`Cause: ${p.outageCause || "Unknown"} · ETR: ${p.estimatedRestoration || "Unknown"}`
+    })),
+    ...(c.weatherEvents || []).slice(0,5).map(w => ({
+      type:"WEATHER",
+      title: typeof w === "string" ? w : w.event,
+      detail: typeof w === "string" ? "Active NWS alert" : (w.headline || w.severity || "Weather alert")
+    }))
+  ];
+
+  document.getElementById("countyIncidentsList").innerHTML = items.length
+    ? items.map(i => `
+      <div class="incident">
+        <div class="incident-top"><span>${i.type}</span></div>
+        <h3>${i.title}</h3>
+        <p>${i.detail}</p>
+      </div>
+    `).join("")
+    : `<div class="incident"><p>No detailed incidents loaded for this county.</p></div>`;
+}
+
+
+// ==============================
+// 🏆 RANKING PANELS
+// ==============================
+
+function renderTopPanels(){
+
+  const counties = Object.values(countyData);
+
+  const topSeverity = [...counties]
+    .sort((a,b)=>(b.currentSeverity || 0)-(a.currentSeverity || 0))
+    .slice(0,10);
+
+  const maxSeverity = Math.max(1, ...topSeverity.map(c=>c.currentSeverity || 0));
+
+  document.getElementById("topCounties").innerHTML = topSeverity.map((c, i) => `
+    <button class="rank-row" onclick="selectCounty('${c.name.replace(/'/g,"\\'")}')">
+      <strong>${i+1}. ${c.name}</strong><span style="float:right;color:#f87171">${c.currentSeverity}</span><br>
+      <small>${c.customersOut.toLocaleString()} out · Risk ${c.predictedRisk}</small>
+      <div class="bar"><span style="width:${Math.min(100,(c.currentSeverity/maxSeverity)*100)}%"></span></div>
+    </button>
+  `).join("");
+
+  const topPredicted = [...counties]
+    .sort((a,b)=>(b.predictedRisk || 0)-(a.predictedRisk || 0))
+    .slice(0,8);
+
+  const maxPredicted = Math.max(1, ...topPredicted.map(c=>c.predictedRisk || 0));
+
+  document.getElementById("topPredicted").innerHTML = topPredicted.map((c, i) => `
+    <button class="rank-row" onclick="selectCounty('${c.name.replace(/'/g,"\\'")}')">
+      <strong>${i+1}. ${c.name}</strong><span style="float:right;color:#f87171">${c.predictedRisk}</span><br>
+      <small>${c.predictedRiskBand} · ${c.weatherAlerts} alerts · ${c.trend24h.toLocaleString()} trend</small>
+      <div class="bar"><span style="width:${Math.min(100,(c.predictedRisk/maxPredicted)*100)}%"></span></div>
+    </button>
+  `).join("");
+}
+
+
+// ==============================
+// 📋 TABLES
+// ==============================
+
+function renderPointTable(){
+
+  const rows = (outageData?.outagePoints || [])
+    .slice(0,8);
+
+  document.getElementById("pointTable").innerHTML = rows.map(p => `
+    <tr>
+      <td>${p.county}</td>
+      <td>${safeNum(p.customersOut).toLocaleString()}</td>
+      <td>${p.outageCause || "Unknown"}</td>
+    </tr>
+  `).join("");
+}
+
+
+// ==============================
+// 📊 TOP METRIC TILES
+// ==============================
+
+function updateAllMetrics(){
+
+  const counties = Object.values(countyData);
+
+  const totalCustomers = counties.reduce((s,c)=>s+c.customersOut,0);
+  const impacted = counties.filter(c=>c.customersOut>0).length;
+  const severe = counties.filter(c=>c.currentSeverity>=70).length;
+  const topPredicted = Math.max(0, ...counties.map(c=>c.predictedRisk || 0));
+  const trend = counties.reduce((s,c)=>s+safeNum(c.trend24h),0);
+
+  const hosp = outageData?.hospitalCapacity?.latest;
+  const grid = outageData?.gridStress;
+
+  document.getElementById("totalCustomers").textContent = totalCustomers.toLocaleString();
+  document.getElementById("countyImpacted").textContent = impacted;
+  document.getElementById("severeCounties").textContent = severe;
+  document.getElementById("highestPredicted").textContent = topPredicted;
+  document.getElementById("weatherAlerts").textContent = nwsAlerts.length;
+  document.getElementById("trendMetric").textContent =
+    (trend >= 0 ? "+" : "") + trend.toLocaleString();
+
+  document.getElementById("hospitalOccupancy").textContent =
+    hosp?.inpatientOccupancyPct != null
+      ? `${safeNum(hosp.inpatientOccupancyPct).toFixed(1)}%`
+      : "—";
+
+  document.getElementById("gridStress").textContent = grid?.level || "—";
+
+  document.getElementById("gridStressSub").textContent =
+    grid?.reservePct != null
+      ? `Reserve ${safeNum(grid.reservePct).toFixed(1)}%`
+      : "ERCOT reserve status";
+}
+
+
+// ==============================
+// 📈 CHARTS
+// ==============================
+
+function renderOutageTrendChart(){
+
+  const canvas = document.getElementById("outageTrendChart");
+  if(!canvas) return;
+
+  const history = outageData?.history || [];
+
+  if(!history.length){
+    if(outageTrendChart) outageTrendChart.destroy();
+
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    return;
+  }
+
+  const selectedKey = keyCounty(selectedCounty);
+
+  const labels = history.map(s => {
+    const d = new Date(s.timestamp);
+    return d.toLocaleTimeString([], { hour:"numeric", minute:"2-digit" });
+  });
+
+  const texasData = history.map(s => safeNum(s.totalCustomersOut));
+
+  const countyDataSeries = history.map(s => {
+    const row = (s.counties || []).find(c => keyCounty(c.county) === selectedKey);
+    return row ? safeNum(row.customersOut) : 0;
+  });
+
+  const ctx = canvas.getContext("2d");
+
+  if(outageTrendChart) outageTrendChart.destroy();
+
+  outageTrendChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Texas Total",
+          data: texasData,
+          tension: 0.35,
+          borderWidth: 2,
+          pointRadius: 1
+        },
+        {
+          label: selectedCounty + " County",
+          data: countyDataSeries,
+          tension: 0.35,
+          borderWidth: 2,
+          pointRadius: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: "#cbd5e1" }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${Number(ctx.raw).toLocaleString()}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: "#94a3b8", maxTicksLimit: 6 },
+          grid: { color: "rgba(255,255,255,.08)" }
+        },
+        y: {
+          ticks: {
+            color: "#94a3b8",
+            callback: v => Number(v).toLocaleString()
+          },
+          grid: { color: "rgba(255,255,255,.08)" }
+        }
+      }
+    }
+  });
+}
+
+function renderHospitalTrendChart(){
+
+  const canvas = document.getElementById("hospitalTrendChart");
+  if(!canvas) return;
+
+  const trend = outageData?.hospitalCapacity?.trend || [];
+
+  if(!trend.length){
+    if(hospitalTrendChart) hospitalTrendChart.destroy();
+    return;
+  }
+
+  const labels = trend.map(r => {
+    const d = new Date(r.weekEndingDate);
+    return d.toLocaleDateString([], { month:"short", day:"numeric" });
+  });
+
+  const inpatientData = trend.map(r => safeNum(r.inpatientOccupancyPct));
+  const icuData = trend.map(r => safeNum(r.icuOccupancyPct));
+
+  const ctx = canvas.getContext("2d");
+
+  if(hospitalTrendChart) hospitalTrendChart.destroy();
+
+  hospitalTrendChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Inpatient Occupancy %",
+          data: inpatientData,
+          tension: 0.35,
+          borderWidth: 2,
+          pointRadius: 2
+        },
+        {
+          label: "ICU Occupancy %",
+          data: icuData,
+          tension: 0.35,
+          borderWidth: 2,
+          pointRadius: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: "#cbd5e1" }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${Number(ctx.raw).toFixed(1)}%`
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: "#94a3b8", maxTicksLimit: 6 },
+          grid: { color: "rgba(255,255,255,.08)" }
+        },
+        y: {
+          min: 0,
+          max: 100,
+          ticks: {
+            color: "#94a3b8",
+            callback: v => `${v}%`
+          },
+          grid: { color: "rgba(255,255,255,.08)" }
+        }
+      }
+    }
+  });
+}
+
+
+// ==============================
+// 🔄 RENDER EVERYTHING
+// ==============================
+
+function renderAll(){
+  setButtonState();
+  renderCounties();
+  renderWeather();
+  renderPoints();
+  renderRadar();
+  renderRoads();
+  renderPanel();
+  renderTopPanels();
+  renderPointTable();
+  renderRoadTable();
+  updateAllMetrics();
+  renderOutageTrendChart();
+  renderHospitalTrendChart();
+}
+
+window.selectCounty = name => {
+  selectedCounty = name;
+  renderAll();
+};
+
+
+// ==============================
+// 🚀 LOAD DATA
+// ==============================
+
+async function loadData(){
+
+  document.getElementById("sourceStatus").innerHTML =
+    "Loading counties, outages, weather, prediction, trend, and radar layers...";
+
+  const [geo, outages, nws] = await Promise.all([
+    fetchJson("https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"),
+    tryFetch("./outages.json?cb="+Date.now()),
+    tryFetch("https://api.weather.gov/alerts/active?area=TX")
+  ]);
+
+  countyGeo = geo;
+  outageData = outages || {outages:[], outagePoints:[], roadClosures:[]};
+  nwsAlerts = nws?.features || [];
+
+  initCounties();
+  processOutages();
+  applyRoadClosuresToCounties();
+
+  if(outageData?.outages?.length){
+    outageData.outages.forEach(o=>{
+      const c = countyData[keyCounty(o.county)];
+      if(!c) return;
+      c.currentSeverity = safeNum(o.currentSeverity);
+      c.predictedRisk = safeNum(o.predictedRisk);
+      c.predictedRiskBand = o.predictedRiskBand || c.predictedRiskBand;
+      c.trend24h = safeNum(o.trend24h);
+      c.sevenDayPeak = safeNum(o.sevenDayPeak);
+      c.weatherAlerts = safeNum(o.weatherAlerts);
+      c.weatherRisk = safeNum(o.weatherRisk);
+      c.weatherEvents = o.weatherEvents || [];
+      c.predictionExplanation = o.predictionExplanation || "";
+      c.maxSingleOutage = safeNum(o.maxSingleOutage);
+      c.roadClosures = safeNum(o.roadClosures ?? c.roadClosures);
+      c.roadClosureRisk = safeNum(o.roadClosureRisk ?? c.roadClosureRisk);
+      c.restorationDifficulty = safeNum(o.restorationDifficulty ?? c.restorationDifficulty);
+      c.roadEvents = o.roadEvents || c.roadEvents || [];
+    });
+  }
+
+  processWeather();
+
+  const hasBackendScores =
+    (outageData?.outages || []).some(o =>
+      o.currentSeverity !== undefined &&
+      o.predictedRisk !== undefined
+    );
+
+  if(!hasBackendScores){
+    computeScores();
+  }
+
+  const roadCount = outageData?.roadSummary?.count ?? (outageData?.roadClosures || []).length;
+  const gridLevel = outageData?.gridStress?.level || "—";
+  const hospOcc = outageData?.hospitalCapacity?.latest?.inpatientOccupancyPct;
+
+  document.getElementById("sourceStatus").innerHTML = [
+    `County records: ${(outageData.outages || []).length}`,
+    `Outage points: ${(outageData.outagePoints || []).length}`,
+    `Road closures: ${roadCount}`,
+    `Active NWS Texas alerts: ${nwsAlerts.length}`,
+    `ERCOT grid stress: ${gridLevel}`,
+    `Hospital occupancy: ${hospOcc != null ? safeNum(hospOcc).toFixed(1) + "%" : "—"}`,
+    `Highest predicted risk: ${outageData.highestPredictedRisk ?? "—"}`,
+    `Last update: ${outageData.updated || "unknown"}`
+  ].join("<br>");
+
+  renderAll();
+}
+
+
+// ==============================
+// 🎛 CONTROLS
+// ==============================
+
+ document.getElementById("refreshBtn").onclick = loadData;
+
+ document.getElementById("basemap").onchange = e => {
+  setBaseMap(e.target.value);
+ };
+
+ document.getElementById("severityBtn").onclick = () => {
+  mode = "severity";
+  renderAll();
+ };
+
+ document.getElementById("predictionBtn").onclick = () => {
+  mode = "prediction";
+  renderAll();
+ };
+
+ document.getElementById("outageBtn").onclick = () => {
+  mode = "outage";
+  renderAll();
+ };
+
+ document.getElementById("weatherBtn").onclick = () => {
+  mode = "weather";
+  renderAll();
+ };
+
+ document.getElementById("weatherPolyBtn").onclick = () => {
+  showWeatherPolys = !showWeatherPolys;
+  renderAll();
+ };
+
+ document.getElementById("pointsBtn").onclick = () => {
+  showPoints = !showPoints;
+  renderAll();
+ };
+
+ document.getElementById("radarBtn").onclick = () => {
+  showRadar = !showRadar;
+  renderAll();
+ };
+
+ document.getElementById("roadsBtn").onclick = () => {
+  showRoads = !showRoads;
+  renderAll();
+ };
+
+// ==============================
+// ▶ START
+// ==============================
+
+loadData();
+
+</script>
+</body>
+</html>
