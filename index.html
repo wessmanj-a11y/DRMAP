@@ -111,7 +111,7 @@ button.inactive{opacity:.55}
 
 .metrics{
   display:grid;
-  grid-template-columns:repeat(7,1fr);
+  grid-template-columns:repeat(8,1fr);
   gap:12px;
   margin-bottom:14px;
 }
@@ -427,6 +427,12 @@ aside{
   <div class="value" id="hospitalOccupancy">—</div>
   <div class="label">Hospital Occupancy</div>
   <div class="sub">Texas inpatient beds</div>
+</div>
+
+  <div class="card metric">
+  <div class="value" id="gridStress">—</div>
+  <div class="label">Texas Grid Stress</div>
+  <div class="sub" id="gridStressSub">ERCOT reserve status</div>
 </div>
     
   </div>
@@ -1225,6 +1231,16 @@ document.getElementById("hospitalOccupancy").textContent =
   hosp?.inpatientOccupancyPct != null
     ? `${safeNum(hosp.inpatientOccupancyPct).toFixed(1)}%`
     : "—";
+  const grid = outageData?.gridStress;
+
+document.getElementById("gridStress").textContent =
+  grid?.level || "—";
+
+document.getElementById("gridStressSub").textContent =
+  grid?.reservePct != null
+    ? `Reserve ${safeNum(grid.reservePct).toFixed(1)}%`
+    : "ERCOT reserve status";
+  
   const trend = counties.reduce((s,c)=>s+safeNum(c.trend24h),0);
 
   document.getElementById("totalCustomers").textContent = totalCustomers.toLocaleString();
