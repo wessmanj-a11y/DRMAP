@@ -642,7 +642,7 @@ else if (percentOut > 0) outageMagnitude = 1;
         incidentScore +
         largeClusterScore +
         weatherNowModifier +
-        roadNowModifier /93) * 100
+        roadNowModifier
     )
   );
 }
