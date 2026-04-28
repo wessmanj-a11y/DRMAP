@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "updated": "2026-04-28T09:04:53.173878+00:00",
-  "rows": 1343,
-  "positiveExamples": 350,
+  "updated": "2026-04-28T15:08:06.600669+00:00",
+  "rows": 1445,
+  "positiveExamples": 366,
   "features": [
     "customersOut",
     "percentCustomersOut",
@@ -20,61 +20,61 @@
   ],
   "target": "worsened",
   "metrics": {
-    "accuracy": 0.6994,
-    "precision": 0.4552,
-    "recall": 0.75
+    "accuracy": 0.7182,
+    "precision": 0.4627,
+    "recall": 0.6739
   },
   "featureImportance": [
     {
       "feature": "customersOut",
-      "importance": 0.52145
+      "importance": 0.53309
     },
     {
       "feature": "incidents",
-      "importance": 0.21214
-    },
-    {
-      "feature": "sevenDayPeak",
-      "importance": 0.06276
+      "importance": 0.20305
     },
     {
       "feature": "trend24h",
-      "importance": 0.05662
+      "importance": 0.07324
+    },
+    {
+      "feature": "sevenDayPeak",
+      "importance": 0.06139
     },
     {
       "feature": "maxSingleOutage",
-      "importance": 0.05147
+      "importance": 0.05638
     },
     {
       "feature": "roadClosures",
-      "importance": 0.04482
+      "importance": 0.03338
     },
     {
       "feature": "roadClosureRisk",
-      "importance": 0.03311
-    },
-    {
-      "feature": "weatherRisk",
-      "importance": 0.01253
-    },
-    {
-      "feature": "weatherAlerts",
-      "importance": 0.0051
-    },
-    {
-      "feature": "percentCustomersOut",
-      "importance": 0.0
-    },
-    {
-      "feature": "trend6h",
-      "importance": 0.0
-    },
-    {
-      "feature": "trend12h",
-      "importance": 0.0
+      "importance": 0.01806
     },
     {
       "feature": "trendVelocity",
+      "importance": 0.00524
+    },
+    {
+      "feature": "weatherRisk",
+      "importance": 0.00486
+    },
+    {
+      "feature": "trend12h",
+      "importance": 0.00462
+    },
+    {
+      "feature": "weatherAlerts",
+      "importance": 0.0036
+    },
+    {
+      "feature": "trend6h",
+      "importance": 0.00311
+    },
+    {
+      "feature": "percentCustomersOut",
       "importance": 0.0
     }
   ]
