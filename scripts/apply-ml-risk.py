@@ -21,7 +21,10 @@ FEATURES = [
     "weatherRisk",
     "roadClosures",
     "roadClosureRisk",
+    "trend6h",
+    "trend12h",
     "trend24h",
+    "trendVelocity",
     "sevenDayPeak",
 ]
 
