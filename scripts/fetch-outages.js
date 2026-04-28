@@ -716,6 +716,8 @@ function buildHistorySummary(currentCountyRows, previousSnapshots) {
   const now = Date.now();
   const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
   const oneDayMs = 24 * 60 * 60 * 1000;
+  const sixHoursMs = 6 * 60 * 60 * 1000;
+  const twelveHoursMs = 12 * 60 * 60 * 1000;
 
   const recent = previousSnapshots.filter(s => {
     const t = new Date(s.timestamp).getTime();
@@ -726,9 +728,25 @@ function buildHistorySummary(currentCountyRows, previousSnapshots) {
     .filter(s => now - new Date(s.timestamp).getTime() >= oneDayMs)
     .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
 
+  const latestOlderThan6h = [...recent]
+  .filter(s => now - new Date(s.timestamp).getTime() >= sixHoursMs)
+  .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+
+  const latestOlderThan12h = [...recent]
+  .filter(s => now - new Date(s.timestamp).getTime() >= twelveHoursMs)
+  .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+
   const byCounty24h = new Map(
     (latestOlderThan24h?.counties || []).map(c => [c.county, c.customersOut])
   );
+
+  const byCounty6h = new Map(
+  (latestOlderThan6h?.counties || []).map(c => [c.county, c.customersOut])
+);
+
+  const byCounty12h = new Map(
+  (latestOlderThan12h?.counties || []).map(c => [c.county, c.customersOut])
+);
 
   const historyByCounty = {};
 
@@ -744,11 +762,22 @@ function buildHistorySummary(currentCountyRows, previousSnapshots) {
 
     const prior24h = byCounty24h.get(row.county) || 0;
 
+    const prior6h = byCounty6h.get(row.county) || 0;
+    const prior12h = byCounty12h.get(row.county) || 0;
+
+    const trend6h = row.customersOut - prior6h;
+    const trend12h = row.customersOut - prior12h;
+    const trend24h = row.customersOut - prior24h;
+    const trendVelocity = trend6h - trend24h / 4;
+
     historyByCounty[row.county] = {
       county: row.county,
       currentCustomersOut: row.customersOut,
       prior24hCustomersOut: prior24h,
-      change24h: row.customersOut - prior24h,
+      change6h: trend6h,
+      change12h: trend12h,
+      change24h: trend24h,
+      trendVelocity,
       sevenDayPeak
     };
   }
@@ -877,7 +906,10 @@ async function main() {
       row.predictedRisk = computePredictedRisk(row, historyRow);
       row.predictedRiskBand = riskBand(row.predictedRisk);
       row.restorationDifficulty = computeRestorationDifficulty(row);
-      row.trend24h = historyRow.change24h;
+      row.trend6h = historyRow.change6h || 0;
+      row.trend12h = historyRow.change12h || 0;
+      row.trend24h = historyRow.change24h || 0;
+      row.trendVelocity = historyRow.trendVelocity || 0;
       row.sevenDayPeak = historyRow.sevenDayPeak;
 
       row.predictionExplanation = [
@@ -923,7 +955,10 @@ async function main() {
   roadClosureRisk: o.roadClosureRisk || 0,
 
   // Trend signals
+  trend6h: o.trend6h || 0,
+  trend12h: o.trend12h || 0,
   trend24h: o.trend24h || 0,
+  trendVelocity: o.trendVelocity || 0,
   sevenDayPeak: o.sevenDayPeak || 0
 }))
     };
