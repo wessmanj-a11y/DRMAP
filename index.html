@@ -1050,15 +1050,23 @@ function computeScores(){
 // ==============================
 
 function colorByValue(v){
-  if(!v || v < 20) return "#334155";   // Low
-  if(v < 40) return "#facc15";         // Elevated
-  if(v < 70) return "#f97316";         // High
-  return "#dc2626";                    // Severe
+  if(mode === "outage"){
+    if(!v || v < 0.5) return "#334155";   // Low
+    if(v < 2) return "#facc15";           // Elevated
+    if(v < 5) return "#f97316";           // High
+    return "#dc2626";                     // Severe
+  }
+
+  // Severity / prediction / weather
+  if(!v || v < 20) return "#334155";
+  if(v < 40) return "#facc15";
+  if(v < 70) return "#f97316";
+  return "#dc2626";
 }
 
 function activeValue(c){
   if(mode === "prediction") return c.predictedRisk || 0;
-  if(mode === "outage") return c.customersOut || 0;
+  if(mode === "outage") return c.percentCustomersOut || 0;
   if(mode === "weather") return c.weatherRisk || 0;
   return c.currentSeverity || 0;
 }
