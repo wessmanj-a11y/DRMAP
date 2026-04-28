@@ -20,6 +20,9 @@ const ERCOT_SUPPLY_URL =
 const ERCOT_OUTAGES_URL =
   "https://www.ercot.com/api/1/services/read/dashboards/generation-outages.json";
 
+const CENSUS_TX_COUNTY_URL =
+  "https://api.census.gov/data/2024/acs/acs5?get=NAME,B01003_001E,B25010_001E&for=county:*&in=state:48";
+
 // ==============================
 // Basic helpers
 // ==============================
@@ -41,6 +44,38 @@ async function tryFetchJson(url) {
   } catch {
     return null;
   }
+}
+
+async function fetchCountyPopulation() {
+  const rows = await fetchJson(CENSUS_TX_COUNTY_URL);
+  const [header, ...data] = rows;
+
+  const nameIdx = header.indexOf("NAME");
+  const popIdx = header.indexOf("B01003_001E");
+  const hhIdx = header.indexOf("B25010_001E");
+
+  const byCounty = new Map();
+
+  for (const row of data) {
+    const fullName = row[nameIdx];
+    const county = fullName.replace(/ County, Texas$/i, "");
+
+    const population = num(row[popIdx]);
+    const householdSize = parseFloat(row[hhIdx]) || 2.6;
+
+    const estimatedCustomers =
+      householdSize > 0
+        ? Math.round(population / householdSize)
+        : Math.round(population * 0.4);
+
+    byCounty.set(county.toLowerCase(), {
+      population,
+      householdSize,
+      estimatedCustomers
+    });
+  }
+
+  return byCounty;
 }
 
 function buildHospitalCapacity(hhsRows) {
@@ -716,13 +751,14 @@ function buildHistorySummary(currentCountyRows, previousSnapshots) {
 
 async function main() {
   try {
-    const [counties, points, nws, hhsRows, ercotSupply, ercotOutages] = await Promise.all([
+    const [counties, points, nws, hhsRows, ercotSupply, ercotOutages, countyPopulation] = await Promise.all([
       fetchJson(COUNTIES_URL),
       fetchAllTDIS(),
       fetchJson(NWS_URL).catch(() => ({ features: [] })),
       fetchJson(HHS_URL).catch(() => []),
       fetchJson(ERCOT_SUPPLY_URL).catch(() => null),
-      fetchJson(ERCOT_OUTAGES_URL).catch(() => null)
+      fetchJson(ERCOT_OUTAGES_URL).catch(() => null),
+      fetchCountyPopulation().catch(() => new Map())
     ]);
 
     const hospitalCapacity = buildHospitalCapacity(hhsRows);
@@ -761,10 +797,16 @@ async function main() {
       outagePoints.push(point);
 
       if (!byCounty.has(county)) {
-        byCounty.set(county, {
+      const pop = countyPopulation.get(county.toLowerCase()) || {};
+
+      byCounty.set(county, {
           state: "TX",
           county,
           utility: "TDIS Aggregate",
+          population: pop.population || null,
+          householdSize: pop.householdSize || null,
+          estimatedCustomers: pop.estimatedCustomers || null,
+          percentCustomersOut: 0,
           customersOut: 0,
           incidents: 0,
           maxSingleOutage: 0,
@@ -808,6 +850,10 @@ async function main() {
     const historyByCounty = buildHistorySummary(outages, previousSnapshots);
 
     for (const row of outages) {
+      row.percentCustomersOut =
+      row.estimatedCustomers > 0
+    ? Number(((row.customersOut / row.estimatedCustomers) * 100).toFixed(3))
+    : null;
       const historyRow = historyByCounty[row.county] || {
         county: row.county,
         currentCustomersOut: row.customersOut,
@@ -842,6 +888,13 @@ async function main() {
 
   // Core outage state
   customersOut: o.customersOut,
+
+  // County scale / denominator
+  population: o.population || null,
+  householdSize: o.householdSize || null,
+  estimatedCustomers: o.estimatedCustomers || null,
+  percentCustomersOut: o.percentCustomersOut ?? null,
+
   incidents: o.incidents,
   maxSingleOutage: o.maxSingleOutage || 0,
 
