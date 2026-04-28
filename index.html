@@ -1049,14 +1049,11 @@ function computeScores(){
 // 🎨 COLOR HELPERS
 // ==============================
 
-function colorByValue(v, max){
-  if(!v) return "#334155";
-  const p = v / Math.max(1, max);
-
-  if(p > .76) return "#dc2626";
-  if(p > .52) return "#f97316";
-  if(p > .30) return "#facc15";
-  return "#60a5fa";
+function colorByValue(v){
+  if(!v || v < 20) return "#334155";   // Low
+  if(v < 40) return "#facc15";         // Elevated
+  if(v < 70) return "#f97316";         // High
+  return "#dc2626";                    // Severe
 }
 
 function activeValue(c){
@@ -1108,9 +1105,6 @@ function renderCounties(){
 
   if(countyLayer) map.removeLayer(countyLayer);
 
-  const values = Object.values(countyData).map(activeValue);
-  const max = Math.max(1, ...values);
-
   countyLayer = L.geoJSON(countyGeo, {
     filter: f => f.properties.STATE === "48",
 
@@ -1119,7 +1113,7 @@ function renderCounties(){
       const selected = keyCounty(f.properties.NAME) === keyCounty(selectedCounty);
 
       return {
-        fillColor: colorByValue(activeValue(c), max),
+        fillColor: colorByValue(activeValue(c)),
         fillOpacity: selected ? .9 : .68,
         color: selected ? "#fff" : "rgba(255,255,255,.75)",
         weight: selected ? 3 : 1
