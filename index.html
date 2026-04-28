@@ -1052,8 +1052,8 @@ function computeScores(){
 function colorByValue(v){
   if(mode === "outage"){
     if(!v || v < 0.5) return "#334155";   // Low
-    if(v < 2) return "#facc15";           // Elevated
-    if(v < 5) return "#f97316";           // High
+    if(v < 5) return "#facc15";           // Elevated
+    if(v < 10) return "#f97316";           // High
     return "#dc2626";                     // Severe
   }
 
