@@ -64,7 +64,10 @@ async function main() {
         roadClosures: num(county.roadClosures),
         roadClosureRisk: num(county.roadClosureRisk),
 
+        trend6h: num(county.trend6h),
+        trend12h: num(county.trend12h),
         trend24h: num(county.trend24h),
+        trendVelocity: num(county.trendVelocity),
         sevenDayPeak: num(county.sevenDayPeak),
 
         futureCustomersOut: futureOut,
