@@ -12,11 +12,9 @@ METADATA_FILE = Path("history/ml-risk-metadata.json")
 
 FEATURES = [
     "customersOut",
+    "percentCustomersOut",
     "incidents",
     "maxSingleOutage",
-    "currentSeverity",
-    "predictedRisk",
-    "restorationDifficulty",
     "weatherAlerts",
     "weatherRisk",
     "roadClosures",
