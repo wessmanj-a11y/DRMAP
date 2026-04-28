@@ -1,75 +1,80 @@
 {
   "ok": true,
-  "updated": "2026-04-28T04:23:48.495888+00:00",
-  "rows": 1204,
-  "positiveExamples": 302,
+  "updated": "2026-04-28T04:56:33.285120+00:00",
+  "rows": 1315,
+  "positiveExamples": 345,
   "features": [
     "customersOut",
+    "percentCustomersOut",
     "incidents",
     "maxSingleOutage",
-    "currentSeverity",
-    "predictedRisk",
-    "restorationDifficulty",
     "weatherAlerts",
     "weatherRisk",
     "roadClosures",
     "roadClosureRisk",
+    "trend6h",
+    "trend12h",
     "trend24h",
+    "trendVelocity",
     "sevenDayPeak"
   ],
   "target": "worsened",
   "metrics": {
-    "accuracy": 0.7143,
-    "precision": 0.4609,
-    "recall": 0.7763
+    "accuracy": 0.7325,
+    "precision": 0.4914,
+    "recall": 0.6628
   },
   "featureImportance": [
     {
       "feature": "customersOut",
-      "importance": 0.35058
-    },
-    {
-      "feature": "currentSeverity",
-      "importance": 0.19658
-    },
-    {
-      "feature": "predictedRisk",
-      "importance": 0.19628
+      "importance": 0.56934
     },
     {
       "feature": "incidents",
-      "importance": 0.10691
-    },
-    {
-      "feature": "restorationDifficulty",
-      "importance": 0.08203
-    },
-    {
-      "feature": "roadClosures",
-      "importance": 0.01889
+      "importance": 0.20911
     },
     {
       "feature": "sevenDayPeak",
-      "importance": 0.01813
+      "importance": 0.0603
     },
     {
       "feature": "trend24h",
-      "importance": 0.01538
+      "importance": 0.04519
     },
     {
       "feature": "maxSingleOutage",
-      "importance": 0.01334
+      "importance": 0.03877
+    },
+    {
+      "feature": "roadClosures",
+      "importance": 0.03593
     },
     {
       "feature": "roadClosureRisk",
-      "importance": 0.00178
-    },
-    {
-      "feature": "weatherAlerts",
-      "importance": 0.00011
+      "importance": 0.02695
     },
     {
       "feature": "weatherRisk",
+      "importance": 0.00915
+    },
+    {
+      "feature": "weatherAlerts",
+      "importance": 0.00527
+    },
+    {
+      "feature": "percentCustomersOut",
+      "importance": 0.0
+    },
+    {
+      "feature": "trend6h",
+      "importance": 0.0
+    },
+    {
+      "feature": "trend12h",
+      "importance": 0.0
+    },
+    {
+      "feature": "trendVelocity",
       "importance": 0.0
     }
   ]
