@@ -618,7 +618,18 @@ async function fetchDriveTexasRoadEvents(counties) {
 // ==============================
 
 function computeCurrentSeverity(row) {
-  const outageMagnitude = Math.min(40, Math.log10(1 + row.customersOut) * 10);
+  const percentOut = Number(row.percentCustomersOut ?? 0);
+
+let outageMagnitude = 0;
+
+if (percentOut >= 15) outageMagnitude = 40;
+else if (percentOut >= 10) outageMagnitude = 35;
+else if (percentOut >= 5) outageMagnitude = 28;
+else if (percentOut >= 2) outageMagnitude = 20;
+else if (percentOut >= 1) outageMagnitude = 14;
+else if (percentOut >= 0.5) outageMagnitude = 9;
+else if (percentOut >= 0.1) outageMagnitude = 4;
+else if (percentOut > 0) outageMagnitude = 1;
   const incidentScore = Math.min(20, row.incidents * 1.5);
   const largeClusterScore = Math.min(15, Math.log10(1 + row.maxSingleOutage) * 4);
   const weatherNowModifier = Math.min(10, row.weatherRisk * 0.1);
@@ -631,7 +642,7 @@ function computeCurrentSeverity(row) {
         incidentScore +
         largeClusterScore +
         weatherNowModifier +
-        roadNowModifier
+        roadNowModifier /93) * 100
     )
   );
 }
