@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "updated": "2026-04-29T04:10:15.519355+00:00",
-  "rows": 1722,
-  "positiveExamples": 468,
+  "updated": "2026-04-29T08:39:39.372843+00:00",
+  "rows": 1855,
+  "positiveExamples": 502,
   "features": [
     "customersOut",
     "percentCustomersOut",
@@ -20,58 +20,58 @@
   ],
   "target": "worsened",
   "metrics": {
-    "accuracy": 0.7007,
-    "precision": 0.4659,
-    "recall": 0.7009
+    "accuracy": 0.7026,
+    "precision": 0.4688,
+    "recall": 0.7143
   },
   "featureImportance": [
     {
       "feature": "customersOut",
-      "importance": 0.44205
+      "importance": 0.43322
     },
     {
       "feature": "incidents",
-      "importance": 0.15277
+      "importance": 0.14191
     },
     {
       "feature": "sevenDayPeak",
-      "importance": 0.09531
+      "importance": 0.07933
     },
     {
       "feature": "trend24h",
-      "importance": 0.06937
+      "importance": 0.07698
     },
     {
       "feature": "maxSingleOutage",
-      "importance": 0.06739
-    },
-    {
-      "feature": "trend12h",
-      "importance": 0.03803
-    },
-    {
-      "feature": "trend6h",
-      "importance": 0.03286
+      "importance": 0.06256
     },
     {
       "feature": "trendVelocity",
-      "importance": 0.03216
+      "importance": 0.05117
+    },
+    {
+      "feature": "trend6h",
+      "importance": 0.04807
+    },
+    {
+      "feature": "trend12h",
+      "importance": 0.03806
     },
     {
       "feature": "roadClosures",
-      "importance": 0.02721
+      "importance": 0.02444
     },
     {
       "feature": "roadClosureRisk",
-      "importance": 0.02266
+      "importance": 0.01876
     },
     {
       "feature": "weatherRisk",
-      "importance": 0.013
+      "importance": 0.01432
     },
     {
       "feature": "weatherAlerts",
-      "importance": 0.00721
+      "importance": 0.01119
     },
     {
       "feature": "percentCustomersOut",
