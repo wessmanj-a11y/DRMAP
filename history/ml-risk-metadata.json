@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "updated": "2026-04-28T20:04:04.597385+00:00",
-  "rows": 1521,
-  "positiveExamples": 411,
+  "updated": "2026-04-29T04:10:15.519355+00:00",
+  "rows": 1722,
+  "positiveExamples": 468,
   "features": [
     "customersOut",
     "percentCustomersOut",
@@ -20,58 +20,58 @@
   ],
   "target": "worsened",
   "metrics": {
-    "accuracy": 0.6982,
-    "precision": 0.4559,
-    "recall": 0.6019
+    "accuracy": 0.7007,
+    "precision": 0.4659,
+    "recall": 0.7009
   },
   "featureImportance": [
     {
       "feature": "customersOut",
-      "importance": 0.51188
+      "importance": 0.44205
     },
     {
       "feature": "incidents",
-      "importance": 0.19042
-    },
-    {
-      "feature": "trend24h",
-      "importance": 0.07764
+      "importance": 0.15277
     },
     {
       "feature": "sevenDayPeak",
-      "importance": 0.06439
+      "importance": 0.09531
+    },
+    {
+      "feature": "trend24h",
+      "importance": 0.06937
     },
     {
       "feature": "maxSingleOutage",
-      "importance": 0.05506
-    },
-    {
-      "feature": "roadClosures",
-      "importance": 0.03458
+      "importance": 0.06739
     },
     {
       "feature": "trend12h",
-      "importance": 0.01703
-    },
-    {
-      "feature": "roadClosureRisk",
-      "importance": 0.0145
-    },
-    {
-      "feature": "trendVelocity",
-      "importance": 0.01427
+      "importance": 0.03803
     },
     {
       "feature": "trend6h",
-      "importance": 0.01149
+      "importance": 0.03286
+    },
+    {
+      "feature": "trendVelocity",
+      "importance": 0.03216
+    },
+    {
+      "feature": "roadClosures",
+      "importance": 0.02721
+    },
+    {
+      "feature": "roadClosureRisk",
+      "importance": 0.02266
     },
     {
       "feature": "weatherRisk",
-      "importance": 0.00639
+      "importance": 0.013
     },
     {
       "feature": "weatherAlerts",
-      "importance": 0.00235
+      "importance": 0.00721
     },
     {
       "feature": "percentCustomersOut",
