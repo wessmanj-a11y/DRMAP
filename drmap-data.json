@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-04-29T00:00:00Z",
+  "mode": "shared-demo-export",
+  "summary": {
+    "customersOut": 106050,
+    "countiesImpacted": 6,
+    "severeCounties": 2,
+    "topPredictedRisk": 83,
+    "weatherAlerts": 6,
+    "trend24h": "+18.4%",
+    "hospitalOccupancy": "Moderate",
+    "gridStress": "Elevated"
+  },
+  "counties": [
+    {"name":"Harris","region":"Gulf Coast","risk":83,"predictedRisk":83,"currentSeverity":80,"customersOut":35100,"incidents":51,"weather":"Flood Watch","weatherAlerts":1,"trend24h":"Worsening","roadClosures":6,"hospital":"Capacity watch","grid":"Watch","lat":29.7604,"lng":-95.3698},
+    {"name":"Dallas","region":"North Texas","risk":78,"predictedRisk":78,"currentSeverity":76,"customersOut":25200,"incidents":42,"weather":"Severe Thunderstorm Watch","weatherAlerts":1,"trend24h":"Worsening","roadClosures":4,"hospital":"Moderate capacity pressure","grid":"Elevated","lat":32.7767,"lng":-96.7970},
+    {"name":"Tarrant","region":"North Texas","risk":74,"predictedRisk":74,"currentSeverity":73,"customersOut":19450,"incidents":37,"weather":"High Wind Advisory","weatherAlerts":1,"trend24h":"Worsening","roadClosures":5,"hospital":"Normal","grid":"Elevated","lat":32.7555,"lng":-97.3308},
+    {"name":"Collin","region":"North Texas","risk":69,"predictedRisk":69,"currentSeverity":67,"customersOut":14300,"incidents":26,"weather":"Severe Thunderstorm Watch","weatherAlerts":1,"trend24h":"Elevated","roadClosures":2,"hospital":"Normal","grid":"Elevated","lat":33.1795,"lng":-96.4930},
+    {"name":"Rockwall","region":"North Texas","risk":61,"predictedRisk":61,"currentSeverity":60,"customersOut":4200,"incidents":11,"weather":"Severe Thunderstorm Watch","weatherAlerts":1,"trend24h":"Stable","roadClosures":0,"hospital":"Normal","grid":"Elevated","lat":32.9312,"lng":-96.4597},
+    {"name":"Travis","region":"Central Texas","risk":58,"predictedRisk":58,"currentSeverity":54,"customersOut":7800,"incidents":19,"weather":"Heat Advisory","weatherAlerts":1,"trend24h":"Stable","roadClosures":1,"hospital":"Normal","grid":"Normal","lat":30.2672,"lng":-97.7431}
+  ],
+  "sources": [
+    {"name":"TDIS / Texas outage intelligence","status":"staged-export"},
+    {"name":"National Weather Service alerts","status":"staged-export"},
+    {"name":"OpenWeather radar tiles","status":"staged-export"},
+    {"name":"DriveTexas road closures","status":"staged-export"},
+    {"name":"CDC/HHS hospital capacity","status":"staged-export"},
+    {"name":"ERCOT grid status","status":"staged-export"}
+  ],
+  "recommendations": [
+    "Prioritize Harris County due to the highest combined outage, weather, and road-access pressure.",
+    "Stage monitoring across the Dallas/Tarrant corridor where outage and weather pressure are moving together.",
+    "Treat Collin and Rockwall as watch counties for North Texas eastward spread.",
+    "Next technical step: automate this JSON export from the DRMAP data engine."
+  ]
+}
