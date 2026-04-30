@@ -20,6 +20,10 @@ FEATURES = [
     "maxSingleOutage",
     "weatherAlerts",
     "weatherRisk",
+    "forecastWindMax6h",
+    "forecastWindMax12h",
+    "forecastPrecipChanceMax12h",
+    "forecastStormRisk",
     "roadClosures",
     "roadClosureRisk",
     "trend6h",
@@ -95,9 +99,9 @@ def main():
     )
 
     model = RandomForestClassifier(
-        n_estimators=200,
-        max_depth=8,
-        min_samples_leaf=5,
+        n_estimators=300,
+        max_depth=10,
+        min_samples_leaf=4,
         random_state=42,
         class_weight="balanced"
     )
