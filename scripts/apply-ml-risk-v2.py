@@ -44,6 +44,9 @@ def num(v):
     except Exception:
         return 0.0
 
+def write_payload(payload):
+    OUTAGES_FILE.write_text(json.dumps(payload, indent=2))
+
 def main():
     if not OUTAGES_FILE.exists():
         return
@@ -52,13 +55,13 @@ def main():
 
     if not MODEL_FILE.exists() or not METADATA_FILE.exists():
         payload["mlRisk"] = {"ok": False, "reason": "ML model not trained yet", "updated": datetime.now(timezone.utc).isoformat()}
-        OUTAGES_FILE.write_text(json.dumps(payload, indent=2))
+        write_payload(payload)
         return
 
     metadata = json.loads(METADATA_FILE.read_text())
     if not metadata.get("ok"):
         payload["mlRisk"] = {"ok": False, "reason": metadata.get("reason", "ML model metadata says not ready"), "updated": datetime.now(timezone.utc).isoformat()}
-        OUTAGES_FILE.write_text(json.dumps(payload, indent=2))
+        write_payload(payload)
         return
 
     model = joblib.load(MODEL_FILE)
@@ -72,7 +75,21 @@ def main():
             df[col] = 0
 
     X = df[FEATURES].fillna(0)
-    probs = model.predict_proba(X)[:, 1]
+
+    try:
+        probs = model.predict_proba(X)[:, 1]
+    except ValueError as err:
+        payload["mlRisk"] = {
+            "ok": False,
+            "reason": "ML model feature mismatch; run Build ML Training Data, then Train ML Risk Model, then rerun Fetch outage data v2",
+            "detail": str(err),
+            "updated": datetime.now(timezone.utc).isoformat(),
+            "featuresExpectedByApplyScript": FEATURES,
+            "featuresInCurrentModel": metadata.get("features", [])
+        }
+        write_payload(payload)
+        print("ML feature mismatch; skipping ML scoring until model is retrained")
+        return
 
     for row, prob in zip(rows, probs):
         p = round(float(prob), 4)
@@ -91,7 +108,7 @@ def main():
         "note": "ML blend updated with forecast weather"
     }
 
-    OUTAGES_FILE.write_text(json.dumps(payload, indent=2))
+    write_payload(payload)
 
 if __name__ == "__main__":
     main()
