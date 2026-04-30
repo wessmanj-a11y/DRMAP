@@ -52,14 +52,16 @@ async function main() {
         county: county.county,
 
         customersOut: currentOut,
+        percentCustomersOut: num(county.percentCustomersOut),
         incidents: num(county.incidents),
         maxSingleOutage: num(county.maxSingleOutage),
-        currentSeverity: num(county.currentSeverity),
-        predictedRisk: num(county.predictedRisk),
-        restorationDifficulty: num(county.restorationDifficulty),
 
         weatherAlerts: num(county.weatherAlerts),
         weatherRisk: num(county.weatherRisk),
+        forecastWindMax6h: num(county.forecastWindMax6h),
+        forecastWindMax12h: num(county.forecastWindMax12h),
+        forecastPrecipChanceMax12h: num(county.forecastPrecipChanceMax12h),
+        forecastStormRisk: num(county.forecastStormRisk),
 
         roadClosures: num(county.roadClosures),
         roadClosureRisk: num(county.roadClosureRisk),
